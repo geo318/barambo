@@ -1,4 +1,3 @@
-import { Arrow } from '/components'
 import { twMerge } from 'tailwind-merge'
 import { ButtonProps } from './types'
 
@@ -6,7 +5,6 @@ export function Button({
   children,
   className,
   variant = 'secondary',
-  arrowClassName = '',
   ...props
 }: ButtonProps) {
   const variants = {
@@ -23,14 +21,6 @@ export function Button({
       {...props}
     >
       {children}
-      {variant === 'secondary' && (
-        <Arrow
-          className={twMerge(
-            'h-3 group-hover:translate-x-1 transition-transform transition-delay-150 ease-in-out',
-            arrowClassName
-          )}
-        />
-      )}
     </button>
   )
 }
