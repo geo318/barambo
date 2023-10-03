@@ -1,0 +1,677 @@
+{
+  "terms_and_conditions": {
+    "h1": "WALLYPAY e-wallet terms and conditions",
+    "sections": [
+      {
+        "h2": "Preface",
+        "p": [
+          "Wallypay is an E-wallet and payment instrument that is operated by WallyPay  LLC. WallyPay  LLC is the payment service provider, registered by the National Bank of Georgia, under the registration number  0083-2904. The company proceeds its activity pursuant to the Georgian law upon “payment system and payment service” and other statutory acts, issued by the National Bank of Georgia.",
+          "Wallypay account enables the customer to run his own funds, perform payments and transfers via cutting-edge, safe and simple E-service.",
+          "Any customer, willing to open Wallypay account, should indispensably agree on the rules and conditions of utilizing this account.",
+          "Present document regulates the conditions of opening/applying/closing of wallypay account along with confidentiality policy. Legal relation between the company and the customer (client) is also governed based on other documents of WallyPay.",
+          "When applying optional services, the approval on respective document or statement of the client, as a customer may become necessary.",
+          "The company preserves rights to modify this document any time. Modification is available on the company`s web-site.",
+          "Any modifications and or amendments introduced to the service conditions appear on the company`s web-site. To recite with the changes or news of the company, the customer must visit the company`s web site from time to time, once in a month.",
+          "The last, updated version of this document is available on the web-site: wallypay.eu"
+        ]
+      },
+      {
+        "h2": "Terms interpretation",
+        "li": [
+          "payment system - money payment system, securities settlement system, clearing system.",
+          "Money payment system - unity of common rules and standard procedures, which ensures transfer orders processing  and the money transfer transactions;",
+          "Clearing system - unity of shared rules and standard procedures between three or more participants of the system, which enables processing the transfer orders, dispatched by the participants, calculating /specifying net positions as a result for further settlement and where calculating the net positions may lie on the principles, when the operator acts on behalf of the seller against any buyers and as a buyer against any sellers;",
+          "System operator (operator) - legal entity, which, is authorized and  responsible for payment system operation and system rule processing  whether solely or along with other legal entities, as per the applicable law of Georgia;",
+          "System rules - unity of rules and procedures, elaborated by the system operator, which specifies the system operation;",
+          "payment service provider (provider) - legal entity, which provides service to the payment service provider, pursuant to the applicable law of Georgia;",
+          "E-money provider- payment service provider, which issues E-money respective to the legislation of Georgia, currently in law;",
+          "Payment service customer ( customer)- the entity, who employs the payment service, as a payer and/or recipient.",
+          "Payer - the entity, who issues the payment order and/or approves issuance the payment order;",
+          "Recipient - the entity, the payment is made in favor of;",
+          "payment instrument - technical mean and/or unity of the procedure agreed between the payment service provider and the customer, throught which the payment service customer initiates the payment order.",
+          "E-money instrument - payment instrument, which enables application of the E-money.",
+          "E-money - money nominal value provided by the customer to the provider in pursuit of payment transaction performance, which is electronically saved ( including magnetic train) and which is recognized as a payment means by the third persons, other than the issuer himself;",
+          "Commission - commission or any other monetary liability, which, principally forms a cost for rendering service to the customer by the provider.",
+          "Payment account - one or more accounts opened  on the name of the customer, including E-money account, applied for payment transaction performance;",
+          "authentication - the procedure, which enables the payment service provider to identify the payment service customer and/or validity of the payment instrument, including checking the safety personified specifications employed by the customer;",
+          "Identification - procuring the identification data upon the person, which enables his scrutinizing and  selecting out of  other persons;",
+          "verification - procuring the information (documents), which enables the accountable person to check the accuracy of the identification data , procured, whereas to make sure that he is aware of the identity of beneficiary holder, when the matter concerns with the beneficiary owner.",
+          "The company -  the payment service provider, registered in accordance with the applicable law of Georgia;",
+          "client/customer - person, which enters into a business relation or concludes a one time deal with WallyPay LLC to employ its service;"
+        ]
+      },
+      {
+        "h2": "Wallypay account",
+        "p": [
+          "Wallypay account is a wallet, which enables the customer to dispatch, obtain and pay the money via electronic means.",
+          "WallyPay  account, as per customer`s discretion may cover the exchange accounts,     EUR/USD,  which makes your electronic payments more available.",
+          "The client is authorized to make payments only in the currency, its subaccounts are denominated in. If the subaccount balance is not suffice for performing the desirable transaction, the client is authorized to convert the funds from other accounts; in this case,  the exchange rate, set by the company will serve as the converting rate for the settlement date.  Client wallet validity term is unexpired and no interest is accrued.",
+          "wallypay account is unlimited.",
+          "Wallet balance is not subject to any interests.",
+          "Client is entitled to cash the wallet balance any time via method, favourable to him.",
+          "Minimal volume of the cashable amount is not defined, whereas the account balance of the client should be suffice for covering the commission, prescribed.",
+          "Wallypay account belongs to the identified person,  the account is registered on.   The account is not a subject to transfer to the third persons (entities). No one has a right to employ the funds, accrued on wallypay account excluding the account holder and the persons (entities) authorized for a specific cases, stipulated in law ( inheritance and etc).",
+          "Wallypay account filling,  number of transactions and volume of the amount to be cashed may become a subject to limitation, the company will inform you about.",
+          "It should be noted, that Wallypay  account is not a bank account."
+        ]
+      },
+      {
+        "h2": "Open and service of account",
+        "p": [
+          "Wallypay account may be opened electronically via wallypay.eu mobile applications or after a visit to a partner company`s branch.",
+          "To open the Wallypay account, the client should hold the telephone, included in the mobile operator network.",
+          "Person more than aged 18 is eligible to open the account.",
+          "When opening the Wallypay account, all identification data, required for registration should be referred and  identification documents should be uploaded as well.",
+          "Prior finalizing the registration, the client shall agree on the service conditions.",
+          "The client shall refer the purpose of utilizing the wallypay account prior to  finishing the registration.",
+          "In the course of account opening, (except for the account opened by the operator in the branch), the customer (client) is identified and verification is required.",
+          "Identified, unverified customer (client) is entitled to pay the utilities only, the client should be verified in order to have proper access to any products.",
+          "Client is verified by valid, active ID card or passport.",
+          "The customer may hold only one wallypay account.",
+          "When opening the account, and approving the wallypay account service conditions, the client agrees on the transferring  and/or requesting his personal data from natural or legal entities by the Wallypay, when required by the applicable law.",
+          "By opening Wallypay account, the client states and warranties, that he doesn`t infringe any law and/or regulation. The client is committed to observe the interest of the company and indemnify any loss inflicted or to be inflicted to the company due to violation of the requirements, prescribed by this paragraph.",
+          "The client is committed to provide the company with accurate and genuine information, when  wallypay account is opened or supplementary information is required.",
+          "The company is authorized to request the client verify the accurateness of the information, referred,  by submitting supplementary information or document.",
+          "The company is hereby authorized to request supplementary information about the client any time and limit access to the transaction in the event of client`s failure to submit the information required. The company is authorized to contact the client for providing information via multiple communication channels and/or commercial purposes.",
+          "The client is hereby committed to check the accuracy of the communication means referred and monitor any notice, provided by the company.",
+          "The company takes no responsibility for the loss inflicted to the client as a result of default.",
+          "Over the course of registration, the customer is hereby obliged to specify the purposes, the account is applied for - whether individual or entrepreneurial purposes. He should note, that if the account is opened for individual purposes,  he will no longer be entitled to employ the account for entrepreneurship and vice versa."
+        ]
+      },
+      {
+        "h2": "Wallet management and transactions",
+        "p": [
+          "Any payment order should cover  all  the requisites, required for transaction performance.",
+          "The company has  pre-prescribed  the commission  and limit of any service/transaction, that is available on the company`s web site.",
+          "The company is hereby authorized to alter the commission and the limits of any commission, the clients are informed of via contact information, provided by them. Any modifications to the commissions or fees are uploaded on the company`s web-site and take effect within 14 calendar days after uploading.",
+          "The company is authorized to limit the number of transactions and the volume of amounts within  specific span of time.",
+          "The company is authorized  to request the client any supplementary identification , income information  or transaction purpose any time ; the information may be requested  via telephone call and inquirry as well.",
+          "The client is hereby committed to regularly check  the account balance and the transaction history and promptly notify the company in the event of inaccuracy and inconformity.",
+          "It is possible to apply for a loan remotely using the application.",
+          "To use the online lending service, users need to request the desired amount through digital channels, in particular through the application.",
+          "This simplified procedure can be used by those customers who have not fully used the loan limit and want to receive additional money."
+        ]
+      },
+      {
+        "h2": "Wallypay account safety and observance",
+        "p": [
+          "The client is hereby authorized to keep save and not to release the password for accessing the mobile application.",
+          "In order to receive service, the  company is entitled  to request identification data, whereas,  the company staff will never request to release the password to him or any of the third parties.",
+          "The client is hereby authorized to check genuineness of the notice, received in wallypay`s name and check the web-site address until logging the customer`s name and password  or authencity  of the mobile application. In case of any doubt, the client is obliged to contact the company.",
+          "The client is hereby authorized to set the password of proper complexity  and change  it from time to time for account`s safety and avoid saving the password in the browser.",
+          "The client is obliged not to save the password in the places, available to the others and to enter the authorization data in order to enable releasing the data to the third person.",
+          "If the data, requires for authorization to the system appeared in the third person`s hand,  or there is a reasonable doubt, that the third party may illegally applies the accounts, the client is empowered to notify the company immediately.",
+          "The company takes no responsibility for the loss, inflicted in the aftermath of the  requirements, stipulated in the instruction.",
+          "The company is hereby authorized to limit the access to the account any time, if there is a reasonable doubt that the account is run by the third person.",
+          "In order to avoid the unauthorized transactions, the company applies supplementary authentication, which implies receving one time security code to your mobile number, referred by you, with the preliminarily prescribed session time.   Finalizing the transaction on the account is impossible after entering the system generated one time security code."
+        ]
+      },
+      {
+        "h2": "Closing the account",
+        "p": [
+          "You are authorized to close Wallypay account any time, after connecting with the company.",
+          "You are committed to withdraw the balance in full, prior to closing the account.",
+          "The company is authorized to close your account in the event of your failure to meet the contractual stipulations.",
+          "If the client failed to withdraw the amount within the term prescribed, the company is entitled but not committed to transfer the amount to the bank or other accounts of a client, referred in advance and take the service commission in return.",
+          "In any case, after closing the account, the personal information and transactions are saved in the company  within the term, stipulated in law."
+        ]
+      },
+      {
+        "h2": "Prohibited transactions",
+        "li": [
+          "The transactions, related to the follow up products are banned to be performed:",
+          "Drug or drug related substances",
+          "Guns or ammunitions;",
+          "Cable or satellite TV signal suppression devices;",
+          "Pornographic material;",
+          "Unlicensed lottery and gambling related service and other services prohibited by law.",
+          "The company is hereby authorized to add the prohibited transactions to the array provided hereinabove.",
+          "In the event of detecting transactions, related to said products or a reasonable doubt, the company is authorized to suspend your access to the wallet immediately.",
+          "The client is not entitled to receive the company`s service, if he/she is a resident of the country, rendering service is prohibited by the applicable law of Georgia (ex: Iran, North Korea etc).   Provision of the service will be suspended if their place of residence appears in the array of the countries the service is prohibited to render for.",
+          "The company is authorized to add the geographical area to the list, prescribed in applicable law of Georgia.",
+          "The wallet is banned to be applied for fraudulent purposes.",
+          "In the event of technical error, occurred within the company, unauthorized amounts are banned to be transferred / acquired. The company is empowered to limit your transactions immediately,in the event of unauthorized balance."
+        ]
+      }
+    ]
+  },
+  "security": {
+    "h1": "WALLYPAY system security rules",
+    "sections": [
+      {
+        "h2": "General provisions",
+        "p": [
+          "Wallypay and its staff take no responsibility over the outcome, covering, whether directly or indirectly, particular, accidental, cause and effect, noncontractual loss, triggered in the aftermath of incorrect/unreasonable utilization of the information, uploaded on the website.",
+          "Wallypay takes no responsibility for any website-induced loss, damage, even technical obstruction, defect, suspension/cancel, computer service, or system bad maintenance.",
+          "The information referred on the website is designed for personal use of the consumer only. Unauthorized use for the website and system (referring non-existent code and name) is strictly prohibited.",
+          "Where registration and password is required, you are obliged to keep it confidential and not allow the third parties to access to the website or application instead of you.",
+          "Do not allow the other person to log in your account and/or to keep an eye on you, while registering and using the password of the system (when logging in your account).",
+          "If you have any doubt or hint of stealing your data for logging in Wallypay (password and/or other security signs) along with unapproved utilization or otherwise exposed, you are obliged to promptly change your password and contact Wallypay immediately.",
+          "If you doubt that any of the people, other than you have access to your Wallypay accounts without your authorization, you should promptly notify the Wallypay and limit access to the account.",
+          "It is utterly important for us to be immediately notified upon the fact, provided above; otherwise, Wallypay takes no responsibility for the outcome.",
+          "Don`t opt a password of a specific meaning; or do not select the password, which is easily detectible for any other persons, based on the information procured upon you.",
+          "Proceeding from your safety, keep your Wallypay account password safe and never release it to anyone. Never write or otherwise keep the password available to any other persons.",
+          "We recommend you to change a password once in three months.",
+          "Wallypay may deactivate registration and the password and accordingly, limit access to the system if you breach the rules and conditions.",
+          "Trouble of any program modules (telephone, computer, etc.) for accessing the system is a sole risk of yours.",
+          "If you utilize public and/or common technical device (computer, telephone) to log in Wallypay system, make sure that data applied for accessing the Wallypay system wouldn`t be saved/cached by the browser and/or otherwise memorized in the system.",
+          "If only you apply the technical device for accessing the Wallypay system, make sure that access to Wallypay account is authorized and available only for you.",
+          "If you receive a message or discover the website or application, you cast a doubt to authenticity, promptly contact the Wally. Utilizing the dubious web-site/application or responding to the doubtful notice is not allowed. Wallypay takes no responsibility over the loss inflicted by nonfulfillment of the condition provided above.",
+          "Besides, you should take any reasonable measures to ensure protection of your E-mail account and availability, since the E-mail addresses are sometimes used for changing the password or infringing the safety of your account.",
+          "In any cases when your E-mail, registered on Wallypay, was exposed to a risk, you should promptly notify the Wallypay and your E-mail service provider as well.",
+          "Wallypay takes no responsibility over the outcome arisen in the aftermath of failure to access the website due to malfunction or any reasons beyond Wallypay."
+        ]
+      },
+      {
+        "h2": "Security code",
+        "p": [
+          "Security code forms a supplementary protection mechanism, being dispatched to you as a notice, to your telephone number verified in your account of Wallypay system. Said protection mechanism is designed for the transactions, like logging in the system and payment transactions.",
+          "Safety code is activated via the verified telephone number you referred to when registering in Wallypay system.",
+          "When entering the security code, you make sure that the code is actually typed in Wallypay online or Wallypay application.",
+          "Telephone code - is generated in the system when logging in the E-wallet account, required for obtaining the financial transaction. You should dictate the operator the code to receive a response."
+        ]
+      },
+      {
+        "h2": "WallyPay account utilization",
+        "p": [
+          "If the representative of the Wallypay consumer contacts the operator in Wallypay system (and not the consumer himself), the operator requests approval of the actual account holder to release information and/or communicates with the representative.",
+          "Wallypay takes no responsibility over the balance filling procedures until the amounts are actually appeared on your Wallypay account.",
+          "When applying the Wallypay account or performing any of the transactions, you may be asked the safety-related issues or requested taking actions, we will find appropriate within our reasonableness.",
+          "When utilizing the Wallypay account, any transaction (including filling the balance, amount transfer/withdrawal) may be subject to monetary limit in terms of security and legal requirements.",
+          "You agree on not to apply chargeback right if you fill the Wallypay balance via credit card and/or debit card and/or automated payments, which enables chargeback the wired amount, except for the cases when the payment instrument was applied by an unauthorized person or Wallypay infringed the service conditions. We preserve the right to impose any amount related to chargeback along with the commission accrued on us related to chargeback.",
+          "If exercising the right related to chargeback will cause negative balance on your account, you are obliged to cover the respective negative balance; otherwise, failure to fulfill the given condition will be considered as the breach of terms by your side.",
+          "When transferring the amount, you shall enter the recipient data carefully and accurately since you wouldn`t be able to cancel the transaction already appeared on recipient`s account.",
+          "When transferring amounts to the bank account, you make sure that amount, account number, IBAN, surname, name, and ID card number are correctly referred.",
+          "Receiving amount to your account doesn`t imply the impossibility to cancel the transaction. Wallypay preserves the right to cancel the transaction if the payer, payer`s bank, or payment service provider made chargeback or canceled the transaction.",
+          "You are strictly prohibited to apply the Wallypay account for any illegal purposes.",
+          "Wallypay shall notify respective law enforcement authorities upon any doubtful actions.",
+          "You are not allowed to issue/transfer and/or appropriate unapproved amounts when a problem occurs in the aftermath of a technical error of Wallypay system.",
+          "Effort to withdraw the amount from the account other than yours shall be considered as a fraudulent action.",
+          "Wallypay takes no responsibility over the transaction performed as a result of referring inaccurate details.",
+          "You are obliged to regularly check the history of your Wallypay account and promptly contact the Wallypay in case of any questions and/or problems."
+        ]
+      }
+    ]
+  },
+  "conditions": {
+    "h1": "Rules and Conditions of the Card",
+    "sections": [
+      {
+        "h2": "1 .General provisions",
+        "p": [
+          "1) The card forms the propert of Wallypay, unpersonified credit (debit) card, which is issued promptly, as soon as the request is filed to the partner company/agent branch. The card enables to pay any transactions unlimitedly in Georgia and abroad as well. The card is effective within the term, referred on the surface. Expired card fails to peform any card related transactions.",
+          "2) The rule and conditions of the card is governed by the applicable law of Georgia, MasterCard statute, the agreements concluded with the company and present rules as well; any rules, provided hereinabove constitutes the integral part to the principal agreement.",
+          "3) In the course of force-majoure circumstances ( ex: strike, power blackout), Wallypay takes no responsibility to provide the client with card related service",
+          "4) Wallypay preserves unconditional right:",
+          "- To waiver performing the card transaction, which comes in contradiction with the requirements of the legal norms of the international payment system, present rules and the applicable law of Georgia.",
+          "- To waiver issuing and renewing the card without any reason.",
+          "1. Wallypay is hereby entitled to request depositing the minimal undiminished balance on the card account within validity of payment instrument and the amount is specified under appropriate decision of Wallypay. In the event of applying said authority, meticulous information is provided to the client, when making application upon receiving the payment instrument or via application over the course of said alterations.",
+          "2. Client is authorized to keep the card and take appropriate measures in the event of its lost, namely, to block the card immediately. The responsibility arisen as a result of losing or stealing the card is imposed to the client.",
+          "3. Wallypay is authorized to suspend serving the card account."
+        ]
+      },
+      {
+        "h2": "2. Terms interpretation",
+        "p": [
+          "a) Card instrument - payment instrument, including payment card, mobile phone, computer or other technological device, where respective payment application is recorded/integrated and which enables the payer to initiate the card transaction.",
+          "b) Payment card (hereinafter-card) - Emitent issued E-payment instrument, which enables the customer to initiate the card transaction.",
+          "c) Payment application - the software ot its equivalent , installed in the device, which ensures initiation of the card transaction or issuing the payment order by the payer.",
+          "d) Unpersonified card - the card, which is not personified.",
+          "e) Debit card - card instrument, which enables the holder to dispose the funds available on his bank account based on the agreement, concluded with the emitent commercial bank.",
+          "f) Credit card - card instrument, which enables the card holder the perform transactions within the emitent awarded credit limit except for the overdraft, pursuant to the stipulations of the contract, concluded with the emitent.",
+          "g) Card holder - identified person, applying the card instrument;",
+          "h) Card buyer - natural entity, who purchases the prepayment, unpersonified card for personal use or for transferring to another natural entity;",
+          "i) Card transfer - the procedure, which envisages transferring the card to its holder under the virtue of the agreement , the bank and client have entered into.",
+          "j) Card blocking - prohibiting the card application via card utilization.",
+          "k) Excrept - Wallypay performed card account statement which illustrates the transactions, performed to the card account, within particular span of time at the request of the client.",
+          "l) Emitent - the provider, which performs issuing the payment instrument, which enables initiating the bank transaction.",
+          "m) Card account - current or call deposit accounts, opened at the bank, on the name of the customer, which illustrates the transactions, performed via credit and debit cards, if the loan account is applied for filling the current or call deposit balances. Along with the E-wallet existing with the provider (E-wallet accounts). Which demonstrates the transactions, performed by the prepaid card;",
+          "n) Money spending limits - limit amounts, disposable via card within the term, prescribed by the emitent;",
+          "o) Card payment transaction (hereinafter - card transaction) - as per the card diagram, via card infrastructure, card instrument, including debit and credit transactions, performed via card, which enables appearing the amount on card/loan accounts/ alteration to the card balance;",
+          "p) Illegal transactions - the transaction, performed by the unauthorized entity or the one, perfomed by the lost card along with any illegal transaction, stipulated in the applicable law of Georgia.",
+          "q) Pin - personal, confidential code of the card holder, applied as one of the elements for authenticating the card holder.",
+          "r) ATM - electronic, self-service software-technical device, which enables the card holder to deposit/withraw the cash.",
+          "s) POS-terminal - Electronic software and/or technical device, applied for.",
+          "Withdrawing the amount from the provider`s office;",
+          "Card payment in the malls/service facilities, which may cover cashing the amount along with the good/ service cost payment ( except for E-commerce);",
+          "E-commerce sites - merchants, which esures selling its own good/service via E-commerce terminal.",
+          "E-commerce terminal - virtual POS terminal ( software) registered in the Equirer system, which promotes the card transaction in favor of E-commerce in internet space along with the transaction cancellation and chargeback transactions.",
+          "Contactless card instrument - card instrument, which transfers information via contactless transmission technology.",
+          "Card receipt - the document issued by the ATM or POS-terminal, which verifies the good/service value payment, cashing or other card transaction performance via card instrument; in the event of failure to successfully perform the transactions, mentioned above, describes appropriate information;",
+          "Stop-list - arrey of cards, which are not allowed to make transactions and particular mode of service is applied.",
+          "Equiring - provider`s activity, which ensures card transaction performance via POS-terminal ( including E-commerce terminal) with the merchants or third persons ( organizer of the trade platform, sub-equirer), based on the agreement, concluded  and respective card transaction performance with merchants /sub-equirer or trade platforms;",
+          "Equirer - equiring performer provider;",
+          "Overpayment - the overdraft with automatically allowed volume based on the indirect approval of the customer, which outnumbers the card account balance of the client and/or unequivocally agreed overdraft or the limit of overdraft in the event of credit card."
+        ]
+      },
+      {
+        "h2": "3. Rule of card issue and saving",
+        "p": [
+          "1. The card is issued to the card holder or the person, authorized pursuant to the power of attorney issued by the card holder.  When recovering the card, signature of a card holder and/or authorized person is appeared on the other side of the card on the field, particularily designed to the signature.",
+          "2. Card holder is committed to safely save and not to transfer to the third parties the opportunity to apply the card. The card, submitted by the unauthorized person is subject to deprivation.",
+          "3. The factors like : Electromagnetic fields (deployment close to the display, magnetized or the stuff, closely deployed with the magnet, like, keys, magnetic locks of the bags), manual scratches (ripping, soiling, overheating on the sun, for instance etc.) are not allowed to affect the magnetic filed in the back side of the card, which may damage  the  entry of the magnetic field and make it impossible to perform card transactions in automated mode of authorization.",
+          "4. Integrated micro diagram (chip) of coded information is located on the front side of the microprocessor card ( chip/contactless) which is not a subject to electromagnetic fields and atmospheric impact, however maybe easily damaged as a result of manual impact.",
+          "5. If the card holder fails to take the card within 60 days after making, Wallypay is entitled to destroy the card without refunding the commissions, paid by the client."
+        ]
+      },
+      {
+        "h2": "4. Pin-code application rules",
+        "p": [
+          "1. Wallypay will provide the customer with the card PIN- code in a sealed envelope or via SMS sent to the cell number of the client, recorded in the Wallypay system.",
+          "2. The envelope is recommended to be opened promptly after its receving, memorizing the PIN code and destructing the PIN-code sheet.  If the PIN code is sent via SMS recorded in the system, it is recommended to be opened as soon as received, memorizing the PIN-code and deleting the message accordingly.",
+          "3. PIN-code is recommended to be altered in the ATM of a partner bank .",
+          "4. PIN-code is familiar to the card holder only; accordingly, the latter one should save and apply in a confidential manner.",
+          "5. In pursuit of PIN-code confidentiality, the particular rules are to be met, namely don`t keep the card along with the PIN-code and do not refer the PIN-code on the card.  Do not hand in the card to the third person, otherwise, Wallypay takes no responsibility for the transactions, performed and the amount, spent from the card account shall be refunded by the card holder himself.",
+          "6. Card transactions, performed in automated mode and verified by typing PIN-code, Wallypay considered performed by the card holder.",
+          "7. If the card holder forgot the card PIN-code, the card shall be changed unless other method is offered by the Wallypay."
+        ]
+      },
+      {
+        "h2": "5. Card application",
+        "p": [
+          "1.The card transactions, the client is able to perform via payment instrument:",
+          "● Payment transaction - when paying the good and/or service cost to natural person or internet merchant;",
+          "● Taking a cash from ATM and/or the branch of the bank facility;",
+          "● To gain remote access to Wallypay account.",
+          "2. The card may be applied via PIN-code to withraw cash from ATM within cashing limits whether in Georgia or abroad as well and to perform active transactions and/or service offered by the ATMs.",
+          "Remark: when typing incorrect PIN-code three times consecutively, the ATM may hold the card.",
+          "Wallypay sets spending limits, which is subject to alteration from time to time.",
+          "Wallypay may deduct the respective amounts, deposited on the client`s accounts via card to cover any financial costs (various service costs) performed and payable by the client.",
+          "Wallypay is entitled not to issue authorization /perform order if:",
+          "● The card has been lost or stolen;",
+          "● Wallypay holds a ground to think, that the card has been stolen or lost;",
+          "● The client violates the conditions ( card application rules)",
+          "● There is no enough funds on the account (including ones undeducted), authorized by the bank;",
+          "Having performed the transaction via card, the client is no longer entitled to request Wallypay to halt this transaction. Wallypay will cancel the transaction, authorized but not paid yet, provided the Wallypay holds proper evidence for cancelling the transactions.",
+          "Wallypay card is a unpersonified card, attached to the client`s account, which should be applied by the person, whose account it is attached to. The client takes responsibility for the transactions, performed by the third person of the payment instrument, whether happened willingly or negligently.",
+          "The client is committed to control transaction on his account from time to time, to make sure in their authencity.  To check the account statement, trade and ATM receipts are recommended to be kept and compared to the statement records. In the event of any discepency detected, the client shall apply the Wallypay and request the specifics of unidentified transaction and block the card, when needed.",
+          "The client is hereby entitled to appeal the transaction, performed on his account, within 30 days after its performance and request specifics unless the unauthorized application is triggered as a result of client`s negligence or failure to meet the rules.",
+          "When performing the transaction via payment instrument by the client, Wallypay ensures blocking the amount on the account(s). In the event of covert requirement when blocking, commercial rate, set by the Wallypay is applied, whereas  the exchange rates, set by the international payment system against the currencies are applied to the transactions, performed outside the network.",
+          "Transaction amount exceeds the balance denominated in the transaction currency, the amount is completely deducted over the course of transaction and negative balance will appeared on the transaction currency account, which will be covered by the currency accounts of priority and the further, - from the currency account of the following priority. If total amount of the funds, deposited in various currencies are not suffice for covering, the amount is collected from the various currency accounts in a sequence referred hereinabove."
+        ]
+      },
+      {
+        "h2": "6. Blocking the card",
+        "p": [
+          "1. In the event of any risk of unauthorized transaction performance, Wallypay preserves right to block the payment instrument, without the authorization of the card holder.",
+          "2. If the card is lost or stealed or the client has a doubt that someone has his PIN code or other access code, he should call the the Wallpay to the telephone number as follows: +995 32 2650555 or appear personally.",
+          "3. If the card is illegally applied, prior to client`s notice upon losing or stealing the card or about tha fact, that someone knows his PIN or other access codes, the client is able to completely reimburse the amount payable as a result of this illegal use.",
+          "4. If the card has been applied by the third person under the approval of the client, the latter one is authorized to pay the cost for all of the transactions, performed by the person.",
+          "When notifying upon the losing, stealing or illegal utilization of the card, Wallypay blocks the card, immediately. if the client, finds the card, he is committed to appear to the Wallypay branch and provide written statement upon deblocking the card, whereas Wallypay will be authorized to deblock the card based on the client`s application,  unless the card is cancelled or expired for this time;",
+          "5. If the client has not received the said card, he is not responsible for the loss/damage, inflicted as a result of illegal utilization of the card.",
+          "6. Wallypay takes no responsibility for the cases, when the third person (mall, ATM, online trade etc) does not accept the card, if Wallypay fails to directly control receving the PIN or access code. Wallypay takes no responsibility over the action of the third person related to cancelling the card or money withdrawal.",
+          "7. The client is responsible before Wallypay for any account related liabilities arisen on the basis of utilizing payment card and/or card number and/or card validity term and/or PIN or other access code.",
+          "8. In the event of losing or stealing the card, Wallypay shall be notified immediately upon blocking the card. To put the card in the Stop -list, the client should make an application in Wallypay. The recommendation upon inserting in the Stop-list is provided by the Wallypay. Client is entitled to decide whether to involve the card in the stop-list. If the client waivers to involve the card in the stop list, he takes responsibility for any unauthorized ( offline) transactions, automatically appeared on the account.",
+          "Wallypay contact number of the center are as follows: c. Tbilisi:  +995 (32) 560555, parcel address: #47/57, M.Kostava str, Tbilisi.  In the event of losing the card, Wallypay in non-working hours, the client should contact the processing center (ufc - unitied financial corporation)  via  telephone number:",
+          "9. Wallypay ensures suspending the validity of the card at client`s request, applying the method as follows:",
+          "● Putting in the local, stop-list -  authorized/online transaction limitation via payment instrument. Card blocking takes effect in 1( one) hour, after registration of the request by Wallypay;",
+          "● International Stop-list - unauthorized restriction for 14 ( fourteen) work days at most.",
+          "10. Card holder is responsible for the card transactions, performed prior to effecting the card blocking and relieves the responsibility after blocking the card.",
+          "11. Within validity date, referred on the card, the card holder shall indemnify the loss arisen in the aftermath of unauthorized transactions of the blocked card, provided the blocking has not been performed through including international stop-list.",
+          "12. Card holder is hereby entitled to appeal the transaction, performed by the card, involved in the international Stop-list.",
+          "13. Card holder assumes commitment to pay the commission for involvement in international Stop-list.",
+          "14. Wallypay takes no responsibility against the client due to his negligence to keep the card or not to release the pin-code prior to blocking the card along with the illegal action, deliberately taken by the card holder.",
+          "15. If the card, lost previously has been found, the card holder shall contact the Wallypay for proper response."
+        ]
+      },
+      {
+        "h2": "7.Information release",
+        "p": [
+          "Wallypay is committed to provide the third persons with the information based on the requirements of applicable law and in abidance by the international rules upon the card and it related transaction, belonging to the client."
+        ]
+      },
+      {
+        "h2": "8. Cancelling the card application right",
+        "p": [
+          "The card is valid till the end of the month, the card reads.",
+          " Wallypay may stop, withdraw or ban application of the card. The client receives the notice from Wallypay prior to taking said action or within the shortest term after taking action.",
+          " If the application of the card by the client is halted or limited due to some reason, which covers the instructions provided to the client by Wallypay not to withraw funds from the account without prior approval of Wallypay, the client will not longer be authorized to use the card.",
+          " The client may suspend utilizing the card through sending a message in writing to Wallypay and returning the card to Wallypay.",
+          " The client can no longer utilize the card, after wallypay suspends the application of the card.",
+          " Card return and account closing",
+          " The client shall cancel any permanent payment order, automated payments and other debit orders, directly linked to the retailer or service provider  ( Wallypay is not entitled to perform all mentioned above on behalf of the client).",
+          " The client is hereby authorized to pay any amount accrued on the account, along with any delayed amount.  Namely, in the event of insufficient balance, existed on the account,, the funds are deducted from the client`s card and the latter one shall promptly reimburse the Wallypay the said amount, along with the accrued forfeit/fine/penalty etc.",
+          " The client is committed to reimburse tge Wallypay any amount, related to effectiveness of the agreement, together with the cost, born by Wallypay for administering the contract."
+        ]
+      },
+      {
+        "h2": "9. Holding /depriving the card",
+        "p": [
+          "The card is deprived/held in the cases as follows:",
+          "The card is blocked by the emitent;",
+          "The card bearer is not its holder",
+          "The signs of card falsification are revealed.",
+          "Multiple incorrect typing of the password",
+          "In case of holding at the card service outlet (mall, branch, ATM)",
+          "Deprived card is returned to the card holder directly, based on the writing application, provided by the card holder, if Wallypay makes respective decision.",
+          "Card validity date, suspending/halting the card application:",
+          "Card validity date is referred on the card ( month and year)",
+          "The card is effective till the month, referred on the card"
+        ]
+      },
+      {
+        "h2": "10. Card change",
+        "p": [
+          "The card is changed and the card holder remunerates for it in accordance with the fee as follows:",
+          "Card loss/steal",
+          "PIN-code alteration",
+          "The card is damaged and its further application is impossible",
+          "Card holder changed his name/surname",
+          "The card has been manually damaged",
+          "The card is changed for free in the follow up cases:",
+          "Pin -code is illegibly printed",
+          "When performed the first transaction via card, the ATM or terminal fails to recognize the information from magnetic line/chip of the card.",
+          "If the card is changed at Wallypay`s initiative",
+          "Card is changed on the basis of application, provided by Wallypay in writing."
+        ]
+      },
+      {
+        "h2": "11. Dispute settlement",
+        "p": [
+          "The card holder is recommended to keep the slips and cheques for recording the amount spending from the card account and for addressing the likely dispute.",
+          "Wallypay provides the card holder, the statement and the copies of another documents including the ones, verifying the accuracy of money withdrawal from the card account, pursuant to the rules and terms, prescribed by the applicable law of Georgia, internal rules of the bank and the payment system including fees ( find the Georgian law upon “payment system and payment service”).",
+          "If the holder applies Wallypay in writing, who appeared before the card payment system as a card holder. Card payment system prescribes the period of limitation of disputable card transaction at amount of 45 ( forty five) calendar days from transaction performance.   In the event of reasonable ground and refunding the amount by the payment system, Wallypay refunds the amount, deducted from the card transaction back to the card account.   In the event of unreasonable and ungrounded claims, penalty sanctions are imposed by the card payment system, which may outnumber the disputable transaction amount.   Wallypay is entitled, to deduct the forfeits and unreasonable claim amount in an unallowed way, without   approval of the card holder.",
+          "Wallypay takes no responsibility for lawfulness of the performed transaction by the card holder. Responsibility of illegal transaction, performed via the card is imposed to the card holder only."
+        ]
+      }
+    ]
+  },
+  "confidentiality": {
+    "h1": "Confidentiality and Security",
+    "sections": [
+      {
+        "h2": null,
+        "p": [
+          "“WallyPay“ welcomes your visit to this website and appreciates the interests you express towards our services.",
+          "Protecting your confidential information is crucial to us. Hence, while visiting our website, we would like you to feel safe and comfortable.",
+          "We protect your personal data, which have been collected, precessed and utilized while visiting our website and later on as well.",
+          "By accessing our website, you agree on this confidentiality policy. Otherwise, you should suspend using the next pages.",
+          "Personal data processing conditions are prescribed by this confidentiality policy. Given document interprets the type of information you may provide or have been provided; in the meantime, it referred the type and goals, your personal data is utilized. Please note that the confidentiality policy may become a subject to update from time to time, hence, we call on to check the website more often."
+        ]
+      },
+      {
+        "h2": "policy goals",
+        "p": [
+          "By this document “Confidentiality Policy” (hereinafter “policy”), WallyPay LLC meets the requirements of the Georgian law upon “Personal data protection”, international standards on data privacy and fully conforms them. Ensuring data privacy promotes fair and credible relationships, which is the major concern for our company. Given serves as the backbone for partnership and cooperation."
+        ]
+      },
+      {
+        "h2": "policy operation realm and modifications",
+        "p": [
+          "Present policy applies to WallyPay LLC, related natural and legal entities and is utilized for personal data processing.",
+          "This policy might be updated from time to time. Hence, you are advised to recite with it regularly. The last version of this policy is available at the company website:---------------"
+        ]
+      },
+      {
+        "h2": "III. Administration of legislation",
+        "p": [
+          "Said policy covers the requirements of the applicable law of Georgia along with the principles of international law upon the personal data privacy. In the event of any discrepancy, arisen between this policy and the legislation of Georgia currently in force, applicable law prevails."
+        ]
+      },
+      {
+        "h2": "Personal data protection principles",
+        "p": [
+          "When processing the personal data, individual rights of the subject shall be observed. Personal data shall be collected and processed lawfully and legally.",
+          "Any further modifications are introduced to the existed and already processed data as an exception only and require presence of appropriate grounds.",
+          "Personal data are collected and processed transparently. Data subject shall be notified upon processing his data. Generally, personal data shall be collected from the data subject directly, the data concerns with. When collecting the data, data subject shall be aware of:",
+          "1. The identity of data processing authorized entity;",
+          "2. Data handling goal;",
+          "3. Third parties, who may have access to the personal data.",
+          "Protected personal data shall be accurate (as applicable), complete and updated.",
+          "Personal data are confidential; accordingly, individual data shall be protected applying respective organizational and technical measures, which eliminate unauthorized access to the data, their unlawful handling or dissemination, accidental loss, alteration or destruction."
+        ]
+      },
+      {
+        "h2": "Information collection",
+        "p": [
+          "Personal information/personal data, WallyPay may collect, process and request the third parties to deliver are as follows:",
+          "Name, Surname.",
+          "Personal number and ID (passport, identification card) number;",
+          "Factual and legal addresses:",
+          "Gender:",
+          "Date of birth;",
+          "E-mail;",
+          "Tell number;",
+          "Any other information, which may be available in face-to-face meeting, application fill out, WallyPay website, via social media, E-mail, online consultation, via telephone or any other means.",
+          "When visiting the WallyPay website or applying the mobile application, the follow-up information may be collected.",
+          "Time of website visit;",
+          "IP address;",
+          "Internet Provider (you utilize for connecting with the internet);",
+          "Place of visiting the website;",
+          "Browser type and version;",
+          "Other communication information;",
+          "Information, supplied by third persons may cover the data, stipulated and prescribed by the Georgian law upon personal data privacy along with the information, obtained based on the approval, provided by the subject in prior.",
+          "Payment information from banks or other financial institutions;",
+          "Information, provided by the business partners from the analytical providers in technical, settlement, service provisions, advertising network, when rendering service;",
+          "Solvency statement;",
+          "Any information release-related case, which is preliminarily approved by the data subject upon information transmission and release."
+        ]
+      },
+      {
+        "h2": "VI. Utilizing the collected information",
+        "p": [
+          "Information, collected by WallyPay shall be applied within the applicable law of Georgia, in pursuit of rendering best service, respective to the interests of the data subject. Purpose of utilizing information is as follows:",
+          "Identification;",
+          "Rendering favorable service;",
+          "Communication;",
+          "Our production and service improvement;",
+          "Administration and refining our website, safety observance and ensuring the subject arrangement data to be represented in a most effective form;",
+          "Fulfillment of the commitments, imposed by the applicable law of Georgia;",
+          "Contractual stipulation performance;",
+          "Our marketing and advertising activity improvement;",
+          "Dispute settlement if arisen;",
+          "Any other goals, which conform with the legal relation arisen between the client and WallyPay LLC."
+        ]
+      },
+      {
+        "h2": "VII. Transferring information collected to the third party.",
+        "p": [
+          "WallyPay may release the personal data contractual commitments performance and for another goals, prescribed by this policy. Information is to be released to:",
+          "Banks and other financial institutions in order to render proper service to you (which will check, process and request or transfer your data to the third person if needed within the applicable law of Georgia.",
+          "Analytical and search engine providers, which assist us to refine and optimize the web site;",
+          "Partly or fully selling of our business may trigger releasing your personal data to the third parties;",
+          "For any other goals, necessary for rendering service to you.",
+          "When releasing the data, we are obliged to ensure observing personal data privacy and processing measures by the data recipient, like we do.",
+          "Your personal data are handled, saved, and transferred to the third parties, in accordance with volume and rule, prescribed by the confidentiality policy, the contract concluded between you and us and your approval provided from time to time. We may release your information to protect you and your personal data. We preserve the right to deliver your personal information, when required by the applicable law; when we deem it appropriate to observe our right or due to any legal dispute or court proceedings, undergoing against our website. Besides, we preserve the right to release your information for the follow-up purposes: observance and implementation of this policy; performance and implementation of the condition designed for using our website or other contracts. Protection of the website, its users, and other rights, property and safety."
+        ]
+      },
+      {
+        "h2": "VIII. Application of links",
+        "p": [
+          "„Links” are used to collect data from your web server.",
+          "„Links“ contain information, saved to the hard disk of your computer. Links don`t contain personal information but statistical ones, describing our visit to the website, which enables us to improve the website and create personalized information.",
+          "If you don`t want to release your link data, you can delete by means of your browser. Please note that, in the event of deleting or canceling our links, you may not be allowed to see the website in full or utilize all of its functions."
+        ]
+      },
+      {
+        "h2": "Information saving",
+        "p": [
+          "Information will be saved on your saved servers, any information exchange via the server is decoded for your safety. Besides, the data is saved for a reasonable time limit, required for a specific goal, the data has been collected for. This goal may cover fulfillment of the obligations undertaken by us and observing our legal interests as well.",
+          "Please consider that online information exchange is not completely protected and there is a chance of exposing the protected information to a specific risk.",
+          "You are responsible for any information released by you. Please be careful when giving out passwords and other data.",
+          "The company takes no responsibility over the links (website addresses) of the third parties, uploaded on the website. Any link of the third party is beyond our control and we assume no responsibility for their protection."
+        ]
+      },
+      {
+        "h2": "Your rights against data",
+        "p": [
+          "You are entitled to request information on your personal data we process along with the purpose, character of processing, and identity of the addressee (unless release of said information is prohibited by law).",
+          "To check the information upon you, you can request the copy of our processed information for free. You can request updating, modification, and deletion of your personal data anytime. We preserve the right to waiver meeting these requirements if this will expose others' confidentiality to risk, negatively affect the service quality, is unreasonable or repeated and requires disproportionate effort, together with the cases, prescribed in law."
+        ]
+      },
+      {
+        "h2": "Age",
+        "p": [
+          "You shall be mature (18 years old) if you want to apply our service."
+        ]
+      },
+      {
+        "h2": "XII. Contact",
+        "p": [
+          "In case of any questions, requirements or comments related to this policy or rule of processing your data, please contact to the follow-up E-mail contact@wallypay.eu and/or telephone number +995 322 560 555."
+        ]
+      },
+      {
+        "h2": "XIII. Policy changes",
+        "p": [
+          "This policy may be changed anytime and we are committed to refer the date of last update. In the event of any substantial changes introduced to our policy, we will notify you via website, E-mail, or other communication means."
+        ]
+      }
+    ]
+  },
+  "agreement": {
+    "h1": "Payment Service Agreement",
+    "sections": [
+      {
+        "h2": null,
+        "p": [
+          "Present agreement forms a substantial and integral part to the contract, concluded between WallyPay LLC and the customer. By executing this agreement, the customer agrees on the stipulation of the contract, provided below:"
+        ]
+      },
+      {
+        "h2": "AGREEMENT",
+        "p": [
+          "Upon rendering payment service by WallyPay",
+          "Contractual parties:",
+          "WallyPay LLC (hereinafter “provider”), the company incorporated and operating under the applicable law of Georgia, identification number 405272510, on the one hand and",
+          "The natural person, who expressed his will to receive payment service of the provider and entered into the Payment Service Contract with the provider respectively (hereinafter “customer”) on the other hand;",
+          "Both of them collectively referred to as ”parties”, conclude present agreement upon rendering payment service by WallyPay LLC (hereinafter “agreement”) and agree on the contractual conditions, as follows:"
+        ]
+      },
+      {
+        "h2": "Provider details",
+        "p": [
+          "The customer hereby states, that meticulously recited and embraced the provider related information as follows, prior to executing this contract:",
+          "1. The Provider is registered by the National Bank of Georgia under the number 0083-2904 as the payment service provider. The provider performs its activity pursuant to the Georgian law upon “payment system and payment service,” statutory act, issued by the National Bank of Georgia and other statutes of applicable law;",
+          "2. National Bank of Georgia form a supervisory body of the provider, with the website: www.nbg.gov.ge . The National Bank of Georgia, the supervisor authority of the provider takes no responsibility over proper fulfillment or default of the obligations, assumed by the provider against the customer.",
+          "3. Official web-site of the provider is www.wallypay.eu (hereinafter “provider web-site”), where is located the registered address of head office of the provider, along with E-mail address, telephone number, branch addresses and other information, required for performing the contractual process between the parties."
+        ]
+      },
+      {
+        "h2": "Subject of the contract",
+        "p": [
+          "1.1. Under this agreement and the contract ( hereinafter “agreement`), concluded between the parties, the provider undertakes to open the customer the E-wallet account and provide the service, related to said account (hereinafter “service”)."
+        ]
+      },
+      {
+        "h2": "E-wallet",
+        "p": [
+          "2.1. E-wallet is the account of electronic wallet, registered on customer`s name, which enables utilization of the wallet in a form, prescribed herein.",
+          "2.2. E-wallet is not a bank account.",
+          "2.3. E-wallet belongs to the customer only. Its alienation, register or lease to the third person is not allowed.",
+          "2.4. E-wallet is registered for unlimited term.",
+          "2.5. E-wallet holds E-money account in one currency at least and GEL is involved by all means. Supplementing the accounts in various currencies are allowed.",
+          "2.6. E-money, existing in E-wallet forms nominal and equivalent values of money flaw, received by the customer, which are saved in the E-wallet and the customer saves, cashes and applies as prescribed by this contract.",
+          "2.7. E-money, saved in E-wallet doesn`t serve as the deposit of the provider and no benefit or percent is accrued respectively.",
+          "2.8. E-money is saved in E-wallet permanently, prior to cashing or disposing by the customer."
+        ]
+      },
+      {
+        "h2": "Depositing the amount on E-wallet account",
+        "p": [
+          "3.1 Customer is entitled to deposit the amount to WallyPay E-wallet via various available methods, payment terminals, bank transfer, partner company branch, plastic cards, attached to the E-wallet and other means, the provider provides the customer. The provider may cancel or add the methods of depositing to E-wallet account.",
+          "Provider may cancel or add the methods of depositing the amount to E-wallet any time. Information upon filling the E-wallet balance shall be available on provider`s web site. The information will be updated, in the event of any modifications.",
+          "3.2 Balance filling via payment terminals",
+          "To fill the balance via payment terminals, the customer opts WALLYPAY balance filling on the terminal screen, refers his personal or wallet number. Performing one transaction via payment terminal, the customer may deposit GEL 1500 a most at one turn. Deposited amount will be appeared on the customer`s wallet account in a couple of minutes.",
+          "3.3 Balance filling via bank transfer",
+          "The customer can fill the balance applying commercial bank branches or internet banking. In order to fill the balance, the customer shall refer/submit the account number of WallyPay, type in WallyPay LLC in the purpose field and the name, surname and the personal number of a holder, whose balance is to be filled. Along with the information referred, the providing wallet number is preferable (if applicable).",
+          "In case of deposit by the client from the bank account, the amount deposited on working days (Monday-Friday) before 16:00 is reflected in the same day before the end of working hours, and the amount deposited after 16:00 is reflected on the next working day.",
+          "3.4 Balance filling from the partner company branch.",
+          "Customer may fill the E-wallet balance from the partner companies cashier office. To this end, the client should visit the branch of the partner company, submit the valid ID card or passport/certificate; if the money is deposited in favor to the third person, recipients` personal number or wallet number shall be provided by all means. The money is deposited in cash, which will promptly be appeared on the customer`s wallet account.",
+          "3.5 Filling the wallet balance via bank plastic card, linked to the E-wallet.",
+          "The customer may fill the wallet balance via bank card, linked to the wallypay account. In this regard, the customer should log in the application and transfer the amount from payment section to the wallet account. The amount is appeared promptly."
+        ]
+      },
+      {
+        "h2": "Service conditions",
+        "p": [
+          "4.1. To render the service, the provider should allocate the customer and hand in the bank plastic card personally ( hereinafter “customer`s plastic card”) and register the customer on provider`s web-site based on the said card data. Following the registration, E-wallet, linked to the customer`s plastic card will be created ( hereinafter “E-wallet”). Customer can access the E-wallet control panel from provider`s web-site. The provider may implement mobile application, the customer will be able to have access to the E-wallet and apply respective functional. Information upon presence of this mobile application and its download link will be available on provider`s web-site.",
+          "4.2. Customer is entitled:",
+          "4.2.1. To save the money on E-wallet account for unlimited term;",
+          "4.2.2. To cash the amounts, deposed on E-wallet balance via plastic card from the ATM of separate commercial banks (the provider`s web site will ensure information upon the commercial banks and their ATMs, the customer will be able to cash the amount), or;",
+          "4.2.3. to pay the cost of the commodity or service in the malls via customer`s plastic card, within the amounts, deposed on E-wallet balance, where the commercial banks POS terminals are applied for receiving the payment, about which the information is posted on provider`s web-site.",
+          "4.3. Cashing and/or spending the amount via customer`s plastic card may become a subject to specific limits, about which the information shall be available on provider`s web site."
+        ]
+      },
+      {
+        "h2": "Commission",
+        "p": [
+          "5.1. The information about any commissions, specified for receiving the service or it related in provider`s system, is available on provider`s web site."
+        ]
+      },
+      {
+        "h2": "Card blocking/suspending",
+        "p": [
+          "6.1. The provider may block/suspend applying E-wallet and /or customer`s plastic card, if:",
+          "6.1.1. considers, based on a reasonable doubt, that the customer applies plastic card and/ or payment service for money laundering purposes;",
+          "6.1.2. finds out, that customer was improperly identified prior to concluding the agreement;",
+          "6.1.3. Discovered, that the customer tries to cash or spend unauthorized amount, which is not his property, deposited on E-wallet account as a result of system error,",
+          "6.1.4. Customer`s E-wallet account or plastic card is inactive for 1 (one) year."
+        ]
+      },
+      {
+        "h2": "Parties obligations related to customer`s plastic card",
+        "p": [
+          "7.1. Customer is hereby obliged:",
+          "7.1.1. To apply customer`s plastic card pursuant to the stipulations of this contract;",
+          "7.1.2. To observe the customer plastic card safety rules and ensure protecting personified means of instrument;",
+          "7.1.3. If the customer loses the plastic card, steals or illegally procures, he should notify the provider`s hot line (provided on provider`s web site) as soon as possible about it.",
+          "7.2. Provider is hereby obliged:",
+          "7.2.1. To take any appropriate measures to ensure observance of customer`s plastic card and avoid its unauthorized use",
+          "7.2.2. Not to make customer`s plastic card personified security data and facility available to the third person, other than himself;",
+          "7.2.3. To provide the customer with the customer`s plastic card safety data requirements;",
+          "7.2.4. To ensure receiving notices prescribed by the article 7.1.3 any time directly from the customer or his authorized person. If requested, the provider is committed to provide the notice acknowledgement, if no more than 18 months are elapsed from receiving the notice.",
+          "7.2.5. Having received the notice, stipulated in the article 7.1.3 , to promptly ensure obstructing the further application of the customer`s plastic card.",
+          "7.3. Provider undertakes any risks related to dispatching the customer`s plastic card and/or its personified security means and specifications.",
+          "7.4. Provider assumes no responsibility for the outcome, arisen as a result of the customer`s waiver of the suggested security measures. In this case, the responsibility for the outcome, arisen as a result of security measure waiver is imposed to the customer.",
+          "7.5. The parties are hereby obliged to reimburse the loss inflicted in the aftermath of the purposeful or negligent default of the commitments, assumed by this article pursuant to the applicable law of Georgia."
+        ]
+      },
+      {
+        "h2": "Unauthorized or incorrectly performed transactions",
+        "p": [
+          "8.1. Unauthorized or incorrectly performed transaction related rules are prescribed by the Georgian law upon “payment system and service”."
+        ]
+      },
+      {
+        "h2": "Contract modifications",
+        "p": [
+          "9.1. The provider is entitled to introduce modification to this agreement any time. The provider assumes obligations to make the modifications available to the customer a month prior to their operation in a form as follows: updated agreement will be uploaded to the provider`s web site as a further version, whereas the customer shall be notified upon the modification of the contract and availability of its new version on provider`s web site.",
+          "9.2. The obligation, stipulated in the article 9.1. to this agreement doesn`t apply the cases, when the provisions on a new payment service is added, which doesn`t supersede and/or substitute the payment services, prescribed by this agreement.",
+          "9.3. Prior to enacting the modifications to the contract, the customer is hereby authorized to terminate the agreement after acknowledgment of the notice from the provider without reimbursing any commission, expense and forfeit. For its turn, in the event of customer`s wavier upon modification, the provider is authorized to terminate the agreement as soon as the modification is enacted. The parties shall inform one another in writing upon termination, as per this article.",
+          "9.4. Any modifications suggested by the provider shall be considered acknowledged, unless the customer waivers in writing the conditions, offered by the provider, prior to effectiveness of the changes. Customer`s silence upon the changes, suggested by the provider shall be considered as approval of the customer."
+        ]
+      },
+      {
+        "h2": "Duration and termination of this contract",
+        "p": [
+          "10.1. Present agreement is concluded for unlimited term.",
+          "10.2. The agreement may be suspended, respective to the provisions of this agreement. Termination of the contract automatically invalidates the E-wallet account, opened on customer`s name and suspending any service of the provider.",
+          "10.3. The agreement may be suspended:",
+          "10.3.1. by the customer any time, through serving a notice to the provider, when the provider, in its turn, is hereby authorized to request the customer to submit specific instruments related to suspending and ending the validity of this agreement;",
+          "10.3.2. By serving a notice to the customer by the provider in writing, when the termination notice shall be dispatched to the customer 1 ( one) month prior at least.",
+          "10.3.3. By serving a notice to the customer by the provider in writing , if the customer infringes any of the commitments or the provisions, stipulated in this contract and will not eliminate the fault, nevertheless the provider`s warning;",
+          "10.3.4. In the cases, set forth by present agreement and the applicable law of Georgia.",
+          "10.4. In the event of termination, the commission, subject to regular payment (if any), shall be paid in proportion of the payment service rendered. If the commission is prepaid by the customer, the provider is committed to reimburse the customer the overpaid amount within 5 (five) working days after termination."
+        ]
+      },
+      {
+        "h2": "Governing legislation and dispute settlement",
+        "p": [
+          "11.1. Present agreement is governed and interpreted in accordance with the applicable law of Georgia.",
+          "11.2. If any dispute or disagreement arises related or in the aftermath of this agreement, the parties will attempt to resolve the dispute through negotiation, whereas, otherwise, the party is entitled to apply to Tbilisi city court."
+        ]
+      },
+      {
+        "h2": "Communication",
+        "p": [
+          "12.1. Contractual relation between the parties shall be implemented in Georgian language.",
+          "12.2. The customer may contact the provider via telephone number (hot line), provided on provider`s web site or notify in writing via E-mail or dispatch the registered letter to the legal address of the provider.",
+          "12.3. The provider will communicate with the customer via his personal telephone number, E-mail, E-wallet control panel of the customer or customer`s address via post.",
+          "12.4. Money deposit and disposal transaction on histories on E-wallet account, referring accurate time of transactions, will be available in E-wallet control panel of the customer.",
+          "12.5. The customer is hereby authorized , within validity of this agreement to request the provider and obtain any information, he is authorized to gain according the order#1/04 , dated January 6 of 2016 of the president of the National Bank of Georgia upon “ approving the rule of providing mandatory information to the customer while performing payment service”, along with the copy of effective version of this order."
+        ]
+      }
+    ]
+  }
+}
