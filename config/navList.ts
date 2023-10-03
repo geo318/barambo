@@ -1,17 +1,10 @@
 import { routes } from './routes'
 
 export const navList = [
-  {
-    name: 'products',
-    link: '',
-    menu: [
-      { name: 'card', link: routes.card },
-      { name: 'wallet', link: routes.wallet },
-      { name: 'crypto', link: routes.crypto },
-      { name: 'loan', link: routes.loan },
-    ],
-  },
-  { name: 'partnership', link: routes.partnership, menu: [] },
+  { name: 'home', link: routes.home, menu: [] },
   { name: 'about', link: routes.about, menu: [] },
+  { name: 'product', link: routes.product, menu: [] },
+  { name: 'blog', link: routes.blog, menu: [] },
+  { name: 'excursion', link: routes.excursion, menu: []},
   { name: 'contact', link: routes.contact, menu: [] },
 ] as const

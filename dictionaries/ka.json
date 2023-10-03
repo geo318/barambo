@@ -2,19 +2,12 @@
   "home": {},
   "shared": {
     "header": {
-      "products": "Products",
-      "partnership": "Partnership",
-      "about": "About",
-      "blog": "Blog",
-      "contact": "Contact",
-      "becomeAPartner": "Become a Partner",
-      "orderDebitCard": "Order Debit Card",
-      "nav": {
-        "card": "WallyPay Debit Card",
-        "wallet": "E Wallet",
-        "crypto": "Crypto-Friendly Wallet",
-        "loan": "Online Loan"
-      }
+      "home": "მთავარი",
+      "product": "პროდუქტი",
+      "about": "ჩვენს შესახებ",
+      "blog": "ბლოგი",
+      "contact": "კონტაქტი",
+      "excursion": "ექსკურსია"
     },
     "footer": {
       "heading": {

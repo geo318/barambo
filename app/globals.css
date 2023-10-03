@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+.balanced {
+  text-wrap: balance;
+}
+
+header > div,
+header img {
+  transition: 150ms;
+}
+
+.header-small > div {
+  padding: 20px;
+}
+
+.header-small img {
+  width: 100px;
+}
+
+.fade-in {
+  animation: fade-in 500ms forwards ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.start {
+  translate: -10%;
+  opacity: 0;
+}
+
+.end {
+  translate: 0 0;
+  opacity: 1;
+}
+
+.no-drag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
