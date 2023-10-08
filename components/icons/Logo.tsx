@@ -7,7 +7,7 @@ export const Logo: React.FC<JSX.IntrinsicElements['svg']> = (props) => (
     fill='none'
     {...props}
   >
-    <g clip-path='url(#clip0_8_105)'>
+    <g clipPath='url(#clip0_8_105)'>
       <path
         fillRule='evenodd'
         clipRule='evenodd'

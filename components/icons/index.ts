@@ -1,3 +1,6 @@
 export * from './Logo'
 export * from './Burger'
 export * from './Close'
+export * from './FooterCurve'
+export * from './Arrow'
+export * from './Stars'

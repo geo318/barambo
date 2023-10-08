@@ -11,6 +11,14 @@ const config: Config = {
       colors: {
         primary: '#040404',
         secondary: '#5A5A5A',
+        'light-brown': '#FBF6F2',
+        'dark-brown': '#31261D',
+        'gold-light': '#FBF6F2',
+        gray: '#D9D9D9',
+        gold: '#BD9C64',
+      },
+      screens: {
+        '3xl': '1920px',
       },
     },
   },

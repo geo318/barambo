@@ -2,19 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
+@layer utilities {
+  .txt-balanced {
+    text-wrap: balance;
+  }
+  .txt-pretty {
+    text-wrap: pretty;
+  }
+  .txt-nowrap {
+    text-wrap: nowrap;
+  }
+  .txt-stable {
+    text-wrap: stable;
+  }
+  .txt-wrap {
+    text-wrap: wrap;
+  }
+  .txt-unset {
+    text-wrap: unset;
+  }
 }
 
 h1,
 h2,
 h3,
 h4,
-p,
-.balanced {
+p {
   text-wrap: balance;
 }
-
 header > div,
 header img {
   transition: 150ms;
