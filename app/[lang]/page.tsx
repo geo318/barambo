@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { banner, barambinoArch, barambinos, chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
-import { Suspense } from 'react'
 import { getDictionary } from '/lib'
 
 const marcellus = Marcellus({ weight: ['400'], subsets: ['latin'] })
@@ -110,7 +109,6 @@ export default async function Home({ params: { lang } }: PageProps) {
 
       <div className='pt-20 pb-32 relative bg-gold-light '>
         <Section className='z-10'>
-          {/* <div className='flex flex-col-z-10 absolute inset-0' /> */}
           <div className='flex relative text-center h-40 items-end'>
             <Stars className='[&_path]:fill-gold absolute left-0' />
             <H tag='h3' className='text-[2.5vw] w-full uppercase'>

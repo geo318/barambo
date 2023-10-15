@@ -3,6 +3,7 @@ import { getDictionary } from '/lib'
 import { z } from 'zod'
 import { emailSchema } from '/schema'
 
+export type SetState<T> = React.Dispatch<React.SetStateAction<T>>
 export type Locale = (typeof locales)[number]
 
 export type Translation = Awaited<ReturnType<typeof getDictionary>>
