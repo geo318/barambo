@@ -15,10 +15,14 @@ export const SlideArrow = ({
 }) => {
   return (
     <Arrow
-      className={twMerge(dir === 'left' && 'rotate-180 ', className)}
-      onClick={() =>
-        dir === 'left' ? swiper?.slidePrev(1) : swiper?.slideNext(1)
-      }
+      className={twMerge(
+        dir === 'left' && 'rotate-180',
+        'cursor-pointer',
+        className
+      )}
+      onClick={() => {
+        dir === 'left' ? swiper?.slidePrev() : swiper?.slideNext()
+      }}
     />
   )
 }

@@ -112,7 +112,7 @@ export default async function Home({ params: { lang } }: PageProps) {
           <div className='flex relative text-center h-40 items-end'>
             <Stars className='[&_path]:fill-gold absolute left-0' />
             <H tag='h3' className='text-[2.5vw] w-full uppercase'>
-              barambo products
+              barambo recipes
             </H>
           </div>
           <nav className='w-full items-center justify-center'>
@@ -191,6 +191,72 @@ export default async function Home({ params: { lang } }: PageProps) {
         </section>
       </Section>
       <Cert text={home.certificates} />
+
+      <Section className='flex flex-col gap-[2rem]'>
+        <H tag='h5' className='text-[3vw] mt-auto'>
+          Blog
+        </H>
+        <div className='grid grid-cols-2 grid-rows-1 gap-7'>
+          <div className='row-span-2 aspect-square'>
+            <Image
+              src={banner}
+              alt='last-article'
+              className='object-cover h-full w-full rounded-[3rem]'
+            />
+            <H tag='h6' className='text-3xl mt-5 mb-4'>
+              Decorative touches for your celebration1
+            </H>
+            <p className='leading-normal text-secondary text-lg'>
+              Et harum quidem rerum facilis est et expedita distinctio. Nam
+              libero tempore, cum soluta nobis est eligendi optio cumque nihil
+              impedit quo minus
+            </p>
+          </div>
+          <div className='grid grid-rows-2 grid-cols-1'>
+            <div className='flex pb-7'>
+              <Image
+                src={banner}
+                alt='last-article'
+                className='object-cover w-[20vw] rounded-[3rem]'
+              />
+              <div className='text-3xl mt-5 mb-4 ml-5'>
+                <H tag='h6' className='leading-normal pb-4'>
+                  Decorative touches for your celebration1
+                </H>
+                <p className='leading-normal text-secondary text-lg'>
+                  Et harum quidem rerum facilis est et expedita distinctio. Nam
+                  libero tempore, cum soluta nobis est eligendi optio cumque
+                  nihil impedit quo minus
+                </p>
+              </div>
+            </div>
+
+            <div className='flex row-start-2 pt-7 border-t border-stone-300'>
+              <Image
+                src={banner}
+                alt='last-article'
+                className='col-start-2 object-cover w-[20vw] rounded-[3rem]'
+              />
+              <div className='text-3xl mt-5 mb-4 ml-5'>
+                <H tag='h6' className='leading-normal pb-4'>
+                  Decorative touches for your celebration1
+                </H>
+                <p className='leading-normal text-secondary text-lg'>
+                  Et harum quidem rerum facilis est et expedita distinctio. Nam
+                  libero tempore, cum soluta nobis est eligendi optio cumque
+                  nihil impedit quo minus
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='border-b border-stone-300 w-full py-8' />
+        <div className='flex'>
+          <Button className='w-48 h-14 bg-white mt-auto mb-8 z-10 ml-auto'>
+            See All Articles
+          </Button>
+        </div>
+      </Section>
     </main>
   )
 }
