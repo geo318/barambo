@@ -2,7 +2,14 @@ import { Marcellus } from 'next/font/google'
 import { Arrow, Button, Cert, H, Section, Stars } from '/components'
 import { twMerge } from 'tailwind-merge'
 import Image from 'next/image'
-import { banner, barambinoArch, barambinos, chocolate, iceCream } from '/public'
+import {
+  banner,
+  barambinoArch,
+  barambinos,
+  chocolate,
+  iceCream,
+  map,
+} from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
@@ -255,6 +262,43 @@ export default async function Home({ params: { lang } }: PageProps) {
           <Button className='w-48 h-14 bg-white mt-auto mb-8 z-10 ml-auto'>
             See All Articles
           </Button>
+        </div>
+      </Section>
+
+      <Section className='mb-14'>
+        <H tag='h5' className='text-[3vw] mt-auto'>
+          Export
+        </H>
+        <div className='grid grid-cols-2 gap-[3rem] pt-14'>
+          <div className='flex flex-col gap-8'>
+            <p>
+              The use of modern European technology and high-quality Belgian raw
+              materials, constant control over production - allowed the company
+              “Barambo” to meet the standards of the world`s leading countries.
+              Barambo owns the certificate ISO22000: 2005.
+            </p>
+            <p>
+              Since 2011 our team has been actively working on export. At
+              present, sweets are exported to Ukraine, China, Azerbaijan,
+              Russia, Malaysia and Singapore. At this stage, negotiations are
+              also conducted with representatives of other countries.
+            </p>
+            <p>
+              We try to maximize the various requirements set out in each
+              country, to meet the quality, and price categories.
+            </p>
+            <p>
+              We produce products not only under the brand “Barambo”, but also
+              under your brand. Become our partner, get a reliable and
+              high-quality premium chocolate - from Georgia. If you are
+              interested in export, please contact us
+            </p>
+          </div>
+          <Image
+            src={map}
+            alt='last-article'
+            className='object-cover rounded-[3rem]'
+          />
         </div>
       </Section>
     </main>
