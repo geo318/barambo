@@ -58,14 +58,14 @@
     },
     "footer": {
       "heading": {
-        "products": "Products",
-        "wallypay": "Wallypay",
-        "contact": "Contact"
+        "col_1": "Company",
+        "col_2": "Useful Links",
+        "col_3": "Contact Info"
       },
       "list": {
-        "phone": "+995 032 256 05 55",
-        "email": "support@wallypay.eu",
-        "address": "42 Alexander Kazbegi Ave. | 0171 | Tbilisi",
+        "phone": "+0322 234 56 89",
+        "email": "info@barambo.ge",
+        "address": "Tbilisi, Chavchavadze Ave.54",
         "about": "About Us",
         "partnership": "Become a Partner",
         "terms": "Terms and Conditions",
@@ -75,7 +75,8 @@
         "crypto": "Crypto-Friendly Wallet",
         "loan": "Online Loan"
       },
-      "copy": "Copyright © 2023 all rights reserved"
+      "copy": "© 2023 Barambo. all rights reserved",
+      "sub": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
     }
   }
 }

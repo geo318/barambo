@@ -20,6 +20,9 @@ const config: Config = {
       screens: {
         '3xl': '1920px',
       },
+      maxWidth: {
+        layout: '120rem',
+      },
     },
   },
   plugins: [],

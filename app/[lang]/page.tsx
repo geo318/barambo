@@ -1,5 +1,5 @@
 import { Marcellus } from 'next/font/google'
-import { Arrow, Button, Cert, H, Section, Stars } from '/components'
+import { Arrow, Button, Cert, H, MainSlider, Section, Stars } from '/components'
 import { twMerge } from 'tailwind-merge'
 import Image from 'next/image'
 import {
@@ -45,7 +45,7 @@ export default async function Home({ params: { lang } }: PageProps) {
           </section>
         </Section>
 
-        <Section className='relative flex flex-col'>
+        {/* <Section className='relative flex flex-col'>
           <Image src={banner} alt='banner' className='rounded-t-[5rem]' />
           <div className='absolute bottom-10 flex gap-4 justify-end self-end mr-[7vw]'>
             <Button className='bg-white w-16 h-16 !px-0'>
@@ -55,7 +55,8 @@ export default async function Home({ params: { lang } }: PageProps) {
               <Arrow />
             </Button>
           </div>
-        </Section>
+        </Section> */}
+        <MainSlider />
       </div>
       <Section>
         <div className='flex'>

@@ -6,7 +6,7 @@ export const Section: React.FC<JSX.IntrinsicElements['section']> = ({
 }) => (
   <section
     {...props}
-    className={twMerge('max-w-[120rem] w-full mx-auto px-[8vw]', props.className)}
+    className={twMerge('max-w-layout w-full mx-auto px-[8vw]', props.className)}
   >
     {children}
   </section>

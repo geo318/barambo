@@ -20,8 +20,8 @@ export const BadgeThree = () => (
       <path
         d='M44.83 1.28003H4.37C2.66 1.28003 1.28003 2.66003 1.28003 4.37003V56.7C1.28003 58.41 2.66 59.79 4.37 59.79H44.83C46.54 59.79 47.92 58.41 47.92 56.7V4.37003C47.92 2.66003 46.54 1.28003 44.83 1.28003Z'
         stroke='black'
-        stroke-width='2.55'
-        stroke-miterlimit='10'
+        strokeWidth='2.55'
+        strokeMiterlimit='10'
       />
       <path
         d='M8.72998 9.79004H20.04'

@@ -1,22 +1,19 @@
 import Link from 'next/link'
-import { Facebook, Instagram, LinkedIn, Telegram, WhatsApp } from '../icons'
+import { Fb, In, Yt, Tw } from '/components'
 
 export const Social = () => (
-  <div className='flex gap-5 place-self-center'>
-    <Link href='https://www.facebook.com/wallypay' target='_blank'>
-      <Facebook />
+  <div className='flex gap-3 mr-auto'>
+    <Link href='https://www.facebook.com/barambo' target='_blank'>
+      <Fb />
     </Link>
-    <Link href='https://www.instagram.com/wallypay_georgia' target='_blank'>
-      <Instagram />
+    <Link href='https://www.instagram.com/barambo' target='_blank'>
+      <Tw />
     </Link>
-    <Link href='https://t.me/wallypay' target='_blank'>
-      <Telegram />
+    <Link href='https://t.me/barambo' target='_blank'>
+      <Yt />
     </Link>
-    <Link href='https://www.linkedin.com/company/wallypay' target='_blank'>
-      <LinkedIn />
-    </Link>
-    <Link href='https://wa.me/15551234567' target='_blank'>
-      <WhatsApp />
+    <Link href='https://www.linkedin.com/company/barambo' target='_blank'>
+      <In />
     </Link>
   </div>
 )
