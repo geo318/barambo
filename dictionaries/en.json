@@ -1,51 +1,63 @@
 {
   "home": {
-    "certificates": [
-      {
-        "title": "ISO 9001:2000",
-        "description": "LLC “Barambo” is the owner of ISO 9001: 2000 Certificate"
-      },
-      {
-        "title": "RURAL BUILDER AWARD 2010",
-        "description": "Barambo “Rural Builder Award 2010” for high-tech, high quality production culture and social activism."
-      },
-      {
-        "title": "BARAMBO SUCCESSFUL BRAND NEW",
-        "description": "Georgian Brand Day – “Barambo Successful Brand New”"
-      },
-      {
-        "title": "“MERCURY 2011” – “BARAMBO’ DISCOVERY”",
-        "description": "National Business-Awarding “Mercury 2011” – “Barambo’ Discovery”"
-      },
-      {
-        "title": "“GEORGIAN QUALITY”",
-        "description": "“Georgian Quality” Certificate (Top Quality Product Manufacturer)"
-      },
-      {
-        "title": "“BARAMBO – CHOCOLATE FAVORITE BRAND”",
-        "description": "Barambo LLC has received the title of “Golden Brand” for the third time and was named “Chocolate’s Favorite Brand”."
-      },
-      {
-        "title": "“BARAMBO – CHOCOLATE OF THE YEAR”",
-        "description": "Golden Brand 2014 “Barambo – Chocolate of the"
-      },
-      {
-        "title": "“DISCOVERY OF THE YEAR – POP ICE CREAM”",
-        "description": "Gold Brand, special Ginning of the nomination “Discovery of the Year – Pop ice cream”"
-      },
-      {
-        "title": "“SWEETS – CHOCOLATE BRAND”",
-        "description": "Golden Brand 2015 “Sweets – Chocolate Brand”"
-      },
-      {
-        "title": "SWEETS FOR THE LEADER OF THE APPLICANT”",
-        "description": "National Intellectual Property Center Award – “Sweets for the leader of the applicant” is the title of"
-      },
-      {
-        "title": "“BUSINESS FOR GENDER EQUALITY”",
-        "description": "Certificate of Melissa Millennium Challenge Fund of it – “Business for Gender Equality” competition for"
-      }
-    ]
+    "certificates": {
+      "h2": "Certificates",
+      "list": [
+        {
+          "title": "ISO 9001:2000",
+          "description": "LLC “Barambo” is the owner of ISO 9001: 2000 Certificate"
+        },
+        {
+          "title": "RURAL BUILDER AWARD 2010",
+          "description": "Barambo “Rural Builder Award 2010” for high-tech, high quality production culture and social activism."
+        },
+        {
+          "title": "BARAMBO SUCCESSFUL BRAND NEW",
+          "description": "Georgian Brand Day – “Barambo Successful Brand New”"
+        },
+        {
+          "title": "“MERCURY 2011” – “BARAMBO’ DISCOVERY”",
+          "description": "National Business-Awarding “Mercury 2011” – “Barambo’ Discovery”"
+        },
+        {
+          "title": "“GEORGIAN QUALITY”",
+          "description": "“Georgian Quality” Certificate (Top Quality Product Manufacturer)"
+        },
+        {
+          "title": "“BARAMBO – CHOCOLATE FAVORITE BRAND”",
+          "description": "Barambo LLC has received the title of “Golden Brand” for the third time and was named “Chocolate’s Favorite Brand”."
+        },
+        {
+          "title": "“BARAMBO – CHOCOLATE OF THE YEAR”",
+          "description": "Golden Brand 2014 “Barambo – Chocolate of the"
+        },
+        {
+          "title": "“DISCOVERY OF THE YEAR – POP ICE CREAM”",
+          "description": "Gold Brand, special Ginning of the nomination “Discovery of the Year – Pop ice cream”"
+        },
+        {
+          "title": "“SWEETS – CHOCOLATE BRAND”",
+          "description": "Golden Brand 2015 “Sweets – Chocolate Brand”"
+        },
+        {
+          "title": "SWEETS FOR THE LEADER OF THE APPLICANT”",
+          "description": "National Intellectual Property Center Award – “Sweets for the leader of the applicant” is the title of"
+        },
+        {
+          "title": "“BUSINESS FOR GENDER EQUALITY”",
+          "description": "Certificate of Melissa Millennium Challenge Fund of it – “Business for Gender Equality” competition for"
+        }
+      ]
+    },
+    "export": {
+      "h2": "Export",
+      "p": [
+        "The use of modern European technology and high-quality Belgian raw materials, constant control over production – allowed the company “Barambo” to meet the standards of the world’s leading countries. \n Barambo owns the certificate ISO22000: 2005.",
+        "Since 2011 our team has been actively working on export, At present, sweets are exported to Ukraine, China, Azerbaijan, Russia, Malaysia and Singapore.\n At this stage, negotiations are also conducted with representatives of other countries.",
+        "We try to maximize the various requirements set out in each country, to meet the quality, and price categories.",
+        "We produce products not only under the brand “Barambo”, but also under your brand. Become our partner, get a reliable and high-quality premium chocolate – from Georgia. \n If you are interested in export, please contact us"
+      ]
+    }
   },
   "shared": {
     "header": {
@@ -78,5 +90,24 @@
       "copy": "© 2023 Barambo. all rights reserved",
       "sub": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
     }
+  },
+  "about": {
+    "h1": "About Us",
+    "sub": "What it is so special about us?",
+    "p": [
+      "“Barambo” LTD is a Georgian Confectionary Company producing chocolate/sweets and it was founded on March 11th 2009. It is the unique one in Southern Caucasus by its volume, quality and production technology. Using the European technologies and high-quality goods from Belgium, permanent control of the production gave the possibility to the company to achieve the standards of the world’s leader countries.",
+      "Production quality control is executed on every step of production. Goods quality is strictly controlled, production is checked in high technologically equipped lab and production distribution net is under company supervision. From “Barambo” LTD foundation time its goal was that the plant should achieve international ISO22000:2005 standard requirements which are based on HACCP principles and this standard includes the whole chain – receiving and storage of the goods, production preparation, production storage and its distribution to the customers. Considering food safety risk control, company made the priority – production quality. Because of it there were mounted modern European (Germany, Belgium) equipment. There are only highest quality goods for Belgium which are supplied to “Barambo” by worldwide famous company – “Barry Callebaut”."
+    ],
+    "mission": {
+      "h2": "Our Mission",
+      "p": [
+        "“Barambo” company has been distinguished by the highest quality products since its foundation.",
+        "The mission is to offer customers a wide range of sweets, maintain the leading position of the brand in the market and fully satisfy customer demand.",
+        "Strategy – constant innovation and expansion of both products and technological equipment, ultra-modern techniques that allow the brand to be premium and meet international standards. “Barambo” company has been distinguished by the highest quality products since its foundation.",
+        "The mission is to offer customers a wide range of sweets, maintain the leading position of the brand in the market and fully satisfy customer demand.",
+        "Strategy – constant innovation and expansion of both products and technological equipment, ultra-modern techniques that allow the brand to be premium and meet international standards."
+      ]
+    },
+    "sum": "Qualified professionals are employed at “Barambo” Company. Professional team permanently works with their foreign colleagues to expand the production, implement new technologies and it is orientated on permanent development. Foreign technologists are invited in the factory; employees attend foreign professionals’ intensive trainings."
   }
 }

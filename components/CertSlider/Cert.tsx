@@ -15,6 +15,9 @@ export function Cert({ text }: { text: Certificate }) {
 
   return (
     <Section>
+      <H tag='h2' size='md' className='mb-16'>
+        {text.h2}
+      </H>
       <div className='relative'>
         <SlideArrow
           dir='left'
@@ -31,7 +34,7 @@ export function Cert({ text }: { text: Certificate }) {
           ref={swiperRef}
           loop
         >
-          {text.map(({ description, title }, index) => {
+          {text.list.map(({ description, title }, index) => {
             const num = Math.floor(index / 3)
             const i = index + 1 - num * 3
             return (
