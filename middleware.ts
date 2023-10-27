@@ -1,9 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextFetchEvent, NextRequest, NextResponse } from 'next/server'
 import { locales } from './config'
 import { getLocale } from './utils'
+import { NextRequestWithAuth, withAuth } from 'next-auth/middleware'
 
-export function middleware(request: NextRequest) {
+const authMiddleWare = withAuth({})
+
+export default function middleware(request: NextRequestWithAuth, event: NextFetchEvent) {
   const pathname = request.nextUrl.pathname
+
+  if (pathname.startsWith('/admin')) return authMiddleWare(request, event)
+
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
@@ -11,7 +17,9 @@ export function middleware(request: NextRequest) {
   if (!pathnameIsMissingLocale) return NextResponse.next()
 
   const locale = getLocale(request)
-  return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.nextUrl))
+  return NextResponse.redirect(
+    new URL(`/${locale}/${pathname}`, request.nextUrl)
+  )
 }
 
 export const config = {
