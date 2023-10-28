@@ -1,3 +1,5 @@
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
+import { category } from '/server'
 import z from 'zod'
 
 const MAX_SIZE = 5 * 1024 * 1024
@@ -10,3 +12,6 @@ export const imgSchemaArray = z
   .refine((file) => MIME_TYPES.includes(file[0]?.type), 'incorrect file type')
 
 export const imgSchema = imgSchemaArray.transform((file) => file[0])
+
+export const insertCategorySchema = createInsertSchema(category)
+export const selectCategorySchema = createSelectSchema(category)

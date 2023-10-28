@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3200",
     "lint": "next lint",
-    "migrations:generate": "drizzle-kit generate:sqlite",
+    "migrate": "drizzle-kit generate:sqlite",
     "migrations:push": "node -r esbuild-register ./server/database/migrate.ts",
     "db:push": "drizzle-kit push:sqlite",
     "migrations:drop": "drizzle-kit drop --config=drizzle.config.ts"
@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.2",
     "react-query": "^3.39.3",
+    "sharp": "^0.32.6",
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
@@ -42,6 +43,7 @@
     "eslint": "^8.49.0",
     "eslint-config-next": "^13.5.2",
     "postcss": "^8.4.30",
+    "raw-loader": "^4.0.2",
     "typescript": "^5.2.2"
   }
 }

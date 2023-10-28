@@ -21,3 +21,9 @@ export const post = sqliteTable('post', {
   likes: int('likes'),
   userId: int('userId'),
 })
+
+export const category = sqliteTable('category', {
+  id: int('id').primaryKey(),
+  name: text('name').notNull().unique(),
+  thumbnail: text('thumbnail').notNull(),
+})
