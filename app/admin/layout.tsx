@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Logo, SignOut } from '/components'
+import { Aside, Logo, SignOut } from '/components'
 
 export default function RootLayout({
   children,
@@ -8,17 +8,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <Link
-        href='/'
-        className='flex justify-center items-center py-5 w-full bg-app-blue'
-      >
-        <Logo />
-        <SignOut />
-      </Link>
-      <main className='text-black bg-white md:px-20 px-5 py-5 mx-auto'>
+    <div className='relative'>
+      <div className='fixed top-0 inset-x-0 w-full flex justify-end px-10 py-5'>
+        <SignOut/>
+      </div>
+      <Aside className='' />
+      <main className='text-black bg-white md:px-20 px-5 py-5 mt-16 ml-[15rem] mx-auto'>
         {children}
       </main>
-    </>
+    </div>
   )
 }

@@ -15,9 +15,13 @@ import { banner, barambinoArch, barambinos, chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
+import { db } from '/server/database'
+import { user } from '/server/database/schema'
 
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
+  const res = await db.select().from(user)
+  console.log(res)
   return (
     <main className='flex min-h-screen flex-col gap-36'>
       <div className='bg-[#FBF6F2] w-full pt-36'>

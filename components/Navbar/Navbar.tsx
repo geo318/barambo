@@ -10,7 +10,10 @@ export const Navbar: React.FC<NavbarProps> = ({ text, lang }) => {
     <header className='text-lg text-secondary'>
       <Section>
         <div className='flex items-center grow'>
-          <Link href={`/${lang}${routes.home}`} className='mr-auto mt-auto pl-7'>
+          <Link
+            href={`/${lang}${routes.home}`}
+            className='mr-auto mt-auto pl-7'
+          >
             <Logo className='w-[12.5rem] z-50' />
             <div className='logo-spacer relative before:content-[""] before:absolute before:top-0 before:-inset-x-7 before:h-8 before:rounded-b-3xl before:bg-white' />
           </Link>
