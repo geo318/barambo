@@ -18,13 +18,21 @@ export const writeFile = async (files: Blob[], size = 800) => {
     if (!fs.existsSync(dir)) fs.mkdirSync(dir)
   })
 
-  const sharpBuffer = sharp(buffer)
+  if (!file.type.includes('svg')) {
+    const sharpBuffer = sharp(buffer)
 
-  sharpBuffer
-    .resize(size, size, { fit: 'cover' })
-    .toFile(`${publicDir}${filePath}`)
+    sharpBuffer
+      .resize(size, size, { fit: 'cover' })
+      .toFile(`${publicDir}${filePath}`)
 
-  sharpBuffer.resize(20, 20, { fit: 'cover' }).toFile(`${publicDir}${blurPath}`)
+    sharpBuffer
+      .resize(20, 20, { fit: 'cover' })
+      .toFile(`${publicDir}${blurPath}`)
+  }
+  //how to save original file using fs ?
+  fs.writeFile(`${publicDir}${filePath}`, buffer, (err) => {
+    if (err) console.log(err)
+  })
 
   const path = filePath.split(/\//).pop()
   return { path: `${imagePaths[0]}/${path}` }

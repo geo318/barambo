@@ -35,4 +35,5 @@ yarn-error.log*
 next-env.d.ts
 /express/node_modules
 /express/build
-express/uploads
+/express/uploads
+/server/database/db

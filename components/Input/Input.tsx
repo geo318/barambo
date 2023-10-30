@@ -25,7 +25,7 @@ export const Input = ({
       {!textarea ? (
         <input
           {...(name && register(name))}
-          {...{ props, type, placeholder }}
+          {...{ ...props, type, placeholder }}
           className={twMerge(
             'p-3 border border-gray-900 rounded-lg focus:outline-app-blue',
             className
@@ -34,7 +34,7 @@ export const Input = ({
       ) : (
         <textarea
           {...(name && register(name))}
-          {...{ props, type, placeholder }}
+          {...{ type, placeholder }}
           className='p-3 border border-gray-900 rounded-lg focus:outline-app-blue'
           rows={5}
         />

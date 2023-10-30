@@ -1,3 +1,6 @@
+import { SubmitHandler } from 'react-hook-form'
+import { Schema } from 'zod'
+
 export type ButtonProps = JSX.IntrinsicElements['button'] & {
   variant?: 'primary' | 'secondary'
 }
@@ -8,3 +11,14 @@ export type CustomHeading = {
   tag: HeadingTag & {}
   size?: 'md' | 'lg' | 'sm' | 'xl'
 } & JSX.IntrinsicElements[HeadingTag]
+
+export type FormProps = {
+  children: React.ReactNode
+  schema: Schema
+  defaultValues?: Record<string, string>
+  onSubmit?: SubmitHandler<any>
+  buttonLabel?: string
+  className?: string
+  revalidate?: () => void
+  hasButton?: boolean
+}

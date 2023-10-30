@@ -1,3 +1,4 @@
+'use client'
 import { twMerge } from 'tailwind-merge'
 import { ButtonProps } from './types'
 import { Marcellus } from 'next/font/google'

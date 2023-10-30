@@ -10,11 +10,6 @@ const nextConfig = {
     return config
   },
   images: {
-    domains: [
-      process.env.NEXT_PUBLIC_URL,
-      process.env.NEXT_PUBLIC_IMAGE_URL,
-      '*',
-    ],
     remotePatterns: [
       {
         protocol: process.env.NEXT_PUBLIC_PROTOCOL,

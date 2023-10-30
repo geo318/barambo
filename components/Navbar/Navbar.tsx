@@ -4,10 +4,11 @@ import { Logo, Section } from '/components'
 import { routes } from '/config'
 import { Nav } from './Nav'
 import { Sidebar } from './Sidebar'
+import { Header, Spacer } from './Header'
 
 export const Navbar: React.FC<NavbarProps> = ({ text, lang }) => {
   return (
-    <header className='text-lg text-secondary'>
+    <Header>
       <Section>
         <div className='flex items-center grow'>
           <Link
@@ -15,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ text, lang }) => {
             className='mr-auto mt-auto pl-7'
           >
             <Logo className='w-[12.5rem] z-50' />
-            <div className='logo-spacer relative before:content-[""] before:absolute before:top-0 before:-inset-x-7 before:h-8 before:rounded-b-3xl before:bg-white' />
+            <Spacer />
           </Link>
           <Nav
             text={text}
@@ -27,6 +28,6 @@ export const Navbar: React.FC<NavbarProps> = ({ text, lang }) => {
           </div>
         </div>
       </Section>
-    </header>
+    </Header>
   )
 }
