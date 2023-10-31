@@ -1,6 +1,7 @@
 'use client'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
+import { checkPath } from './helpers'
 
 export const Header = ({
   children,
@@ -13,7 +14,7 @@ export const Header = ({
       className={twMerge(
         'text-lg text-secondary',
         className,
-        !path.includes('about') && path !== '/' && 'bg-gold-light'
+        checkPath(path) && 'bg-gold-light'
       )}
       {...props}
     >
@@ -27,9 +28,7 @@ export const Spacer = () => {
   return (
     <div
       className={twMerge(
-        !path.includes('about') && path !== '/'
-          ? 'before:bg-gold-light'
-          : 'before:bg-white',
+        checkPath(path) ? 'before:bg-gold-light' : 'before:bg-white',
         'logo-spacer relative before:content-[""] before:absolute before:top-0 before:-inset-x-7 before:h-8 before:rounded-b-3xl'
       )}
     />
