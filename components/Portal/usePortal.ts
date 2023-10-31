@@ -15,15 +15,22 @@ export const usePortal = () => {
       'overflow-y-auto',
       'backdrop-blur-sm',
       'bg-black',
-      'bg-opacity-50',
+      'bg-opacity-30',
       'z-50'
     )
+    const body = document.querySelector<HTMLElement>('body')
+    if (body) {
+      body.append(portal)
+      body.classList.add('overflow-hidden')
+    }
 
-    document.querySelector<HTMLElement>('body')!.append(portal)
     ref.current = portal
     setMounted(true)
 
-    return () => portal.remove()
+    return () => {
+      portal.remove()
+      if (body) body.classList.remove('overflow-hidden')
+    }
   }, [])
 
   return { mounted, ref }

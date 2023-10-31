@@ -1,9 +1,16 @@
 import Image from 'next/image'
-import { H, Magnifier, Plus, Section } from '/components'
+import {
+  H,
+  Magnifier,
+  Plus,
+  ProductModal,
+  ProductWrapper,
+  Section,
+} from '/components'
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
-import { barambinos } from '/public'
+import { banner2 } from '/public'
 
 export default async function Product({ params: { lang } }: PageProps) {
   const { product, home } = await getDictionary(lang)
@@ -44,10 +51,10 @@ export default async function Product({ params: { lang } }: PageProps) {
           </div>
           <section className='grid grid-cols-4 gap-5'>
             {Array.from({ length: 16 }).map((_, i) => (
-              <div key={i}>
+              <ProductWrapper key={i}>
                 <div className='relative w-full h-52'>
                   <Image
-                    src={barambinos}
+                    src={banner2}
                     alt='banner'
                     layout='fill'
                     objectFit='cover'
@@ -55,17 +62,18 @@ export default async function Product({ params: { lang } }: PageProps) {
                   />
                 </div>
                 <div className='flex flex-col gap-2 mt-5'>
-                  <h4 className='text-lg font-medium'>Barambino</h4>
-                  <p className='text-sm text-gray-500'>
+                  <p className='text-lg text-secondary line-clamp-2 text-ellipsis leading-relaxed'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Quisquam, quidem.
                   </p>
+                  <h4 className='text-lg font-medium'>Barambino</h4>
                 </div>
-              </div>
+              </ProductWrapper>
             ))}
           </section>
         </article>
       </Section>
+      <ProductModal />
     </main>
   )
 }
