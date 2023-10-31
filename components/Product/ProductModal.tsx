@@ -2,10 +2,9 @@
 
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Portal, Close, H } from '/components'
-import { Router } from 'next/router'
 import { useEsc } from '/hooks'
 import Image from 'next/image'
-import { banner3, barambino, barambinos } from '/public'
+import { barambinos } from '/public'
 
 export function ProductModal() {
   const params = useSearchParams()
@@ -42,7 +41,7 @@ export function ProductModal() {
                 </figure>
 
                 <div className='col-span-4 font-lg'>
-                  <div className='my-10 border-b border-[#bebebe]'/>
+                  <div className='my-10 border-b border-[#bebebe]' />
                   <p className='leading-loose text-secondary'>
                     Nutritional data for 100g: energy value 531 kcal, total fat
                     30.8g, total protein 6.4g, carbohydrates 58.9 g.Storage

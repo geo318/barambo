@@ -11,6 +11,7 @@ export type HomeText = Translation['home']
 export type SharedText = Translation['shared']
 export type Certificate = HomeText['certificates']
 export type Export = HomeText['export']
+export type BlogText = Translation['blog']
 
 export type PageProps = { params: { lang: Locale } }
 export type EmailForm = z.infer<typeof emailSchema>

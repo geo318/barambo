@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import {
+  BlogModal,
+  BlogSwitcher,
   Button,
   H,
-  Magnifier,
-  Plus,
   ProductModal,
-  ProductWrapper,
   Section,
 } from '/components'
 import { getDictionary } from '/lib'
@@ -14,8 +13,12 @@ import { twMerge } from 'tailwind-merge'
 import { banner2 } from '/public'
 import Link from 'next/link'
 
-export default async function Product({ params: { lang } }: PageProps) {
+export default async function Product({
+  params: { lang },
+  searchParams,
+}: PageProps & { searchParams: URLSearchParams & { recept?: string } }) {
   const { blog } = await getDictionary(lang)
+
   return (
     <main className='flex flex-col gap-36'>
       <Section className='py-28'>
@@ -23,12 +26,17 @@ export default async function Product({ params: { lang } }: PageProps) {
           <H tag='h1' size='xl'>
             {blog.h1}
           </H>
-          <h4 className='text-2xl font-medium my-7'>switcher</h4>
+          <BlogSwitcher text={blog} />
         </section>
 
         <article>
-          <section className='grid grid-cols-3 gap-6'>
-            {Array.from({ length: 8 }).map((_, i) => (
+          <section
+            className={twMerge(
+              'grid grid-cols-3 gap-6',
+              'recept' in searchParams && 'grid-cols-4'
+            )}
+          >
+            {Array.from({ length: 12 }).map((_, i) => (
               <div
                 key={i}
                 className='flex aspect-square rounded-3xl relative overflow-hidden'
@@ -38,17 +46,20 @@ export default async function Product({ params: { lang } }: PageProps) {
                   alt={`${i}`}
                   className='absolute inset-0 object-cover h-full w-full'
                 />
-                <Link href={`/blog/${i}`} className='mt-auto mx-auto mb-8 z-10'>
-                  <Button className='bg-white w-36 h-10'>
-                    Read More
-                  </Button>
+                <Link
+                  href={
+                    'recept' in searchParams ? `?recept=${i}` : `/blog/${i + 1}`
+                  }
+                  className='mt-auto mx-auto mb-8 z-10'
+                >
+                  <Button className='bg-white w-36 h-10'>Read More</Button>
                 </Link>
               </div>
             ))}
           </section>
         </article>
       </Section>
-      <ProductModal />
+      <BlogModal isOpen={!!searchParams?.recept} />
     </main>
   )
 }
