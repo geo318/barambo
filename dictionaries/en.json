@@ -112,5 +112,8 @@
   },
   "product": {
     "h1": "Product"
+  },
+  "blog": {
+    "h1": "Blog"
   }
 }
