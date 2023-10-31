@@ -49,7 +49,7 @@ export default async function Product({ params: { lang } }: PageProps) {
               className='border-0 border-b pl-5 w-52 '
             />
           </div>
-          <section className='grid grid-cols-4 gap-5'>
+          <section className='grid grid-cols-4 gap-6'>
             {Array.from({ length: 16 }).map((_, i) => (
               <ProductWrapper key={i}>
                 <div className='relative w-full h-52'>
@@ -66,6 +66,7 @@ export default async function Product({ params: { lang } }: PageProps) {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Quisquam, quidem.
                   </p>
+                  <div className='border-b my-2 border-[#bebebe]'/>
                   <h4 className='text-lg font-medium'>Barambino</h4>
                 </div>
               </ProductWrapper>
