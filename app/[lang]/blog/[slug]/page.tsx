@@ -26,7 +26,7 @@ export default async function Post({
           className='max-h-80 rounded-[3rem] object-cover my-16'
         />
         <article>
-          <H tag='h1' size='xl' style={{ fontWeight: '400' }}>
+          <H tag='h1' size='lg'>
             New Blog Post: {slug}
           </H>
           <div className='flex gap-[6%] mt-16'>

@@ -14,10 +14,10 @@ const variants = {
 
 export const H: React.FC<CustomHeading> = ({ tag, size, ...props }) =>
   createElement(tag, {
+    ...props,
     className: twMerge(props.className, font.className, size && variants[size]),
     style: {
       ...props.style,
       ...(size === 'xl' && { fontWeight: 600 }),
     },
-    ...props,
   })
