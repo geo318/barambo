@@ -10,10 +10,9 @@ import {
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
-import { banner2 } from '/public'
 
 export default async function Product({ params: { lang } }: PageProps) {
-  const { product, home } = await getDictionary(lang)
+  const { product } = await getDictionary(lang)
   return (
     <main className='flex flex-col gap-36'>
       <Section className='py-28 flex gap-20'>
@@ -54,7 +53,7 @@ export default async function Product({ params: { lang } }: PageProps) {
               <ProductWrapper key={i}>
                 <div className='relative w-full h-52'>
                   <Image
-                    src={banner2}
+                    src={`https://picsum.photos/200?random${i + 1}`}
                     alt='banner'
                     layout='fill'
                     objectFit='cover'
@@ -66,7 +65,7 @@ export default async function Product({ params: { lang } }: PageProps) {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Quisquam, quidem.
                   </p>
-                  <div className='border-b my-2 border-[#bebebe]'/>
+                  <div className='border-b my-2 border-[#bebebe]' />
                   <h4 className='text-lg font-medium'>Barambino</h4>
                 </div>
               </ProductWrapper>

@@ -4,13 +4,11 @@ import {
   BlogSwitcher,
   Button,
   H,
-  ProductModal,
   Section,
 } from '/components'
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
-import { banner2 } from '/public'
 import Link from 'next/link'
 
 export default async function Product({
@@ -42,8 +40,10 @@ export default async function Product({
                 className='flex aspect-square rounded-3xl relative overflow-hidden'
               >
                 <Image
-                  src={banner2}
+                  src={`https://picsum.photos/200?random${i + 1}`}
                   alt={`${i}`}
+                  width={200}
+                  height={200}
                   className='absolute inset-0 object-cover h-full w-full'
                 />
                 <Link

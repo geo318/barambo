@@ -1,4 +1,3 @@
-import { Marcellus } from 'next/font/google'
 import {
   Arc,
   Button,
