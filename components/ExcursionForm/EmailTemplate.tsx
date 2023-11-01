@@ -2,11 +2,10 @@ import { EmailForm } from '/types'
 
 export const EmailTemplate: React.FC<Readonly<Partial<EmailForm>>> = ({
   name,
-  last_name,
-  email,
-  personal_id,
-  address,
-  message,
+  phone,
+  class: nameOfClass,
+  school,
+  description,
 }) => (
   <div className='max-w-2xl mx-auto p-4 border border-gray-300 rounded'>
     <header className='bg-gray-200 py-4 text-center'>
@@ -15,23 +14,18 @@ export const EmailTemplate: React.FC<Readonly<Partial<EmailForm>>> = ({
     <main className='py-4 text-xl'>
       <ul className='mb-4 flex flex-col list-disc'>
         <li>
-          <span className='text-base font-semibold'>Name:</span>{' '}
-          {`${name} ${last_name}`}
+          <span className='text-base font-semibold'>Name:</span> {name}
         </li>
         <li>
-          <span className='text-base font-semibold'>Email:</span> {email}
+          <span className='text-base font-semibold'>Phone:</span> {phone}
         </li>
         <li>
-          <span className='text-base font-semibold'>Id:</span> {personal_id}
+          <span className='text-base font-semibold'>Class:</span> {nameOfClass}
         </li>
         <li>
-          <span className='text-base font-semibold'>Address:</span>: {address}
+          <span className='text-base font-semibold'>description:</span>:{' '}
+          {description}
         </li>
-        {message && (
-          <li>
-            <span className='text-base font-semibold'>Comment</span> {message}
-          </li>
-        )}
       </ul>
     </main>
     <footer className='bg-gray-200 py-4 text-center'>

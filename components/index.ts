@@ -1,6 +1,6 @@
 export * from './shared'
 export * from './icons'
-// export * from './EmailForm'
+export * from './ExcursionForm'
 export * from './Footer'
 export * from './Navbar'
 export * from './Input'

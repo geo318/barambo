@@ -110,6 +110,24 @@
     },
     "sum": "Qualified professionals are employed at “Barambo” Company. Professional team permanently works with their foreign colleagues to expand the production, implement new technologies and it is orientated on permanent development. Foreign technologists are invited in the factory; employees attend foreign professionals’ intensive trainings."
   },
+  "excursion": {
+    "heading": "ექსკურსია",
+    "inputs": {
+      "name": {
+        "label": "Tutor's full name",
+        "placeholder": "Contact full name"
+      },
+      "phone": { "label": "Contact number", "placeholder": "Contact phone" },
+      "class": { "label": "Class", "placeholder": "Your class name" },
+      "school": { "label": "School number", "placeholder": "Your school name" },
+      "description": {
+        "label": "Additional Information",
+        "placeholder": "Write your message"
+      }
+    },
+    "h2": "lorem ipsum",
+    "info": "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+  },
   "product": {
     "h1": "Product"
   },

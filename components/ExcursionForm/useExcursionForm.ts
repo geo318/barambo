@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { orderCardForm } from '/config'
+import { excursionForm } from '/config'
 import { emailSchema } from '/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
@@ -32,14 +32,13 @@ export const useEmailForm = () => {
     }
   }
 
-  const props = (key: keyof typeof orderCardForm) => ({
+  const props = (key: keyof typeof excursionForm) => ({
     name: key,
-    type: orderCardForm[key].type,
-    required: orderCardForm[key].required,
+    type: excursionForm[key].type,
+    required: excursionForm[key].required,
   })
 
   return {
-    orderCardForm,
     props,
     message,
     isLoading,

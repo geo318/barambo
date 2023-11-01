@@ -1,15 +1,14 @@
 'use client'
-import { Input } from '../Input'
-import { useEmailForm } from './useEmailForm'
-import { FormProvider } from 'react-hook-form'
-import { OrderFormText, type EmailForm as TEmailForm } from '/types'
-import { orderCardFormInitialValues } from '/config'
-import { Fragment } from 'react'
-import { Spinner } from '../shared'
 
-export const EmailForm = ({ texts }: { texts: OrderFormText }) => {
-  const { props, message, isLoading, submitHandler, orderCardForm, form } =
-    useEmailForm()
+import { Input, Spinner } from '/components'
+import { useEmailForm } from './useExcursionForm'
+import { FormProvider } from 'react-hook-form'
+import { type Excursion, type EmailForm as TEmailForm } from '/types'
+import { excursionForm } from '/config'
+import { Fragment } from 'react'
+
+export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
+  const { props, message, isLoading, submitHandler, form } = useEmailForm()
 
   return (
     <>
@@ -36,20 +35,15 @@ export const EmailForm = ({ texts }: { texts: OrderFormText }) => {
             </div>
           )}
           {(
-            Object.entries(orderCardFormInitialValues) as [
+            Object.entries(excursionForm) as [
               keyof TEmailForm,
-              TEmailForm[keyof TEmailForm]
+              (typeof excursionForm)[keyof TEmailForm]
             ][]
           ).map(([key, _]) => (
             <Fragment key={key}>
-              {key === 'message' && (
-                <p className='text-base font-bold col-span-2 text-app-blue'>
-                  {texts.upload}
-                </p>
-              )}
               <div
                 className={`flex flex-col gap-2 ${
-                  orderCardForm[key].required
+                  excursionForm[key].required
                     ? 'lg:col-span-1 col-span-2'
                     : 'col-span-2'
                 }`}
@@ -61,17 +55,8 @@ export const EmailForm = ({ texts }: { texts: OrderFormText }) => {
                   label={texts.inputs[key].label}
                 />
               </div>
-              {key === 'id_image_facing_back' && (
-                <p className='text-base font-bold col-span-2 text-app-blue'>
-                  {texts.selfie}
-                </p>
-              )}
             </Fragment>
           ))}
-          <label className='flex gap-5 col-span-2 '>
-            <input type='checkbox' required />
-            <span>{texts.verify}</span>
-          </label>
 
           <button
             type='submit'
@@ -85,5 +70,3 @@ export const EmailForm = ({ texts }: { texts: OrderFormText }) => {
     </>
   )
 }
-
-export default EmailForm

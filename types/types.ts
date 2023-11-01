@@ -12,6 +12,7 @@ export type SharedText = Translation['shared']
 export type Certificate = HomeText['certificates']
 export type Export = HomeText['export']
 export type BlogText = Translation['blog']
+export type Excursion = Translation['excursion']
 
 export type PageProps = { params: { lang: Locale } }
 export type EmailForm = z.infer<typeof emailSchema>
