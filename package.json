@@ -3,25 +3,48 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3200",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3200",
+    "lint": "next lint",
+    "migrate": "drizzle-kit generate:sqlite",
+    "migrations:push": "node -r esbuild-register ./server/database/migrate.ts",
+    "db:push": "drizzle-kit push:sqlite",
+    "migrations:drop": "drizzle-kit drop --config=drizzle.config.ts"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.4.2",
+    "@hookform/resolvers": "^3.3.2",
+    "@types/better-sqlite3": "^7.6.6",
+    "@types/negotiator": "^0.6.2",
+    "better-sqlite3": "^9.0.0",
+    "drizzle-kit": "^0.19.13",
+    "drizzle-orm": "^0.28.6",
+    "drizzle-zod": "^0.5.1",
+    "negotiator": "^0.6.3",
+    "next": "14.0.1",
+    "next-auth": "^4.24.4",
+    "nodemailer": "^6.9.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.1"
+    "react-hook-form": "^7.47.0",
+    "react-player": "^2.13.0",
+    "resend": "^1.1.0",
+    "sharp": "^0.32.6",
+    "swiper": "^11.0.3",
+    "tailwind-merge": "^2.0.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.13",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.1"
+    "typescript": "^5"
   }
 }

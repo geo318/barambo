@@ -2,26 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer utilities {
+  .txt-balanced {
+    text-wrap: balance;
+  }
+  .txt-pretty {
+    text-wrap: pretty;
+  }
+  .txt-nowrap {
+    text-wrap: nowrap;
+  }
+  .txt-stable {
+    text-wrap: stable;
+  }
+  .txt-wrap {
+    text-wrap: wrap;
+  }
+  .txt-unset {
+    text-wrap: unset;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+header > div,
+header img {
+  transition: 150ms;
+}
+
+.header-small > div {
+  padding: 20px;
+}
+
+.header-small img {
+  width: 100px;
+}
+
+.fade-in {
+  animation: fade-in 500ms forwards ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.start {
+  translate: -10%;
+  opacity: 0;
+}
+
+.end {
+  translate: 0 0;
+  opacity: 1;
+}
+
+.no-drag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
