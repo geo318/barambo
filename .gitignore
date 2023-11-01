@@ -38,5 +38,6 @@ next-env.d.ts
 #custom
 /express/node_modules
 /express/build
-/express/uploads
+/express/uploads/blur/*
+/express/uploads/images/*
 /server/database/db

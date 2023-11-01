@@ -1,17 +1,19 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { category, db, subCategory } from '.'
+import { category, db, subCategory } from '/server'
 import { Category, SubCategory } from '/types'
 import { getFormValues, writeFile } from '/utils'
+import sharp from 'sharp'
 
 export const createMainCategory = async (formData: FormData) => {
   const [mapped, file] = getFormValues<Category>(formData)
 
   if (!file) return new Response('file not uploaded')
+  const buffer = Buffer.from(await file[0].arrayBuffer())
 
   try {
-    const { path } = await writeFile(file)
+    const { path } = await writeFile(file, buffer, sharp(buffer))
     await db.insert(category).values({ ...mapped, thumbnail: path })
     revalidatePath('/admin/categories')
   } catch (e) {
@@ -27,9 +29,10 @@ export const createSubCategory = async (formData: FormData) => {
   }, '')
 
   if (!file) return new Response('file not uploaded')
-
+  const buffer = Buffer.from(await file[0].arrayBuffer())
   try {
-    const { path } = await writeFile(file)
+    const { path } = await writeFile(file, buffer, sharp(buffer))
+
     await db
       .insert(subCategory)
       .values({ ...mapped, thumbnail: path, categoryIds })
