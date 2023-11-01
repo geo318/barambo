@@ -9,11 +9,11 @@ export const excursionForm = {
   },
   class: {
     required: true,
-    type: 'email',
+    type: 'text',
   },
   school: {
     required: true,
-    type: 'phone',
+    type: 'text',
   },
   description: {
     required: false,

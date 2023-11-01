@@ -13,6 +13,7 @@
     "migrations:drop": "drizzle-kit drop --config=drizzle.config.ts"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@formatjs/intl-localematcher": "^0.4.2",
     "@hookform/resolvers": "^3.3.2",
     "autoprefixer": "10.4.16",
@@ -24,9 +25,11 @@
     "next-auth": "^4.24.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-email": "^1.9.5",
     "react-hook-form": "^7.46.2",
     "react-player": "^2.13.0",
     "react-query": "^3.39.3",
+    "resend": "^1.1.0",
     "sharp": "^0.32.6",
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",

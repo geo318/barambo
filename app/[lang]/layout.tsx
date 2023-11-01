@@ -1,6 +1,5 @@
 import '../globals.css'
 import type { Metadata } from 'next'
-import { Mukta } from 'next/font/google'
 import { Footer, Navbar } from '/components'
 import { Locale } from '/types'
 import { getDictionary } from '/lib'

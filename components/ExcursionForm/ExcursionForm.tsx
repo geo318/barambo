@@ -1,6 +1,6 @@
 'use client'
 
-import { Input, Spinner } from '/components'
+import { Button, Input, Spinner } from '/components'
 import { useEmailForm } from './useExcursionForm'
 import { FormProvider } from 'react-hook-form'
 import { type Excursion, type EmailForm as TEmailForm } from '/types'
@@ -58,13 +58,9 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
             </Fragment>
           ))}
 
-          <button
-            type='submit'
-            className='text-white bg-app-blue hover:bg-[#56aee9] py-3 text-lg font-extrabold tracking-wide rounded-lg col-span-2 disabled:opacity-50 disabled:cursor-default'
-            disabled={isLoading}
-          >
-            Submit
-          </button>
+          <Button type='submit' disabled={isLoading} className='h-16 w-48'>
+            {texts.button}
+          </Button>
         </form>
       </FormProvider>
     </>
