@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import ReactPlayer from 'react-player'
-import { Spinner } from '.'
+// import { Spinner } from '.'
 
 export const VideoPlayer = ({ link }: { link: string }) => {
   const [isPlayerLoading, setIsPlayerLoading] = useState<boolean>(true)
 
   return (
     <div className='flex w-full h-full justify-center items-center'>
-      {isPlayerLoading && <Spinner />}
+      {/* {isPlayerLoading && < />} */}
       <div
         className={`w-full h-full justify-center items-center aspect-6/5 ${
           isPlayerLoading ? 'hidden' : 'flex'

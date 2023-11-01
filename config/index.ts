@@ -6,6 +6,3 @@ export * from './routes'
 export * from './brands'
 export * from './constants'
 export * from './forms'
-
-export const staticPath = 'express/uploads' as const
-export const imagePaths = ['/images', '/blur'] as const

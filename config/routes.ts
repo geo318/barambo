@@ -7,3 +7,6 @@ export const routes = {
   excursion: '/excursion',
   login: '/login',
 }
+
+export const staticPath = 'express/uploads' as const
+export const imagePaths = ['/images', '/blur'] as const

@@ -13,7 +13,7 @@ export function Anima({
   const { ref } = useObserver<HTMLDivElement>()
   return (
     <div
-      ref={ref}
+      // ref={ref}
       className={twMerge('transition-all duration-300 delay-100', className)}
     >
       {children}

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Arrow, Button, H, Section } from '..'
+import { Arrow, Button, H, Section } from '/components'
 import { banner, banner2, banner3 } from '/public'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 import { useState } from 'react'

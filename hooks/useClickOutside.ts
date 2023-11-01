@@ -7,7 +7,7 @@ export const useClickOutSide = <T extends HTMLElement>({ cb }: { cb: () => void 
     (e: MouseEvent | TouchEvent): void => {
       if (!ref.current?.contains(e.target as Node)) cb();
     },
-    [ref]
+    [ref, cb]
   );
 
   useEffect(() => {

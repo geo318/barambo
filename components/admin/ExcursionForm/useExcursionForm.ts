@@ -4,7 +4,6 @@ import { emailSchema } from '/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
 import { objToFormData } from '/utils'
-import { Resend } from 'resend'
 
 export const useEmailForm = () => {
   const [message, setMessage] = useState({ error: '', success: '' })
@@ -20,13 +19,11 @@ export const useEmailForm = () => {
 
     const formData = objToFormData(data)
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/send`, {
+      await fetch(`${process.env.NEXT_PUBLIC_URL}/api/send`, {
         method: 'POST',
         body: formData,
       })
       form.reset()
-      if (res.status !== 200) throw new Error('Something went wrong')
-
       setMessage({ error: '', success: 'Email sent successfully' })
     } catch (err) {
       setMessage({ error: 'Something went wrong', success: '' })

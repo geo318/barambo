@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { Close } from '..'
+import { Close } from '/components'
 import { useEsc } from '/hooks'
 
 export const CloseModal = () => {

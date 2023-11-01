@@ -1,4 +1,11 @@
-import { barambino, barambo, season, exportB, pearl, barm } from '/public'
+import {
+  barambino,
+  baramboLogo as barambo,
+  season,
+  exportB,
+  pearl,
+  barm,
+} from '/public'
 
 export const brands = [
   { img: barambo, name: 'barambo', link: '' },

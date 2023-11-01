@@ -1,6 +1,6 @@
-import { NextFetchEvent, NextRequest, NextResponse } from 'next/server'
-import { locales } from './config'
-import { getLocale } from './utils'
+import { NextFetchEvent, NextResponse } from 'next/server'
+import { locales } from '/config'
+import { getLocale } from '/utils'
 import { NextRequestWithAuth, withAuth } from 'next-auth/middleware'
 
 const authMiddleWare = withAuth({})

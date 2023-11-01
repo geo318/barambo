@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { H } from '..'
+import { H } from '/components'
 import { twMerge } from 'tailwind-merge'
 import { ArcProps } from './types'
 

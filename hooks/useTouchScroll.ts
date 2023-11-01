@@ -1,7 +1,5 @@
-'use client'
-
 import { TouchEventHandler, useEffect, useState } from 'react'
-import { useScreenWidth } from '.'
+import { useScreenWidth } from '/hooks'
 
 export const useTouchScroll = ({
   turnLeft,
