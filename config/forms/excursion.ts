@@ -21,7 +21,7 @@ export const excursionForm = {
   },
 } as const
 
-export const orderCardFormInitialValues = (
+export const excursionFormInitialValues = (
   Object.keys(excursionForm) as (keyof typeof excursionForm)[]
 ).reduce((acc, key) => {
   acc[key] = ''

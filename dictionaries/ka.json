@@ -130,6 +130,39 @@
     "h2": "lorem ipsum",
     "info": "Please upload your photo holding your ID card where identification information is shown clearly"
   },
+  "contact": {
+    "h1": "Conact",
+    "inputs": {
+      "name": {
+        "label": "First name",
+        "placeholder": "Your first name"
+      },
+      "last_name": { "label": "Last name", "placeholder": "Your last name" },
+      "phone": { "label": "Number", "placeholder": "Your phone number" },
+      "email": { "label": "Email", "placeholder": "Your email" },
+      "subject": {
+        "general": "General Inquiry",
+        "export": "Export",
+        "excursion": "Excursion",
+        "products": "Products",
+        "other": "Other",
+        "placeholder": "",
+        "label": ""
+      },
+      "description": {
+        "label": "Additional Information",
+        "placeholder": "Write your message"
+      }
+    },
+    "options": {
+      "general": "General Inquiry",
+      "export": "Export",
+      "excursion": "Excursion",
+      "products": "Products",
+      "other": "Other"
+    },
+    "button": "Send Message"
+  },
   "product": {
     "h1": "პროდუქცია"
   },

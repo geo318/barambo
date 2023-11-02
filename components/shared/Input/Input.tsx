@@ -11,11 +11,13 @@ export const Input = ({
   placeholder,
   label,
   labelClassName,
+  options,
   ...props
 }: JSX.IntrinsicElements['input'] & {
   textarea?: boolean
   label?: string
   labelClassName?: string
+  options?: string[] | null
 }) => {
   const {
     register,
@@ -23,13 +25,29 @@ export const Input = ({
   } = useFormContext()
   return (
     <>
-      <label
-        className={twMerge('capitalize font-bold text-sm', labelClassName)}
-      >
-        {label}
-        {props.required ? '*' : ''}
-      </label>
-      {!textarea ? (
+      {!options && (
+        <label
+          className={twMerge('capitalize font-bold text-sm', labelClassName)}
+        >
+          {label}
+          {props.required ? '*' : ''}
+        </label>
+      )}
+      {options ? (
+        <div className='flex gap-10'>
+          {options.map((o) => (
+            <div key={o} className='flex gap-4 items-center justify-center shrink-0'>
+              <input
+                type='radio'
+                {...(name && register(name))}
+                id={name}
+                value={o}
+              />
+              <label htmlFor={o}>{o}</label>
+            </div>
+          ))}
+        </div>
+      ) : !textarea ? (
         <input
           {...(name && register(name))}
           {...{ ...props, type, placeholder }}

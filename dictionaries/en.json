@@ -129,6 +129,34 @@
     "h2": "lorem ipsum",
     "info": "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
   },
+  "contact": {
+    "h1": "Conact",
+    "inputs": {
+      "name": {
+        "label": "First name",
+        "placeholder": "Your first name"
+      },
+      "last_name": { "label": "Last name", "placeholder": "Your last name" },
+      "phone": { "label": "Number", "placeholder": "Your phone number" },
+      "email": { "label": "Email", "placeholder": "Your email" },
+      "subject": {
+        "placeholder": "",
+        "label": ""
+      },
+      "description": {
+        "label": "Additional Information",
+        "placeholder": "Write your message"
+      }
+    },
+    "options": {
+      "general": "General Inquiry",
+      "export": "Export",
+      "excursion": "Excursion",
+      "products": "Products",
+      "other": "Other"
+    },
+    "button": "Send Message"
+  },
   "product": {
     "h1": "Product"
   },
