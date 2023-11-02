@@ -12,7 +12,6 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
 
   return (
     <>
-      <h3 className='py-5 text-3xl font-semibold'>{texts.heading}</h3>
       {message.error && (
         <p className='text-red-500 border border-red-300 rounded-md p-3'>
           ⚠️ {message.error}
@@ -26,7 +25,7 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
       <FormProvider {...form}>
         <form
           method='post'
-          className='grid grid-cols-2 gap-6 mt-8 relative'
+          className='grid grid-cols-2 gap-6 relative'
           onSubmit={form.handleSubmit(submitHandler)}
         >
           {isLoading && (
@@ -60,7 +59,7 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
             </Fragment>
           ))}
 
-          <Button type='submit' disabled={isLoading} className='h-16 w-48'>
+          <Button type='submit' disabled={isLoading} className='h-16 w-48 ml-auto col-span-2'>
             {texts.button}
           </Button>
         </form>
