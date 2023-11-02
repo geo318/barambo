@@ -10,15 +10,22 @@ export const Input = ({
   className,
   placeholder,
   label,
+  labelClassName,
   ...props
-}: JSX.IntrinsicElements['input'] & { textarea?: boolean; label?: string }) => {
+}: JSX.IntrinsicElements['input'] & {
+  textarea?: boolean
+  label?: string
+  labelClassName?: string
+}) => {
   const {
     register,
     formState: { errors },
   } = useFormContext()
   return (
     <>
-      <label className='capitalize font-bold text-sm'>
+      <label
+        className={twMerge('capitalize font-bold text-sm', labelClassName)}
+      >
         {label}
         {props.required ? '*' : ''}
       </label>
@@ -35,7 +42,10 @@ export const Input = ({
         <textarea
           {...(name && register(name))}
           {...{ type, placeholder }}
-          className='p-3 border border-gray-900 rounded-lg focus:outline-app-blue'
+          className={twMerge(
+            'p-3 border border-gray-900 rounded-lg focus:outline-app-blue',
+            className
+          )}
           rows={5}
         />
       )}

@@ -53,6 +53,8 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
                   textarea={props(key).type === 'textarea'}
                   placeholder={texts.inputs[key].placeholder}
                   label={texts.inputs[key].label}
+                  className='rounded-none border-t-0 border-x-0 border-b outline-none text-sm px-0'
+                  labelClassName='font-medium text-lg'
                 />
               </div>
             </Fragment>
