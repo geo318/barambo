@@ -14,7 +14,7 @@ export const Nav: React.FC<NavbarProps & { toggle?: () => void }> = ({
   <>
     <nav
       className={twMerge(
-        'flex gap-6 font-medium text-lg text-secondary',
+        'flex gap-6 font-medium text-lg text-secondary mr-[8%]',
         className
       )}
     >

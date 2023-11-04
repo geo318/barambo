@@ -1,19 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { locales, emojis, localeInfo } from '/config'
+import { localeInfo } from '/config'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
 export function Switcher() {
   const pathname = usePathname()
   return (
-    <ul className='flex font-medium text-lg gap-4 ml-auto'>
+    <ul className='flex font-medium text-lg gap-4'>
       {localeInfo?.map((locale) => (
         <li
           key={locale.key}
           className={twMerge(
-            pathname.startsWith(`/${locale.key}`) && 'border-b border-primary text-primary'
+            'border-y border-transparent mt-2',
+            pathname.startsWith(`/${locale.key}`) &&
+              'border-b-primary text-primary'
           )}
         >
           <Link

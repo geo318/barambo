@@ -12,7 +12,7 @@ import fs from 'fs'
 */
 
 export const writeFile = async (
-  files: Blob[],
+  files: File[],
   buffer: Buffer,
   sharpBuffer: Sharp,
   size: number | undefined = 800
@@ -20,7 +20,7 @@ export const writeFile = async (
   const file = files[0]
   const [publicDir, staticDir] = staticPath.split(/\//)
   const [filePath, blurPath] = [...imagePaths].map(
-    (p) => `/${staticDir}${p}/${generateFileName('file.name')}`
+    (p) => `/${staticDir}${p}/${generateFileName(file.name)}`
   )
 
   imagePaths.forEach((p) => {
@@ -42,8 +42,8 @@ export const writeFile = async (
     if (err) console.log(err)
   })
 
-  const path = 'filePath'.split(/\//).pop()
-  return { path: `${'imagePaths'[0]}/${path}` }
+  const path = filePath.split(/\//).pop()
+  return { path: `${imagePaths[0]}/${path}` }
 }
 
 function generateFileName(fileName: string) {
