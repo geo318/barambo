@@ -1,19 +1,19 @@
 import { CategoryForm, CategoryList, H } from '/components'
-import { createMainCategory, getCategories } from '/server'
-import { Category } from '/types'
+import { createSubCategory, getSubCategories } from '/server'
+import { SubCategory } from '/types'
 
-export default async function Category() {
-  const categories = await getCategories()
+export default async function SubCategory() {
+  const subCategories = await getSubCategories()
 
   return (
     <div className='grid grid-cols-2'>
       <section className='border-r'>
         <H tag='h1' size='md' className='mb-20 text-center'>
-          Add Main Category
+          Add Subcategory
         </H>
         <div className='flex'>
           <section className='flex flex-col max-w-md mx-auto'>
-            <CategoryForm action={createMainCategory} />
+            <CategoryForm action={createSubCategory} />
           </section>
         </div>
       </section>
@@ -23,7 +23,7 @@ export default async function Category() {
         </H>
         <div className='flex'>
           <section className='flex flex-col max-w-md mx-auto'>
-            <CategoryList category={categories} />
+            <CategoryList category={subCategories} />
           </section>
         </div>
       </section>

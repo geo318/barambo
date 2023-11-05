@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 import { Logo } from '/components'
+import { adminNavList } from '/config'
 
 export function Aside({ className }: { className: string }) {
   const pathName = usePathname()
@@ -20,22 +21,17 @@ export function Aside({ className }: { className: string }) {
       </Link>
 
       <nav className='flex flex-col gap-5 justify-between px-10'>
-        <Link
-          href='/admin/category'
-          className={`${
-            pathName === '/admin/music' ? 'font-semibold' : ''
-          } px-3 hover:underline`}
-        >
-          Add Category
-        </Link>
-        <Link
-          href='/admin/product'
-          className={`${
-            pathName === '/admin/event' ? 'font-semibold' : ''
-          } px-3 hover:underline`}
-        >
-          Add Product
-        </Link>
+        {adminNavList.map(({ name, link }) => (
+          <Link
+            key={name}
+            href={link}
+            className={`capitalize ${
+              pathName === link ? 'font-semibold' : ''
+            } px-3 hover:underline`}
+          >
+            {name.replace(/_/g, ' ')}
+          </Link>
+        ))}
       </nav>
     </aside>
   )

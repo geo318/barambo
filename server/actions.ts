@@ -24,9 +24,11 @@ export const createMainCategory = async (formData: FormData) => {
 export const createSubCategory = async (formData: FormData) => {
   const [mapped, file] = getFormValues<SubCategory>(formData)
 
-  const categoryIds = Object.entries(mapped).reduce((acc, [key, val], i) => {
-    return key.includes('cat') ? (acc += `${i <= 1 ? '' : ','}${val}`) : acc
-  }, '')
+  const categoryIds = Object.entries(mapped).reduce(
+    (acc, [key, val], i) =>
+      key.includes('cat') ? (acc += `${i <= 1 ? '' : ','}${val}`) : acc,
+    ''
+  )
 
   if (!file) return new Response('file not uploaded')
   const buffer = Buffer.from(await file[0].arrayBuffer())
@@ -43,3 +45,5 @@ export const createSubCategory = async (formData: FormData) => {
 }
 
 export const getCategories = async () => await db.select().from(category)
+
+export const getSubCategories = async () => await db.select().from(subCategory)

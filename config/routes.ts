@@ -6,6 +6,12 @@ export const routes = {
   blog: '/blog',
   excursion: '/excursion',
   login: '/login',
+  admin: '/admin',
+  addCategory: '/admin/category',
+  addSubCategory: '/admin/subcategory',
+  addProduct: '/admin/product',
+  addSlider: '/admin/slider',
+  addCertificate: '/admin/certificate',
 }
 
 export const staticPath = 'express/uploads' as const
