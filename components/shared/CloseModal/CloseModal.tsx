@@ -3,13 +3,18 @@
 import { useRouter } from 'next/navigation'
 import { Close } from '/components'
 import { useEsc } from '/hooks'
+import { twMerge } from 'tailwind-merge'
 
-export const CloseModal = () => {
+export const CloseModal = ({ closeKey = '', className = '' }) => {
   const router = useRouter()
-  const toggleModal = () => router.replace('?recept')
+  const toggleModal = () => router.replace(closeKey)
   useEsc(toggleModal)
+
   return (
-    <div className='p-2 cursor-pointer ml-auto' onClick={toggleModal}>
+    <div
+      className={twMerge('p-2 cursor-pointer ml-auto', className)}
+      onClick={toggleModal}
+    >
       <Close />
       <div className='fixed inset-0 -z-10' onClick={toggleModal} />
     </div>

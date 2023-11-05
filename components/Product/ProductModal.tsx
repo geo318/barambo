@@ -1,18 +1,8 @@
-'use client'
-
-import { useRouter, useSearchParams } from 'next/navigation'
-import { Portal, Close, H } from '/components'
-import { useEsc } from '/hooks'
+import { Portal, H, CloseModal } from '/components'
 import Image from 'next/image'
 import { barambinos } from '/public'
 
-export function ProductModal() {
-  const params = useSearchParams()
-  const isOpen = params.has('id')
-  const router = useRouter()
-  const toggleModal = () => router.replace('/product')
-  useEsc(toggleModal)
-
+export function ProductModal({ isOpen = false }) {
   return (
     <>
       {isOpen && (
@@ -23,12 +13,7 @@ export function ProductModal() {
                 <H tag='h3' size='lg' className='mt-5'>
                   HARMONY – WAFER CAKE WITH COCONUT
                 </H>
-                <div
-                  className='p-2 cursor-pointer ml-auto'
-                  onClick={toggleModal}
-                >
-                  <Close />
-                </div>
+                <CloseModal closeKey='/product'/>
               </div>
 
               <section className='grid grid-cols-8 gap-12'>

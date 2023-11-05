@@ -1,7 +1,4 @@
-'use client'
-
-import { Portal, H, VideoPlayer } from '/components'
-import { CloseModal } from './CloseModal'
+import { Portal, H, VideoPlayer, CloseModal } from '/components'
 
 export const BlogModal = ({ isOpen = false }) => (
   <>
@@ -19,7 +16,7 @@ export const BlogModal = ({ isOpen = false }) => (
                   <H tag='h3' size='lg' className=''>
                     chocolate cake
                   </H>
-                  <CloseModal />
+                  <CloseModal closeKey='?recept' />
                 </div>
                 <div className='my-10 border-b border-[#bebebe]' />
                 <ul className='mt-10 flex flex-col gap-5 text-lg leading-normal'>

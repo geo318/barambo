@@ -4,7 +4,6 @@ import { emailSchema } from '/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
 import { objToFormData } from '/utils'
-import { Resend } from 'resend'
 
 export const useEmailForm = () => {
   const [message, setMessage] = useState({ error: '', success: '' })

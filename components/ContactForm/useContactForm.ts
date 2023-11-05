@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { excursionForm } from '/config'
 import { emailSchema } from '/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
 import { objToFormData } from '/utils'
-import { Resend } from 'resend'
 import { contactForm } from '/config/forms/contact'
 
 export const useEmailForm = () => {
