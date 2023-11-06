@@ -1,7 +1,13 @@
+'use client'
+
 import Image from 'next/image'
+import Link from 'next/link'
 import { Category } from '/types'
+import { FormContext } from '/context'
+import { useContext } from 'react'
 
 export function CategoryList({ category }: { category: Category[] }) {
+  const { setDefaultValues } = useContext(FormContext)
   return (
     <div className='flex flex-col gap-3'>
       {category.map((c, i) => {
@@ -19,6 +25,13 @@ export function CategoryList({ category }: { category: Category[] }) {
               <div className='col-span-4'>{c['name_eng']}</div>
               <div className='col-span-4'>{c['name_geo']}</div>
             </div>
+            <Link
+              href='?edit'
+              className='text-blue-600 hover:underline'
+              onClick={() => setDefaultValues?.(c)}
+            >
+              Edit
+            </Link>
           </div>
         )
       })}

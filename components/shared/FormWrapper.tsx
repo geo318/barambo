@@ -3,16 +3,20 @@
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProps } from './types'
+import { useContext } from 'react'
+import { FormContext } from '/context'
 
 export const FormWrapper: React.FC<FormProps> = ({
   children,
   schema,
-  defaultValues = {},
   onSubmit,
   className = '',
   buttonLabel = 'submit',
   revalidate,
 }) => {
+  const { defaultValues } = useContext(FormContext)
+  console.log(defaultValues)
+
   const form = useForm({
     mode: 'onBlur',
     resolver: zodResolver(schema),
@@ -21,10 +25,7 @@ export const FormWrapper: React.FC<FormProps> = ({
 
   return (
     <FormProvider {...form}>
-      <form
-        className={className}
-        action={onSubmit}
-      >
+      <form className={className} action={onSubmit}>
         <div className='flex flex-col gap-2'>{children}</div>
 
         <button

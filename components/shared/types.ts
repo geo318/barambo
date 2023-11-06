@@ -15,7 +15,7 @@ export type CustomHeading = {
 export type FormProps = {
   children: React.ReactNode
   schema: Schema
-  defaultValues?: Record<string, string>
+  defaultValues?: Record<string, string | number | undefined | null>
   onSubmit?: SubmitHandler<any>
   buttonLabel?: string
   className?: string
