@@ -18,3 +18,9 @@ export type Contact = Translation['contact']
 export type PageProps = { params: { lang: Locale } }
 export type EmailForm = z.infer<typeof emailSchema>
 export type ContactForm = z.infer<typeof contactSchema>
+
+export type FormAction = (
+  formData: FormData
+) => Promise<{ success?: boolean | string; error?: string }>
+
+export type Entries<T extends Record<string, any>> = [keyof T, T[keyof T]][]

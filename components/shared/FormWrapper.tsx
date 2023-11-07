@@ -10,12 +10,10 @@ export const FormWrapper: React.FC<FormProps> = ({
   children,
   schema,
   onSubmit,
-  className = '',
+  className,
   buttonLabel = 'submit',
-  revalidate,
 }) => {
   const { defaultValues } = useContext(FormContext)
-  console.log(defaultValues)
 
   const form = useForm({
     mode: 'onBlur',
@@ -28,10 +26,7 @@ export const FormWrapper: React.FC<FormProps> = ({
       <form className={className} action={onSubmit}>
         <div className='flex flex-col gap-2'>{children}</div>
 
-        <button
-          className='bg-blue-500 px-5 py-2 rounded-md text-white w-full mt-2 hover:bg-blue-600'
-          onClick={() => revalidate?.()}
-        >
+        <button className='bg-blue-500 px-5 py-2 rounded-md text-white w-full mt-2 hover:bg-blue-600'>
           {buttonLabel}
         </button>
       </form>

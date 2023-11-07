@@ -2,12 +2,19 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Category } from '/types'
+import { Category, FormAction } from '/types'
 import { FormContext } from '/context'
 import { useContext } from 'react'
 
-export function CategoryList({ category }: { category: Category[] }) {
+export function CategoryList({
+  category,
+  action,
+}: {
+  category: Category[]
+  action?: FormAction
+}) {
   const { setDefaultValues } = useContext(FormContext)
+
   return (
     <div className='flex flex-col gap-3'>
       {category.map((c, i) => {
@@ -26,12 +33,22 @@ export function CategoryList({ category }: { category: Category[] }) {
               <div className='col-span-4'>{c['name_geo']}</div>
             </div>
             <Link
-              href='?edit'
+              href={`?edit=${c.id}`}
               className='text-blue-600 hover:underline'
-              onClick={() => setDefaultValues?.(c)}
+              onClick={() => {
+                setDefaultValues?.(c)
+              }}
             >
               Edit
             </Link>
+            <form action={action}>
+              <input name='id' value={c.id} hidden readOnly />
+              <input
+                type='submit'
+                value='Delete'
+                className='cursor-pointer hover:underline'
+              />
+            </form>
           </div>
         )
       })}

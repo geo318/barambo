@@ -1,13 +1,18 @@
 import { CategoryForm, CategoryList, CloseModal, H, Portal } from '/components'
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
-import { createMainCategory, getCategories } from '/server'
+import {
+  createMainCategory,
+  deleteCategory,
+  editCategory,
+  getCategories,
+} from '/server'
 import { Category } from '/types'
 
 export default async function Category({
   searchParams,
 }: {
-  searchParams: URLSearchParams & { edit?: string }
+  searchParams: URLSearchParams & { edit?: number }
 }) {
   const categories = await getCategories()
 
@@ -30,7 +35,7 @@ export default async function Category({
           </H>
           <div className='flex'>
             <section className='flex flex-col max-w-md mx-auto'>
-              <CategoryList category={categories} />
+              <CategoryList category={categories} action={deleteCategory} />
             </section>
           </div>
         </section>
@@ -42,7 +47,7 @@ export default async function Category({
                 <CloseModal closeKey={routes.addCategory} className='p-0' />
               </div>
 
-              <CategoryForm action={createMainCategory} edit />
+              <CategoryForm action={editCategory} edit={searchParams?.edit} />
             </div>
           </Portal>
         )}

@@ -1,8 +1,9 @@
-import { Category } from "/types"
+import { Category, FormAction } from '/types'
 
 export type CategoryProps = {
+  action: FormAction
+  edit?: number | null
+  defaultValues?: Category | null
   main?: Category[]
-  action?: (formData: FormData) => Promise<Response | undefined>
-  edit?: boolean
-  defaultValues?: Category
+  checked?: string[]
 }

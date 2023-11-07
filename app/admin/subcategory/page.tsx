@@ -1,15 +1,24 @@
 import { CategoryForm, CategoryList, CloseModal, H, Portal } from '/components'
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
-import { createSubCategory, getSubCategories } from '/server'
+import {
+  createSubCategory,
+  deleteSubcategory,
+  editSubCategory,
+  getCategories,
+  getSubCategories,
+} from '/server'
 import { SubCategory } from '/types'
 
 export default async function SubCategory({
   searchParams,
 }: {
-  searchParams: URLSearchParams & { edit?: string }
+  searchParams: URLSearchParams & { edit?: number }
 }) {
-  const subCategories = await getSubCategories()
+  const [subCategories, categories] = await Promise.all([
+    getSubCategories(),
+    getCategories(),
+  ])
 
   return (
     <div className='grid grid-cols-2'>
@@ -20,17 +29,20 @@ export default async function SubCategory({
           </H>
           <div className='flex'>
             <section className='flex flex-col max-w-md mx-auto'>
-              <CategoryForm action={createSubCategory} />
+              <CategoryForm action={createSubCategory} main={categories} />
             </section>
           </div>
         </section>
         <section>
           <H tag='h1' size='md' className='mb-20 text-center'>
-            category list
+            Subcategory list
           </H>
           <div className='flex'>
             <section className='flex flex-col max-w-md mx-auto'>
-              <CategoryList category={subCategories} />
+              <CategoryList
+                category={subCategories}
+                action={deleteSubcategory}
+              />
             </section>
           </div>
         </section>
@@ -42,7 +54,14 @@ export default async function SubCategory({
                 <CloseModal closeKey={routes.addSubCategory} className='p-0' />
               </div>
 
-              <CategoryForm action={createSubCategory} edit />
+              <CategoryForm
+                action={editSubCategory}
+                main={categories}
+                checked={subCategories
+                  .find((e) => e.id === Number(searchParams?.edit))
+                  ?.categoryIds?.split(',')}
+                edit={searchParams?.edit}
+              />
             </div>
           </Portal>
         )}
