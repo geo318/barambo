@@ -7,7 +7,7 @@ import { usePortal } from './usePortal'
 const Portal: FC<{ children: React.ReactNode }> = ({ children }) => {
   const { mounted, ref } = usePortal()
   return mounted && ref.current
-    ? createPortal(<div>{children}</div>, ref.current)
+    ? createPortal(<>{children}</>, ref.current)
     : null
 }
 

@@ -9,16 +9,22 @@ export const usePortal = () => {
   useEffect(() => {
     const portal = document.createElement('div')
     portal.setAttribute('id', 'portal')
-    portal.classList.add(
+    portal.classList.add('fixed', 'inset-0', 'z-50')
+    const backdrop = document.createElement('div')
+    backdrop.classList.add(
       'fixed',
       'inset-0',
       'overflow-y-auto',
       'backdrop-blur-sm',
       'bg-black',
       'bg-opacity-30',
-      'z-50'
+      '-z-10'
     )
-    const body = document.querySelector<HTMLElement>('body')
+    backdrop.addEventListener('click', () => portal.remove())
+    portal.append(backdrop)
+
+    const body = document.querySelector('body')
+
     if (body) {
       body.append(portal)
       body.classList.add('overflow-hidden')
@@ -29,7 +35,10 @@ export const usePortal = () => {
 
     return () => {
       portal.remove()
-      if (body) body.classList.remove('overflow-hidden')
+      backdrop.removeEventListener('click', () => portal.remove())
+      if (body) {
+        body.classList.remove('overflow-hidden')
+      }
     }
   }, [])
 
