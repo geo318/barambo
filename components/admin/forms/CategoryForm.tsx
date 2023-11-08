@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { CategoryProps } from './types'
 import { FormWrapper, Input } from '/components'
 import { categorySchema } from '/schema'
-import { useRouter } from 'next/navigation'
+import { useCategoryForm } from './useCategoryForm'
 
 export const CategoryForm = ({
   main,
@@ -12,30 +11,10 @@ export const CategoryForm = ({
   edit,
   checked,
 }: CategoryProps) => {
-  const [message, setMessage] = useState({ error: '', success: '' })
-  const router = useRouter()
+  const { MessageBox, handleSubmit, ref } = useCategoryForm(action)
   return (
-    <FormWrapper
-      schema={categorySchema}
-      onSubmit={async (formData: FormData) => {
-        const res = await action(formData)
-        if (res.error) setMessage({ error: res.error, success: '' })
-        if (res.success) {
-          setMessage({ error: '', success: 'Success' })
-          router.back()
-        }
-      }}
-    >
-      {message.error && (
-        <p className='text-red-500 border border-red-300 rounded-md p-3'>
-          ⚠️ {message.error}
-        </p>
-      )}
-      {message.success && (
-        <p className='text-green-500 font-bold border border-green-300 rounded-md p-3 mt-5'>
-          ✅ {message.success}
-        </p>
-      )}
+    <FormWrapper schema={categorySchema} onSubmit={handleSubmit} formRef={ref}>
+      {MessageBox}
       {edit && <input name='id' defaultValue={edit} hidden readOnly />}
       <div className='flex gap-4 mb-4'>
         {main?.map((c, i) => (

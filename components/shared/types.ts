@@ -21,4 +21,5 @@ export type FormProps = {
   className?: string
   revalidate?: () => void
   hasButton?: boolean
+  formRef?: React.MutableRefObject<HTMLFormElement | null>
 }
