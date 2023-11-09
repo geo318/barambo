@@ -34,7 +34,9 @@ export const subCategory = sqliteTable('subCategory', {
   id: int('id').primaryKey(),
   name_eng: text('name_eng').notNull().unique(),
   name_geo: text('name_geo').notNull().unique(),
-  categoryIds: text('categoryIds').notNull(),
+  categoryId: int('categoryId')
+    .references(() => category.id)
+    .notNull(),
   order: integer('order').$defaultFn(() => 0),
   thumbnail: text('thumbnail').notNull(),
 })
@@ -48,9 +50,4 @@ export const product = sqliteTable('product', {
   categoryIds: text('categoryIds').notNull(),
   order: integer('order').$defaultFn(() => 0),
   thumbnail: text('thumbnail').notNull(),
-  unit_name: text('unit').notNull(),
-  unit_size: text('unit_size').notNull(),
-  package: text('package'),
-  
-  shelf_life: text('expires').notNull(),
 })

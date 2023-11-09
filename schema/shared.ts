@@ -23,3 +23,16 @@ export const categorySchema = z.object({
   order: z.coerce.number().int().min(0),
   thumbnail: imgSchema,
 })
+
+export const subCategorySchema = categorySchema.extend({
+  categoryId: z.coerce.number().min(0),
+})
+
+export const productSchema = z.object({
+  title_eng: z.string().min(3).max(20),
+  title_geo: z.string().min(3).max(20),
+  description_eng: z.string().min(3).max(500),
+  description_geo: z.string().min(3).max(500),
+  categories: z.string().min(1).max(10),
+  thumbnail: imgSchema,
+})

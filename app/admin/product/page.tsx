@@ -1,12 +1,19 @@
 import { Suspense } from 'react'
-import { CategoryForm, CategoryList, CloseModal, H, Portal } from '/components'
+import {
+  CategoryForm,
+  CategoryList,
+  CloseModal,
+  H,
+  Portal,
+  ProductForm,
+} from '/components'
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
 import {
   createSubCategory,
   deleteSubcategory,
   editSubCategory,
-  getCategories,
+  getProducts,
   getSubCategories,
 } from '/server'
 import { SubCategory } from '/types'
@@ -16,9 +23,9 @@ export default async function SubCategory({
 }: {
   searchParams: URLSearchParams & { edit?: number }
 }) {
-  const [subCategories, categories] = await Promise.all([
+  const [products, subCategories] = await Promise.all([
+    getProducts(),
     getSubCategories(),
-    getCategories(),
   ])
 
   return (
@@ -31,7 +38,11 @@ export default async function SubCategory({
           <div className='flex'>
             <section className='flex flex-col max-w-md mx-auto'>
               <Suspense fallback={<div>Loading...</div>}>
-                <CategoryForm action={createSubCategory} main={categories} />
+                <ProductForm
+                  action={createSubCategory}
+                  subCategory={subCategories}
+                  products={products}
+                />
               </Suspense>
             </section>
           </div>
@@ -59,7 +70,6 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <CategoryForm
                   action={editSubCategory}
-                  main={categories}
                   checked={
                     subCategories.find(
                       (e) => e.id === Number(searchParams?.edit)

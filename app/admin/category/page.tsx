@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { CategoryForm, CategoryList, CloseModal, H, Portal } from '/components'
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
@@ -25,7 +26,9 @@ export default async function Category({
           </H>
           <div className='flex'>
             <section className='flex flex-col max-w-md mx-auto'>
-              <CategoryForm action={createMainCategory} />
+              <Suspense fallback={<div>Loading...</div>}>
+                <CategoryForm action={createMainCategory} />
+              </Suspense>
             </section>
           </div>
         </section>
@@ -46,8 +49,9 @@ export default async function Category({
                 <h3 className='font-lg font-bold'>Edit Category</h3>
                 <CloseModal closeKey={routes.addCategory} className='p-0' />
               </div>
-
-              <CategoryForm action={editCategory} edit={searchParams?.edit} />
+              <Suspense fallback={<div>Loading...</div>}>
+                <CategoryForm action={editCategory} edit={searchParams?.edit} />
+              </Suspense>
             </div>
           </Portal>
         )}

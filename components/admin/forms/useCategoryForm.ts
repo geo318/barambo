@@ -1,10 +1,11 @@
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useRef } from 'react'
 import { CategoryProps } from './types'
 import { useSubmitMessage } from '/hooks'
 
 export const useCategoryForm = (action: CategoryProps['action']) => {
   const { setMessage, MessageBox } = useSubmitMessage()
+  const params = useSearchParams()
   const router = useRouter()
   const ref = useRef<HTMLFormElement>(null)
 
@@ -14,7 +15,7 @@ export const useCategoryForm = (action: CategoryProps['action']) => {
     if (res.success) {
       setMessage({ error: '', success: 'Success' })
       ref?.current?.reset()
-      router.back()
+      params.get('edit') && router.back()
     }
   }
   return { ref, handleSubmit, MessageBox }

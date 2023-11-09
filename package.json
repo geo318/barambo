@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",
+    "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.3.2",
+    "@tinymce/tinymce-react": "^4.3.0",
     "@types/better-sqlite3": "^7.6.6",
     "@types/negotiator": "^0.6.2",
     "better-sqlite3": "^9.0.0",

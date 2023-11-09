@@ -1,7 +1,7 @@
 'use client'
 
 import { CategoryProps } from './types'
-import { FormWrapper, Input } from '/components'
+import { FormWrapper, Input, Select } from '/components'
 import { categorySchema } from '/schema'
 import { useCategoryForm } from './useCategoryForm'
 
@@ -16,7 +16,7 @@ export const CategoryForm = ({
     <FormWrapper schema={categorySchema} onSubmit={handleSubmit} formRef={ref}>
       {MessageBox}
       {edit && <input name='id' defaultValue={edit} hidden readOnly />}
-      <div className='flex gap-4 mb-4'>
+      {/* <div className='flex gap-4 mb-4'>
         {main?.map((c, i) => (
           <Input
             key={c.id}
@@ -27,7 +27,18 @@ export const CategoryForm = ({
             value={c.id}
           />
         ))}
-      </div>
+      </div> */}
+      {main && (
+        <Select
+          name='categoryId'
+          placeholder='choose category'
+          options={main.reduce((acc, c) => {
+            acc.push({ id: c.id, name: c.name_eng })
+            return acc
+          }, [] as { id?: number; name: string }[])}
+          selected={checked}
+        />
+      )}
       <Input name='name_eng' label='Name Eng' />
       <Input name='name_geo' label='Name Geo' />
       <Input name='order' label='Order' type='number' min={0} />
