@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
-import { Logo } from '/components'
+import { Logo, SignOut } from '/components'
 import { adminNavList } from '/config'
 
 export function Aside({ className }: { className: string }) {
@@ -27,11 +27,12 @@ export function Aside({ className }: { className: string }) {
             href={link}
             className={`capitalize ${
               pathName === link ? 'font-semibold' : ''
-            } px-3 hover:underline`}
+            } hover:underline`}
           >
             {name.replace(/_/g, ' ')}
           </Link>
         ))}
+        <SignOut />
       </nav>
     </aside>
   )

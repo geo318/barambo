@@ -7,7 +7,9 @@ import { twMerge } from 'tailwind-merge'
 
 export const CloseModal = ({ closeKey = '', className = '' }) => {
   const router = useRouter()
-  const toggleModal = () => router.replace(closeKey)
+  const toggleModal = () =>
+    closeKey ? router.replace(closeKey) : router.back()
+
   useEsc(toggleModal)
 
   return (

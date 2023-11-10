@@ -7,26 +7,27 @@ import { useContext } from 'react'
 import { FormContext } from '/context'
 
 export const FormWrapper: React.FC<FormProps> = ({
-  children,
   schema,
-  onSubmit,
-  className,
   formRef,
+  onSubmit,
+  children,
+  className,
   buttonLabel = 'submit',
+  defaultValues,
 }) => {
-  const { defaultValues } = useContext(FormContext)
+  const { defaultValues: formDefaults } = useContext(FormContext)
 
   const form = useForm({
     mode: 'onBlur',
     resolver: zodResolver(schema),
-    defaultValues,
+    defaultValues: defaultValues ?? formDefaults,
   })
 
   return (
     <FormProvider {...form}>
       <form
-        className={className}
         onSubmit={onSubmit && form.handleSubmit(onSubmit)}
+        className={className}
         ref={formRef}
       >
         <div className='flex flex-col gap-2'>{children}</div>

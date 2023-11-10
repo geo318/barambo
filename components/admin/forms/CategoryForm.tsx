@@ -16,18 +16,6 @@ export const CategoryForm = ({
     <FormWrapper schema={categorySchema} onSubmit={handleSubmit} formRef={ref}>
       {MessageBox}
       {edit && <input name='id' defaultValue={edit} hidden readOnly />}
-      {/* <div className='flex gap-4 mb-4'>
-        {main?.map((c, i) => (
-          <Input
-            key={c.id}
-            name={`cat.${c.id}`}
-            label={c['name_eng']}
-            type='checkbox'
-            defaultChecked={edit ? checked?.some((e) => +e === c.id) : !i}
-            value={c.id}
-          />
-        ))}
-      </div> */}
       {main && (
         <Select
           name='categoryId'

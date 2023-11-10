@@ -32,11 +32,11 @@ export const WYSIWYG = ({
         height,
         menubar: false,
         body_class: name,
-        plugins: `advlist autolink lists emoticons link paste`,
+        plugins: `advlist autolink lists emoticons link paste image`,
         toolbar:
           'undo redo | formatselect | ' +
           'bold italic | ' +
-          'bullist numlist outdent indent | link emoticons',
+          'bullist numlist outdent indent | link emoticons | image',
         content_style: 'body { font-family:Inter; font-size:16px; }',
         placeholder,
         default_link_target: '',

@@ -11,6 +11,7 @@ export const ProductForm = ({
   edit,
   subCategory,
   checked,
+  defaultValues,
 }: ProductProps) => {
   const { MessageBox, handleSubmit, ref } = useCategoryForm(action)
   const options = useMemo(
@@ -22,7 +23,12 @@ export const ProductForm = ({
     [subCategory]
   )
   return (
-    <FormWrapper schema={productSchema} onSubmit={handleSubmit} formRef={ref}>
+    <FormWrapper
+      schema={productSchema}
+      onSubmit={handleSubmit}
+      formRef={ref}
+      defaultValues={defaultValues}
+    >
       {MessageBox}
       {edit && <input name='id' defaultValue={edit} hidden readOnly />}
       <Input name='title_eng' label='Title Eng' />

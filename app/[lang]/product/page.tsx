@@ -16,7 +16,7 @@ export default async function Product({
   searchParams,
 }: PageProps & { searchParams: URLSearchParams & { id?: string } }) {
   const { product } = await getDictionary(lang)
-  console.log(searchParams)
+
   return (
     <main className='flex flex-col gap-36'>
       <Section className='py-28 flex gap-20'>

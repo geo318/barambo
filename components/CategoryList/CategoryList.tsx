@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Category, FormAction } from '/types'
 import { FormContext } from '/context'
 import { useContext } from 'react'
+import { getImage } from '/utils'
 
 export function CategoryList({
   category,
@@ -23,7 +24,7 @@ export function CategoryList({
             <span>{i + 1}</span>
             <div className='grid grid-cols-9'>
               <Image
-                src={`http://localhost:3244${c.thumbnail}`}
+                src={getImage`${c.thumbnail}`}
                 width={20}
                 height={20}
                 className='max-h-6 col-span-1'
