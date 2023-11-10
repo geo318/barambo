@@ -16,7 +16,7 @@ export type FormProps = {
   children: React.ReactNode
   schema: Schema
   defaultValues?: Record<string, string | number | undefined | null>
-  onSubmit?: SubmitHandler<any>
+  onSubmit?: SubmitHandler<Record<string, string | number | null | undefined>>
   buttonLabel?: string
   className?: string
   revalidate?: () => void

@@ -7,7 +7,6 @@ import { Props } from './types'
 export const useTinyMCE = (
   inputName: string,
   externalOnChangeHandler: Props['externalOnChangeHandler'],
-  needsDraft: Props['needsDraft'],
   placeholder: Props['placeholder'],
   registerOptions: Props['registerOptions']
 ) => {
@@ -19,11 +18,9 @@ export const useTinyMCE = (
   } = useFormContext()
   const [isFocused, setIsFocused] = useState(false)
   const labelRef = useRef<HTMLLabelElement>(null)
-  const [appearedOnce, setAppearedOnce] = useState(true)
   const value = useWatch({
     name: inputName,
   })
-  const [editorIsMounted, setEditorIsMounted] = useState(false)
   const editorRef = useRef<TinyMCEEditor | null>(null)
   const borderOverlayRef = useRef<HTMLDivElement>(null)
   const topOverlayRef = useRef<HTMLDivElement>(null)
@@ -85,6 +82,7 @@ export const useTinyMCE = (
   }
 
   const editorOnChangeHandler = (content: string) => {
+    console.log(content)
     setValue(inputName, content, {
       shouldDirty: true,
       shouldValidate: true,
@@ -119,21 +117,14 @@ export const useTinyMCE = (
   }
 
   return {
-    isFocused,
-    focusHandler,
     blurHandler,
+    focusHandler,
+    isFocused,
     labelRef,
-    appearedOnce,
     editorRef,
-    borderOverlayRef,
-    topOverlayRef,
-    bottomOverlayRef,
-    setEditorIsMounted,
-    editorIsMounted,
     editorOnChangeHandler,
-    getValues,
-    value,
     errors,
+    value,
     editorEventListeners,
     isEditorLoading,
     setIsEditorLoading,

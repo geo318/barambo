@@ -6,6 +6,13 @@ export type CategoryProps = {
   defaultValues?: Category | SubCategory | null
   main?: Category[]
   checked?: number
-  subCategory?: SubCategory[]
+}
+
+export type ProductProps = {
+  action: FormAction
+  edit?: number | null
+  defaultValues?: Product | null
+  checked?: number
+  subCategory: SubCategory[]
   products?: Product[]
 }

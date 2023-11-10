@@ -24,3 +24,4 @@ export type FormAction = (
 ) => Promise<{ success?: boolean | string; error?: string }>
 
 export type Entries<T extends Record<string, any>> = [keyof T, T[keyof T]][]
+export type FormValues = Record<string, string | number | Blob | undefined | null>

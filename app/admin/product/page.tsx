@@ -10,7 +10,7 @@ import {
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
 import {
-  createSubCategory,
+  createProduct,
   deleteSubcategory,
   editSubCategory,
   getProducts,
@@ -33,13 +33,13 @@ export default async function SubCategory({
       <FormContextProvider>
         <section className='border-r'>
           <H tag='h1' size='md' className='mb-20 text-center'>
-            Add Subcategory
+            Add Product
           </H>
           <div className='flex'>
             <section className='flex flex-col max-w-md mx-auto'>
               <Suspense fallback={<div>Loading...</div>}>
                 <ProductForm
-                  action={createSubCategory}
+                  action={createProduct}
                   subCategory={subCategories}
                   products={products}
                 />
@@ -64,8 +64,8 @@ export default async function SubCategory({
           <Portal>
             <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 p-10 pt-5 rounded-xl'>
               <div className='flex py-3'>
-                <h3 className='font-lg font-bold'>Edit Category</h3>
-                <CloseModal closeKey={routes.addSubCategory} className='p-0' />
+                <h3 className='font-lg font-bold'>Edit Product</h3>
+                <CloseModal closeKey={routes.addProduct} className='p-0' />
               </div>
               <Suspense fallback={<div>Loading...</div>}>
                 <CategoryForm

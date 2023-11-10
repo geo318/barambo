@@ -24,7 +24,11 @@ export const FormWrapper: React.FC<FormProps> = ({
 
   return (
     <FormProvider {...form}>
-      <form className={className} action={onSubmit} ref={formRef}>
+      <form
+        className={className}
+        onSubmit={onSubmit && form.handleSubmit(onSubmit)}
+        ref={formRef}
+      >
         <div className='flex flex-col gap-2'>{children}</div>
 
         <button className='bg-blue-500 px-5 py-2 rounded-md text-white w-full mt-2 hover:bg-blue-600'>

@@ -2,10 +2,11 @@
 
 import { revalidatePath } from 'next/cache'
 import { category, db, product, subCategory } from '/server'
-import { Category, Product, SubCategory } from '/types'
+import { Category, FormValues, Product, SubCategory } from '/types'
 import { getFormValues, writeFile } from '/utils'
 import { eq } from 'drizzle-orm'
 import sharp from 'sharp'
+import { routes } from '/config'
 
 export const createMainCategory = async (formData: FormData) => {
   const [mapped, file] = getFormValues<Category>(formData)
@@ -16,7 +17,7 @@ export const createMainCategory = async (formData: FormData) => {
   try {
     const { path } = await writeFile(file, buffer, sharp(buffer))
     await db.insert(category).values({ ...mapped, thumbnail: path })
-    revalidatePath('/admin/categories')
+    revalidatePath(routes.addCategory)
     return { success: true }
   } catch (e) {
     return {
@@ -35,7 +36,7 @@ export const createSubCategory = async (formData: FormData) => {
 
     await db.insert(subCategory).values({ ...mapped, thumbnail: path })
 
-    revalidatePath('/admin/subcategories')
+    revalidatePath(routes.addSubCategory)
     return { success: true }
   } catch (e) {
     return {
@@ -67,7 +68,7 @@ export const editCategory = async (formData: FormData) => {
       .set({ ...values, ...(thumbnail ? { thumbnail } : {}) })
       .where(eq(category.id, Number(formData.get('id'))))
 
-    revalidatePath('/admin/categories')
+    revalidatePath(routes.addCategory)
     return { success: true }
   } catch (e) {
     return {
@@ -96,7 +97,7 @@ export const editSubCategory = async (formData: FormData) => {
       })
       .where(eq(subCategory.id, Number(formData.get('id'))))
 
-    revalidatePath('/admin/subcategories')
+    revalidatePath(routes.addSubCategory)
     return { success: true }
   } catch (e) {
     console.log(e)
@@ -112,7 +113,7 @@ export const deleteSubcategory = async (formData: FormData) => {
       .delete(subCategory)
       .where(eq(subCategory.id, Number(formData.get('id'))))
 
-    revalidatePath('/admin/subcategories')
+    revalidatePath(routes.addSubCategory)
     return { success: 'deleted' }
   } catch (e) {
     return {
@@ -125,7 +126,7 @@ export const deleteCategory = async (formData: FormData) => {
   try {
     await db.delete(category).where(eq(category.id, Number(formData.get('id'))))
 
-    revalidatePath('/admin/subcategories')
+    revalidatePath(routes.addCategory)
     return { success: 'deleted' }
   } catch (e) {
     return {
@@ -135,6 +136,7 @@ export const deleteCategory = async (formData: FormData) => {
 }
 
 export const createProduct = async (formData: FormData) => {
+  console.log(formData)
   const [mapped, file] = getFormValues<Product>(formData)
 
   if (!file) throw { error: 'file not uploaded' }
@@ -144,7 +146,7 @@ export const createProduct = async (formData: FormData) => {
 
     await db.insert(product).values({ ...mapped, thumbnail: path })
 
-    revalidatePath('/admin/products')
+    revalidatePath(routes.product)
     return { success: 'Product added' }
   } catch (e) {
     return {
@@ -173,7 +175,7 @@ export const editProduct = async (formData: FormData) => {
       })
       .where(eq(subCategory.id, Number(formData.get('id'))))
 
-    revalidatePath('/admin/products')
+    revalidatePath(routes.product)
     return { success: true }
   } catch (e) {
     console.log(e)
@@ -189,7 +191,7 @@ export const deleteProduct = async (formData: FormData) => {
       .delete(product)
       .where(eq(subCategory.id, Number(formData.get('id'))))
 
-    revalidatePath('/admin/products')
+    revalidatePath(routes.product)
     return { success: 'deleted' }
   } catch (e) {
     return {
