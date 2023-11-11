@@ -1,3 +1,5 @@
 export * from './CategoryForm'
-export * from './ProductForm'
+export * from './SliderForm'
 export * from './PostForm'
+export * from './SliderForm'
+export * from './ProductForm'

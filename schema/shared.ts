@@ -51,3 +51,9 @@ export const postSchema = z.object({
   link: z.optional(z.string().or(z.string().url())),
   order: z.coerce.number().int().min(0),
 })
+
+export const sliderSchema = z.object({
+  id: z.coerce.number().min(0).optional(),
+  thumbnail: imgSchema,
+  order: z.coerce.number().int().min(0),
+})

@@ -1,4 +1,11 @@
-import { Category, FormAction, Post, Product, SubCategory } from '/types'
+import {
+  Category,
+  FormAction,
+  Post,
+  Product,
+  Slider,
+  SubCategory,
+} from '/types'
 
 export type CategoryProps = {
   action: FormAction
@@ -22,4 +29,10 @@ export type PostProps = {
   edit?: number | null
   defaultValues?: Post | null
   checked?: number
+}
+
+export type SliderProps = {
+  action: FormAction
+  edit?: number | null
+  defaultValues?: Slider | null
 }

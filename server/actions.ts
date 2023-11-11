@@ -2,7 +2,14 @@
 
 import { revalidatePath } from 'next/cache'
 import { category, db, post, product, slider, subCategory } from '/server'
-import { Category, FormValues, Post, Product, SubCategory } from '/types'
+import {
+  Category,
+  FormValues,
+  Post,
+  Product,
+  Slider,
+  SubCategory,
+} from '/types'
 import { getFormValues, writeFile } from '/utils'
 import { eq } from 'drizzle-orm'
 import sharp from 'sharp'
@@ -262,9 +269,73 @@ export const editPost = async (formData: FormData) => {
 
 export const deletePost = async (formData: FormData) => {
   try {
-    await db.delete(post).where(eq(product.id, Number(formData.get('id'))))
+    await db.delete(post).where(eq(post.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addPost)
+    return { success: 'deleted' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const createSlide = async (formData: FormData) => {
+  const [mapped, file] = getFormValues<Slider>(formData)
+
+  if (!file) throw { error: 'file not uploaded' }
+  const buffer = Buffer.from(await file[0].arrayBuffer())
+
+  try {
+    const { path } = await writeFile(
+      file,
+      buffer,
+      sharp(buffer),
+      'outside',
+      1500,
+      600
+    )
+
+    await db.insert(slider).values({ ...mapped, thumbnail: path })
+
+    revalidatePath(routes.addProduct)
+    return { success: 'Product added' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const editSlide = async (formData: FormData) => {
+  const [values] = getFormValues<Slider>(formData)
+  try {
+    const updateValues = {} as Partial<Product>
+    ;(
+      Object.entries(values) as [keyof Product, Product[keyof Product]][]
+    ).forEach(([key, val]) => {
+      if (val) (updateValues as Record<string, string | number>)[key] = val
+    })
+
+    await db
+      .update(product)
+      .set(updateValues)
+      .where(eq(product.id, Number(formData.get('id'))))
+
+    revalidatePath(routes.addSlider)
+    return { success: true }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const deleteSlide = async (formData: FormData) => {
+  try {
+    await db.delete(slider).where(eq(slider.id, Number(formData.get('id'))))
+
+    revalidatePath(routes.addSlider)
     return { success: 'deleted' }
   } catch (e) {
     return {

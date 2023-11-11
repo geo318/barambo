@@ -3,7 +3,7 @@
 import { CategoryProps } from './types'
 import { FormWrapper, Input, Select } from '/components'
 import { categorySchema } from '/schema'
-import { useCategoryForm } from './useForm'
+import { useForm } from './useForm'
 
 export const CategoryForm = ({
   main,
@@ -11,7 +11,7 @@ export const CategoryForm = ({
   edit,
   checked,
 }: CategoryProps) => {
-  const { MessageBox, handleSubmit, ref } = useCategoryForm(action)
+  const { MessageBox, handleSubmit, ref } = useForm(action)
   return (
     <FormWrapper schema={categorySchema} onSubmit={handleSubmit} formRef={ref}>
       {MessageBox}

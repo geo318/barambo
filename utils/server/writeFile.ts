@@ -15,7 +15,8 @@ export const writeFile = async (
     | 'inside'
     | 'outside'
     | undefined = 'cover',
-  size: number | undefined = 800
+  width: number | undefined = 800,
+  height: number | undefined | null = 800
 ) => {
   const file = files[0]
   if (!file) throw { error: 'file not uploaded' }
@@ -30,13 +31,16 @@ export const writeFile = async (
   })
 
   if (!file.type.includes('svg')) {
-    sharpBuffer.resize(size, size, { fit }).toFile(`${publicDir}${filePath}`)
-    sharpBuffer.resize(20, 20, { fit }).toFile(`${publicDir}${blurPath}`)
-  }
-
-  fs.writeFile(`${publicDir}${filePath}`, buffer, (err) => {
-    if (err) console.log(err)
-  })
+    sharpBuffer
+      .resize(width, height ?? undefined, { fit, withoutReduction: true })
+      .toFile(`${publicDir}${filePath}`)
+    sharpBuffer
+      .resize(20, 20, { fit, withoutReduction: true })
+      .toFile(`${publicDir}${blurPath}`)
+  } else
+    fs.writeFile(`${publicDir}${filePath}`, buffer, (err) => {
+      if (err) console.log(err)
+    })
 
   const path = filePath.split(/\//).pop()
   return { path: `${imagePaths[0]}/${path}` }
