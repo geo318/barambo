@@ -46,77 +46,94 @@ export default async function SubCategory({
           edit products
         </Link>
       </section>
-      <FormContextProvider>
-        {!('edit-product' in searchParams || 'edit' in searchParams) && (
-          <section className='pb-10'>
-            <H tag='h1' size='md' className='mb-20 text-center'>
-              Add Product
-            </H>
-            <Suspense fallback={<div>Loading...</div>}>
-              <ProductForm
-                action={createProduct}
-                subCategory={subCategories}
-                products={products}
-              />
-            </Suspense>
-          </section>
-        )}
-        {('edit-product' in searchParams || 'edit' in searchParams) && (
-          <section>
-            <H tag='h1' size='md' className='mb-20 text-center'>
-              Subcategory list
-            </H>
-            <div className='grid grid-cols-4'>
+      {!('edit-product' in searchParams || 'edit' in searchParams) && (
+        <section className='pb-10'>
+          <H tag='h1' size='md' className='mb-20 text-center'>
+            Add Product
+          </H>
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProductForm
+              action={createProduct}
+              subCategory={subCategories}
+              products={products}
+            />
+          </Suspense>
+        </section>
+      )}
+      {('edit-product' in searchParams || 'edit' in searchParams) && (
+        <section>
+          <H tag='h1' size='md' className='mb-20 text-center'>
+            Subcategory list
+          </H>
+          <div className='grid grid-cols-3 gap-5 capitalize'>
+            <Suspense fallback={<div>loading...</div>}>
               {products.map((product) => (
-                <div key={product.id}>
-                  <div className='flex flex-col gap-2'>
-                    <h3>{product.title_eng}</h3>
-                    <h3>{product.title_geo}</h3>
+                <div key={product.id} className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'>
+                  <div className='flex flex-col'>
+                    <h3>
+                      title eng: <strong>{product.title_eng}</strong>
+                    </h3>
+                    <h3>
+                      title geo: <strong>{product.title_geo}</strong>
+                    </h3>
                   </div>
-                  <div className='flex flex-col gap-2'>
-                    <p dangerouslySetInnerHTML={{ __html: product.desc_eng }} />
-                    <p dangerouslySetInnerHTML={{ __html: product.desc_geo }} />
+                  <div className='flex flex-col editor gap-2 py-5 border-y border-slate-600 '>
+                    Description eng
+                    <div
+                      className='line-clamp-2 text-ellipsis'
+                      dangerouslySetInnerHTML={{ __html: product.desc_eng }}
+                    />
+                    Description geo
+                    <div
+                      className='line-clamp-2 text-ellipsis'
+                      dangerouslySetInnerHTML={{ __html: product.desc_geo }}
+                    />
                   </div>
 
                   <Image
                     src={getImage`${product.thumbnail}`}
                     alt={product.title_eng}
-                    className='aspect-square'
-                    width='100'
+                    className='w-full object-contain max-h-full max-w-full'
+                    width='300'
                     height='100'
                   />
-                  <Link href={`?edit=${product.id}`}>Edit</Link>
+                  <Link
+                    href={`?edit=${product.id}`}
+                    className='hover:underline text-blue-800 font-medium text-xl border border-black text-center rounded-md mt-4'
+                  >
+                    Edit
+                  </Link>
                 </div>
               ))}
-            </div>
-          </section>
-        )}
-        {'edit' in searchParams && (
-          <Portal>
-            <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
-              <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
-                <div className='flex py-3'>
-                  <h3 className='font-lg font-bold'>Edit Product</h3>
-                  <CloseModal
-                    closeKey={`${routes.addProduct}?edit-product`}
-                    className='p-0'
-                  />
-                </div>
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ProductForm
-                    action={editProduct}
-                    subCategory={subCategories}
-                    edit={searchParams?.edit}
-                    defaultValues={products.find(
-                      (p) => p.id === Number(searchParams?.edit)
-                    )}
-                  />
-                </Suspense>
+            </Suspense>
+          </div>
+        </section>
+      )}
+      {'edit' in searchParams && (
+        <Portal>
+          <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
+            <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
+              <div className='flex py-3'>
+                <h3 className='font-lg font-bold'>Edit Product</h3>
+                <CloseModal
+                  closeKey={`${routes.addProduct}?edit-product`}
+                  className='p-0'
+                />
               </div>
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProductForm
+                  action={editProduct}
+                  subCategory={subCategories}
+                  edit={searchParams?.edit}
+                  defaultValues={products.find(
+                    (p) => p.id === Number(searchParams?.edit)
+                  )}
+                />
+              </Suspense>
             </div>
-          </Portal>
-        )}
-      </FormContextProvider>
+          </div>
+        </Portal>
+      )}
     </div>
   )
 }

@@ -66,3 +66,7 @@ header img {
   -o-user-drag: none;
   user-drag: none;
 }
+
+.editor ol, .editor ul {
+  list-style: revert;
+}
