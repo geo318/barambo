@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { CloseModal, H, Portal, ProductForm } from '/components'
 import { routes } from '/config'
+import { FormContextProvider } from '/context'
 import {
   createProduct,
   editProduct,
@@ -67,10 +68,7 @@ export default async function SubCategory({
           <div className='grid grid-cols-3 gap-5 capitalize'>
             <Suspense fallback={<div>loading...</div>}>
               {products.map((product) => (
-                <div
-                  key={product.id}
-                  className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
-                >
+                <div key={product.id} className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'>
                   <div className='flex flex-col'>
                     <h3>
                       title eng: <strong>{product.title_eng}</strong>
