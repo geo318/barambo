@@ -136,7 +136,6 @@ export const deleteCategory = async (formData: FormData) => {
 }
 
 export const createProduct = async (formData: FormData) => {
-  console.log(formData)
   const [mapped, file] = getFormValues<Product>(formData)
 
   if (!file) throw { error: 'file not uploaded' }
@@ -146,7 +145,7 @@ export const createProduct = async (formData: FormData) => {
 
     await db.insert(product).values({ ...mapped, thumbnail: path })
 
-    revalidatePath(routes.product)
+    revalidatePath(routes.addProduct)
     return { success: 'Product added' }
   } catch (e) {
     return {
@@ -166,19 +165,25 @@ export const editProduct = async (formData: FormData) => {
       const { path } = await writeFile(file, buffer, sharp(buffer))
       thumbnail = path
     }
+    const updateValues = {} as Partial<Product>
+    ;(
+      Object.entries(values) as [keyof Product, Product[keyof Product]][]
+    ).forEach(([key, val]) => {
+      if (val) (updateValues as Record<string, string | number>)[key] = val
+    })
+    console.log(thumbnail, updateValues)
 
     await db
       .update(product)
       .set({
-        ...values,
+        ...updateValues,
         ...(thumbnail ? { thumbnail } : {}),
       })
-      .where(eq(subCategory.id, Number(formData.get('id'))))
+      .where(eq(product.id, Number(formData.get('id'))))
 
-    revalidatePath(routes.product)
+    revalidatePath(routes.addProduct)
     return { success: true }
   } catch (e) {
-    console.log(e)
     return {
       error: 'category already exists or something went wrong',
     }
@@ -187,11 +192,9 @@ export const editProduct = async (formData: FormData) => {
 
 export const deleteProduct = async (formData: FormData) => {
   try {
-    await db
-      .delete(product)
-      .where(eq(subCategory.id, Number(formData.get('id'))))
+    await db.delete(product).where(eq(product.id, Number(formData.get('id'))))
 
-    revalidatePath(routes.product)
+    revalidatePath(routes.addProduct)
     return { success: 'deleted' }
   } catch (e) {
     return {

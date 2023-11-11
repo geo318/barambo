@@ -66,13 +66,18 @@ export default async function SubCategory({
             <H tag='h1' size='md' className='mb-20 text-center'>
               Subcategory list
             </H>
-            <div className='flex'>
+            <div className='grid grid-cols-4'>
               {products.map((product) => (
                 <div key={product.id}>
-                  <h1>{product.title_eng}</h1>
-                  <h1>{product.title_geo}</h1>
-                  <h1>{product.desc_eng}</h1>
-                  <h1>{product.desc_geo}</h1>
+                  <div className='flex flex-col gap-2'>
+                    <h3>{product.title_eng}</h3>
+                    <h3>{product.title_geo}</h3>
+                  </div>
+                  <div className='flex flex-col gap-2'>
+                    <p dangerouslySetInnerHTML={{ __html: product.desc_eng }} />
+                    <p dangerouslySetInnerHTML={{ __html: product.desc_geo }} />
+                  </div>
+
                   <Image
                     src={getImage`${product.thumbnail}`}
                     alt={product.title_eng}
@@ -100,11 +105,6 @@ export default async function SubCategory({
                 <Suspense fallback={<div>Loading...</div>}>
                   <ProductForm
                     action={editProduct}
-                    checked={
-                      subCategories.find(
-                        (e) => e.id === Number(searchParams?.edit)
-                      )?.categoryId
-                    }
                     subCategory={subCategories}
                     edit={searchParams?.edit}
                     defaultValues={products.find(

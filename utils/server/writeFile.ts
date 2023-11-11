@@ -12,12 +12,13 @@ import fs from 'fs'
 */
 
 export const writeFile = async (
-  files: File[],
+  files: (File | undefined)[],
   buffer: Buffer,
   sharpBuffer: Sharp,
   size: number | undefined = 800
 ) => {
   const file = files[0]
+  if (!file) throw { error: 'file not uploaded' }
   const [publicDir, staticDir] = staticPath.split(/\//)
   const [filePath, blurPath] = [...imagePaths].map(
     (p) => `/${staticDir}${p}/${generateFileName(file.name)}`

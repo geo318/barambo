@@ -10,7 +10,6 @@ export const ProductForm = ({
   action,
   edit,
   subCategory,
-  checked,
   defaultValues,
 }: ProductProps) => {
   const { MessageBox, handleSubmit, ref } = useCategoryForm(action)
@@ -24,7 +23,7 @@ export const ProductForm = ({
   )
   return (
     <FormWrapper
-      schema={productSchema}
+      schema={edit ? productSchema(!!edit) : productSchema()}
       onSubmit={handleSubmit}
       formRef={ref}
       defaultValues={defaultValues}

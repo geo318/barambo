@@ -9,7 +9,9 @@ export const useMultipleSelect = (name: string) => {
     setValue,
     getValues,
   } = useFormContext()
-  const [values, setValues] = useState<number[]>([])
+  const [values, setValues] = useState<number[]>(
+    getValues(name)?.split(/,/)?.map(Number) ?? []
+  )
   const [isOpen, setIsOpen] = useState(false)
   const ref = useClickOutSide<HTMLDivElement>({ cb: () => setIsOpen(false) })
 

@@ -21,19 +21,21 @@ export const categorySchema = z.object({
   name_eng: z.string().min(3).max(20),
   name_geo: z.string().min(3).max(20),
   order: z.coerce.number().int().min(0),
-  thumbnail: imgSchema,
+  thumbnail: z.string().or(imgSchema),
 })
 
 export const subCategorySchema = categorySchema.extend({
   categoryId: z.coerce.number().min(0),
 })
 
-export const productSchema = z.object({
-  title_eng: z.string().min(3).max(20),
-  title_geo: z.string().min(3).max(20),
-  desc_eng: z.string().min(3).max(500),
-  desc_geo: z.string().min(3).max(500),
-  categoryIds: z.string().min(1).max(10),
-  thumbnail: imgSchema,
-  order: z.coerce.number().int().min(0).optional(),
-})
+export const productSchema = (optional?: boolean) =>
+  z.object({
+    id: z.coerce.number().min(0).optional(),
+    title_eng: z.string().min(3).max(20),
+    title_geo: z.string().min(3).max(20),
+    desc_eng: z.string().min(3).max(500),
+    desc_geo: z.string().min(3).max(500),
+    categoryIds: z.string().min(1).max(10),
+    thumbnail: optional ? z.string().or(imgSchema) : imgSchema,
+    order: z.coerce.number().int().min(0),
+  })
