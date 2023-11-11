@@ -14,13 +14,18 @@ import { banner, barambinoArch, barambinos, chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
+import { Suspense } from 'react'
+import { getSlides } from '/server'
 
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
+  const slides = await getSlides()
   return (
     <main className='flex min-h-screen flex-col gap-36'>
       <div className='bg-[#FBF6F2] w-full pt-36'>
-        <MainSlider />
+        <Suspense fallback={<div>Loading...</div>}>
+          <MainSlider slides={slides}/>
+        </Suspense>
       </div>
       <Section>
         <div className='flex'>
