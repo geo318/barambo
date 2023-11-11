@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Footer, Navbar } from '/components'
 import { Locale } from '/types'
 import { getDictionary } from '/lib'
+import { locales } from '/config'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -24,4 +25,8 @@ export default async function RootLayout({
       <Footer text={shared.footer} lang={lang} />
     </>
   )
+}
+
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }))
 }
