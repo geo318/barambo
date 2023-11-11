@@ -3,7 +3,7 @@
 import { ProductProps } from './types'
 import { FormWrapper, Input, MultipleSelect, TinyMCE } from '/components'
 import { productSchema } from '/schema'
-import { useCategoryForm } from './useCategoryForm'
+import { useForm } from './useForm'
 import { useMemo } from 'react'
 
 export const ProductForm = ({
@@ -12,7 +12,7 @@ export const ProductForm = ({
   subCategory,
   defaultValues,
 }: ProductProps) => {
-  const { MessageBox, handleSubmit, ref } = useCategoryForm(action)
+  const { MessageBox, handleSubmit, ref } = useForm(action)
   const options = useMemo(
     () =>
       subCategory.reduce((acc, c) => {
@@ -32,8 +32,8 @@ export const ProductForm = ({
       {edit && <input name='id' defaultValue={edit} hidden readOnly />}
       <Input name='title_eng' label='Title Eng' />
       <Input name='title_geo' label='Title Geo' />
-      <TinyMCE inputName='desc_eng' labelName='Description_eng' height={300} />
-      <TinyMCE inputName='desc_geo' labelName='Description_geo' height={300} />
+      <TinyMCE inputName='desc_eng' labelName='Description eng' height={300} />
+      <TinyMCE inputName='desc_geo' labelName='Description geo' height={300} />
       <Input name='thumbnail' label='Thumbnail' type='file' />
       <MultipleSelect
         name='categoryIds'

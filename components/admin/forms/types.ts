@@ -1,4 +1,4 @@
-import { Category, FormAction, Product, SubCategory } from '/types'
+import { Category, FormAction, Post, Product, SubCategory } from '/types'
 
 export type CategoryProps = {
   action: FormAction
@@ -15,4 +15,11 @@ export type ProductProps = {
   checked?: number
   subCategory: SubCategory[]
   products?: Product[]
+}
+
+export type PostProps = {
+  action: FormAction
+  edit?: number | null
+  defaultValues?: Post | null
+  checked?: number
 }

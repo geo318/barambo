@@ -82,7 +82,6 @@ export const useTinyMCE = (
   }
 
   const editorOnChangeHandler = (content: string) => {
-    console.log(content)
     setValue(inputName, content, {
       shouldDirty: true,
       shouldValidate: true,

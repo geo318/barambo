@@ -1,8 +1,8 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { category, db, product, subCategory } from '/server'
-import { Category, FormValues, Product, SubCategory } from '/types'
+import { category, db, post, product, slider, subCategory } from '/server'
+import { Category, FormValues, Post, Product, SubCategory } from '/types'
 import { getFormValues, writeFile } from '/utils'
 import { eq } from 'drizzle-orm'
 import sharp from 'sharp'
@@ -50,6 +50,10 @@ export const getCategories = async () => await db.select().from(category)
 export const getSubCategories = async () => await db.select().from(subCategory)
 
 export const getProducts = async () => await db.select().from(product)
+
+export const getPosts = async () => await db.select().from(post)
+
+export const getSlides = async () => await db.select().from(slider)
 
 export const editCategory = async (formData: FormData) => {
   const [values, file] = getFormValues<Category>(formData)
@@ -171,7 +175,6 @@ export const editProduct = async (formData: FormData) => {
     ).forEach(([key, val]) => {
       if (val) (updateValues as Record<string, string | number>)[key] = val
     })
-    console.log(thumbnail, updateValues)
 
     await db
       .update(product)
@@ -195,6 +198,73 @@ export const deleteProduct = async (formData: FormData) => {
     await db.delete(product).where(eq(product.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addProduct)
+    return { success: 'deleted' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const createPost = async (formData: FormData) => {
+  const [mapped, file] = getFormValues<Post>(formData)
+
+  if (!file) throw { error: 'file not uploaded' }
+  const buffer = Buffer.from(await file[0].arrayBuffer())
+  try {
+    const { path } = await writeFile(file, buffer, sharp(buffer))
+
+    await db.insert(post).values({ ...mapped, thumbnail: path })
+
+    revalidatePath(routes.addPost)
+    return { success: 'Product added' }
+  } catch (e) {
+    return {
+      error: 'product already exists or something went wrong',
+    }
+  }
+}
+
+export const editPost = async (formData: FormData) => {
+  const [values, file] = getFormValues<Post>(formData)
+
+  const buffer = file.length && Buffer.from(await file[0].arrayBuffer())
+  let thumbnail: string = ''
+
+  try {
+    if (buffer && buffer.toString()) {
+      const { path } = await writeFile(file, buffer, sharp(buffer))
+      thumbnail = path
+    }
+    const updateValues = {} as Partial<Post>
+    ;(Object.entries(values) as [keyof Post, Post[keyof Post]][]).forEach(
+      ([key, val]) => {
+        if (val) (updateValues as Record<string, string | number>)[key] = val
+      }
+    )
+
+    await db
+      .update(post)
+      .set({
+        ...updateValues,
+        ...(thumbnail ? { thumbnail } : {}),
+      })
+      .where(eq(product.id, Number(formData.get('id'))))
+
+    revalidatePath(routes.addPost)
+    return { success: true }
+  } catch (e) {
+    return {
+      error: 'category already exists or something went wrong',
+    }
+  }
+}
+
+export const deletePost = async (formData: FormData) => {
+  try {
+    await db.delete(post).where(eq(product.id, Number(formData.get('id'))))
+
+    revalidatePath(routes.addPost)
     return { success: 'deleted' }
   } catch (e) {
     return {

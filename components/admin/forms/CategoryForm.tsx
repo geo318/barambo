@@ -3,7 +3,7 @@
 import { CategoryProps } from './types'
 import { FormWrapper, Input, Select } from '/components'
 import { categorySchema } from '/schema'
-import { useCategoryForm } from './useCategoryForm'
+import { useCategoryForm } from './useForm'
 
 export const CategoryForm = ({
   main,

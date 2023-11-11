@@ -35,7 +35,11 @@ export const Select = ({
         {...{ ...props, placeholder }}
       >
         {options.map((c) => (
-          <option value={c.id} key={c.id} defaultValue={selected}>
+          <option
+            value={c.id ?? c.name}
+            key={c.id ?? c.name}
+            defaultValue={selected}
+          >
             {c.name}
           </option>
         ))}

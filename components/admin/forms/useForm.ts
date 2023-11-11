@@ -4,7 +4,7 @@ import { CategoryProps } from './types'
 import { useSubmitMessage } from '/hooks'
 import { FormValues } from '/types'
 
-export const useCategoryForm = (action: CategoryProps['action']) => {
+export const useForm = (action: CategoryProps['action']) => {
   const { setMessage, MessageBox } = useSubmitMessage()
   const params = useSearchParams()
   const router = useRouter()

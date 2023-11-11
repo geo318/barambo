@@ -39,3 +39,15 @@ export const productSchema = (optional?: boolean) =>
     thumbnail: optional ? z.string().or(imgSchema) : imgSchema,
     order: z.coerce.number().int().min(0),
   })
+
+export const postSchema = z.object({
+  id: z.coerce.number().min(0).optional(),
+  title_eng: z.string().min(3).max(20),
+  title_geo: z.string().min(3).max(20),
+  content_eng: z.string().min(3).max(500),
+  content_geo: z.string().min(3).max(500),
+  thumbnail: z.optional(z.string().or(imgSchema)),
+  type: z.enum(['news', 'recept', 'csr']),
+  link: z.optional(z.string().or(z.string().url())),
+  order: z.coerce.number().int().min(0),
+})

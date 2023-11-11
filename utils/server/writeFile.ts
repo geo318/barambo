@@ -4,17 +4,17 @@ import { Sharp, SharpOptions } from 'sharp'
 import { staticPath, imagePaths } from '/config'
 import fs from 'fs'
 
-/*
-  @params files - files: Blob[],
-  @params buffer - Buffer.from(await file.arrayBuffer())
-  @params size - size = 800
-  @params sharpBuffer - sharp(buffer)
-*/
-
 export const writeFile = async (
   files: (File | undefined)[],
   buffer: Buffer,
   sharpBuffer: Sharp,
+  fit:
+    | 'fill'
+    | 'cover'
+    | 'contain'
+    | 'inside'
+    | 'outside'
+    | undefined = 'cover',
   size: number | undefined = 800
 ) => {
   const file = files[0]
@@ -30,13 +30,8 @@ export const writeFile = async (
   })
 
   if (!file.type.includes('svg')) {
-    sharpBuffer
-      .resize(size, size, { fit: 'cover' })
-      .toFile(`${publicDir}${filePath}`)
-
-    sharpBuffer
-      .resize(20, 20, { fit: 'cover' })
-      .toFile(`${publicDir}${blurPath}`)
+    sharpBuffer.resize(size, size, { fit }).toFile(`${publicDir}${filePath}`)
+    sharpBuffer.resize(20, 20, { fit }).toFile(`${publicDir}${blurPath}`)
   }
 
   fs.writeFile(`${publicDir}${filePath}`, buffer, (err) => {

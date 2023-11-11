@@ -1,13 +1,8 @@
 import { Suspense } from 'react'
-import { CloseModal, H, Portal, ProductForm } from '/components'
+import { CloseModal, H, Portal, PostForm } from '/components'
 import { routes } from '/config'
-import {
-  createProduct,
-  editProduct,
-  getProducts,
-  getSubCategories,
-} from '/server'
-import { SubCategory } from '/types'
+import { createPost, editProduct, getPosts } from '/server'
+import { Post, SubCategory } from '/types'
 import { getImage } from '/utils'
 import { twMerge } from 'tailwind-merge'
 import Image from 'next/image'
@@ -18,89 +13,86 @@ export default async function SubCategory({
 }: {
   searchParams: URLSearchParams & { edit?: number }
 }) {
-  const [products, subCategories] = await Promise.all([
-    getProducts(),
-    getSubCategories(),
-  ])
+  const posts = await getPosts()
 
   return (
     <div>
       <section className='flex gap-5 text-lg capitalize justify-center mb-10'>
         <Link
-          href='?add-product'
+          href='?add-post'
           className={twMerge(
             'border-b border-transparent',
-            !('edit-product' in searchParams) && 'font-medium border-black'
+            !('edit-post' in searchParams) && 'font-medium border-black'
           )}
         >
-          add products
+          New post
         </Link>
         <Link
-          href='?edit-product'
+          href='?edit-post'
           className={twMerge(
             'border-b border-transparent',
-            'edit-product' in searchParams && 'font-medium border-black'
+            'edit-post' in searchParams && 'font-medium border-black'
           )}
         >
-          edit products
+          Edit post
         </Link>
       </section>
-      {!('edit-product' in searchParams || 'edit' in searchParams) && (
+      {!('edit-post' in searchParams || 'edit' in searchParams) && (
         <section className='pb-10'>
           <H tag='h1' size='md' className='mb-20 text-center'>
-            Add Product
+            Add new blog post
           </H>
           <Suspense fallback={<div>Loading...</div>}>
-            <ProductForm
-              action={createProduct}
-              subCategory={subCategories}
-              products={products}
-            />
+            <PostForm action={createPost} />
           </Suspense>
         </section>
       )}
-      {('edit-product' in searchParams || 'edit' in searchParams) && (
+      {('edit-post' in searchParams || 'edit' in searchParams) && (
         <section>
           <H tag='h1' size='md' className='mb-20 text-center'>
-            Product list
+            Posts
           </H>
           <div className='grid grid-cols-3 gap-5 capitalize'>
             <Suspense fallback={<div>loading...</div>}>
-              {products.map((product) => (
+              {posts.map((post) => (
                 <div
-                  key={product.id}
+                  key={post.id}
                   className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
                 >
                   <div className='flex flex-col'>
                     <h3>
-                      title eng: <strong>{product.title_eng}</strong>
+                      title eng: <strong>{post.title_eng}</strong>
                     </h3>
                     <h3>
-                      title geo: <strong>{product.title_geo}</strong>
+                      title geo: <strong>{post.title_geo}</strong>
                     </h3>
                   </div>
                   <div className='flex flex-col editor gap-2 py-5 border-y border-slate-600 '>
                     Description eng
                     <div
                       className='line-clamp-2 text-ellipsis'
-                      dangerouslySetInnerHTML={{ __html: product.desc_eng }}
+                      dangerouslySetInnerHTML={{ __html: post.content_eng }}
                     />
                     Description geo
                     <div
                       className='line-clamp-2 text-ellipsis'
-                      dangerouslySetInnerHTML={{ __html: product.desc_geo }}
+                      dangerouslySetInnerHTML={{ __html: post.content_geo }}
                     />
                   </div>
 
-                  <Image
-                    src={getImage`${product.thumbnail}`}
-                    alt={product.title_eng}
-                    className='w-full object-contain max-h-full max-w-full'
-                    width='300'
-                    height='100'
-                  />
+                  {post.thumbnail && (
+                    <Image
+                      src={getImage`${post.thumbnail}`}
+                      alt={post.title_eng}
+                      className='w-full object-contain max-h-full max-w-full'
+                      width='300'
+                      height='100'
+                    />
+                  )}
+                  <p>Type: {post.type}</p>
+                  {post.link && <p>Link: {post.link}</p>}
                   <Link
-                    href={`?edit=${product.id}`}
+                    href={`?edit=${post.id}`}
                     className='hover:underline text-blue-800 font-medium text-xl border border-black text-center rounded-md mt-4'
                   >
                     Edit
@@ -113,21 +105,20 @@ export default async function SubCategory({
       )}
       {'edit' in searchParams && (
         <Portal>
-          <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
+          <div className='flex flex-col bg-white max-w-3xl mx-auto mt-20 py-5 rounded-xl'>
             <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
               <div className='flex py-3'>
-                <h3 className='font-lg font-bold'>Edit Product</h3>
+                <h3 className='font-lg font-bold'>Edit Post</h3>
                 <CloseModal
-                  closeKey={`${routes.addProduct}?edit-product`}
+                  closeKey={`${routes.addPost}?edit-product`}
                   className='p-0'
                 />
               </div>
               <Suspense fallback={<div>Loading...</div>}>
-                <ProductForm
+                <PostForm
                   action={editProduct}
-                  subCategory={subCategories}
                   edit={searchParams?.edit}
-                  defaultValues={products.find(
+                  defaultValues={(posts as Post[]).find(
                     (p) => p.id === Number(searchParams?.edit)
                   )}
                 />
