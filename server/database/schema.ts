@@ -6,17 +6,6 @@ export const user = sqliteTable('user', {
   phone: integer('phone'),
 })
 
-export const post = sqliteTable('post', {
-  id: int('id').primaryKey(),
-  type: text('type').notNull(),
-  thumbnail: text('thumbnail'),
-  title_eng: text('title_eng').notNull().unique(),
-  title_geo: text('title_geo').notNull().unique(),
-  content_eng: text('content_eng').notNull(),
-  content_geo: text('content_geo').notNull(),
-  link: text('link'),
-})
-
 export const category = sqliteTable('category', {
   id: int('id').primaryKey(),
   name_eng: text('name_eng').notNull().unique(),
@@ -53,4 +42,16 @@ export const slider = sqliteTable('slider', {
   title_geo: text('title_geo'),
   order: integer('order').$defaultFn(() => 0),
   thumbnail: text('thumbnail').notNull(),
+})
+
+export const post = sqliteTable('post', {
+  id: int('id').primaryKey(),
+  title_eng: text('title_eng').notNull().unique(),
+  title_geo: text('title_geo').notNull().unique(),
+  content_eng: text('content_eng').notNull(),
+  content_geo: text('content_geo').notNull(),
+  type: text('type').notNull(),
+  thumbnail: text('thumbnail'),
+  order: integer('order').$defaultFn(() => 0),
+  link: text('link'),
 })

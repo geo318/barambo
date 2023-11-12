@@ -250,19 +250,19 @@ export const editPost = async (formData: FormData) => {
       }
     )
 
-    await db
+    const x = await db
       .update(post)
       .set({
         ...updateValues,
         ...(thumbnail ? { thumbnail } : {}),
       })
-      .where(eq(product.id, Number(formData.get('id'))))
-
+      .where(eq(post.id, Number(formData.get('id'))))
     revalidatePath(routes.addPost)
     return { success: true }
   } catch (e) {
+    console.log(e)
     return {
-      error: 'category already exists or something went wrong',
+      error: 'post already exists or something went wrong',
     }
   }
 }
@@ -318,9 +318,9 @@ export const editSlide = async (formData: FormData) => {
     })
 
     await db
-      .update(product)
+      .update(slider)
       .set(updateValues)
-      .where(eq(product.id, Number(formData.get('id'))))
+      .where(eq(slider.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addSlider)
     return { success: true }

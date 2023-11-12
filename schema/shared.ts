@@ -31,10 +31,10 @@ export const subCategorySchema = categorySchema.extend({
 export const productSchema = (optional?: boolean) =>
   z.object({
     id: z.coerce.number().min(0).optional(),
-    title_eng: z.string().min(3).max(20),
-    title_geo: z.string().min(3).max(20),
-    desc_eng: z.string().min(3).max(500),
-    desc_geo: z.string().min(3).max(500),
+    title_eng: z.string().min(3).max(200),
+    title_geo: z.string().min(3).max(200),
+    desc_eng: z.string().min(3).max(25000),
+    desc_geo: z.string().min(3).max(25000),
     categoryIds: z.string().min(1).max(10),
     thumbnail: optional ? z.string().or(imgSchema) : imgSchema,
     order: z.coerce.number().int().min(0),
@@ -42,10 +42,10 @@ export const productSchema = (optional?: boolean) =>
 
 export const postSchema = z.object({
   id: z.coerce.number().min(0).optional(),
-  title_eng: z.string().min(3).max(20),
-  title_geo: z.string().min(3).max(20),
-  content_eng: z.string().min(3).max(500),
-  content_geo: z.string().min(3).max(500),
+  title_eng: z.string().min(3).max(200),
+  title_geo: z.string().min(3).max(200),
+  content_eng: z.string().min(3).max(25000),
+  content_geo: z.string().min(3).max(25000),
   thumbnail: z.optional(z.string().or(imgSchema)),
   type: z.enum(['news', 'recept', 'csr']),
   link: z.optional(z.string().or(z.string().url())),

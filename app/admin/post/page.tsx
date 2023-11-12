@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { CloseModal, H, Portal, PostForm } from '/components'
 import { routes } from '/config'
-import { createPost, editProduct, getPosts } from '/server'
+import { createPost, editPost, editProduct, getPosts } from '/server'
 import { Post, SubCategory } from '/types'
 import { getImage } from '/utils'
 import { twMerge } from 'tailwind-merge'
@@ -110,13 +110,13 @@ export default async function SubCategory({
               <div className='flex py-3'>
                 <h3 className='font-lg font-bold'>Edit Post</h3>
                 <CloseModal
-                  closeKey={`${routes.addPost}?edit-product`}
+                  closeKey={`${routes.addPost}?edit-post`}
                   className='p-0'
                 />
               </div>
               <Suspense fallback={<div>Loading...</div>}>
                 <PostForm
-                  action={editProduct}
+                  action={editPost}
                   edit={searchParams?.edit}
                   defaultValues={(posts as Post[]).find(
                     (p) => p.id === Number(searchParams?.edit)
