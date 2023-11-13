@@ -16,7 +16,7 @@ export const BlogModal = ({ isOpen = false }) => (
                   <H tag='h3' size='lg' className=''>
                     chocolate cake
                   </H>
-                  <CloseModal closeKey='?recept' />
+                  <CloseModal />
                 </div>
                 <div className='my-10 border-b border-[#bebebe]' />
                 <ul className='mt-10 flex flex-col gap-5 text-lg leading-normal'>

@@ -47,6 +47,7 @@ export const postSchema = z.object({
   content_eng: z.string().min(3).max(25000),
   content_geo: z.string().min(3).max(25000),
   thumbnail: z.optional(z.string().or(imgSchema)),
+  banner: z.any().or(imgSchema),
   type: z.enum(['news', 'recept', 'csr']),
   link: z.optional(z.string().or(z.string().url())),
   order: z.coerce.number().int().min(0),

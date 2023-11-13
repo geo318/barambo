@@ -2,18 +2,11 @@
 
 import { revalidatePath } from 'next/cache'
 import { category, db, post, product, slider, subCategory } from '/server'
-import {
-  Category,
-  FormValues,
-  Post,
-  Product,
-  Slider,
-  SubCategory,
-} from '/types'
+import { Category, Post, Product, Slider, SubCategory } from '/types'
 import { getFormValues, writeFile } from '/utils'
 import { eq } from 'drizzle-orm'
-import sharp from 'sharp'
 import { routes } from '/config'
+import sharp from 'sharp'
 
 export const createMainCategory = async (formData: FormData) => {
   const [mapped, file] = getFormValues<Category>(formData)
@@ -111,7 +104,6 @@ export const editSubCategory = async (formData: FormData) => {
     revalidatePath(routes.addSubCategory)
     return { success: true }
   } catch (e) {
-    console.log(e)
     return {
       error: 'category already exists or something went wrong',
     }
@@ -214,35 +206,45 @@ export const deleteProduct = async (formData: FormData) => {
 }
 
 export const createPost = async (formData: FormData) => {
-  const [mapped, file] = getFormValues<Post>(formData)
-
-  if (!file) throw { error: 'file not uploaded' }
-  const buffer = Buffer.from(await file[0].arrayBuffer())
+  const [mapped, files] = getFormValues<Post>(formData)
+  const slug = mapped.title_eng.trim().replace(/\s+/g, '-').toLowerCase()
   try {
-    const { path } = await writeFile(file, buffer, sharp(buffer))
+    const thumbnails: string[] = []
+    if (files && files?.length)
+      for (let i = 0, file = files[i]; i < files.length; i++) {
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const { path } = await writeFile([file], buffer, sharp(buffer))
+        thumbnails.push(path)
+      }
 
-    await db.insert(post).values({ ...mapped, thumbnail: path })
+    const [thumbnail, banner] = thumbnails
+
+    mapped.banner = banner
+    mapped.thumbnail = thumbnail
+    mapped.slug = slug
+    await db.insert(post).values({ ...mapped })
 
     revalidatePath(routes.addPost)
-    return { success: 'Product added' }
+    return { success: 'Post added' }
   } catch (e) {
     return {
-      error: 'product already exists or something went wrong',
+      error: 'post already exists or something went wrong',
     }
   }
 }
 
 export const editPost = async (formData: FormData) => {
-  const [values, file] = getFormValues<Post>(formData)
-
-  const buffer = file.length && Buffer.from(await file[0].arrayBuffer())
-  let thumbnail: string = ''
+  const [values, files] = getFormValues<Post>(formData)
 
   try {
-    if (buffer && buffer.toString()) {
-      const { path } = await writeFile(file, buffer, sharp(buffer))
-      thumbnail = path
-    }
+    const thumbnails: string[] = []
+    if (files && files?.length)
+      for (let i = 0, file = files[i]; i < files.length; i++) {
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const { path } = await writeFile([file], buffer, sharp(buffer))
+        thumbnails.push(path)
+      }
+
     const updateValues = {} as Partial<Post>
     ;(Object.entries(values) as [keyof Post, Post[keyof Post]][]).forEach(
       ([key, val]) => {
@@ -250,17 +252,19 @@ export const editPost = async (formData: FormData) => {
       }
     )
 
-    const x = await db
+    const [thumbnail, banner] = thumbnails
+
+    await db
       .update(post)
       .set({
         ...updateValues,
         ...(thumbnail ? { thumbnail } : {}),
+        ...(banner ? { banner } : {}),
       })
       .where(eq(post.id, Number(formData.get('id'))))
     revalidatePath(routes.addPost)
     return { success: true }
   } catch (e) {
-    console.log(e)
     return {
       error: 'post already exists or something went wrong',
     }

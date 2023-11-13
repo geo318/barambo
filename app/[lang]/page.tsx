@@ -9,22 +9,20 @@ import {
   Stars,
 } from '/components'
 import { twMerge } from 'tailwind-merge'
-import Image from 'next/image'
 import { banner, barambinoArch, barambinos, chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
 import { Suspense } from 'react'
-import { getSlides } from '/server'
+import Image from 'next/image'
 
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
-  const slides = await getSlides()
   return (
     <main className='flex min-h-screen flex-col gap-36'>
       <div className='bg-[#FBF6F2] w-full pt-36'>
         <Suspense fallback={<div>Loading...</div>}>
-          <MainSlider slides={slides}/>
+          <MainSlider />
         </Suspense>
       </div>
       <Section>

@@ -4,6 +4,7 @@ import { banner3 } from '/public'
 import { getDictionary } from '/lib'
 import { Locale } from '/types'
 import Link from 'next/link'
+import { getPost } from '/server'
 
 export default async function Post({
   params: { slug, lang },
@@ -11,6 +12,7 @@ export default async function Post({
   params: { slug: string; lang: Locale }
 }) {
   const { blog } = await getDictionary(lang)
+  const post = await getPost(slug)
   return (
     <main className='flex flex-col gap-36'>
       <Section className='py-28'>

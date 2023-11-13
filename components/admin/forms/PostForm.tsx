@@ -21,7 +21,8 @@ export const PostForm = ({ action, edit, defaultValues }: PostProps) => {
       <Input name='title_geo' label='Title Geo' />
       <TinyMCE inputName='content_eng' labelName='Blog Eng' height={300} />
       <TinyMCE inputName='content_geo' labelName='Blog geo' height={300} />
-      <Input name='thumbnail' label='Thumbnail' type='file' />
+      <Input name='thumbnail' label='Thumbnail image' type='file' />
+      <Input name='banner' label='Blog banner' type='file' defaultValue='' />
       <Input name='link' label='Youtube Link' />
       <Select
         name='type'

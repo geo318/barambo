@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { Locale } from '/types'
 
 export const dictionaries = {
@@ -5,4 +6,6 @@ export const dictionaries = {
   ka: () => import('/dictionaries/ka.json').then((m) => m.default),
 }
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]()
+export const getDictionary = cache(async (locale: Locale) =>
+  dictionaries[locale]()
+)

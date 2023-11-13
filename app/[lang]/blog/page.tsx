@@ -1,21 +1,23 @@
 import Image from 'next/image'
-import {
-  BlogModal,
-  BlogSwitcher,
-  Button,
-  H,
-  Section,
-} from '/components'
-import { getDictionary } from '/lib'
-import { PageProps } from '/types'
-import { twMerge } from 'tailwind-merge'
 import Link from 'next/link'
+import { BlogModal, BlogSwitcher, Button, H, Section } from '/components'
+import { getDictionary } from '/lib'
+import { Blog, PageProps } from '/types'
+import { twMerge } from 'tailwind-merge'
+import { getPaginatedPosts } from '/server'
+import { getImage } from '/utils'
 
 export default async function Product({
   params: { lang },
   searchParams,
-}: PageProps & { searchParams: URLSearchParams & { recept?: string } }) {
+}: PageProps & {
+  searchParams: URLSearchParams & { filter?: Blog; page?: number }
+}) {
   const { blog } = await getDictionary(lang)
+  const posts = await getPaginatedPosts(
+    searchParams?.filter ?? 'news',
+    searchParams?.page ?? 0
+  )
 
   return (
     <main className='flex flex-col gap-36'>
@@ -31,24 +33,28 @@ export default async function Product({
           <section
             className={twMerge(
               'grid grid-cols-3 gap-6',
-              'recept' in searchParams && 'grid-cols-4'
+              searchParams?.filter === 'recept' && 'grid-cols-4'
             )}
           >
-            {Array.from({ length: 12 }).map((_, i) => (
+            {posts.map(({ id, thumbnail, slug }) => (
               <div
-                key={i}
+                key={id}
                 className='flex aspect-square rounded-3xl relative overflow-hidden'
               >
-                <Image
-                  src={`https://picsum.photos/200?random${i + 1}`}
-                  alt={`${i}`}
-                  width={200}
-                  height={200}
-                  className='absolute inset-0 object-cover h-full w-full'
-                />
+                {thumbnail && (
+                  <Image
+                    src={getImage`${thumbnail}`}
+                    alt={`${id}`}
+                    width={200}
+                    height={200}
+                    className='absolute inset-0 object-cover h-full w-full'
+                  />
+                )}
                 <Link
                   href={
-                    'recept' in searchParams ? `?recept=${i}` : `/blog/${i + 1}`
+                    searchParams?.filter === 'recept'
+                      ? `?recept=${id}`
+                      : `/blog/${slug}`
                   }
                   className='mt-auto mx-auto mb-8 z-10'
                 >
@@ -59,7 +65,7 @@ export default async function Product({
           </section>
         </article>
       </Section>
-      <BlogModal isOpen={!!searchParams?.recept} />
+      <BlogModal isOpen={'recept' in searchParams} />
     </main>
   )
 }

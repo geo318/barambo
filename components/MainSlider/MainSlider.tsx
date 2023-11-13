@@ -1,8 +1,12 @@
+'use server'
+
 import { H, Section } from '/components'
 import { Swipe } from './Swipe'
-import { Slider } from '/types'
+import { getSlides } from '/server'
 
-export const MainSlider: React.FC<{ slides: Slider[] }> = ({ slides }) => {
+export const MainSlider = async () => {
+  const slides = await getSlides()
+
   return (
     <>
       <Section className='grid grid-cols-2 gap-[14vw] pb-12'>

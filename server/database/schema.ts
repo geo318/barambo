@@ -51,7 +51,9 @@ export const post = sqliteTable('post', {
   content_eng: text('content_eng').notNull(),
   content_geo: text('content_geo').notNull(),
   type: text('type').notNull(),
-  thumbnail: text('thumbnail'),
+  thumbnail: text('thumbnail').notNull(),
+  banner: text('banner'),
+  slug: text('slug').notNull().unique(),
   order: integer('order').$defaultFn(() => 0),
   link: text('link'),
 })
