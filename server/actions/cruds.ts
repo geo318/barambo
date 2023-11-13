@@ -1,8 +1,25 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { category, db, post, product, slider, subCategory } from '/server'
-import { Category, Post, Product, Slider, SubCategory } from '/types'
+import {
+  category,
+  certificate,
+  db,
+  headline,
+  post,
+  product,
+  slider,
+  subCategory,
+} from '/server'
+import {
+  Category,
+  Cert,
+  Headline,
+  Post,
+  Product,
+  Slider,
+  SubCategory,
+} from '/types'
 import { getFormValues, writeFile } from '/utils'
 import { eq } from 'drizzle-orm'
 import { routes } from '/config'
@@ -54,6 +71,10 @@ export const getProducts = async () => await db.select().from(product)
 export const getPosts = async () => await db.select().from(post)
 
 export const getSlides = async () => await db.select().from(slider)
+
+export const getHeadLines = async () => await db.select().from(headline)
+
+export const getCertificates = async () => await db.select().from(certificate)
 
 export const editCategory = async (formData: FormData) => {
   const [values, file] = getFormValues<Category>(formData)
@@ -340,6 +361,106 @@ export const deleteSlide = async (formData: FormData) => {
     await db.delete(slider).where(eq(slider.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addSlider)
+    return { success: 'deleted' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const createHeadline = async (formData: FormData) => {
+  const [mapped] = getFormValues<Headline>(formData)
+
+  try {
+    await db.insert(headline).values({ ...mapped })
+
+    return { success: 'Headline added' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const editHeadline = async (formData: FormData) => {
+  const [values] = getFormValues<Headline>(formData)
+  try {
+    const updateValues = {} as Partial<Product>
+    ;(
+      Object.entries(values) as [keyof Product, Product[keyof Product]][]
+    ).forEach(([key, val]) => {
+      if (val) (updateValues as Record<string, string | number>)[key] = val
+    })
+
+    await db
+      .update(headline)
+      .set(updateValues)
+      .where(eq(headline.id, Number(formData.get('id'))))
+
+    return { success: true }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const deleteHeadline = async (formData: FormData) => {
+  try {
+    await db.delete(headline).where(eq(headline.id, Number(formData.get('id'))))
+
+    return { success: 'deleted' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const createCertificate = async (formData: FormData) => {
+  const [mapped] = getFormValues<Cert>(formData)
+
+  try {
+    await db.insert(certificate).values({ ...mapped })
+
+    return { success: 'Certificate added' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const editCertificate = async (formData: FormData) => {
+  const [values] = getFormValues<Cert>(formData)
+  try {
+    const updateValues = {} as Partial<Product>
+    ;(
+      Object.entries(values) as [keyof Product, Product[keyof Product]][]
+    ).forEach(([key, val]) => {
+      if (val) (updateValues as Record<string, string | number>)[key] = val
+    })
+
+    await db
+      .update(certificate)
+      .set(updateValues)
+      .where(eq(certificate.id, Number(formData.get('id'))))
+
+    return { success: true }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const deleteCertificate = async (formData: FormData) => {
+  try {
+    await db
+      .delete(certificate)
+      .where(eq(certificate.id, Number(formData.get('id'))))
+
     return { success: 'deleted' }
   } catch (e) {
     return {

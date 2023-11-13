@@ -57,3 +57,21 @@ export const post = sqliteTable('post', {
   order: integer('order').$defaultFn(() => 0),
   link: text('link'),
 })
+
+export const headline = sqliteTable('headline', {
+  id: int('id').primaryKey(),
+  title_eng: text('title_eng').notNull().unique(),
+  title_geo: text('title_geo').notNull().unique(),
+  subtitle_eng: text('subtitle_eng').notNull(),
+  subtitle_geo: text('subtitle_geo').notNull(),
+  desc_eng: text('desc_eng').notNull(),
+  desc_geo: text('desc_geo').notNull(),
+})
+
+export const certificate = sqliteTable('certificate', {
+  id: int('id').primaryKey(),
+  title_eng: text('title_eng').notNull().unique(),
+  title_geo: text('title_geo').notNull().unique(),
+  desc_eng: text('desc_eng').notNull().unique(),
+  desc_geo: text('desc_geo').notNull().unique(),
+})

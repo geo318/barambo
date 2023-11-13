@@ -1,5 +1,13 @@
 import { z } from 'zod'
-import { category, post, product, slider, subCategory } from '/server'
+import {
+  category,
+  certificate,
+  headline,
+  post,
+  product,
+  slider,
+  subCategory,
+} from '/server'
 import { createInsertSchema } from 'drizzle-zod'
 
 export const insertCategorySchema = createInsertSchema(category)
@@ -10,9 +18,13 @@ export const insertPostSchema = createInsertSchema(post).transform((data) => ({
   type: z.enum(['news', 'recept', 'csr']).parse(data.type),
 }))
 export const insetSliderSchema = createInsertSchema(slider)
+export const insetHeadlineSchema = createInsertSchema(headline)
+export const insertCertificateSchema = createInsertSchema(certificate)
 
 export type Category = z.infer<typeof insertCategorySchema>
 export type SubCategory = z.infer<typeof insertSubCategorySchema>
 export type Product = z.infer<typeof insertProductSchema>
 export type Post = z.infer<typeof insertPostSchema>
 export type Slider = z.infer<typeof insetSliderSchema>
+export type Headline = z.infer<typeof insetHeadlineSchema>
+export type Cert = z.infer<typeof insertCertificateSchema>
