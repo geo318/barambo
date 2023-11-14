@@ -6,6 +6,8 @@ import { getDictionary } from '/lib'
 import { Blog, Locale } from '/types'
 import { getLatestPosts, getPost } from '/server'
 import { getImage, getLangKey } from '/utils'
+import { switchBlog } from '/config'
+import { twMerge } from 'tailwind-merge'
 
 export default async function Post({
   params: { slug, lang },
@@ -24,7 +26,21 @@ export default async function Post({
           <H tag='h1' size='xl'>
             {blog.h1}
           </H>
-          <BlogSwitcher text={blog} />
+          <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
+            {switchBlog.map((item) => (
+              <li
+                className={twMerge(
+                  'text-lg font-medium border-b border-transparent',
+                  (filter ?? 'news') === item.name && 'border-black'
+                )}
+                key={item.name}
+              >
+                <Link href={`/${lang}/blog?filter=${item.name}`}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
         <Image
           src={post.banner ? getImage`${post.banner}` : banner3}
