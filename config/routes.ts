@@ -11,8 +11,9 @@ export const routes = {
   addSubCategory: '/admin/subcategory',
   addProduct: '/admin/product',
   addSlider: '/admin/slider',
-  addCertificate: '/admin/certificate',
   addPost: '/admin/post',
+  addCertificate: '/admin/certificate',
+  addHeadline: '/admin/headline',
 }
 
 export const staticPath = 'express/uploads' as const

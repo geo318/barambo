@@ -1,15 +1,13 @@
 import { Suspense } from 'react'
-import { CloseModal, H, Portal, SliderForm } from '/components'
+import { CertForm, CloseModal, H, Portal, SliderForm } from '/components'
 import { routes } from '/config'
 import {
-  createSlide,
-  deleteSlide,
-  editSlide,
-  getSlides,
+  createCertificate,
+  deleteCertificate,
+  editCertificate,
+  getCertificates,
 } from '/server'
 import { SubCategory } from '/types'
-import { getImage } from '/utils'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function SubCategory({
@@ -17,16 +15,16 @@ export default async function SubCategory({
 }: {
   searchParams: URLSearchParams & { edit?: number }
 }) {
-  const slides = await getSlides()
+  const certificates = await getCertificates()
 
   return (
     <div>
       <section className='pb-10'>
         <H tag='h1' size='md' className='mb-20 text-center'>
-          Add Product
+          Add Certificate
         </H>
         <Suspense fallback={<div>Loading...</div>}>
-          <SliderForm action={createSlide} />
+          <CertForm action={createCertificate} />
         </Suspense>
       </section>
 
@@ -36,15 +34,15 @@ export default async function SubCategory({
         </H>
         <div className='grid grid-cols-1 gap-5 capitalize'>
           <Suspense fallback={<div>loading...</div>}>
-            {slides.map((slide) => (
+            {certificates.map((cert) => (
               <div
-                key={slide.id}
+                key={cert.id}
                 className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
               >
                 <div className='flex gap-3'>
-                  <Link href={`?edit=${slide.id}`}>Edit</Link>
-                  <form action={deleteSlide}>
-                    <input type='hidden' name='id' value={slide.id} />
+                  <Link href={`?edit=${cert.id}`}>Edit</Link>
+                  <form action={deleteCertificate}>
+                    <input type='hidden' name='id' value={cert.id} />
                     <button
                       type='submit'
                       className='text-red-500 hover:underline'
@@ -53,14 +51,6 @@ export default async function SubCategory({
                     </button>
                   </form>
                 </div>
-
-                <Image
-                  src={getImage`${slide.thumbnail}`}
-                  className='w-full object-contain max-h-full max-w-full'
-                  width={1500}
-                  height={500}
-                  alt=''
-                />
               </div>
             ))}
           </Suspense>
@@ -74,14 +64,14 @@ export default async function SubCategory({
               <div className='flex py-3'>
                 <h3 className='font-lg font-bold'>Edit slide</h3>
                 <CloseModal
-                  closeKey={`${routes.addSlider}?edit-product`}
+                  closeKey={`${routes.addCertificate}?edit-cert`}
                   className='p-0'
                 />
               </div>
               <Suspense fallback={<div>Loading...</div>}>
-                <SliderForm
-                  action={editSlide}
-                  defaultValues={slides.find(
+                <CertForm
+                  action={editCertificate}
+                  defaultValues={certificates.find(
                     (p) => p.id === Number(searchParams?.edit)
                   )}
                 />

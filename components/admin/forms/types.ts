@@ -1,38 +1,35 @@
 import {
   Category,
+  Cert,
   FormAction,
+  Headline,
   Post,
   Product,
   Slider,
   SubCategory,
 } from '/types'
 
-export type CategoryProps = {
-  action: FormAction
-  edit?: number | null
-  defaultValues?: Category | SubCategory | null
+export type CategoryProps = FormProps<Category> & {
   main?: Category[]
   checked?: number
 }
 
-export type ProductProps = {
-  action: FormAction
-  edit?: number | null
-  defaultValues?: Product | null
+export type ProductProps = FormProps<Product> & {
   checked?: number
   subCategory: SubCategory[]
   products?: Product[]
 }
 
-export type PostProps = {
-  action: FormAction
-  edit?: number | null
-  defaultValues?: Post | null
-  checked?: number
-}
+export type PostProps = FormProps<Post> & { checked?: number }
 
-export type SliderProps = {
+export type SliderProps = FormProps<Slider>
+
+export type HeadlineProps = FormProps<Headline>
+
+export type CertProps = FormProps<Cert>
+
+export type FormProps<T> = {
   action: FormAction
   edit?: number | null
-  defaultValues?: Slider | null
+  defaultValues?: T | null
 }

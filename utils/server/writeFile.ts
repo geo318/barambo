@@ -1,6 +1,6 @@
 'use server'
 
-import { Sharp, SharpOptions } from 'sharp'
+import { Sharp } from 'sharp'
 import { staticPath, imagePaths } from '/config'
 import fs from 'fs'
 

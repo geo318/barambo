@@ -58,3 +58,22 @@ export const sliderSchema = z.object({
   thumbnail: imgSchema,
   order: z.coerce.number().int().min(0),
 })
+
+export const headlineSchema = z.object({
+  id: z.coerce.number().min(0).optional(),
+  title_eng: z.string().min(3).max(200),
+  title_geo: z.string().min(3).max(200),
+  subtitle_eng: z.string().min(3).max(200),
+  subtitle_geo: z.string().min(3).max(200),
+  desc_eng: z.string().min(3).max(25000),
+  desc_geo: z.string().min(3).max(25000),
+})
+
+export const certSchema = z.object({
+  id: z.coerce.number().min(0).optional(),
+  title_eng: z.string().min(3).max(200),
+  title_geo: z.string().min(3).max(200),
+  desc_eng: z.string().min(3).max(200),
+  desc_geo: z.string().min(3).max(200),
+  order: z.coerce.number().int().min(0),
+})

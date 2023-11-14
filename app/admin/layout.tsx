@@ -1,4 +1,4 @@
-import { Aside, SignOut } from '/components'
+import { Aside } from '/components'
 
 export default function RootLayout({
   children,

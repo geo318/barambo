@@ -72,7 +72,7 @@ export const getPosts = async () => await db.select().from(post)
 
 export const getSlides = async () => await db.select().from(slider)
 
-export const getHeadLines = async () => await db.select().from(headline)
+export const getHeadLine = async () => await db.select().from(headline)
 
 export const getCertificates = async () => await db.select().from(certificate)
 
