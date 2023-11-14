@@ -11,7 +11,11 @@ export default async function Product({
   params: { lang },
   searchParams,
 }: PageProps & {
-  searchParams: URLSearchParams & { filter?: Blog; page?: number }
+  searchParams: URLSearchParams & {
+    filter?: Blog
+    recept?: string
+    page?: number
+  }
 }) {
   const { blog } = await getDictionary(lang)
   const posts = await getPaginatedPosts(
@@ -53,7 +57,7 @@ export default async function Product({
                 <Link
                   href={
                     searchParams?.filter === 'recept'
-                      ? `?recept=${id}`
+                      ? `?filter=recept&recept=${slug}`
                       : `/blog/${slug}`
                   }
                   className='mt-auto mx-auto mb-8 z-10'
@@ -65,7 +69,10 @@ export default async function Product({
           </section>
         </article>
       </Section>
-      <BlogModal isOpen={'recept' in searchParams} />
+      <BlogModal
+        isOpen={'recept' in searchParams}
+        slug={searchParams?.recept}
+      />
     </main>
   )
 }
