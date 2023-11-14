@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BlogModal, BlogSwitcher, Button, H, Section } from '/components'
+import { BlogModal, Button, H, Section } from '/components'
 import { getDictionary } from '/lib'
 import { Blog, PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'

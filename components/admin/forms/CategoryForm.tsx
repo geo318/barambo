@@ -2,7 +2,7 @@
 
 import { CategoryProps } from './types'
 import { FormWrapper, Input, Select } from '/components'
-import { categorySchema } from '/schema'
+import { categorySchema, subCategorySchema } from '/schema'
 import { useForm } from './useForm'
 
 export const CategoryForm = ({
@@ -13,7 +13,11 @@ export const CategoryForm = ({
 }: CategoryProps) => {
   const { MessageBox, handleSubmit, ref } = useForm(action)
   return (
-    <FormWrapper schema={categorySchema} onSubmit={handleSubmit} formRef={ref}>
+    <FormWrapper
+      schema={main ? subCategorySchema : categorySchema}
+      onSubmit={handleSubmit}
+      formRef={ref}
+    >
       {MessageBox}
       {edit && <input name='id' defaultValue={edit} hidden readOnly />}
       {main && (
@@ -25,6 +29,7 @@ export const CategoryForm = ({
             return acc
           }, [] as { id?: number; name: string }[])}
           selected={checked}
+          defaultValue={checked}
         />
       )}
       <Input name='name_eng' label='Name Eng' />

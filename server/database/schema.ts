@@ -1,3 +1,4 @@
+import { relations } from 'drizzle-orm'
 import { sqliteTable, text, int, integer } from 'drizzle-orm/sqlite-core'
 
 export const user = sqliteTable('user', {
@@ -75,3 +76,14 @@ export const certificate = sqliteTable('certificate', {
   desc_eng: text('desc_eng').notNull().unique(),
   desc_geo: text('desc_geo').notNull().unique(),
 })
+
+export const categoryRelations = relations(category, ({ many }) => ({
+  subCategories: many(subCategory),
+}))
+
+export const subCategoryRelations = relations(subCategory, ({ one }) => ({
+  category: one(category, {
+    fields: [subCategory.categoryId],
+    references: [category.id],
+  }),
+}))

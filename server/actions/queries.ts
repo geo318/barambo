@@ -1,7 +1,7 @@
 'server actions'
 
-import { eq, sql } from 'drizzle-orm'
-import { db, post } from '/server'
+import { eq, placeholder, sql } from 'drizzle-orm'
+import { category, db, post, subCategory } from '/server'
 import { Blog, Post } from '/types'
 import { cache } from 'react'
 import { BLOG_PAGE } from '/config'
@@ -52,4 +52,13 @@ export const countPosts = cache(async (type: Post['type']) => {
     .execute()
 
   return Math.floor(count[0].count / BLOG_PAGE)
+})
+
+export const getAllCategories = cache(async () => {
+  const categories = await db.query.category.findMany({
+    with: {
+      subCategories: true,
+    },
+  })
+  return categories
 })

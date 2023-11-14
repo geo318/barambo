@@ -10,12 +10,21 @@ import {
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
+import { getAllCategories } from '/server'
+import { getImage, getLangKey } from '/utils'
+import Link from 'next/link'
 
 export default async function Product({
   params: { lang },
-  searchParams,
-}: PageProps & { searchParams: URLSearchParams & { id?: string } }) {
+  searchParams: { category, id },
+}: PageProps & {
+  searchParams: URLSearchParams & {
+    id?: string
+    category?: string
+  }
+}) {
   const { product } = await getDictionary(lang)
+  const categories = await getAllCategories()
 
   return (
     <main className='flex flex-col gap-36'>
@@ -28,17 +37,55 @@ export default async function Product({
             What it is so special about us?
           </h4>
           <section className='max-w-xs'>
-            {['Brands', 'Confectionery', 'Ice cream'].map((c, i) => (
-              <div
-                key={c}
-                className={twMerge(
-                  'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
-                  i >= 1 && 'text-secondary'
-                )}
-              >
-                {c}
-                <Plus className='ml-auto' />
-              </div>
+            {categories.map((c, i) => (
+              <>
+                <div
+                  key={c.id}
+                  className={twMerge(
+                    'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
+                    i >= 1 && 'text-secondary'
+                  )}
+                >
+                  {c.thumbnail && (
+                    <Image
+                      src={getImage`${c.thumbnail}`}
+                      alt={c.name_eng ?? ''}
+                      width={25}
+                      height={25}
+                      className='max-h-6 max-w-6'
+                    />
+                  )}
+                  {c[`name_${getLangKey(lang)}`]}
+                  <Link href={`?category=${c.name_eng}`}>
+                    <Plus className='ml-auto' />
+                  </Link>
+                </div>
+                <ul>
+                  {c.subCategories?.map((sc) => (
+                    <li
+                      key={sc.id}
+                      className={twMerge(
+                        'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
+                        i >= 1 && 'text-secondary'
+                      )}
+                    >
+                      {sc.thumbnail && (
+                        <Image
+                          src={getImage`${sc.thumbnail}`}
+                          alt={sc.name_eng ?? ''}
+                          width={25}
+                          height={25}
+                          className='max-h-6 max-w-6'
+                        />
+                      )}
+                      {sc[`name_${getLangKey(lang)}`]}
+                      <Link href={`?category=${sc.name_eng}`}>
+                        <Plus className='ml-auto' />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
             ))}
           </section>
         </aside>
@@ -77,7 +124,7 @@ export default async function Product({
           </section>
         </article>
       </Section>
-      <ProductModal isOpen={'id' in searchParams} />
+      <ProductModal isOpen={!!id} />
     </main>
   )
 }

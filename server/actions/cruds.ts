@@ -45,7 +45,6 @@ export const createMainCategory = async (formData: FormData) => {
 
 export const createSubCategory = async (formData: FormData) => {
   const [mapped, file] = getFormValues<SubCategory>(formData)
-
   if (!file) throw { error: 'file not uploaded' }
   const buffer = Buffer.from(await file[0].arrayBuffer())
   try {
@@ -56,6 +55,7 @@ export const createSubCategory = async (formData: FormData) => {
     revalidatePath(routes.addSubCategory)
     return { success: true }
   } catch (e) {
+    console.log(e)
     return {
       error: 'category already exists or something went wrong',
     }

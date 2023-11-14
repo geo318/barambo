@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BlogSwitcher, H, Section } from '/components'
+import { H, Section } from '/components'
 import { banner3 } from '/public'
 import { getDictionary } from '/lib'
 import { Blog, Locale } from '/types'
