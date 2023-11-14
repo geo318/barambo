@@ -1,18 +1,15 @@
 import Image from 'next/image'
 import {
+  Filter,
   H,
   Magnifier,
-  Plus,
   ProductModal,
   ProductWrapper,
   Section,
 } from '/components'
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
-import { twMerge } from 'tailwind-merge'
 import { getAllCategories } from '/server'
-import { getImage, getLangKey } from '/utils'
-import Link from 'next/link'
 
 export default async function Product({
   params: { lang },
@@ -36,58 +33,7 @@ export default async function Product({
           <h4 className='text-2xl font-medium my-7'>
             What it is so special about us?
           </h4>
-          <section className='max-w-xs'>
-            {categories.map((c, i) => (
-              <>
-                <div
-                  key={c.id}
-                  className={twMerge(
-                    'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
-                    i >= 1 && 'text-secondary'
-                  )}
-                >
-                  {c.thumbnail && (
-                    <Image
-                      src={getImage`${c.thumbnail}`}
-                      alt={c.name_eng ?? ''}
-                      width={25}
-                      height={25}
-                      className='max-h-6 max-w-6'
-                    />
-                  )}
-                  {c[`name_${getLangKey(lang)}`]}
-                  <Link href={`?category=${c.name_eng}`}>
-                    <Plus className='ml-auto' />
-                  </Link>
-                </div>
-                <ul>
-                  {c.subCategories?.map((sc) => (
-                    <li
-                      key={sc.id}
-                      className={twMerge(
-                        'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
-                        i >= 1 && 'text-secondary'
-                      )}
-                    >
-                      {sc.thumbnail && (
-                        <Image
-                          src={getImage`${sc.thumbnail}`}
-                          alt={sc.name_eng ?? ''}
-                          width={25}
-                          height={25}
-                          className='max-h-6 max-w-6'
-                        />
-                      )}
-                      {sc[`name_${getLangKey(lang)}`]}
-                      <Link href={`?category=${sc.name_eng}`}>
-                        <Plus className='ml-auto' />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ))}
-          </section>
+          <Filter lang={lang} categories={categories} />
         </aside>
         <article>
           <div className='relative mb-14 mt-10'>
@@ -106,9 +52,9 @@ export default async function Product({
                   <Image
                     src={`https://picsum.photos/200?random${i + 1}`}
                     alt='banner'
-                    layout='fill'
-                    objectFit='cover'
-                    className='rounded-[1rem]'
+                    className='rounded-[1rem] w-full h-full object-cover'
+                    width={300}
+                    height={300}
                   />
                 </div>
                 <div className='flex flex-col gap-2 mt-5'>
