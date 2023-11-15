@@ -349,7 +349,7 @@ export const editSlide = async (formData: FormData) => {
       .where(eq(slider.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addSlider)
-    revalidatePath(routes.home)
+    revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: true }
   } catch (e) {
     return {

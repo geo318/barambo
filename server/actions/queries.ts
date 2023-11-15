@@ -1,7 +1,7 @@
 'server actions'
 
-import { eq, placeholder, sql } from 'drizzle-orm'
-import { category, db, post, subCategory } from '/server'
+import { eq, sql } from 'drizzle-orm'
+import { db, post } from '/server'
 import { Blog, Post } from '/types'
 import { cache } from 'react'
 import { BLOG_PAGE } from '/config'
