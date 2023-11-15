@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { getImage, getLangKey } from '/utils'
 import { twMerge } from 'tailwind-merge'
-import Link from 'next/link'
 import { Minus, Plus } from '/components'
 import { Category, Locale, SubCategory } from '/types'
 import { Fragment, memo, useState } from 'react'
@@ -16,15 +15,16 @@ const Filter: React.FC<{
   const [open, setOpen] = useState<boolean[]>(
     Array.from({ length: categories.length }, () => false)
   )
+  const [active, setActive] = useState<number>()
   const params = useSearchParams()
   const router = useRouter()
-  const toggleMenu = (i: number) =>
+  const toggleMenu = (i: number) => {
     setOpen((prev) => {
       const newArr = [...prev]
       newArr[i] = !prev[i]
-      prev[i] && router.replace('?category')
       return newArr
     })
+  }
   return (
     <section className='max-w-xs'>
       {categories.map((c, i) => (
@@ -69,25 +69,25 @@ const Filter: React.FC<{
           >
             <ul className='overflow-hidden'>
               {c.subCategories?.map((sc) => (
-                <Link key={sc.id} href={`?category=${sc.id}`}>
-                  <li
-                    className={twMerge(
-                      'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
-                      i >= 1 && 'text-secondary'
-                    )}
-                  >
-                    {sc.thumbnail && (
-                      <Image
-                        src={getImage`${sc.thumbnail}`}
-                        alt={sc.name_eng ?? ''}
-                        width={25}
-                        height={25}
-                        className='max-h-6 max-w-6 h-auto'
-                      />
-                    )}
-                    {sc[`name_${getLangKey(lang)}`]}
-                  </li>
-                </Link>
+                <li
+                  key={sc.id}
+                  className={twMerge(
+                    'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
+                    i >= 1 && 'text-secondary'
+                  )}
+                  onClick={() => setActive(sc.id)}
+                >
+                  {sc.thumbnail && (
+                    <Image
+                      src={getImage`${sc.thumbnail}`}
+                      alt={sc.name_eng ?? ''}
+                      width={25}
+                      height={25}
+                      className='max-h-6 max-w-6 h-auto'
+                    />
+                  )}
+                  {sc[`name_${getLangKey(lang)}`]}
+                </li>
               ))}
             </ul>
           </div>

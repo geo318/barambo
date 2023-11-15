@@ -15,8 +15,12 @@ const nextConfig = {
   experimental: {
     serverActions: {
       bodySizeLimit: '20mb',
-      allowedForwardedHosts: [process.env.NEXT_PUBLIC_FORWARDED],
-      allowedOrigins: [process.env.NEXT_PUBLIC_ORIGIN],
+      experimental: {
+        serverActions: {
+          allowedForwardedHosts: [process.env.NEXT_PUBLIC_FORWARDED],
+          allowedOrigins: [process.env.NEXT_PUBLIC_ORIGIN],
+        },
+      },
     },
   },
 }

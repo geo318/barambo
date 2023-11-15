@@ -38,7 +38,7 @@ export const createMainCategory = async (formData: FormData) => {
     return { success: true }
   } catch (e) {
     return {
-      error: JSON.stringify(e) + JSON.stringify(mapped) + JSON.stringify(file) + 'category already exists or something went wrong',
+      error: 'category already exists or something went wrong',
     }
   }
 }

@@ -1,3 +1,3 @@
 export * from './ProductModal'
-export * from './ProductWrapper'
+export * from './Product'
 export { default as Filter } from './Filter'
