@@ -324,7 +324,7 @@ export const createSlide = async (formData: FormData) => {
     await db.insert(slider).values({ ...mapped, thumbnail: path })
 
     revalidatePath(routes.addProduct)
-    revalidatePath(routes.home)
+    revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: 'Product added' }
   } catch (e) {
     return {
@@ -363,7 +363,7 @@ export const deleteSlide = async (formData: FormData) => {
     await db.delete(slider).where(eq(slider.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addSlider)
-    revalidatePath(routes.home)
+    revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: 'deleted' }
   } catch (e) {
     return {
