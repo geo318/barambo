@@ -3,7 +3,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: process.env.NEXT_PUBLIC_PROTOCOL,
         pathname: '**',
         hostname: '**',
       },
@@ -12,6 +11,13 @@ const nextConfig = {
   publicRuntimeConfig: {
     locale: 'en',
     currentLocale: 'en',
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '20mb',
+      allowedForwardedHosts: [process.env.NEXT_PUBLIC_FORWARDED],
+      allowedOrigins: [process.env.NEXT_PUBLIC_ORIGIN],
+    },
   },
 }
 
