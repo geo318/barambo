@@ -17,11 +17,7 @@ import {
 } from '/server'
 import { Category } from '/types'
 
-export default async function Category({
-  searchParams,
-}: {
-  searchParams: URLSearchParams & { edit?: number }
-}) {
+export default async function Category() {
   const categories = await getCategories()
 
   return (
@@ -57,7 +53,11 @@ export default async function Category({
                 <CloseModal closeKey={routes.addCategory} className='p-0' />
               </div>
               <Suspense fallback={<div>Loading...</div>}>
-                <CategoryForm action={editCategory} query='edit' />
+                <CategoryForm
+                  action={editCategory}
+                  query='edit'
+                  defaultValues={categories.filter((e) => e.id === 1)[0]}
+                />
               </Suspense>
             </div>
           </Portal>

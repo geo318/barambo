@@ -8,6 +8,8 @@ export const SearchParamsWrapper: React.FC<{
   not?: boolean
 }> = ({ children, query, not }) => {
   const params = useSearchParams()
-  const render = query.some((q) => params.get(q)) && !not
+  const cond = query.some((q) => typeof params.get(q) === 'string')
+
+  const render = not ? !cond : cond
   return <>{render ? children : null}</>
 }
