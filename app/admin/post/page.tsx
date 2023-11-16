@@ -17,7 +17,7 @@ import Link from 'next/link'
 export default async function SubCategory({
   searchParams,
 }: {
-  searchParams: URLSearchParams & { edit?: number }
+  searchParams: URLSearchParams
 }) {
   const posts = await getPosts()
 
@@ -124,9 +124,7 @@ export default async function SubCategory({
                 <PostForm
                   action={editPost}
                   query='edit'
-                  defaultValues={(posts as Post[]).find(
-                    (p) => p.id === Number(searchParams?.edit)
-                  )}
+                  defaultValues={posts as Post[]}
                 />
               </Suspense>
             </div>

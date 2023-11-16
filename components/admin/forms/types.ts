@@ -11,11 +11,10 @@ import {
 
 export type CategoryProps = FormProps<Category> & {
   main?: Category[]
-  checked?: number
+  subCategory?: SubCategory[]
 }
 
 export type ProductProps = FormProps<Product> & {
-  checked?: number
   subCategory: SubCategory[]
   products?: Product[]
 }

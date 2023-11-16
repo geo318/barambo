@@ -22,7 +22,7 @@ import Link from 'next/link'
 export default async function SubCategory({
   searchParams,
 }: {
-  searchParams: URLSearchParams & { edit?: number }
+  searchParams: URLSearchParams
 }) {
   const [products, subCategories] = await Promise.all([
     getProducts(),

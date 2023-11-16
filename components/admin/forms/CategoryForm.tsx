@@ -7,11 +7,12 @@ import { useForm } from './useForm'
 
 export const CategoryForm = ({
   main,
+  subCategory,
   action,
   query,
-  checked,
 }: CategoryProps) => {
   const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
+  const checked = subCategory?.find((e) => e.id === Number(param))?.categoryId
   return (
     <FormWrapper
       schema={main ? subCategorySchema : categorySchema}
@@ -19,14 +20,7 @@ export const CategoryForm = ({
       formRef={ref}
     >
       {MessageBox}
-      {param && (
-        <input
-          name='id'
-          defaultValue={param}
-          hidden
-          readOnly
-        />
-      )}
+      {param && <input name='id' defaultValue={param} hidden readOnly />}
       {main && (
         <Select
           name='categoryId'

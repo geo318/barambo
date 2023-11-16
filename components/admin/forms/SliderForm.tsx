@@ -13,7 +13,7 @@ export const SliderForm = ({ action, query, defaultValues }: SliderProps) => {
       schema={sliderSchema}
       onSubmit={handleSubmit}
       formRef={ref}
-      defaultValues={defaultValues}
+      defaultValues={defaultValues?.find((e) => e.id === Number(param))}
     >
       {MessageBox}
       {param && <input name='id' defaultValue={param} hidden readOnly />}

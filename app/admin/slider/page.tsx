@@ -82,9 +82,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <SliderForm
                   action={editSlide}
-                  defaultValues={slides.find(
-                    (p) => p.id === Number(searchParams?.edit)
-                  )}
+                  defaultValues={slides}
                 />
               </Suspense>
             </div>

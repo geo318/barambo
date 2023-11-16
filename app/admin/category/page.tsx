@@ -56,7 +56,7 @@ export default async function Category() {
                 <CategoryForm
                   action={editCategory}
                   query='edit'
-                  defaultValues={categories.filter((e) => e.id === 1)[0]}
+                  defaultValues={categories}
                 />
               </Suspense>
             </div>

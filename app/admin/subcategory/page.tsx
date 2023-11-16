@@ -67,11 +67,7 @@ export default async function SubCategory({
                 <CategoryForm
                   action={editSubCategory}
                   main={categories}
-                  checked={
-                    subCategories.find(
-                      (e) => e.id === Number(searchParams?.edit)
-                    )?.categoryId
-                  }
+                  subCategory={subCategories}
                   query='edit'
                 />
               </Suspense>
