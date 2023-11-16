@@ -132,9 +132,7 @@ export default async function SubCategory({
                 <ProductForm
                   action={editProduct}
                   subCategory={subCategories}
-                  defaultValues={products.find(
-                    (p) => p.id === Number(searchParams?.edit)
-                  )}
+                  defaultValues={products}
                   query='edit'
                 />
               </Suspense>

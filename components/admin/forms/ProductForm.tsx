@@ -26,7 +26,7 @@ export const ProductForm = ({
       schema={param ? productSchema(!!param) : productSchema()}
       onSubmit={handleSubmit}
       formRef={ref}
-      defaultValues={defaultValues}
+      defaultValues={defaultValues?.find((c) => c.id === Number(param))}
     >
       {MessageBox}
       {param && <input name='id' defaultValue={param} hidden readOnly />}

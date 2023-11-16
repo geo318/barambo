@@ -78,9 +78,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <CertForm
                   action={editCertificate}
-                  defaultValues={certificates.find(
-                    (p) => p.id === Number(searchParams?.edit)
-                  )}
+                  defaultValues={certificates}
                 />
               </Suspense>
             </div>

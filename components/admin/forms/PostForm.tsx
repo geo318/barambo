@@ -13,7 +13,7 @@ export const PostForm = ({ action, query, defaultValues }: PostProps) => {
       schema={postSchema}
       onSubmit={handleSubmit}
       formRef={ref}
-      defaultValues={defaultValues}
+      defaultValues={defaultValues?.find((c) => c.id === Number(param))}
     >
       {MessageBox}
       {param && (

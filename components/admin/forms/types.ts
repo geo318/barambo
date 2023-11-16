@@ -31,5 +31,5 @@ export type CertProps = FormProps<Cert>
 export type FormProps<T> = {
   action: FormAction
   query?: string | null
-  defaultValues?: T | null
+  defaultValues?: T[] | null
 }

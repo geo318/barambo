@@ -13,17 +13,10 @@ export const CertForm = ({ action, query, defaultValues }: CertProps) => {
       schema={certSchema}
       onSubmit={handleSubmit}
       formRef={ref}
-      defaultValues={defaultValues}
+      defaultValues={defaultValues?.find((c) => c.id === Number(param))}
     >
       {MessageBox}
-      {param && (
-        <input
-          name='id'
-          defaultValue={param}
-          hidden
-          readOnly
-        />
-      )}
+      {param && <input name='id' defaultValue={param} hidden readOnly />}
       <Input name='title_eng' label='Title Eng' />
       <Input name='title_geo' label='Title Geo' />
       <Input name='desc_eng' label='Description eng' height={300} textarea />

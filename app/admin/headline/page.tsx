@@ -66,7 +66,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <HeadlineForm
                   action={editHeadline}
-                  defaultValues={headline[0]}
+                  defaultValues={headline}
                 />
               </Suspense>
             </div>
