@@ -8,11 +8,11 @@ import { useMemo } from 'react'
 
 export const ProductForm = ({
   action,
-  edit,
+  query,
   subCategory,
   defaultValues,
 }: ProductProps) => {
-  const { MessageBox, handleSubmit, ref } = useForm(action)
+  const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
   const options = useMemo(
     () =>
       subCategory.reduce((acc, c) => {
@@ -23,13 +23,13 @@ export const ProductForm = ({
   )
   return (
     <FormWrapper
-      schema={edit ? productSchema(!!edit) : productSchema()}
+      schema={param ? productSchema(!!param) : productSchema()}
       onSubmit={handleSubmit}
       formRef={ref}
       defaultValues={defaultValues}
     >
       {MessageBox}
-      {edit && <input name='id' defaultValue={edit} hidden readOnly />}
+      {param && <input name='id' defaultValue={param} hidden readOnly />}
       <Input name='title_eng' label='Title Eng' />
       <Input name='title_geo' label='Title Geo' />
       <TinyMCE inputName='desc_eng' labelName='Description eng' height={300} />

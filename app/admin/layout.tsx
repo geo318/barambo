@@ -1,7 +1,5 @@
 import { Aside } from '/components'
 
-export const dynamic = 'force-dynamic'
-
 export default function RootLayout({
   children,
 }: {

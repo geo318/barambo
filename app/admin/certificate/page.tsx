@@ -1,5 +1,12 @@
 import { Suspense } from 'react'
-import { CertForm, CloseModal, H, Portal, SliderForm } from '/components'
+import {
+  CertForm,
+  CloseModal,
+  H,
+  Portal,
+  SearchParamsWrapper,
+  SliderForm,
+} from '/components'
 import { routes } from '/config'
 import {
   createCertificate,
@@ -57,7 +64,7 @@ export default async function SubCategory({
         </div>
       </section>
 
-      {'edit' in searchParams && (
+      <SearchParamsWrapper query={['edit']}>
         <Portal>
           <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
             <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
@@ -79,7 +86,7 @@ export default async function SubCategory({
             </div>
           </div>
         </Portal>
-      )}
+      </SearchParamsWrapper>
     </div>
   )
 }

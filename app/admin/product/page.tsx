@@ -1,5 +1,11 @@
 import { Suspense } from 'react'
-import { CloseModal, H, Portal, ProductForm } from '/components'
+import {
+  CloseModal,
+  H,
+  Portal,
+  ProductForm,
+  SearchParamsWrapper,
+} from '/components'
 import { routes } from '/config'
 import {
   createProduct,
@@ -45,7 +51,7 @@ export default async function SubCategory({
           edit products
         </Link>
       </section>
-      {!('edit-product' in searchParams || 'edit' in searchParams) && (
+      <SearchParamsWrapper query={['edit', 'edit-product']} not>
         <section className='pb-10'>
           <H tag='h1' size='md' className='mb-20 text-center'>
             Add Product
@@ -58,8 +64,8 @@ export default async function SubCategory({
             />
           </Suspense>
         </section>
-      )}
-      {('edit-product' in searchParams || 'edit' in searchParams) && (
+      </SearchParamsWrapper>
+      <SearchParamsWrapper query={['edit', 'edit-product']}>
         <section>
           <H tag='h1' size='md' className='mb-20 text-center'>
             Product list
@@ -110,8 +116,8 @@ export default async function SubCategory({
             </Suspense>
           </div>
         </section>
-      )}
-      {'edit' in searchParams && (
+      </SearchParamsWrapper>
+      <SearchParamsWrapper query={['edit']}>
         <Portal>
           <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
             <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
@@ -126,16 +132,16 @@ export default async function SubCategory({
                 <ProductForm
                   action={editProduct}
                   subCategory={subCategories}
-                  edit={searchParams?.edit}
                   defaultValues={products.find(
                     (p) => p.id === Number(searchParams?.edit)
                   )}
+                  query='edit'
                 />
               </Suspense>
             </div>
           </div>
         </Portal>
-      )}
+      </SearchParamsWrapper>
     </div>
   )
 }

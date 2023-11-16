@@ -5,8 +5,8 @@ import { FormWrapper, Input } from '/components'
 import { sliderSchema } from '/schema'
 import { useForm } from './useForm'
 
-export const SliderForm = ({ action, edit, defaultValues }: SliderProps) => {
-  const { MessageBox, handleSubmit, ref } = useForm(action)
+export const SliderForm = ({ action, query, defaultValues }: SliderProps) => {
+  const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
 
   return (
     <FormWrapper
@@ -16,7 +16,7 @@ export const SliderForm = ({ action, edit, defaultValues }: SliderProps) => {
       defaultValues={defaultValues}
     >
       {MessageBox}
-      {edit && <input name='id' defaultValue={edit} hidden readOnly />}
+      {param && <input name='id' defaultValue={param} hidden readOnly />}
       <Input name='thumbnail' label='Thumbnail' type='file' />
       <Input name='order' label='Order' type='number' min={0} />
     </FormWrapper>

@@ -8,10 +8,10 @@ import { useForm } from './useForm'
 export const CategoryForm = ({
   main,
   action,
-  edit,
+  query,
   checked,
 }: CategoryProps) => {
-  const { MessageBox, handleSubmit, ref } = useForm(action)
+  const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
   return (
     <FormWrapper
       schema={main ? subCategorySchema : categorySchema}
@@ -19,7 +19,14 @@ export const CategoryForm = ({
       formRef={ref}
     >
       {MessageBox}
-      {edit && <input name='id' defaultValue={edit} hidden readOnly />}
+      {param && (
+        <input
+          name='id'
+          defaultValue={param}
+          hidden
+          readOnly
+        />
+      )}
       {main && (
         <Select
           name='categoryId'

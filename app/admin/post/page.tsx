@@ -1,5 +1,11 @@
 import { Suspense } from 'react'
-import { CloseModal, H, Portal, PostForm } from '/components'
+import {
+  CloseModal,
+  H,
+  Portal,
+  PostForm,
+  SearchParamsWrapper,
+} from '/components'
 import { routes } from '/config'
 import { createPost, editPost, getPosts } from '/server'
 import { Post, SubCategory } from '/types'
@@ -37,7 +43,7 @@ export default async function SubCategory({
           Edit post
         </Link>
       </section>
-      {!('edit-post' in searchParams || 'edit' in searchParams) && (
+      <SearchParamsWrapper query={['edit', 'edit-post']} not>
         <section className='pb-10'>
           <H tag='h1' size='md' className='mb-20 text-center'>
             Add new blog post
@@ -46,8 +52,8 @@ export default async function SubCategory({
             <PostForm action={createPost} />
           </Suspense>
         </section>
-      )}
-      {('edit-post' in searchParams || 'edit' in searchParams) && (
+      </SearchParamsWrapper>
+      <SearchParamsWrapper query={['edit', 'edit-post']}>
         <section>
           <H tag='h1' size='md' className='mb-20 text-center'>
             Posts
@@ -102,8 +108,8 @@ export default async function SubCategory({
             </Suspense>
           </div>
         </section>
-      )}
-      {'edit' in searchParams && (
+      </SearchParamsWrapper>
+      <SearchParamsWrapper query={['edit']}>
         <Portal>
           <div className='flex flex-col bg-white max-w-3xl mx-auto mt-20 py-5 rounded-xl'>
             <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
@@ -117,7 +123,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <PostForm
                   action={editPost}
-                  edit={searchParams?.edit}
+                  query='edit'
                   defaultValues={(posts as Post[]).find(
                     (p) => p.id === Number(searchParams?.edit)
                   )}
@@ -126,7 +132,7 @@ export default async function SubCategory({
             </div>
           </div>
         </Portal>
-      )}
+      </SearchParamsWrapper>
     </div>
   )
 }

@@ -1,5 +1,11 @@
 import { Suspense } from 'react'
-import { CloseModal, H, HeadlineForm, Portal } from '/components'
+import {
+  CloseModal,
+  H,
+  HeadlineForm,
+  Portal,
+  SearchParamsWrapper,
+} from '/components'
 import { routes } from '/config'
 import { createHeadline, editHeadline, getHeadLine } from '/server/actions'
 import { SubCategory } from '/types'
@@ -46,7 +52,7 @@ export default async function SubCategory({
         </div>
       </section>
 
-      {'edit' in searchParams && (
+      <SearchParamsWrapper query={['edit']}>
         <Portal>
           <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
             <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
@@ -66,7 +72,7 @@ export default async function SubCategory({
             </div>
           </div>
         </Portal>
-      )}
+      </SearchParamsWrapper>
     </div>
   )
 }

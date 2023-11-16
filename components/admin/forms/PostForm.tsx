@@ -5,8 +5,8 @@ import { FormWrapper, Input, Select, TinyMCE } from '/components'
 import { useForm } from './useForm'
 import { postSchema } from '/schema'
 
-export const PostForm = ({ action, edit, defaultValues }: PostProps) => {
-  const { MessageBox, handleSubmit, ref } = useForm(action)
+export const PostForm = ({ action, query, defaultValues }: PostProps) => {
+  const { param, MessageBox, handleSubmit, ref } = useForm(action, query)
 
   return (
     <FormWrapper
@@ -16,7 +16,14 @@ export const PostForm = ({ action, edit, defaultValues }: PostProps) => {
       defaultValues={defaultValues}
     >
       {MessageBox}
-      {edit && <input name='id' defaultValue={edit} hidden readOnly />}
+      {param && (
+        <input
+          name='id'
+          defaultValue={param}
+          hidden
+          readOnly
+        />
+      )}
       <Input name='title_eng' label='Title Eng' />
       <Input name='title_geo' label='Title Geo' />
       <TinyMCE inputName='content_eng' labelName='Blog Eng' height={300} />

@@ -7,10 +7,10 @@ import { useForm } from './useForm'
 
 export const HeadlineForm = ({
   action,
-  edit,
+  query,
   defaultValues,
 }: HeadlineProps) => {
-  const { MessageBox, handleSubmit, ref } = useForm(action)
+  const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
 
   return (
     <FormWrapper
@@ -20,7 +20,7 @@ export const HeadlineForm = ({
       defaultValues={defaultValues}
     >
       {MessageBox}
-      {edit && <input name='id' defaultValue={edit} hidden readOnly />}
+      {param && <input name='id' defaultValue={param} hidden readOnly />}
       <Input name='title_eng' label='Title Eng' />
       <Input name='title_geo' label='Title Geo' />
       <Input name='subtitle_eng' label='Subtitle Eng' />

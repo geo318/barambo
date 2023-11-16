@@ -1,5 +1,12 @@
 import { Suspense } from 'react'
-import { CategoryForm, CategoryList, CloseModal, H, Portal } from '/components'
+import {
+  CategoryForm,
+  CategoryList,
+  CloseModal,
+  H,
+  Portal,
+  SearchParamsWrapper,
+} from '/components'
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
 import {
@@ -49,7 +56,7 @@ export default async function SubCategory({
             </section>
           </div>
         </section>
-        {'edit' in searchParams && (
+        <SearchParamsWrapper query={['edit']}>
           <Portal>
             <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 p-10 pt-5 rounded-xl'>
               <div className='flex py-3'>
@@ -65,12 +72,12 @@ export default async function SubCategory({
                       (e) => e.id === Number(searchParams?.edit)
                     )?.categoryId
                   }
-                  edit={searchParams?.edit}
+                  query='edit'
                 />
               </Suspense>
             </div>
           </Portal>
-        )}
+        </SearchParamsWrapper>
       </FormContextProvider>
     </div>
   )

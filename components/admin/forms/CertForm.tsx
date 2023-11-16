@@ -5,8 +5,8 @@ import { FormWrapper, Input } from '/components'
 import { certSchema } from '/schema'
 import { useForm } from './useForm'
 
-export const CertForm = ({ action, edit, defaultValues }: CertProps) => {
-  const { MessageBox, handleSubmit, ref } = useForm(action)
+export const CertForm = ({ action, query, defaultValues }: CertProps) => {
+  const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
 
   return (
     <FormWrapper
@@ -16,7 +16,14 @@ export const CertForm = ({ action, edit, defaultValues }: CertProps) => {
       defaultValues={defaultValues}
     >
       {MessageBox}
-      {edit && <input name='id' defaultValue={edit} hidden readOnly />}
+      {param && (
+        <input
+          name='id'
+          defaultValue={param}
+          hidden
+          readOnly
+        />
+      )}
       <Input name='title_eng' label='Title Eng' />
       <Input name='title_geo' label='Title Geo' />
       <Input name='desc_eng' label='Description eng' height={300} textarea />
