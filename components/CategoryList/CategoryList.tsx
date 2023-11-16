@@ -3,8 +3,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Category, FormAction } from '/types'
-import { FormContext } from '/context'
-import { useContext } from 'react'
 import { getImage } from '/utils'
 
 export function CategoryList({
@@ -14,8 +12,6 @@ export function CategoryList({
   category: Category[]
   action?: FormAction
 }) {
-  const { setDefaultValues } = useContext(FormContext)
-
   return (
     <div className='flex flex-col gap-3'>
       {category.map((c, i) => {
@@ -36,9 +32,6 @@ export function CategoryList({
             <Link
               href={`?edit=${c.id}`}
               className='text-blue-600 hover:underline'
-              onClick={() => {
-                setDefaultValues?.(c)
-              }}
             >
               Edit
             </Link>

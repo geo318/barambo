@@ -79,7 +79,6 @@ export const getCertificates = async () => await db.select().from(certificate)
 export const editCategory = async (formData: FormData) => {
   const [values, file] = getFormValues<Category>(formData)
   const buffer = file.length && Buffer.from(await file[0].arrayBuffer())
-
   let thumbnail: string = ''
 
   try {
@@ -96,6 +95,7 @@ export const editCategory = async (formData: FormData) => {
     revalidatePath(routes.addCategory)
     return { success: true }
   } catch (e) {
+    console.log(e)
     return {
       error: 'category already exists or something went wrong',
     }

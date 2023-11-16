@@ -18,6 +18,7 @@ export const imgSchemaArray = z
 export const imgSchema = imgSchemaArray.transform((file) => file[0])
 
 export const categorySchema = z.object({
+  id: z.coerce.number().min(0).optional(),
   name_eng: z.string().min(3).max(20),
   name_geo: z.string().min(3).max(20),
   order: z.coerce.number().int().min(0),

@@ -12,23 +12,30 @@ export const CategoryForm = ({
   query,
 }: CategoryProps) => {
   const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
-  const checked = subCategory?.find((e) => e.id === Number(param))?.categoryId
+  const defaultValues = (subCategory ?? main)?.find(
+    (e) => e.id === Number(param)
+  )
+  const checked = subCategory?.find(
+    (e) => e.id === defaultValues?.id
+  )?.categoryId
+
   return (
     <FormWrapper
-      schema={main ? subCategorySchema : categorySchema}
+      schema={subCategory ? subCategorySchema : categorySchema}
       onSubmit={handleSubmit}
+      defaultValues={defaultValues}
       formRef={ref}
     >
       {MessageBox}
       {param && <input name='id' defaultValue={param} hidden readOnly />}
-      {main && (
+      {subCategory && (
         <Select
           name='categoryId'
           placeholder='choose category'
-          options={main.reduce((acc, c) => {
+          options={main?.reduce((acc, c) => {
             acc.push({ id: c.id, name: c.name_eng })
             return acc
-          }, [] as { id?: number; name: string }[])}
+          }, [] as { id?: number; name: string }[]) ?? []}
           selected={checked}
           defaultValue={checked}
         />
