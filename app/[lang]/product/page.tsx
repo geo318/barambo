@@ -23,7 +23,7 @@ export default async function Product({
       <ProductContextProvider>
         <Section className='py-28 flex gap-20'>
           <aside>
-            <H tag='h1' size='xl'>
+            <H tag='h1' size='lg'>
               {product.h1}
             </H>
             <h4 className='text-2xl font-medium my-7'>

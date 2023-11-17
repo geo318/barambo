@@ -4,6 +4,7 @@ import { Footer, Navbar } from '/components'
 import { Locale } from '/types'
 import { getDictionary } from '/lib'
 import { locales } from '/config'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

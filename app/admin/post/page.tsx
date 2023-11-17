@@ -12,15 +12,10 @@ import { routes } from '/config'
 import { createPost, deletePost, editPost, getPosts } from '/server'
 import { Post, SubCategory } from '/types'
 import { getImage } from '/utils'
-import { twMerge } from 'tailwind-merge'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default async function SubCategory({
-  searchParams,
-}: {
-  searchParams: URLSearchParams
-}) {
+export default async function SubCategory() {
   const posts = await getPosts()
 
   return (

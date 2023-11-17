@@ -7,18 +7,13 @@ import {
   SliderForm,
   Spinner,
 } from '/components'
-import { routes } from '/config'
 import { createSlide, deleteSlide, editSlide, getSlides } from '/server'
 import { SubCategory } from '/types'
 import { getImage } from '/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default async function SubCategory({
-  searchParams,
-}: {
-  searchParams: URLSearchParams & { edit?: number }
-}) {
+export default async function SubCategory() {
   const slides = await getSlides()
 
   return (
