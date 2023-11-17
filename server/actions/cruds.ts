@@ -35,6 +35,8 @@ export const createMainCategory = async (formData: FormData) => {
     const { path } = await writeFile(file, buffer, sharp(buffer))
     await db.insert(category).values({ ...mapped, thumbnail: path })
     revalidatePath(routes.addCategory)
+    revalidatePath(routes.addSubCategory)
+    revalidatePath(routes.product)
     return { success: true }
   } catch (e) {
     return {
@@ -53,6 +55,8 @@ export const createSubCategory = async (formData: FormData) => {
     await db.insert(subCategory).values({ ...mapped, thumbnail: path })
 
     revalidatePath(routes.addSubCategory)
+    revalidatePath(routes.addProduct)
+    revalidatePath(routes.product)
     return { success: true }
   } catch (e) {
     console.log(e)
@@ -93,6 +97,8 @@ export const editCategory = async (formData: FormData) => {
       .where(eq(category.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addCategory)
+    revalidatePath(routes.addSubCategory)
+    revalidatePath(routes.product)
     return { success: true }
   } catch (e) {
     console.log(e)
@@ -123,6 +129,8 @@ export const editSubCategory = async (formData: FormData) => {
       .where(eq(subCategory.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addSubCategory)
+    revalidatePath(routes.addProduct)
+    revalidatePath(routes.product)
     return { success: true }
   } catch (e) {
     return {
@@ -138,6 +146,8 @@ export const deleteSubcategory = async (formData: FormData) => {
       .where(eq(subCategory.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addSubCategory)
+    revalidatePath(routes.addProduct)
+    revalidatePath(routes.product)
     return { success: 'deleted' }
   } catch (e) {
     return {
@@ -151,6 +161,8 @@ export const deleteCategory = async (formData: FormData) => {
     await db.delete(category).where(eq(category.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addCategory)
+    revalidatePath(routes.addSubCategory)
+    revalidatePath(routes.product)
     return { success: 'deleted' }
   } catch (e) {
     return {
@@ -170,6 +182,7 @@ export const createProduct = async (formData: FormData) => {
     await db.insert(product).values({ ...mapped, thumbnail: path })
 
     revalidatePath(routes.addProduct)
+    revalidatePath(routes.product)
     return { success: 'Product added' }
   } catch (e) {
     return {
@@ -205,6 +218,7 @@ export const editProduct = async (formData: FormData) => {
       .where(eq(product.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addProduct)
+    revalidatePath(routes.product)
     return { success: true }
   } catch (e) {
     return {
@@ -218,6 +232,7 @@ export const deleteProduct = async (formData: FormData) => {
     await db.delete(product).where(eq(product.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addProduct)
+    revalidatePath(routes.product)
     return { success: 'deleted' }
   } catch (e) {
     return {
