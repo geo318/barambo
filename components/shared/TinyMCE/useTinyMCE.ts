@@ -83,9 +83,7 @@ export const useTinyMCE = (
 
   const editorOnChangeHandler = (content: string) => {
     setValue(inputName, content, {
-      shouldDirty: true,
-      shouldValidate: true,
-      shouldTouch: true,
+      ...(isFocused ? { shouldValidate: true } : {}),
     })
     const editor = editorRef.current
     if (editor) {

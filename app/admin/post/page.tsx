@@ -6,6 +6,7 @@ import {
   PostForm,
   SearchParamsWrapper,
   Spinner,
+  SwitchForms,
 } from '/components'
 import { routes } from '/config'
 import { createPost, deletePost, editPost, getPosts } from '/server'
@@ -24,28 +25,11 @@ export default async function SubCategory({
 
   return (
     <div>
-      <section className='flex gap-5 text-lg capitalize justify-center mb-10'>
-        <Link
-          href='?add-post'
-          className={twMerge(
-            'border-b border-transparent',
-            !('edit-post' in searchParams) && 'font-medium border-black'
-          )}
-        >
-          New post
-        </Link>
-        <Link
-          href='?edit-post'
-          className={twMerge(
-            'border-b border-transparent',
-            'edit-post' in searchParams && 'font-medium border-black'
-          )}
-        >
-          Edit post
-        </Link>
-      </section>
       <Suspense fallback={<Spinner />}>
-        <SearchParamsWrapper query={['edit', 'edit-post']} not>
+        <SwitchForms name='Post' />
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit', 'edit-item']} not>
           <section className='pb-10'>
             <H tag='h1' size='md' className='mb-20 text-center'>
               Add new blog post
@@ -55,7 +39,7 @@ export default async function SubCategory({
         </SearchParamsWrapper>
       </Suspense>
       <Suspense fallback={<Spinner />}>
-        <SearchParamsWrapper query={['edit', 'edit-post']}>
+        <SearchParamsWrapper query={['edit', 'edit-item']}>
           <section>
             <H tag='h1' size='md' className='mb-20 text-center'>
               Posts

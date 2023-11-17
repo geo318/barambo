@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { SwitchForms } from '/components'
 import { getProducts } from '/server'
 import { getImage } from '/utils'
 
@@ -11,9 +10,6 @@ export default async function Admin() {
         <h1 className='pb-0 text-xl font-semibold text-center'>
           Upload new track info
         </h1>
-      </div>
-      <div className='flex mt-20'>
-        <SwitchForms />
       </div>
       <div className='grid grid-cols-3'>
         {products.map((product) => (

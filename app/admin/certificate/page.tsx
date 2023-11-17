@@ -5,7 +5,7 @@ import {
   H,
   Portal,
   SearchParamsWrapper,
-  SliderForm,
+  Spinner,
 } from '/components'
 import { routes } from '/config'
 import {
@@ -40,7 +40,7 @@ export default async function SubCategory({
           Slides
         </H>
         <div className='grid grid-cols-1 gap-5 capitalize'>
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<Spinner />}>
             {certificates.map((cert) => (
               <div
                 key={cert.id}
@@ -71,10 +71,7 @@ export default async function SubCategory({
               <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
                 <div className='flex py-3'>
                   <h3 className='font-lg font-bold'>Edit slide</h3>
-                  <CloseModal
-                    closeKey={`${routes.addCertificate}?edit-cert`}
-                    className='p-0'
-                  />
+                  <CloseModal className='p-0' />
                 </div>
                 <CertForm
                   action={editCertificate}

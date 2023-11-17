@@ -60,10 +60,7 @@ export default async function SubCategory({
               <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
                 <div className='flex py-3'>
                   <h3 className='font-lg font-bold'>Edit headline</h3>
-                  <CloseModal
-                    closeKey={`${routes.addHeadline}?edit-product`}
-                    className='p-0'
-                  />
+                  <CloseModal className='p-0' />
                 </div>
                 <HeadlineForm action={editHeadline} defaultValues={headline} />
               </div>

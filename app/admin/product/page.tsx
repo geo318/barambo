@@ -6,8 +6,8 @@ import {
   ProductForm,
   SearchParamsWrapper,
   Spinner,
+  SwitchForms,
 } from '/components'
-import { routes } from '/config'
 import {
   createProduct,
   deleteProduct,
@@ -17,15 +17,10 @@ import {
 } from '/server'
 import { SubCategory } from '/types'
 import { getImage } from '/utils'
-import { twMerge } from 'tailwind-merge'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default async function SubCategory({
-  searchParams,
-}: {
-  searchParams: URLSearchParams
-}) {
+export default async function SubCategory() {
   const [products, subCategories] = await Promise.all([
     getProducts(),
     getSubCategories(),
@@ -33,28 +28,11 @@ export default async function SubCategory({
 
   return (
     <div>
-      <section className='flex gap-5 text-lg capitalize justify-center mb-10'>
-        <Link
-          href='?add-product'
-          className={twMerge(
-            'border-b border-transparent',
-            !('edit-product' in searchParams) && 'font-medium border-black'
-          )}
-        >
-          add products
-        </Link>
-        <Link
-          href='?edit-product'
-          className={twMerge(
-            'border-b border-transparent',
-            'edit-product' in searchParams && 'font-medium border-black'
-          )}
-        >
-          edit products
-        </Link>
-      </section>
       <Suspense fallback={<Spinner />}>
-        <SearchParamsWrapper query={['edit', 'edit-product']} not>
+        <SwitchForms name='Product' />
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit', 'edit-item']} not>
           <section className='pb-10'>
             <H tag='h1' size='md' className='mb-20 text-center'>
               Add Product
@@ -68,7 +46,7 @@ export default async function SubCategory({
         </SearchParamsWrapper>
       </Suspense>
       <Suspense fallback={<Spinner />}>
-        <SearchParamsWrapper query={['edit', 'edit-product']}>
+        <SearchParamsWrapper query={['edit', 'edit-item']}>
           <section>
             <H tag='h1' size='md' className='mb-20 text-center'>
               Product list
@@ -118,10 +96,7 @@ export default async function SubCategory({
               <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
                 <div className='flex py-3'>
                   <h3 className='font-lg font-bold'>Edit Product</h3>
-                  <CloseModal
-                    closeKey={`${routes.addProduct}?edit-product`}
-                    className='p-0'
-                  />
+                  <CloseModal className='p-0' />
                 </div>
                 <ProductForm
                   action={editProduct}

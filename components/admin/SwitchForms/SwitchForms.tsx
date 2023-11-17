@@ -1,34 +1,33 @@
 'use client'
 
-import { useSwitchForms } from './useSwitchForms'
+import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
+import { useSearchParams } from 'next/navigation'
 
-export function SwitchForms() {
-  const { activeForm, toggleForm } = useSwitchForms()
+export function SwitchForms({ name }: { name?: string }) {
+  const params = useSearchParams()
   return (
-    <section className='grow max-w-sm mx-auto'>
-      <div className='flex gap-5 text-slate-600 justify-center my-10'>
-        <h4
-          onClick={toggleForm('music')}
-          className={twMerge(
-            'cursor-pointer hover:text-black',
-            activeForm === 'music' &&
-              'text-black font-semibold border-b-2 border-app-blue'
-          )}
-        >
-          Add Music
-        </h4>
-        <h4
-          onClick={toggleForm('event')}
-          className={twMerge(
-            'cursor-pointer hover:text-black',
-            activeForm === 'event' &&
-              'text-black font-semibold border-b-2 border-app-blue'
-          )}
-        >
-          Add Event
-        </h4>
-      </div>
+    <section className='flex gap-5 text-lg capitalize justify-center mb-10'>
+      <Link
+        href='?add-item'
+        className={twMerge(
+          'border-b border-transparent',
+          typeof params.get('edit-item') !== 'string' &&
+            'font-medium border-black'
+        )}
+      >
+        add {name}
+      </Link>
+      <Link
+        href='?edit-item'
+        className={twMerge(
+          'border-b border-transparent',
+          typeof params.get('edit-item') === 'string' &&
+            'font-medium border-black'
+        )}
+      >
+        edit {name}
+      </Link>
     </section>
   )
 }

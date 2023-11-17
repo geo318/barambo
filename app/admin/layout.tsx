@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <div className='relative'>
-      <Aside className='' />
+      <Aside />
       <main className='text-black bg-white md:px-20 px-5 py-5 mt-16 ml-[15rem] mx-auto'>
         {children}
       </main>

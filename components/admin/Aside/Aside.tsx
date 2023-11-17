@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge'
 import { Logo, SignOut } from '/components'
 import { adminNavList } from '/config'
 
-export function Aside({ className }: { className: string }) {
+export function Aside({ className }: { className?: string }) {
   const pathName = usePathname()
 
   return (
