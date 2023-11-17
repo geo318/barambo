@@ -199,7 +199,14 @@ export const editProduct = async (formData: FormData) => {
 
   try {
     if (buffer && buffer.toString()) {
-      const { path } = await writeFile(file, buffer, sharp(buffer))
+      const { path } = await writeFile(
+        file,
+        buffer,
+        sharp(buffer),
+        'inside',
+        500,
+        undefined
+      )
       thumbnail = path
     }
     const updateValues = {} as Partial<Product>

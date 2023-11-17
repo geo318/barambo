@@ -41,10 +41,9 @@ export default async function Product({
                 className='border-0 border-b pl-5 w-52 '
               />
             </div>
-            <ProductList products={products}/>
+            <ProductList products={products} locale={lang} />
           </article>
         </Section>
-        <ProductModal isOpen={!!id} />
       </ProductContextProvider>
     </main>
   )

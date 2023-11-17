@@ -35,7 +35,10 @@ export const writeFile = async (
       .resize(width, height ?? undefined, { fit, withoutReduction: true })
       .toFile(`${publicDir}${filePath}`)
     sharpBuffer
-      .resize(20, 20, { fit, withoutReduction: true })
+      .resize(20, height ? Math.floor(height * (20 / width)) : undefined, {
+        fit,
+        withoutReduction: true,
+      })
       .toFile(`${publicDir}${blurPath}`)
   } else
     fs.writeFile(`${publicDir}${filePath}`, buffer, (err) => {
