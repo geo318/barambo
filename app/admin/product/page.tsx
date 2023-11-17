@@ -53,20 +53,20 @@ export default async function SubCategory({
           edit products
         </Link>
       </section>
-      <SearchParamsWrapper query={['edit', 'edit-product']} not>
-        <section className='pb-10'>
-          <H tag='h1' size='md' className='mb-20 text-center'>
-            Add Product
-          </H>
-          <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit', 'edit-product']} not>
+          <section className='pb-10'>
+            <H tag='h1' size='md' className='mb-20 text-center'>
+              Add Product
+            </H>
             <ProductForm
               action={createProduct}
               subCategory={subCategories}
               products={products}
             />
-          </Suspense>
-        </section>
-      </SearchParamsWrapper>
+          </section>
+        </SearchParamsWrapper>
+      </Suspense>
       <Suspense fallback={<Spinner />}>
         <SearchParamsWrapper query={['edit', 'edit-product']}>
           <section>
