@@ -64,28 +64,28 @@ export default async function SubCategory({
         </div>
       </section>
 
-      <SearchParamsWrapper query={['edit']}>
-        <Portal>
-          <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
-            <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
-              <div className='flex py-3'>
-                <h3 className='font-lg font-bold'>Edit slide</h3>
-                <CloseModal
-                  closeKey={`${routes.addCertificate}?edit-cert`}
-                  className='p-0'
-                />
-              </div>
-              <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SearchParamsWrapper query={['edit']}>
+          <Portal>
+            <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
+              <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
+                <div className='flex py-3'>
+                  <h3 className='font-lg font-bold'>Edit slide</h3>
+                  <CloseModal
+                    closeKey={`${routes.addCertificate}?edit-cert`}
+                    className='p-0'
+                  />
+                </div>
                 <CertForm
                   action={editCertificate}
                   deleteAction={deleteCertificate}
                   defaultValues={certificates}
                 />
-              </Suspense>
+              </div>
             </div>
-          </div>
-        </Portal>
-      </SearchParamsWrapper>
+          </Portal>
+        </SearchParamsWrapper>
+      </Suspense>
     </div>
   )
 }

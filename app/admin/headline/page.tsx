@@ -5,6 +5,7 @@ import {
   HeadlineForm,
   Portal,
   SearchParamsWrapper,
+  Spinner,
 } from '/components'
 import { routes } from '/config'
 import { createHeadline, editHeadline, getHeadLine } from '/server/actions'
@@ -52,24 +53,24 @@ export default async function SubCategory({
         </div>
       </section>
 
-      <SearchParamsWrapper query={['edit']}>
-        <Portal>
-          <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
-            <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
-              <div className='flex py-3'>
-                <h3 className='font-lg font-bold'>Edit headline</h3>
-                <CloseModal
-                  closeKey={`${routes.addHeadline}?edit-product`}
-                  className='p-0'
-                />
-              </div>
-              <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit']}>
+          <Portal>
+            <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
+              <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
+                <div className='flex py-3'>
+                  <h3 className='font-lg font-bold'>Edit headline</h3>
+                  <CloseModal
+                    closeKey={`${routes.addHeadline}?edit-product`}
+                    className='p-0'
+                  />
+                </div>
                 <HeadlineForm action={editHeadline} defaultValues={headline} />
-              </Suspense>
+              </div>
             </div>
-          </div>
-        </Portal>
-      </SearchParamsWrapper>
+          </Portal>
+        </SearchParamsWrapper>
+      </Suspense>
     </div>
   )
 }

@@ -9,7 +9,6 @@ import {
   Spinner,
 } from '/components'
 import { routes } from '/config'
-import { FormContextProvider } from '/context'
 import {
   createMainCategory,
   deleteCategory,
@@ -45,24 +44,24 @@ export default async function Category() {
           </section>
         </div>
       </section>
-      <SearchParamsWrapper query={['edit']}>
-        <Portal>
-          <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 p-10 pt-5 rounded-xl'>
-            <div className='flex py-3'>
-              <h3 className='font-lg font-bold'>Edit Category</h3>
-              <CloseModal closeKey={routes.addCategory} className='p-0' />
-            </div>
-            <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit']}>
+          <Portal>
+            <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 p-10 pt-5 rounded-xl'>
+              <div className='flex py-3'>
+                <h3 className='font-lg font-bold'>Edit Category</h3>
+                <CloseModal closeKey={routes.addCategory} className='p-0' />
+              </div>
               <CategoryForm
                 action={editCategory}
                 deleteAction={deleteCategory}
                 main={categories}
                 query='edit'
               />
-            </Suspense>
-          </div>
-        </Portal>
-      </SearchParamsWrapper>
+            </div>
+          </Portal>
+        </SearchParamsWrapper>
+      </Suspense>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import {
   Portal,
   PostForm,
   SearchParamsWrapper,
+  Spinner,
 } from '/components'
 import { routes } from '/config'
 import { createPost, deletePost, editPost, getPosts } from '/server'
@@ -43,23 +44,23 @@ export default async function SubCategory({
           Edit post
         </Link>
       </section>
-      <SearchParamsWrapper query={['edit', 'edit-post']} not>
-        <section className='pb-10'>
-          <H tag='h1' size='md' className='mb-20 text-center'>
-            Add new blog post
-          </H>
-          <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit', 'edit-post']} not>
+          <section className='pb-10'>
+            <H tag='h1' size='md' className='mb-20 text-center'>
+              Add new blog post
+            </H>
             <PostForm action={createPost} />
-          </Suspense>
-        </section>
-      </SearchParamsWrapper>
-      <SearchParamsWrapper query={['edit', 'edit-post']}>
-        <section>
-          <H tag='h1' size='md' className='mb-20 text-center'>
-            Posts
-          </H>
-          <div className='grid grid-cols-3 gap-5 capitalize'>
-            <Suspense fallback={<div>loading...</div>}>
+          </section>
+        </SearchParamsWrapper>
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit', 'edit-post']}>
+          <section>
+            <H tag='h1' size='md' className='mb-20 text-center'>
+              Posts
+            </H>
+            <div className='grid grid-cols-3 gap-5 capitalize'>
               {posts.map((post) => (
                 <div
                   key={post.id}
@@ -105,33 +106,33 @@ export default async function SubCategory({
                   </Link>
                 </div>
               ))}
-            </Suspense>
-          </div>
-        </section>
-      </SearchParamsWrapper>
-      <SearchParamsWrapper query={['edit']}>
-        <Portal>
-          <div className='flex flex-col bg-white max-w-3xl mx-auto mt-20 py-5 rounded-xl'>
-            <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
-              <div className='flex py-3'>
-                <h3 className='font-lg font-bold'>Edit Post</h3>
-                <CloseModal
-                  closeKey={`${routes.addPost}?edit-post`}
-                  className='p-0'
-                />
-              </div>
-              <Suspense fallback={<div>Loading...</div>}>
+            </div>
+          </section>
+        </SearchParamsWrapper>
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <SearchParamsWrapper query={['edit']}>
+          <Portal>
+            <div className='flex flex-col bg-white max-w-3xl mx-auto mt-20 py-5 rounded-xl'>
+              <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
+                <div className='flex py-3'>
+                  <h3 className='font-lg font-bold'>Edit Post</h3>
+                  <CloseModal
+                    closeKey={`${routes.addPost}?edit-post`}
+                    className='p-0'
+                  />
+                </div>
                 <PostForm
                   action={editPost}
                   deleteAction={deletePost}
                   query='edit'
                   defaultValues={posts as Post[]}
                 />
-              </Suspense>
+              </div>
             </div>
-          </div>
-        </Portal>
-      </SearchParamsWrapper>
+          </Portal>
+        </SearchParamsWrapper>
+      </Suspense>
     </div>
   )
 }
