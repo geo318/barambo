@@ -82,6 +82,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <SliderForm
                   action={editSlide}
+                  deleteAction={deleteSlide}
                   defaultValues={slides}
                 />
               </Suspense>

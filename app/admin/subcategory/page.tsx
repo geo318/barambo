@@ -34,7 +34,11 @@ export default async function SubCategory() {
         <div className='flex'>
           <section className='flex flex-col max-w-md mx-auto'>
             <Suspense fallback={<Spinner />}>
-              <CategoryForm action={createSubCategory} main={categories} />
+              <CategoryForm
+                action={createSubCategory}
+                subCategory={subCategories}
+                main={categories}
+              />
             </Suspense>
           </section>
         </div>
@@ -44,8 +48,8 @@ export default async function SubCategory() {
           Subcategory list
         </H>
         <div className='flex'>
-          <section className='flex flex-col max-w-md mx-auto'>
-            <CategoryList category={subCategories} action={deleteSubcategory} />
+          <section className='flex flex-col mx-auto'>
+            <CategoryList category={subCategories} />
           </section>
         </div>
       </section>
@@ -59,6 +63,7 @@ export default async function SubCategory() {
             <Suspense fallback={<Spinner />}>
               <CategoryForm
                 action={editSubCategory}
+                deleteAction={deleteSubcategory}
                 main={categories}
                 subCategory={subCategories}
                 query='edit'

@@ -9,6 +9,7 @@ import {
 import { routes } from '/config'
 import {
   createProduct,
+  deleteProduct,
   editProduct,
   getProducts,
   getSubCategories,
@@ -70,31 +71,29 @@ export default async function SubCategory({
           <H tag='h1' size='md' className='mb-20 text-center'>
             Product list
           </H>
-          <div className='grid grid-cols-3 gap-5 capitalize'>
+          <div className='grid grid-cols-4 gap-5 capitalize'>
             <Suspense fallback={<div>loading...</div>}>
               {products.map((product) => (
                 <div
                   key={product.id}
                   className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
                 >
-                  <div className='flex flex-col'>
+                  <div className='flex gap-5'>
                     <h3>
                       title eng: <strong>{product.title_eng}</strong>
                     </h3>
-                    <h3>
-                      title geo: <strong>{product.title_geo}</strong>
-                    </h3>
+                    <Link
+                      href={`?edit=${product.id}`}
+                      className='hover:underline text-blue-800 font-medium px-4 text-xl border border-black text-center rounded-md ml-auto'
+                    >
+                      Edit
+                    </Link>
                   </div>
                   <div className='flex flex-col editor gap-2 py-5 border-y border-slate-600 '>
                     Description eng
                     <div
                       className='line-clamp-2 text-ellipsis'
                       dangerouslySetInnerHTML={{ __html: product.desc_eng }}
-                    />
-                    Description geo
-                    <div
-                      className='line-clamp-2 text-ellipsis'
-                      dangerouslySetInnerHTML={{ __html: product.desc_geo }}
                     />
                   </div>
 
@@ -105,12 +104,6 @@ export default async function SubCategory({
                     width='300'
                     height='100'
                   />
-                  <Link
-                    href={`?edit=${product.id}`}
-                    className='hover:underline text-blue-800 font-medium text-xl border border-black text-center rounded-md mt-4'
-                  >
-                    Edit
-                  </Link>
                 </div>
               ))}
             </Suspense>
@@ -132,6 +125,7 @@ export default async function SubCategory({
                 <ProductForm
                   action={editProduct}
                   subCategory={subCategories}
+                  deleteAction={deleteProduct}
                   defaultValues={products}
                   query='edit'
                 />

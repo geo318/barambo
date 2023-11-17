@@ -7,7 +7,7 @@ import {
   SearchParamsWrapper,
 } from '/components'
 import { routes } from '/config'
-import { createPost, editPost, getPosts } from '/server'
+import { createPost, deletePost, editPost, getPosts } from '/server'
 import { Post, SubCategory } from '/types'
 import { getImage } from '/utils'
 import { twMerge } from 'tailwind-merge'
@@ -123,6 +123,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <PostForm
                   action={editPost}
+                  deleteAction={deletePost}
                   query='edit'
                   defaultValues={posts as Post[]}
                 />

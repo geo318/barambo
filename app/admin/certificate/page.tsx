@@ -78,6 +78,7 @@ export default async function SubCategory({
               <Suspense fallback={<div>Loading...</div>}>
                 <CertForm
                   action={editCertificate}
+                  deleteAction={deleteCertificate}
                   defaultValues={certificates}
                 />
               </Suspense>

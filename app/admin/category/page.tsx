@@ -41,7 +41,7 @@ export default async function Category() {
         </H>
         <div className='flex'>
           <section className='flex flex-col max-w-md mx-auto'>
-            <CategoryList category={categories} action={deleteCategory} />
+            <CategoryList category={categories} />
           </section>
         </div>
       </section>
@@ -55,6 +55,7 @@ export default async function Category() {
             <Suspense fallback={<Spinner />}>
               <CategoryForm
                 action={editCategory}
+                deleteAction={deleteCategory}
                 main={categories}
                 query='edit'
               />
