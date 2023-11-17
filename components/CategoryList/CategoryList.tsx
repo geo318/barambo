@@ -5,7 +5,7 @@ import { getImage } from '/utils'
 
 export function CategoryList({ category }: { category: Category[] }) {
   return (
-    <div className='flex flex-col gap-'>
+    <div className='flex flex-col gap-3'>
       {category.map((c, i) => {
         return (
           <div className='flex gap-5' key={c.id}>
