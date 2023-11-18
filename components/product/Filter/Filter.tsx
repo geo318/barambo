@@ -11,15 +11,16 @@ import { useFilter } from './useFilter'
 const Filter: React.FC<{
   lang: Locale
 }> = ({ lang }) => {
-  const { categories, open, toggleMenu, params, setCategoryId } = useFilter()
+  const { categories, open, toggleMenu, params, setCategoryId, categoryId } =
+    useFilter()
   return (
     <section className='max-w-xs'>
       {categories.map((c, i) => (
         <Fragment key={c.id}>
           <div
             className={twMerge(
-              'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
-              i >= 1 && 'text-secondary'
+              'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb] text-secondary', 
+              open[i] && 'text-primary'
             )}
           >
             {c.thumbnail && (
@@ -32,10 +33,7 @@ const Filter: React.FC<{
               />
             )}
             {c[`name_${getLangKey(lang)}`]}
-            {open[i] ||
-            c.subCategories?.some(
-              (e) => `${e.id}` == params.get('category')
-            ) ? (
+            {open[i] ? (
               <Minus
                 onClick={() => toggleMenu(i)}
                 className='ml-auto cursor-pointer'
@@ -50,21 +48,21 @@ const Filter: React.FC<{
           <div
             className={twMerge(
               'grid transition-all duration-300 ease-out',
-              open[i] ||
-                c.subCategories?.some(
-                  (e) => `${e.id}` == params.get('category')
-                )
-                ? 'grid-rows-[1fr]'
-                : 'grid-rows-[0fr]'
+              open[i] ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
             )}
           >
-            <ul className='overflow-hidden'>
+            <ul
+              className={twMerge(
+                'overflow-hidden uppercase',
+                open[i] && 'border-t border-[#ebebeb] py-5'
+              )}
+            >
               {c.subCategories?.map((sc) => (
                 <li
                   key={sc.id}
                   className={twMerge(
-                    'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
-                    i >= 1 && 'text-secondary'
+                    'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary',
+                    categoryId === sc.id && 'text-primary'
                   )}
                   onClick={() => setCategoryId?.(sc.id)}
                 >
