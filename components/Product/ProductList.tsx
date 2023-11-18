@@ -1,15 +1,24 @@
-import { Product } from '/components'
-import { Locale, type Product as Products } from '/types'
+'use client'
+
+import { Product, Spinner } from '/components'
+import { Locale } from '/types'
+import { useProductList } from './useProductList'
 
 export const ProductList: React.FC<{
-  products: Products[]
   locale: Locale
-}> = ({ products, locale }) => {
+}> = ({ locale }) => {
+  const { products, lastFeedElementRef, isLoading } = useProductList()
   return (
-    <section className='grid grid-cols-4 gap-6'>
-      {products.map((p, i) => (
-        <Product key={i} product={p} locale={locale} />
-      ))}
+    <section className='grid grid-cols-1 gap-6'>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        products?.map((p, i) => (
+          <div key={i} ref={lastFeedElementRef}>
+            <Product product={p} locale={locale} />
+          </div>
+        ))
+      )}
     </section>
   )
 }

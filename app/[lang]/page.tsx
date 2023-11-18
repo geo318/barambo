@@ -15,6 +15,7 @@ import { PageProps } from '/types'
 import { getDictionary } from '/lib'
 import { Suspense } from 'react'
 import Image from 'next/image'
+import { getPaginatedPosts, getPaginatedProducts } from '/server'
 
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)

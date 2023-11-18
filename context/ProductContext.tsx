@@ -8,6 +8,8 @@ type TProductContext = {
   setProducts?: SetState<Product[]>
   setId?: SetState<TProductContext['id']>
   id?: number
+  query?: string
+  setQuery?: SetState<string>
 }
 
 export const ProductContext = createContext<TProductContext>({
@@ -15,6 +17,8 @@ export const ProductContext = createContext<TProductContext>({
   setId: undefined,
   products: undefined,
   setProducts: undefined,
+  query: undefined,
+  setQuery: undefined,
 })
 
 export const ProductContextProvider = ({
@@ -24,9 +28,12 @@ export const ProductContextProvider = ({
 }) => {
   const [products, setProducts] = useState<Product[]>([])
   const [id, setId] = useState<TProductContext['id']>(undefined)
+  const [query, setQuery] = useState<string>('')
 
   return (
-    <ProductContext.Provider value={{ products, setProducts, id, setId }}>
+    <ProductContext.Provider
+      value={{ products, setProducts, id, setId, query, setQuery }}
+    >
       {children}
     </ProductContext.Provider>
   )

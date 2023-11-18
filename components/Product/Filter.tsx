@@ -4,27 +4,17 @@ import Image from 'next/image'
 import { getImage, getLangKey } from '/utils'
 import { twMerge } from 'tailwind-merge'
 import { Minus, Plus } from '/components'
-import { Category, Locale, SubCategory } from '/types'
+import { Locale } from '/types'
 import { Fragment, memo, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useQuery } from '@tanstack/react-query'
+import { getAllCategories } from '/services'
+import { useFilter } from './useFilter'
 
 const Filter: React.FC<{
-  categories: (Category & { subCategories: SubCategory[] })[]
   lang: Locale
-}> = ({ categories, lang }) => {
-  const [open, setOpen] = useState<boolean[]>(
-    Array.from({ length: categories.length }, () => false)
-  )
-  const [active, setActive] = useState<number>()
-  const params = useSearchParams()
-  const router = useRouter()
-  const toggleMenu = (i: number) => {
-    setOpen((prev) => {
-      const newArr = [...prev]
-      newArr[i] = !prev[i]
-      return newArr
-    })
-  }
+}> = ({ lang }) => {
+  const { categories, open, toggleMenu, params, setActive } = useFilter()
   return (
     <section className='max-w-xs'>
       {categories.map((c, i) => (
@@ -46,7 +36,9 @@ const Filter: React.FC<{
             )}
             {c[`name_${getLangKey(lang)}`]}
             {open[i] ||
-            c.subCategories.some((e) => `${e.id}` == params.get('category')) ? (
+            c.subCategories?.some(
+              (e) => `${e.id}` == params.get('category')
+            ) ? (
               <Minus
                 onClick={() => toggleMenu(i)}
                 className='ml-auto cursor-pointer'
@@ -62,7 +54,9 @@ const Filter: React.FC<{
             className={twMerge(
               'grid transition-all duration-300 ease-out',
               open[i] ||
-                c.subCategories.some((e) => `${e.id}` == params.get('category'))
+                c.subCategories?.some(
+                  (e) => `${e.id}` == params.get('category')
+                )
                 ? 'grid-rows-[1fr]'
                 : 'grid-rows-[0fr]'
             )}

@@ -4,12 +4,12 @@ import { twMerge } from 'tailwind-merge'
 import { Locale, type Product as TProduct } from '/types'
 import { getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
-import { ProductModal, SearchParamsWrapper } from '..'
+import { ProductModal, SearchParamsWrapper } from '/components'
 
-export const Product: React.FC<{ product: TProduct; locale: Locale }> = ({
-  product,
-  locale,
-}) => {
+export const Product: React.FC<{
+  product: TProduct
+  locale: Locale
+}> = ({ product, locale }) => {
   return (
     <>
       <Link className={twMerge('cursor-pointer')} href={`?id=${product.id}`}>

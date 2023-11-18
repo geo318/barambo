@@ -1,10 +1,19 @@
-'server actions'
+'use server'
 
-import { eq, sql } from 'drizzle-orm'
-import { db, post } from '/server'
+import { eq, sql, like, or } from 'drizzle-orm'
+import {
+  category,
+  certificate,
+  db,
+  headline,
+  post,
+  product,
+  slider,
+  subCategory,
+} from '/server'
 import { Blog, Post } from '/types'
 import { cache } from 'react'
-import { BLOG_PAGE } from '/config'
+import { BLOG_PAGE, PRODUCT_PAGE } from '/config'
 
 export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
   const posts = await db
@@ -18,6 +27,26 @@ export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
 
   return posts
 })
+
+export const getPaginatedProducts = cache(
+  async (page: number, filter: string = '_') => {
+    console.log(filter)
+    const products = await db
+      .select()
+      .from(product)
+      .where(
+        or(
+          like(product.title_eng, `%${filter}%`),
+          like(product.title_geo, `%${filter}%`)
+        )
+      )
+      .offset((page - 1) * PRODUCT_PAGE)
+      .limit(PRODUCT_PAGE)
+      .execute()
+
+    return { products, page }
+  }
+)
 
 export const getPost = cache(async (slug: string) => {
   const posts = await db
@@ -62,3 +91,17 @@ export const getAllCategories = cache(async () => {
   })
   return categories
 })
+
+export const getCategories = async () => await db.select().from(category)
+
+export const getSubCategories = async () => await db.select().from(subCategory)
+
+export const getProducts = async () => await db.select().from(product)
+
+export const getPosts = async () => await db.select().from(post)
+
+export const getSlides = async () => await db.select().from(slider)
+
+export const getHeadLine = async () => await db.select().from(headline)
+
+export const getCertificates = async () => await db.select().from(certificate)

@@ -4,3 +4,4 @@ export const switchBlog = [
   { name: 'recept' },
   { name: 'csr' },
 ] as const
+export const PRODUCT_PAGE = 2

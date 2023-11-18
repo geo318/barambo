@@ -1,6 +1,5 @@
 import { Portal, H, CloseModal } from '/components'
 import Image from 'next/image'
-import { barambinos } from '/public'
 import { Locale, Product } from '/types'
 import { getImage, getLangKey } from '/utils'
 

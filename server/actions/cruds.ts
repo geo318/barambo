@@ -66,20 +66,6 @@ export const createSubCategory = async (formData: FormData) => {
   }
 }
 
-export const getCategories = async () => await db.select().from(category)
-
-export const getSubCategories = async () => await db.select().from(subCategory)
-
-export const getProducts = async () => await db.select().from(product)
-
-export const getPosts = async () => await db.select().from(post)
-
-export const getSlides = async () => await db.select().from(slider)
-
-export const getHeadLine = async () => await db.select().from(headline)
-
-export const getCertificates = async () => await db.select().from(certificate)
-
 export const editCategory = async (formData: FormData) => {
   const [values, file] = getFormValues<Category>(formData)
   const buffer = file.length && Buffer.from(await file[0].arrayBuffer())

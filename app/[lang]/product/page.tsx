@@ -1,50 +1,57 @@
-import { Filter, H, Magnifier, ProductModal, Section } from '/components'
+import { Filter, H, Magnifier, Search, Section } from '/components'
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
-import { getAllCategories, getProducts } from '/server'
+import { getAllCategories, getPaginatedProducts, getProducts } from '/server'
 import { ProductList } from '/components/Product/ProductList'
 import { ProductContextProvider } from '/context'
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from '@tanstack/react-query'
+import { Suspense } from 'react'
 
-export default async function Product({
-  params: { lang },
-  searchParams: { category, id },
-}: PageProps & {
-  searchParams: URLSearchParams & {
-    id?: string
-    category?: string
-  }
-}) {
+const queryClient = new QueryClient()
+
+export default async function Product({ params: { lang } }: PageProps) {
   const { product } = await getDictionary(lang)
-  const categories = await getAllCategories()
-  const products = await getProducts()
+  await Promise.all([
+    queryClient.prefetchInfiniteQuery({
+      queryKey: ['products'],
+      initialPageParam: 1,
+      queryFn: ({ pageParam }) => getPaginatedProducts(pageParam),
+    }),
+    queryClient.prefetchQuery({
+      queryKey: ['categories'],
+      queryFn: getAllCategories,
+    }),
+  ])
 
   return (
     <main className='flex flex-col gap-36'>
-      <ProductContextProvider>
-        <Section className='py-28 flex gap-20'>
-          <aside>
-            <H tag='h1' size='lg'>
-              {product.h1}
-            </H>
-            <h4 className='text-2xl font-medium my-7'>
-              What it is so special about us?
-            </h4>
-            <Filter lang={lang} categories={categories} />
-          </aside>
-          <article>
-            <div className='relative mb-14 mt-10'>
-              <Magnifier className='absolute left-0 mt-1/2 translate-y-1/2' />
-              <input
-                type='text'
-                name='search'
-                placeholder='Search'
-                className='border-0 border-b pl-5 w-52 '
-              />
-            </div>
-            <ProductList products={products} locale={lang} />
-          </article>
-        </Section>
-      </ProductContextProvider>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <ProductContextProvider>
+          <Section className='py-28 flex gap-20'>
+            <aside>
+              <H tag='h1' size='lg'>
+                {product.h1}
+              </H>
+              <h4 className='text-2xl font-medium my-7'>
+                What it is so special about us?
+              </h4>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Filter lang={lang} />
+              </Suspense>
+            </aside>
+            <article>
+              <Search />
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProductList locale={lang} />
+              </Suspense>
+            </article>
+          </Section>
+        </ProductContextProvider>
+      </HydrationBoundary>
     </main>
   )
 }
