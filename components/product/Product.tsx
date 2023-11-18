@@ -18,8 +18,8 @@ export const Product: React.FC<{
             src={getImage`${product.thumbnail}`}
             alt='banner'
             className='rounded-[1rem] w-full h-full object-contain'
-            width={300}
-            height={300}
+            width={200}
+            height={200}
           />
         </div>
         <div className='flex flex-col gap-2 mt-5'>

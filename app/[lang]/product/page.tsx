@@ -1,8 +1,8 @@
-import { Filter, H, Magnifier, Search, Section } from '/components'
+import { Filter, H, Search, Section } from '/components'
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
 import { getAllCategories, getPaginatedProducts, getProducts } from '/server'
-import { ProductList } from '/components/Product/ProductList'
+import { ProductList } from '../../../components/product/ProductList'
 import { ProductContextProvider } from '/context'
 import {
   HydrationBoundary,

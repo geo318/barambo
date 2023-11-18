@@ -6,20 +6,13 @@ import { Product, SetState } from '/types'
 type TProductContext = {
   products?: Product[]
   setProducts?: SetState<Product[]>
-  setId?: SetState<TProductContext['id']>
-  id?: number
+  setCategoryId?: SetState<number | undefined>
+  categoryId?: number
   query?: string
   setQuery?: SetState<string>
 }
 
-export const ProductContext = createContext<TProductContext>({
-  id: undefined,
-  setId: undefined,
-  products: undefined,
-  setProducts: undefined,
-  query: undefined,
-  setQuery: undefined,
-})
+export const ProductContext = createContext<TProductContext>({})
 
 export const ProductContextProvider = ({
   children,
@@ -27,12 +20,19 @@ export const ProductContextProvider = ({
   children: React.ReactNode
 }) => {
   const [products, setProducts] = useState<Product[]>([])
-  const [id, setId] = useState<TProductContext['id']>(undefined)
+  const [categoryId, setCategoryId] = useState<number>()
   const [query, setQuery] = useState<string>('')
 
   return (
     <ProductContext.Provider
-      value={{ products, setProducts, id, setId, query, setQuery }}
+      value={{
+        products,
+        setProducts,
+        categoryId,
+        setCategoryId,
+        query,
+        setQuery,
+      }}
     >
       {children}
     </ProductContext.Provider>

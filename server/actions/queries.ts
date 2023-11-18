@@ -1,6 +1,6 @@
 'use server'
 
-import { eq, sql, like, or } from 'drizzle-orm'
+import { eq, sql, like, or, and } from 'drizzle-orm'
 import {
   category,
   certificate,
@@ -29,15 +29,17 @@ export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
 })
 
 export const getPaginatedProducts = cache(
-  async (page: number, filter: string = '_') => {
-    console.log(filter)
+  async (page: number, filter: string = '_', categoryId: string = '_') => {
     const products = await db
       .select()
       .from(product)
       .where(
-        or(
-          like(product.title_eng, `%${filter}%`),
-          like(product.title_geo, `%${filter}%`)
+        and(
+          or(
+            like(product.title_eng, `%${filter}%`),
+            like(product.title_geo, `%${filter}%`)
+          ),
+          like(product.categoryIds, `%${categoryId}%`)
         )
       )
       .offset((page - 1) * PRODUCT_PAGE)

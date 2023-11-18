@@ -5,16 +5,13 @@ import { getImage, getLangKey } from '/utils'
 import { twMerge } from 'tailwind-merge'
 import { Minus, Plus } from '/components'
 import { Locale } from '/types'
-import { Fragment, memo, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useQuery } from '@tanstack/react-query'
-import { getAllCategories } from '/services'
+import { Fragment, memo } from 'react'
 import { useFilter } from './useFilter'
 
 const Filter: React.FC<{
   lang: Locale
 }> = ({ lang }) => {
-  const { categories, open, toggleMenu, params, setActive } = useFilter()
+  const { categories, open, toggleMenu, params, setCategoryId } = useFilter()
   return (
     <section className='max-w-xs'>
       {categories.map((c, i) => (
@@ -69,7 +66,7 @@ const Filter: React.FC<{
                     'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb]',
                     i >= 1 && 'text-secondary'
                   )}
-                  onClick={() => setActive(sc.id)}
+                  onClick={() => setCategoryId?.(sc.id)}
                 >
                   {sc.thumbnail && (
                     <Image

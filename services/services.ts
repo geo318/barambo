@@ -3,10 +3,11 @@ import { Category, Product, SubCategory } from '/types'
 
 export const getProducts = async (
   page: number,
-  query?: string
+  query?: string,
+  category?: number
 ): Promise<{ products: Product[]; page: number }> => {
   const res = await axiosInstance.get(
-    `/products?page=${page}&query=${query ?? ''}`
+    `/products?page=${page}&query=${query ?? ''}&category=${category ?? ''}`
   )
   return res.data
 }

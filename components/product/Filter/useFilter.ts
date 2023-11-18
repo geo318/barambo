@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getAllCategories } from '/services'
 import { useSearchParams } from 'next/navigation'
+import { ProductContext } from '/context'
 
 export const useFilter = () => {
+  const { categoryId, setCategoryId } = useContext(ProductContext)
   const {
     data: categories = [],
     error,
@@ -15,7 +17,6 @@ export const useFilter = () => {
   const [open, setOpen] = useState<boolean[]>(
     Array.from({ length: categories.length }, () => false)
   )
-  const [active, setActive] = useState<number>()
   const params = useSearchParams()
   const toggleMenu = (i: number) => {
     setOpen((prev) => {
@@ -31,8 +32,8 @@ export const useFilter = () => {
     isLoading,
     open,
     toggleMenu,
-    active,
-    setActive,
+    categoryId,
+    setCategoryId,
     params,
   }
 }

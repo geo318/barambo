@@ -7,14 +7,15 @@ import { useDebounce } from '/hooks'
 import { ProductContext } from '/context'
 
 export const useProductList = () => {
-  const { query } = useContext(ProductContext)
+  const { query, categoryId } = useContext(ProductContext)
   const debouncedQuery = useDebounce({ query })
 
   const { data, error, isLoading, fetchNextPage } = useInfiniteQuery({
-    queryHash: debouncedQuery,
+    queryHash: debouncedQuery + categoryId,
     queryKey: ['products'],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getProducts(pageParam, debouncedQuery),
+    queryFn: ({ pageParam = 1 }) =>
+      getProducts(pageParam, debouncedQuery, categoryId),
     getNextPageParam: (lastPage) =>
       lastPage.products.length < PRODUCT_PAGE
         ? undefined
