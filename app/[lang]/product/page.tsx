@@ -36,32 +36,34 @@ export default async function Product({ params: { lang } }: PageProps) {
   return (
     <main className='flex flex-col gap-36'>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <ProductContextProvider>
-          <Section className='py-28 flex gap-20'>
-            <aside className='w-max shrink-0'>
-              <H tag='h1' size='lg'>
-                {product.h1}
-              </H>
-              <h4 className='text-2xl font-medium my-7'>
-                What it is so special about us?
-              </h4>
-              <Suspense>
-                <Filter lang={lang} />
-              </Suspense>
-            </aside>
-            <article className='grow'>
-              <Suspense>
-                <Search />
-              </Suspense>
+        <Suspense>
+          <ProductContextProvider>
+            <Section className='py-28 flex gap-20'>
+              <aside className='w-max shrink-0'>
+                <H tag='h1' size='lg'>
+                  {product.h1}
+                </H>
+                <h4 className='text-2xl font-medium my-7'>
+                  What it is so special about us?
+                </h4>
+                <Suspense>
+                  <Filter lang={lang} />
+                </Suspense>
+              </aside>
+              <article className='grow'>
+                <Suspense>
+                  <Search />
+                </Suspense>
 
-              <Suspense fallback={<div>Loading...</div>}>
-                <ProductList locale={lang}>
-                  <ProductSkeleton />
-                </ProductList>
-              </Suspense>
-            </article>
-          </Section>
-        </ProductContextProvider>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ProductList locale={lang}>
+                    <ProductSkeleton />
+                  </ProductList>
+                </Suspense>
+              </article>
+            </Section>
+          </ProductContextProvider>
+        </Suspense>
       </HydrationBoundary>
     </main>
   )
