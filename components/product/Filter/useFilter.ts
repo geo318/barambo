@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getAllCategories } from '/services'
 import { useSearchParams } from 'next/navigation'
@@ -18,7 +18,7 @@ export const useFilter = () => {
   const [open, setOpen] = useState<boolean[]>(
     Array.from(
       categories.map((c) => c.id),
-      (id) => Number(params.get('category')) === id
+      (id) => Number(params.get('section')) === id
     )
   )
   const toggleMenu = (i: number) => {
@@ -28,6 +28,12 @@ export const useFilter = () => {
       return newArr
     })
   }
+
+  useEffect(() => {
+    return () => {
+      setCategoryId?.(undefined)
+    }
+  }, [setCategoryId])
 
   return {
     categories,

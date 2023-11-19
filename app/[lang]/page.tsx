@@ -18,7 +18,6 @@ import { PageProps } from '/types'
 import { getDictionary } from '/lib'
 import { Suspense } from 'react'
 import Image from 'next/image'
-import { getPaginatedPosts, getPaginatedProducts } from '/server'
 import Link from 'next/link'
 
 export default async function Home({ params: { lang } }: PageProps) {
@@ -38,7 +37,7 @@ export default async function Home({ params: { lang } }: PageProps) {
           <Stars className='ml-auto' />
         </div>
         <div className='flex justify-around mt-14'>
-          <Link href={`${lang}/product?category=2`}>
+          <Link href={`${lang}/product?section=2`}>
             <Arc
               src={chocolate}
               heading='confectionary'
@@ -46,7 +45,7 @@ export default async function Home({ params: { lang } }: PageProps) {
               className='bg-dark-brown'
             />
           </Link>
-          <Link href={`${lang}/product?category=3`}>
+          <Link href={`${lang}/product?section=3`}>
             <Arc
               src={iceCream}
               heading='ice cream'
@@ -130,9 +129,9 @@ export default async function Home({ params: { lang } }: PageProps) {
         </Suspense>
         <div className='border-b border-stone-300 w-full py-8' />
         <div className='flex'>
-          <Button className='w-48 h-14 bg-white mt-auto mb-8 z-10 ml-auto'>
-            See All Articles
-          </Button>
+          <Link href={`/${lang}/blog`} className='mt-auto mb-8 z-10 ml-auto'>
+            <Button className='w-48 h-14 bg-white'>See All Articles</Button>
+          </Link>
         </div>
       </Section>
       <Section className='mb-14'>

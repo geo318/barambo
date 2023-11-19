@@ -1,10 +1,17 @@
-import { ChangeEvent, useContext } from "react"
-import { ProductContext } from "/context"
+import { ChangeEvent, useContext, useEffect } from 'react'
+import { ProductContext } from '/context'
 
 export const useSearch = () => {
-  const { setQuery } = useContext(ProductContext)
+  const { query, setQuery, setCategoryId } = useContext(ProductContext)
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery?.(() => e.target.value)
   }
+
+  useEffect(() => {
+    if (query) setCategoryId?.(undefined)
+    return () => {
+      setQuery?.('')
+    }
+  }, [query, setCategoryId, setQuery])
   return { handleSearch }
 }

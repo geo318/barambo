@@ -11,7 +11,7 @@ import { useFilter } from './useFilter'
 const Filter: React.FC<{
   lang: Locale
 }> = ({ lang }) => {
-  const { categories, open, toggleMenu, params, setCategoryId, categoryId } =
+  const { categories, open, toggleMenu, setCategoryId, categoryId } =
     useFilter()
   return (
     <section className='max-w-xs'>
@@ -19,7 +19,7 @@ const Filter: React.FC<{
         <Fragment key={c.id}>
           <div
             className={twMerge(
-              'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb] text-secondary', 
+              'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb] text-secondary',
               open[i] && 'text-primary'
             )}
           >
@@ -54,14 +54,14 @@ const Filter: React.FC<{
             <ul
               className={twMerge(
                 'overflow-hidden uppercase',
-                open[i] && 'border-t border-[#ebebeb] py-5'
+                open[i] && 'border-t border-[#ebebeb]'
               )}
             >
               {c.subCategories?.map((sc) => (
                 <li
                   key={sc.id}
                   className={twMerge(
-                    'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary cursor-pointer',
+                    'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5',
                     categoryId === sc.id && 'text-primary'
                   )}
                   onClick={() => setCategoryId?.(sc.id)}

@@ -14,11 +14,11 @@ export const Product: React.FC<{
   return (
     <>
       <Link className={twMerge('cursor-pointer')} href={`?id=${product.id}`}>
-        <div className='relative w-full h-52 bg-zinc-200 bg-opacity-50 rounded-3xl'>
+        <div className='relative w-full bg-zinc-200 bg-opacity-50 rounded-3xl aspect-square flex items-center'>
           <Image
             src={getImage`${product.thumbnail}`}
             alt='banner'
-            className='rounded-[1rem] w-full h-full object-contain'
+            className='rounded-[1rem] w-full object-cover'
             width={200}
             height={200}
             priority={index < 5}
@@ -50,7 +50,7 @@ export const ProductSkeleton = ({ num = 12 }) => (
   <>
     {Array.from({ length: num }).map((_, i) => (
       <div key={i}>
-        <div className='relative w-full h-52 bg-zinc-200 animate-pulse bg-opacity-50 rounded-3xl aspect-square' />
+        <div className='relative w-full bg-zinc-200 animate-pulse bg-opacity-50 rounded-3xl aspect-square' />
         <div className='flex flex-col gap-2 mt-5'>
           <div className='text-lg text-secondary line-clamp-3 text-ellipsis leading-relaxed h-10 bg-zinc-200 animate-pulse' />
           <div className='border-b my-2 border-[#bebebe]' />
