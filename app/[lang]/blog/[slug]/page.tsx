@@ -9,7 +9,7 @@ import {
 import { banner3 } from '/public'
 import { getDictionary } from '/lib'
 import { Locale } from '/types'
-import { getPost } from '/server'
+import { getPost, getPostsSlugs } from '/server'
 import { getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
 
@@ -73,4 +73,11 @@ export default async function Post({
       </Section>
     </main>
   )
+}
+
+export async function generateStaticParams() {
+  const posts = await getPostsSlugs()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
 }

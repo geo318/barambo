@@ -1,6 +1,6 @@
 import {
-  Filter,
   H,
+  Filter,
   Search,
   Section,
   ProductList,
