@@ -21,9 +21,9 @@ export const NavItem: React.FC<NavItemProps> = ({
         href={link ? `/${lang}${link}` : '#'}
         onClick={toggle}
         className={twMerge(
-          'hover:opacity-70 transition-opacity duration-200 capitalize',
+          'hover:opacity-70 transition-opacity duration-200 capitalize border-b border-transparent',
           `/${locales.some((l) => l === path) ? '' : path}` === link &&
-            'border-b border-black',
+            'border-black',
           className
         )}
       >
