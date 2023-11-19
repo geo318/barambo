@@ -13,6 +13,14 @@ import { getPost, getPostsSlugs } from '/server'
 import { getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
 
+export const dynamicParams = true
+export async function generateStaticParams() {
+  const posts = await getPostsSlugs()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 export default async function Post({
   params: { slug, lang },
 }: {
@@ -73,11 +81,4 @@ export default async function Post({
       </Section>
     </main>
   )
-}
-
-export async function generateStaticParams() {
-  const posts = await getPostsSlugs()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
 }
