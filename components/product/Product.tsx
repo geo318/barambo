@@ -45,3 +45,18 @@ export const Product: React.FC<{
     </>
   )
 }
+
+export const ProductSkeleton = ({ num = 12 }) => (
+  <>
+    {Array.from({ length: num }).map((_, i) => (
+      <div key={i}>
+        <div className='relative w-full h-52 bg-zinc-200 animate-pulse bg-opacity-50 rounded-3xl aspect-square' />
+        <div className='flex flex-col gap-2 mt-5'>
+          <div className='text-lg text-secondary line-clamp-3 text-ellipsis leading-relaxed h-10 bg-zinc-200 animate-pulse' />
+          <div className='border-b my-2 border-[#bebebe]' />
+          <h4 className='text-lg font-medium truncate h-6 bg-zinc-200 animate-pulse' />
+        </div>
+      </div>
+    ))}
+  </>
+)

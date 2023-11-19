@@ -1,9 +1,8 @@
-import { Filter, H, Search, Section } from '/components'
+import { Filter, H, Search, Section, ProductList, ProductSkeleton } from '/components'
+import { getAllCategories, getPaginatedProducts } from '/server'
+import { ProductContextProvider } from '/context'
 import { getDictionary } from '/lib'
 import { PageProps } from '/types'
-import { getAllCategories, getPaginatedProducts, getProducts } from '/server'
-import { ProductList } from '../../../components/product/ProductList'
-import { ProductContextProvider } from '/context'
 import {
   HydrationBoundary,
   QueryClient,
@@ -46,7 +45,9 @@ export default async function Product({ params: { lang } }: PageProps) {
             <article>
               <Search />
               <Suspense fallback={<div>Loading...</div>}>
-                <ProductList locale={lang} />
+                <ProductList locale={lang} >
+                  <ProductSkeleton />
+                </ProductList>
               </Suspense>
             </article>
           </Section>

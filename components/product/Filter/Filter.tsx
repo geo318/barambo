@@ -61,7 +61,7 @@ const Filter: React.FC<{
                 <li
                   key={sc.id}
                   className={twMerge(
-                    'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary',
+                    'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary cursor-pointer',
                     categoryId === sc.id && 'text-primary'
                   )}
                   onClick={() => setCategoryId?.(sc.id)}
