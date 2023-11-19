@@ -13,7 +13,6 @@ import {
 import { getDictionary } from '/lib'
 import { Blog, PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
-import { countPosts } from '/server'
 import { Suspense } from 'react'
 
 export default async function Product({

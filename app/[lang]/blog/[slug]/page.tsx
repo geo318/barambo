@@ -74,5 +74,3 @@ export default async function Post({
     </main>
   )
 }
-
-export const dynamic = 'force-dynamic'
