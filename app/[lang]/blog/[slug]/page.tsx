@@ -15,12 +15,12 @@ import { Suspense } from 'react'
 import { locales } from '/config'
 
 export default async function Post({
-  params: { slug, lang },
+  params,
 }: {
-  params: { slug: string; lang: Locale }
+  params: { slug?: string; lang: Locale }
 }) {
-  const { blog } = await getDictionary(lang)
-  const post = await getPost(slug)
+  const { blog } = await getDictionary(params.lang)
+  const post = await getPost(params?.slug ?? '')
   return (
     <main className='flex flex-col gap-36'>
       <Section className='py-28'>
@@ -47,7 +47,7 @@ export default async function Post({
         />
         <article>
           <H tag='h1' size='lg'>
-            {post[`title_${getLangKey(lang)}`]}
+            {post[`title_${getLangKey(params.lang)}`]}
           </H>
           <div className='flex gap-[6%] mt-16'>
             <div className='flex gap-3 justify-center'>
@@ -58,7 +58,7 @@ export default async function Post({
               <div
                 className='text-lg leading-relaxed text-secondary flex flex-col gap-14'
                 dangerouslySetInnerHTML={{
-                  __html: post[`content_${getLangKey(lang)}`],
+                  __html: post[`content_${getLangKey(params.lang)}`],
                 }}
               />
             </div>
@@ -66,7 +66,7 @@ export default async function Post({
         </article>
         <section className='grid grid-cols-4 gap-6 mt-36'>
           <Suspense fallback={<SimilarPostsSkeleton />}>
-            <SimilarPosts lang={lang} id={post.id}>
+            <SimilarPosts lang={params.lang} id={post.id}>
               <SimilarPostsSkeleton />
             </SimilarPosts>
           </Suspense>
