@@ -5,6 +5,8 @@ import {
   H,
   MainSlider,
   Map,
+  Recept,
+  ReceptSkeleton,
   Section,
   Stars,
 } from '/components'
@@ -16,6 +18,7 @@ import { getDictionary } from '/lib'
 import { Suspense } from 'react'
 import Image from 'next/image'
 import { getPaginatedPosts, getPaginatedProducts } from '/server'
+import Link from 'next/link'
 
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
@@ -34,19 +37,23 @@ export default async function Home({ params: { lang } }: PageProps) {
           <Stars className='ml-auto' />
         </div>
         <div className='flex justify-around mt-14'>
-          <Arc
-            src={chocolate}
-            heading='confectionary'
-            sub='Only the best chocolate'
-            className='bg-dark-brown'
-          />
-          <Arc
-            src={iceCream}
-            heading='ice cream'
-            sub='The real taste of an ice cream'
-            className='bg-light-brown'
-            imgClassName='ml-5'
-          />
+          <Link href={`${lang}/product?category=2`}>
+            <Arc
+              src={chocolate}
+              heading='confectionary'
+              sub='Only the best chocolate'
+              className='bg-dark-brown'
+            />
+          </Link>
+          <Link href={`${lang}/product?category=3`}>
+            <Arc
+              src={iceCream}
+              heading='ice cream'
+              sub='The real taste of an ice cream'
+              className='bg-light-brown'
+              imgClassName='ml-5'
+            />
+          </Link>
         </div>
       </Section>
       <Section className='flex flex-col gap-16'>
@@ -54,13 +61,14 @@ export default async function Home({ params: { lang } }: PageProps) {
           Our Brands
         </H>
         <div className='grid grid-cols-3 gap-[4vw]'>
-          {brands.map(({ name, img }) => (
-            <div
+          {brands.map(({ name, img, link }) => (
+            <Link
               key={name}
+              href={`/${lang}${link}`}
               className='rounded-[3rem] bg-gray bg-opacity-30 flex items-center justify-center py-14'
             >
               <Image src={img} alt={name} />
-            </div>
+            </Link>
           ))}
         </div>
       </Section>
@@ -72,38 +80,10 @@ export default async function Home({ params: { lang } }: PageProps) {
               barambo recipes
             </H>
           </div>
-          <nav className='w-full items-center justify-center'>
-            <ul className='flex gap-12 mt-8 justify-center'>
-              {Array.from({ length: 5 }).map((_, i) => (
-                <li
-                  key={i}
-                  className={twMerge(
-                    'text-[#888] hover:text-secondary',
-                    !i && 'text-primary pointer-events-none'
-                  )}
-                >
-                  category-{i}
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className='grid grid-cols-4 gap-8 mt-12'>
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className='flex aspect-square rounded-3xl relative overflow-hidden'
-              >
-                <Image
-                  src={banner}
-                  alt={`${i}`}
-                  className='absolute inset-0 object-cover h-full w-full'
-                />
-                <Button className='w-36 h-10 bg-white mt-auto mx-auto mb-8 z-10'>
-                  Read More
-                </Button>
-              </div>
-            ))}
-          </div>
+
+          <Suspense fallback={<ReceptSkeleton />}>
+            <Recept lang={lang} />
+          </Suspense>
         </Section>
       </div>
       <Section className='flex items-center justify-center align-middle gap-[4vw] 3xl:gap-20'>
@@ -111,9 +91,12 @@ export default async function Home({ params: { lang } }: PageProps) {
           <H tag='h5' className='mt-auto' size='lg'>
             Discover our New Tasty product!
           </H>
-          <Button className='w-36 h-12 bg-white mt-auto mr-auto mb-8'>
-            Learn More
-          </Button>
+          <Link
+            href={`/${lang}/product?category=2`}
+            className='my-auto mr-auto'
+          >
+            <Button className='w-36 h-12 bg-white'>Learn More</Button>
+          </Link>
         </section>
         <Arc src={barambinos} arch={barambinoArch} imgClassName='-mb-5' />
         <section className='basis-1/3 aspect-square flex flex-col ml-auto justify-around'>

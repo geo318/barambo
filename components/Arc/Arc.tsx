@@ -4,11 +4,11 @@ import { twMerge } from 'tailwind-merge'
 import { ArcProps } from './types'
 
 export const Arc: React.FC<ArcProps> = ({
-  src,
-  heading,
   sub,
-  className,
+  src,
   arch,
+  heading,
+  className,
   imgClassName,
 }) => {
   return (

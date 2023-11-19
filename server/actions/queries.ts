@@ -15,6 +15,30 @@ import { Blog, Post } from '/types'
 import { cache } from 'react'
 import { BLOG_PAGE, PRODUCT_PAGE } from '/config'
 
+export const getHomepagePosts = cache(async () => {
+  const posts = await db
+    .select()
+    .from(post)
+    .where(or(eq(post.type, 'news'), eq(post.type, 'csr')))
+    .limit(3)
+    .prepare()
+    .execute()
+
+  return posts
+})
+
+export const getHomepageRecept = cache(async () => {
+  const posts = await db
+    .select({ thumbnail: post.thumbnail, id: post.id, slug: post.slug })
+    .from(post)
+    .where(eq(post.type, 'recept'))
+    .limit(8)
+    .prepare()
+    .execute()
+
+  return posts
+})
+
 export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
   const posts = await db
     .select({ thumbnail: post.thumbnail, id: post.id, slug: post.slug })

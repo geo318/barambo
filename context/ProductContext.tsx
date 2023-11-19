@@ -1,7 +1,8 @@
 'use client'
 
-import { createContext, useState } from 'react'
+import { createContext, use, useState } from 'react'
 import { Product, SetState } from '/types'
+import { useSearchParams } from 'next/navigation'
 
 type TProductContext = {
   products?: Product[]
@@ -19,8 +20,11 @@ export const ProductContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
+  const params = useSearchParams()
   const [products, setProducts] = useState<Product[]>([])
-  const [categoryId, setCategoryId] = useState<number>()
+  const [categoryId, setCategoryId] = useState<number | undefined>(
+    Number(params.get('category')) ?? undefined
+  )
   const [query, setQuery] = useState<string>('')
 
   return (

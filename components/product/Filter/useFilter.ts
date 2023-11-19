@@ -6,6 +6,7 @@ import { ProductContext } from '/context'
 
 export const useFilter = () => {
   const { categoryId, setCategoryId } = useContext(ProductContext)
+  const params = useSearchParams()
   const {
     data: categories = [],
     error,
@@ -15,9 +16,11 @@ export const useFilter = () => {
     queryFn: getAllCategories,
   })
   const [open, setOpen] = useState<boolean[]>(
-    Array.from({ length: categories.length }, () => false)
+    Array.from(
+      categories.map((c) => c.id),
+      (id) => Number(params.get('category')) === id
+    )
   )
-  const params = useSearchParams()
   const toggleMenu = (i: number) => {
     setOpen((prev) => {
       const newArr = [...prev]

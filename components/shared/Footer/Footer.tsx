@@ -2,7 +2,6 @@ import { FooterUl } from './FooterUl'
 import { FooterCurve, Logo, Section } from '/components'
 import { SharedText } from '/types'
 import { footer, locales } from '/config'
-import Link from 'next/link'
 import { Social } from './Social'
 import { footerBg } from '/public'
 import Image from 'next/image'
@@ -24,7 +23,7 @@ export const Footer = ({
       <Section className='max-w-[100rem] mx-auto grid grid-cols-2 mt-auto pb-24'>
         <section className='col-span-1 text-center hidden xl:flex flex-col gap-7 items-center'>
           <Logo className='max-w-[11rem] mr-auto' />
-          <p className='text-left txt-balanced text-secondary text-lg'>
+          <p className='text-left txt-balanced text-secondary text-lg mr-auto'>
             Various versions have evolved over the years, sometimes by accident,
             sometimes on purpose
           </p>
