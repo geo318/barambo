@@ -1,12 +1,17 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { BlogModal, Button, H, Section } from '/components'
+import {
+  BlogModal,
+  BlogPosts,
+  BlogPostsSkeleton,
+  H,
+  Section,
+} from '/components'
 import { getDictionary } from '/lib'
 import { Blog, PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
-import { countPosts, getPaginatedPosts } from '/server'
-import { getImage } from '/utils'
+import { countPosts } from '/server'
 import { switchBlog } from '/config'
+import { Suspense } from 'react'
 
 export default async function Product({
   params: { lang },
@@ -19,7 +24,6 @@ export default async function Product({
   }
 }) {
   const { blog } = await getDictionary(lang)
-  const posts = await getPaginatedPosts(filter ?? 'news', page)
   const pageCount = await countPosts(filter ?? 'news')
 
   return (
@@ -51,32 +55,9 @@ export default async function Product({
               filter === 'recept' && 'grid-cols-4'
             )}
           >
-            {posts.map(({ id, thumbnail, slug }) => (
-              <div
-                key={id}
-                className='flex aspect-square rounded-3xl relative overflow-hidden'
-              >
-                {thumbnail && (
-                  <Image
-                    src={getImage`${thumbnail}`}
-                    alt={`${id}`}
-                    width={200}
-                    height={200}
-                    className='absolute inset-0 object-cover h-full w-full'
-                  />
-                )}
-                <Link
-                  href={
-                    filter === 'recept'
-                      ? `?filter=recept&recept=${slug}`
-                      : `/blog/${slug}?filter=${filter}`
-                  }
-                  className='mt-auto mx-auto mb-8 z-10'
-                >
-                  <Button className='bg-white w-36 h-10'>Read More</Button>
-                </Link>
-              </div>
-            ))}
+            <Suspense fallback={<BlogPostsSkeleton />}>
+              <BlogPosts filter={filter} lang={lang} page={page} />
+            </Suspense>
           </section>
         </article>
         <div className='mt-24 mx-auto flex gap-2 justify-center'>
@@ -101,3 +82,5 @@ export default async function Product({
     </main>
   )
 }
+
+export const dynamic = 'force-dynamic'
