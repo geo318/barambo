@@ -12,15 +12,14 @@ import { Locale } from '/types'
 import { getPost, getPostsSlugs } from '/server'
 import { getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
-import { locales } from '/config'
 
 export default async function Post({
-  params,
+  params: { slug, lang },
 }: {
-  params: { slug?: string; lang: Locale }
+  params: { slug: string; lang: Locale }
 }) {
-  const { blog } = await getDictionary(params.lang)
-  const post = await getPost(params?.slug ?? '')
+  const { blog } = await getDictionary(lang)
+  const post = await getPost(slug)
   return (
     <main className='flex flex-col gap-36'>
       <Section className='py-28'>
@@ -47,7 +46,7 @@ export default async function Post({
         />
         <article>
           <H tag='h1' size='lg'>
-            {post[`title_${getLangKey(params.lang)}`]}
+            {post[`title_${getLangKey(lang)}`]}
           </H>
           <div className='flex gap-[6%] mt-16'>
             <div className='flex gap-3 justify-center'>
@@ -58,7 +57,7 @@ export default async function Post({
               <div
                 className='text-lg leading-relaxed text-secondary flex flex-col gap-14'
                 dangerouslySetInnerHTML={{
-                  __html: post[`content_${getLangKey(params.lang)}`],
+                  __html: post[`content_${getLangKey(lang)}`],
                 }}
               />
             </div>
@@ -66,7 +65,7 @@ export default async function Post({
         </article>
         <section className='grid grid-cols-4 gap-6 mt-36'>
           <Suspense fallback={<SimilarPostsSkeleton />}>
-            <SimilarPosts lang={params.lang} id={post.id}>
+            <SimilarPosts lang={lang} id={post.id}>
               <SimilarPostsSkeleton />
             </SimilarPosts>
           </Suspense>
@@ -78,14 +77,5 @@ export default async function Post({
 
 export async function generateStaticParams() {
   const posts = await getPostsSlugs()
-  const slugArr = posts?.map((p) => ({
-    slug: p?.slug,
-  })) as { lang: Locale; slug: string }[]
-
-  for (let i = 0; i < locales.length; i++) {
-    for (let j = 0; j < slugArr.length; j++) {
-      slugArr[j].lang = locales[i]
-    }
-  }
-  return slugArr
+  return posts?.map((p) => ({ slug: p?.slug }))
 }
