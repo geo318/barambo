@@ -6,5 +6,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 export async function generateStaticParams() {
   const posts = await getPostsSlugs()
-  return posts.map(({ slug }) => ({ slug }))
+  return posts.map(({ slug }) => ({ slug: slug ?? '' }))
 }
