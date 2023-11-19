@@ -236,7 +236,12 @@ export const deleteProduct = async (formData: FormData) => {
 
 export const createPost = async (formData: FormData) => {
   const [mapped, files] = getFormValues<Post>(formData)
-  const slug = mapped.title_eng.trim().replace(/\s+/g, '-').toLowerCase()
+  const slug = mapped.title_eng
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]|[,":]/g, '')
+    .toLowerCase()
+
   try {
     const thumbnails: string[] = []
     if (files && files?.length)

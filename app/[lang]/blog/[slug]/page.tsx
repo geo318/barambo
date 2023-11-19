@@ -13,7 +13,6 @@ import { getPost, getPostsSlugs } from '/server'
 import { getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
 
-
 export default async function Post({
   params: { slug, lang },
 }: {
@@ -44,7 +43,7 @@ export default async function Post({
           className='max-h-80 rounded-[3rem] object-cover my-16'
           width={1500}
           height={300}
-          />
+        />
         <article>
           <H tag='h1' size='lg'>
             {post[`title_${getLangKey(lang)}`]}
@@ -76,3 +75,7 @@ export default async function Post({
   )
 }
 
+export async function generateStaticParams() {
+  const posts = await getPostsSlugs()
+  return posts.map(({ slug }) => ({ slug }))
+}
