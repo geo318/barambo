@@ -12,6 +12,7 @@ import { Locale } from '/types'
 import { getPost, getPostsSlugs } from '/server'
 import { getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
+import { locales } from '/config'
 
 export default async function Post({
   params: { slug, lang },
@@ -77,5 +78,14 @@ export default async function Post({
 
 export async function generateStaticParams() {
   const posts = await getPostsSlugs()
-  return posts.map(({ slug }) => ({ slug }))
+  const slugArr = posts?.map((p) => ({
+    slug: p?.slug,
+  })) as { lang: Locale; slug: string }[]
+
+  for (let i = 0; i < locales.length; i++) {
+    for (let j = 0; j < slugArr.length; j++) {
+      slugArr[j].lang = locales[i]
+    }
+  }
+  return slugArr
 }
