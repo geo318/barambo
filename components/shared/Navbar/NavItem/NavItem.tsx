@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { NavItemProps } from './types'
+import { usePathname } from 'next/navigation'
+import { locales } from '/config'
 
 export const NavItem: React.FC<NavItemProps> = ({
   name,
@@ -12,6 +14,7 @@ export const NavItem: React.FC<NavItemProps> = ({
   toggle,
   className,
 }) => {
+  const path = usePathname().split('/').pop()
   return (
     <li className='list-none font-medium text-lg relative'>
       <Link
@@ -19,6 +22,8 @@ export const NavItem: React.FC<NavItemProps> = ({
         onClick={toggle}
         className={twMerge(
           'hover:opacity-70 transition-opacity duration-200 capitalize',
+          `/${locales.some((l) => l === path) ? '' : path}` === link &&
+            'border-b border-black',
           className
         )}
       >
