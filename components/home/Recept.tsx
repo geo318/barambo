@@ -7,7 +7,7 @@ import { getHomepageRecept } from '/server'
 import Link from 'next/link'
 import { getImage } from '/utils'
 
-export const Recept = async ({ lang }: { lang: Locale }) => {
+export const ReceptSection = async ({ lang }: { lang: Locale }) => {
   const receipts = await getHomepageRecept()
   return (
     <div className='grid grid-cols-4 gap-8 mt-16'>
