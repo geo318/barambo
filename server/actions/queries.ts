@@ -125,9 +125,9 @@ export const getSubCategories = async () => await db.select().from(subCategory)
 export const getProducts = async () => await db.select().from(product)
 
 export const getPosts = async () => await db.select().from(post)
-export const getPostsSlugs = cache(
-  async () => await db.select({ slug: post.slug }).from(post)
-)
+
+export const getPostsSlugs = async () =>
+  await db.select({ slug: post.slug }).from(post)
 
 export const getSlides = async () => await db.select().from(slider)
 
