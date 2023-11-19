@@ -1,16 +1,19 @@
 import Link from 'next/link'
 import {
   BlogModal,
+  BlogPages,
   BlogPosts,
   BlogPostsSkeleton,
+  BlogSwitcher,
   H,
+  SearchParamsWrapper,
   Section,
+  Spinner,
 } from '/components'
 import { getDictionary } from '/lib'
 import { Blog, PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
 import { countPosts } from '/server'
-import { switchBlog } from '/config'
 import { Suspense } from 'react'
 
 export default async function Product({
@@ -24,7 +27,6 @@ export default async function Product({
   }
 }) {
   const { blog } = await getDictionary(lang)
-  const pageCount = await countPosts(filter ?? 'news')
 
   return (
     <main className='flex flex-col gap-36'>
@@ -34,17 +36,13 @@ export default async function Product({
             {blog.h1}
           </H>
           <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
-            {switchBlog.map((item) => (
-              <li
-                className={twMerge(
-                  'text-lg font-medium border-b border-transparent',
-                  (filter ?? 'news') === item.name && 'border-black'
-                )}
-                key={item.name}
-              >
-                <Link href={`?filter=${item.name}`}>{item.name}</Link>
-              </li>
-            ))}
+            <Suspense
+              fallback={
+                <div className='w-full max-w-xs animate-pulse bg-zinc-200 h-6' />
+              }
+            >
+              <BlogSwitcher />
+            </Suspense>
           </ul>
         </section>
 
@@ -55,32 +53,24 @@ export default async function Product({
               filter === 'recept' && 'grid-cols-4'
             )}
           >
-            <Suspense fallback={<BlogPostsSkeleton />}>
-              <BlogPosts filter={filter} lang={lang} page={page} />
+            <Suspense>
+              <BlogPosts>
+                <BlogPostsSkeleton />
+              </BlogPosts>
             </Suspense>
           </section>
         </article>
-        <div className='mt-24 mx-auto flex gap-2 justify-center'>
-          {Array.from({ length: pageCount }).map((_, i) => (
-            <Link
-              key={i}
-              href={`${filter ? `?filter=${filter ?? 'news'}&` : '?'}page=${
-                i + 1
-              }`}
-              className={twMerge(
-                'text-xl w-12 flex items-center justify-center rounded-md text-[#77838F] aspect-square',
-                ((!page && !i) || page == i + 1) &&
-                  'bg-[#E7DAD2] text-[#5A5A5A]'
-              )}
-            >
-              {i + 1}
-            </Link>
-          ))}
-        </div>
+        <section className='mt-24 mx-auto flex gap-2 justify-center'>
+          <Suspense fallback={<Spinner />}>
+            <BlogPages />
+          </Suspense>
+        </section>
       </Section>
-      <BlogModal isOpen={!!recept} slug={recept} />
+      <Suspense>
+        <SearchParamsWrapper query={['recept']}>
+          <BlogModal slug={recept} />
+        </SearchParamsWrapper>
+      </Suspense>
     </main>
   )
 }
-
-export const dynamic = 'force-dynamic'

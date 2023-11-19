@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { BlogText } from '/types'
 import { twMerge } from 'tailwind-merge'
 import { useSearchParams } from 'next/navigation'
 import { switchBlog } from '/config'
+import { memo } from 'react'
 
-export const BlogSwitcher = ({ text }: { text: BlogText }) => {
+export const BlogSwitcher = () => {
   const params = useSearchParams()
   return (
     <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
@@ -14,7 +14,7 @@ export const BlogSwitcher = ({ text }: { text: BlogText }) => {
         <li
           className={twMerge(
             'text-lg font-medium border-b border-transparent',
-            (params.get('filter') ?? 'news' === item.name) && 'border-black'
+            (params.get('filter') ?? 'news') === item.name && 'border-black'
           )}
           key={item.name}
         >
@@ -24,3 +24,5 @@ export const BlogSwitcher = ({ text }: { text: BlogText }) => {
     </ul>
   )
 }
+
+export default memo(BlogSwitcher)

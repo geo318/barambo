@@ -1,26 +1,22 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import {
   H,
   Section,
   SimilarPosts,
+  BlogSwitcher,
   SimilarPostsSkeleton,
 } from '/components'
 import { banner3 } from '/public'
 import { getDictionary } from '/lib'
-import { Blog, Locale } from '/types'
+import { Locale } from '/types'
 import { getPost } from '/server'
 import { getImage, getLangKey } from '/utils'
-import { switchBlog } from '/config'
-import { twMerge } from 'tailwind-merge'
 import { Suspense } from 'react'
 
 export default async function Post({
   params: { slug, lang },
-  searchParams: { filter },
 }: {
   params: { slug: string; lang: Locale }
-  searchParams: { filter: Blog }
 }) {
   const { blog } = await getDictionary(lang)
   const post = await getPost(slug)
@@ -32,19 +28,13 @@ export default async function Post({
             {blog.h1}
           </H>
           <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
-            {switchBlog.map((item) => (
-              <li
-                className={twMerge(
-                  'text-lg font-medium border-b border-transparent',
-                  (filter ?? 'news') === item.name && 'border-black'
-                )}
-                key={item.name}
-              >
-                <Link href={`/${lang}/blog?filter=${item.name}`}>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            <Suspense
+              fallback={
+                <div className='w-full max-w-xs animate-pulse bg-zinc-200 h-6' />
+              }
+            >
+              <BlogSwitcher />
+            </Suspense>
           </ul>
         </section>
         <Image
@@ -75,12 +65,12 @@ export default async function Post({
         </article>
         <section className='grid grid-cols-4 gap-6 mt-36'>
           <Suspense fallback={<SimilarPostsSkeleton />}>
-            <SimilarPosts lang={lang} filter={filter} id={post.id} />
+            <SimilarPosts lang={lang} id={post.id}>
+              <SimilarPostsSkeleton />
+            </SimilarPosts>
           </Suspense>
         </section>
       </Section>
     </main>
   )
 }
-
-export const dynamic = 'force-dynamic'
