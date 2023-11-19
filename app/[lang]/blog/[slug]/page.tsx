@@ -76,8 +76,3 @@ export default async function Post({
   )
 }
 
-  // export const dynamicParams = true
-  export async function generateStaticParams() {
-    const posts = await getPostsSlugs()
-    return posts.map(({ slug }) => ({ slug }))
-  }
