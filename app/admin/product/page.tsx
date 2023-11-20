@@ -79,7 +79,7 @@ export default async function SubCategory() {
                   <Image
                     src={getImage`${product.thumbnail}`}
                     alt={product.title_eng}
-                    className='w-full object-contain max-h-full max-w-full'
+                    className='w-full aspect-square object-contain max-h-full max-w-full'
                     width='300'
                     height='100'
                   />
