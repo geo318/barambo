@@ -30,10 +30,13 @@ export const useFilter = () => {
   }
 
   useEffect(() => {
+    setCategoryId?.(
+      params.get('category') ? Number(params.get('category')) : undefined
+    )
     return () => {
       setCategoryId?.(undefined)
     }
-  }, [setCategoryId])
+  }, [setCategoryId, params])
 
   return {
     categories,
