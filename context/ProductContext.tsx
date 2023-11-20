@@ -23,7 +23,7 @@ export const ProductContextProvider = ({
   const params = useSearchParams()
   const [products, setProducts] = useState<Product[]>([])
   const [categoryId, setCategoryId] = useState<number | undefined>(
-    Number(params.get('category')) ?? undefined
+    // Number(params.get('category')) ?? undefined
   )
   const [query, setQuery] = useState<string>('')
 
