@@ -1,6 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { memo } from 'react'
 
 export const SearchParamsWrapper: React.FC<{
   children: React.ReactNode
@@ -18,3 +19,5 @@ export const SearchParamsWrapper: React.FC<{
   const render = not ? !cond : cond
   return <>{render ? children : null}</>
 }
+
+export default memo(SearchParamsWrapper)

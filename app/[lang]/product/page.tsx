@@ -5,6 +5,8 @@ import {
   Section,
   ProductList,
   ProductSkeleton,
+  SearchParamsWrapper,
+  ProductModal,
 } from '/components'
 import { getAllCategories, getPaginatedProducts } from '/server'
 import { ProductContextProvider } from '/context'
@@ -19,7 +21,14 @@ import { Suspense } from 'react'
 
 const queryClient = new QueryClient()
 
-export default async function Product({ params: { lang } }: PageProps) {
+export default async function Product({
+  params: { lang },
+  searchParams: { id },
+}: PageProps & {
+  searchParams: URLSearchParams & {
+    id?: number
+  }
+}) {
   const { product } = await getDictionary(lang)
   await Promise.all([
     queryClient.prefetchInfiniteQuery({
@@ -62,6 +71,11 @@ export default async function Product({ params: { lang } }: PageProps) {
                 </Suspense>
               </article>
             </Section>
+            <Suspense>
+              <SearchParamsWrapper query={['id']}>
+                <ProductModal lang={lang} id={id} />
+              </SearchParamsWrapper>
+            </Suspense>
           </ProductContextProvider>
         </Suspense>
       </HydrationBoundary>

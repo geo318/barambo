@@ -10,18 +10,25 @@ export const useProductList = () => {
   const { query, categoryId } = useContext(ProductContext)
   const debouncedQuery = useDebounce({ query })
 
-  const { data, error, isLoading, fetchNextPage, isFetchingNextPage, isFetched } =
-    useInfiniteQuery({
-      queryHash: debouncedQuery + categoryId,
-      queryKey: ['products'],
-      initialPageParam: 1,
-      queryFn: ({ pageParam = 1 }) =>
-        getProducts(pageParam, debouncedQuery, categoryId),
-      getNextPageParam: (lastPage) =>
-        lastPage.products.length < PRODUCT_PAGE
-          ? undefined
-          : Number(lastPage.page) + 1,
-    })
+  const {
+    data,
+    error,
+    isLoading,
+    fetchNextPage,
+    isFetchingNextPage,
+    isFetched,
+    isFetching,
+  } = useInfiniteQuery({
+    queryHash: debouncedQuery + categoryId,
+    queryKey: ['products'],
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) =>
+      getProducts(pageParam, debouncedQuery, categoryId),
+    getNextPageParam: (lastPage) =>
+      lastPage.products.length < PRODUCT_PAGE
+        ? undefined
+        : Number(lastPage.page) + 1,
+  })
 
   const products = useMemo(
     () =>
@@ -49,6 +56,8 @@ export const useProductList = () => {
   return {
     isFetchingNextPage,
     lastFeedElementRef,
+    categoryId,
+    isFetching,
     isFetched,
     isLoading,
     products,

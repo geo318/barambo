@@ -1,16 +1,20 @@
-import { Portal, H, CloseModal } from '/components'
-import Image from 'next/image'
-import { Locale, Product } from '/types'
-import { getImage, getLangKey } from '/utils'
+'use server'
 
-export function ProductModal({
-  product,
+import Image from 'next/image'
+import { Portal, H, CloseModal } from '/components'
+import { Locale } from '/types'
+import { getImage, getLangKey } from '/utils'
+import { getProduct } from '/server'
+
+export async function ProductModal({
+  id,
   lang,
 }: {
-  product: Product
+  id?: number
   lang: Locale
 }) {
-  return (
+  const product = id && (await getProduct(id))[0]
+  return product ? (
     <Portal>
       <div className='xl:mx-48 lg:mx-28 mx-10 max-w-[110rem] mt-20'>
         <div className='z-50 block p-9 relative bg-white rounded-[3rem]'>
@@ -45,5 +49,5 @@ export function ProductModal({
         </div>
       </div>
     </Portal>
-  )
+  ) : null
 }

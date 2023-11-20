@@ -1,8 +1,7 @@
 'use client'
 
-import { createContext, useState } from 'react'
+import { createContext, useMemo, useState } from 'react'
 import { Product, SetState } from '/types'
-import { useSearchParams } from 'next/navigation'
 
 type TProductContext = {
   products?: Product[]
@@ -24,17 +23,20 @@ export const ProductContextProvider = ({
   const [categoryId, setCategoryId] = useState<number | undefined>()
   const [query, setQuery] = useState<string>('')
 
+  const memoizedSetValues = useMemo(
+    () => ({
+      products,
+      setProducts,
+      categoryId,
+      setCategoryId,
+      query,
+      setQuery,
+    }),
+    [products, setProducts, categoryId, setCategoryId, query, setQuery]
+  )
+
   return (
-    <ProductContext.Provider
-      value={{
-        products,
-        setProducts,
-        categoryId,
-        setCategoryId,
-        query,
-        setQuery,
-      }}
-    >
+    <ProductContext.Provider value={memoizedSetValues}>
       {children}
     </ProductContext.Provider>
   )

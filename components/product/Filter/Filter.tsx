@@ -62,9 +62,12 @@ const Filter: React.FC<{
                   key={sc.id}
                   className={twMerge(
                     'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5',
-                    categoryId === sc.id && 'text-primary'
+                    categoryId === sc.id && 'text-primary underline'
                   )}
-                  onClick={() => setCategoryId?.(sc.id)}
+                  onClick={() =>
+                    setCategoryId?.(categoryId === sc.id ? undefined : sc.id)
+                  }
+                  data-id={sc.id}
                 >
                   {sc.thumbnail && (
                     <Image

@@ -21,7 +21,7 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
       loop
     >
       {slides.map((s) => (
-        <SwiperSlide key={s.id} className='!h-auto'>
+        <SwiperSlide key={s.id} className='!h-[40rem]'>
           <Image
             src={getImage`${s.thumbnail}`}
             className='min-h-full w-full object-cover'

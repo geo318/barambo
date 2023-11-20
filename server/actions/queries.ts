@@ -97,6 +97,16 @@ export const getLatestPosts = cache(async (type: Post['type']) => {
   return posts
 })
 
+export const getProduct = cache(
+  async (id: number) =>
+    await db
+      .select()
+      .from(product)
+      .where(eq(product.id, id))
+      .prepare()
+      .execute()
+)
+
 export const countPosts = cache(async (type: Post['type']) => {
   const count = await db
     .select({

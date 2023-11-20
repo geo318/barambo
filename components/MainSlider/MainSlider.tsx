@@ -9,11 +9,11 @@ export const MainSlider = async () => {
 
   return (
     <>
-      <Section className='grid grid-cols-2 gap-[14vw] pb-12'>
-        <H tag='h1' className='leading-snug txt-balance' size='xl'>
+      <Section className='flex justify-between pb-10 shrink-1'>
+        <H tag='h1' className='leading-snug shrink-1 w-[40%]' size='xl'>
           Have you tasted our new ice cream?
         </H>
-        <section className='flex flex-col gap-4 max-w-lg'>
+        <section className='flex flex-col gap-4 max-w-lg mt-8 ml-auto mr-[10%] shrink-0 grow'>
           <h2 className='text-2xl font-medium text-primary'>
             Which ones is your favorite?
           </h2>

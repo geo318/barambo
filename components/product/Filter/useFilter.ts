@@ -5,8 +5,10 @@ import { useSearchParams } from 'next/navigation'
 import { ProductContext } from '/context'
 
 export const useFilter = () => {
-  const { categoryId, setCategoryId } = useContext(ProductContext)
+  const { categoryId, setCategoryId, setQuery, query } =
+    useContext(ProductContext)
   const params = useSearchParams()
+
   const {
     data: categories = [],
     error,
@@ -21,6 +23,13 @@ export const useFilter = () => {
       (id) => Number(params.get('section')) === id
     )
   )
+
+  useEffect(() => {
+    if (params.get('category')) {
+      setCategoryId?.(Number(params.get('category')))
+    }
+  }, [setCategoryId, params])
+
   const toggleMenu = (i: number) => {
     setOpen((prev) => {
       const newArr = [...prev]
@@ -28,16 +37,6 @@ export const useFilter = () => {
       return newArr
     })
   }
-
-  useEffect(() => {
-    setCategoryId?.(
-      params.get('category') ? Number(params.get('category')) : undefined
-    )
-    return () => {
-      setCategoryId?.(undefined)
-    }
-  }, [setCategoryId, params])
-
   return {
     categories,
     error,

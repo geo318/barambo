@@ -6,12 +6,12 @@ export const useSearch = () => {
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery?.(() => e.target.value)
   }
+  const clearSearch = () => {
+    setQuery?.(() => '')
+  }
 
   useEffect(() => {
     if (query) setCategoryId?.(undefined)
-    return () => {
-      setQuery?.('')
-    }
-  }, [query, setCategoryId, setQuery])
-  return { handleSearch }
+  }, [query, setCategoryId])
+  return { handleSearch, query, clearSearch }
 }

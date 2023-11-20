@@ -24,7 +24,7 @@ export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
   return (
     <main className='flex min-h-screen flex-col gap-36'>
-      <div className='bg-[#FBF6F2] w-full pt-36'>
+      <div className='bg-[#FBF6F2] w-full pt-24'>
         <Suspense fallback={<div>Loading...</div>}>
           <MainSlider />
         </Suspense>
