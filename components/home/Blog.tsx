@@ -8,7 +8,14 @@ import { getImage, getLangKey, sleep } from '/utils'
 import Link from 'next/link'
 
 export const BlogSection = async ({ lang }: { lang: Locale }) => {
-  const [main, top, bottom] = await getHomepagePosts()
+  const posts = await getHomepagePosts()
+  if (posts?.length < 3)
+    return (
+      <div className='text-lg text-secondary font-medium py-3'>
+        Add more posts to display
+      </div>
+    )
+  const [main, top, bottom] = posts
   return (
     <div className='flex gap-7'>
       <div className='row-span-2 basis-1/2'>

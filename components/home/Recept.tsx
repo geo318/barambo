@@ -9,9 +9,15 @@ import { getImage } from '/utils'
 
 export const ReceptSection = async ({ lang }: { lang: Locale }) => {
   const receipts = await getHomepageRecept()
+  if (!receipts?.length)
+    return (
+      <div className='text-lg text-secondary font-medium py-3'>
+        Add more posts to display
+      </div>
+    )
   return (
     <div className='grid grid-cols-4 gap-8 mt-16'>
-      {receipts.map((recept, i) => (
+      {receipts?.map((recept, i) => (
         <div
           key={recept.id}
           className='flex aspect-square rounded-3xl relative overflow-hidden'
