@@ -17,7 +17,7 @@ export const POST = async (req: Request) => {
       },
     })
 
-    const [to, subject] = ['geo.lomidze@gmail.com', 'Excursion']
+    const [to, subject] = [SMTP_EMAIL, 'Excursion']
     const file = formData.get('file') as File | null
     let buffer: Buffer | undefined
     try {
