@@ -55,7 +55,7 @@ export default async function Product({ params: { lang } }: PageProps) {
                   <Search />
                 </Suspense>
 
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<ProductSkeleton />}>
                   <ProductList locale={lang}>
                     <ProductSkeleton />
                   </ProductList>

@@ -14,11 +14,11 @@ export const Product: React.FC<{
   return (
     <>
       <Link className={twMerge('cursor-pointer')} href={`?id=${product.id}`}>
-        <div className='relative w-full bg-zinc-200 bg-opacity-50 aspect-square flex items-center'>
+        <div className='relative w-full bg-zinc-200 rounded-3xl bg-opacity-50 aspect-square flex items-center'>
           <Image
             src={getImage`${product.thumbnail}`}
             alt='banner'
-            className='rounded-3xl w-full max-w-full max-h-full object-contain p-2 aspect-square'
+            className='w-full max-w-full max-h-full object-contain p-2 aspect-square'
             width={200}
             height={200}
             priority={index < 5}
