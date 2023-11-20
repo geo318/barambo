@@ -57,7 +57,7 @@ export const ContactForm = ({ texts }: { texts: Contact }) => {
           <Button
             type='submit'
             disabled={isLoading}
-            className='h-16 w-48 ml-auto col-span-2'
+            className='h-16 w-48 ml-auto col-span-2 mr-3 mb-3'
           >
             {texts.button}
           </Button>
