@@ -8,20 +8,11 @@ import { Fragment } from 'react'
 import { contactForm } from '/config/forms/contact'
 
 export const ContactForm = ({ texts }: { texts: Contact }) => {
-  const { props, message, isLoading, submitHandler, form } = useEmailForm()
+  const { props, MessageBox, isLoading, submitHandler, form } = useEmailForm()
 
   return (
     <>
-      {message.error && (
-        <p className='text-red-500 border border-red-300 rounded-md p-3'>
-          ⚠️ {message.error}
-        </p>
-      )}
-      {message.success && (
-        <p className='text-green-500 font-bold border border-green-300 rounded-md p-3 mt-5'>
-          ✅ {message.success}
-        </p>
-      )}
+      {MessageBox}
       <FormProvider {...form}>
         <form
           method='post'

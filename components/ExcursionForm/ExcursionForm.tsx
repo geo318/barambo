@@ -8,20 +8,11 @@ import { excursionForm } from '/config'
 import { Fragment } from 'react'
 
 export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
-  const { props, message, isLoading, submitHandler, form } = useEmailForm()
+  const { props, MessageBox, isLoading, submitHandler, form } = useEmailForm()
 
   return (
     <>
-      {message.error && (
-        <p className='text-red-500 border border-red-300 rounded-md p-3 my-5'>
-          ⚠️ {message.error}
-        </p>
-      )}
-      {message.success && (
-        <p className='text-green-500 font-bold border border-green-300 rounded-md p-3 my-5'>
-          ✅ {message.success}
-        </p>
-      )}
+      {MessageBox}
       <FormProvider {...form}>
         <form
           method='post'
@@ -59,7 +50,11 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
             </Fragment>
           ))}
 
-          <Button type='submit' disabled={isLoading} className='h-16 w-48 ml-auto col-span-2 mr-3 mb-3'>
+          <Button
+            type='submit'
+            disabled={isLoading}
+            className='h-16 w-48 ml-auto col-span-2 mr-3 mb-3'
+          >
             {texts.button}
           </Button>
         </form>

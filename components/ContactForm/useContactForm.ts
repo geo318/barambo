@@ -4,10 +4,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
 import { objToFormData } from '/utils'
 import { contactForm } from '/config/forms/contact'
+import { useSubmitMessage } from '/hooks'
 
 export const useEmailForm = () => {
-  const [message, setMessage] = useState({ error: '', success: '' })
   const [isLoading, setIsLoading] = useState(false)
+  const { setMessage, MessageBox } = useSubmitMessage()
 
   const form = useForm({
     mode: 'onBlur',
@@ -19,10 +20,13 @@ export const useEmailForm = () => {
 
     const formData = objToFormData(data)
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/send`, {
-        method: 'POST',
-        body: formData,
-      })
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/send/contact`,
+        {
+          method: 'POST',
+          body: formData,
+        }
+      )
       form.reset()
       if (res.status !== 200) throw new Error('Something went wrong')
 
@@ -42,7 +46,7 @@ export const useEmailForm = () => {
 
   return {
     props,
-    message,
+    MessageBox,
     isLoading,
     submitHandler,
     form,
