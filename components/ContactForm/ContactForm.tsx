@@ -13,6 +13,7 @@ export const ContactForm = ({ texts }: { texts: Contact }) => {
   return (
     <>
       {MessageBox}
+      <div className='h-5' />
       <FormProvider {...form}>
         <form
           method='post'

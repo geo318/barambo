@@ -1,7 +1,7 @@
 import { locales } from '/config'
 import { getDictionary } from '/lib'
 import { z } from 'zod'
-import { contactSchema, emailSchema } from '/schema'
+import { contactSchema, excursionSchema } from '/schema'
 
 export type SetState<T> = React.Dispatch<React.SetStateAction<T>>
 export type Locale = (typeof locales)[number]
@@ -16,7 +16,7 @@ export type Excursion = Translation['excursion']
 export type Contact = Translation['contact']
 
 export type PageProps = { params: { lang: Locale } }
-export type EmailForm = z.infer<typeof emailSchema>
+export type EmailForm = z.infer<typeof excursionSchema>
 export type ContactForm = z.infer<typeof contactSchema>
 
 export type FormAction = (

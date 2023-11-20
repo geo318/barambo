@@ -41,7 +41,7 @@ export const Input = ({
                 type='radio'
                 {...(name && register(name))}
                 id={name}
-                value={o}
+                value={o.toLocaleLowerCase()}
               />
               <label htmlFor={o}>{o}</label>
             </div>

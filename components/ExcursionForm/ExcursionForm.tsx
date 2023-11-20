@@ -13,6 +13,7 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
   return (
     <>
       {MessageBox}
+      <div className='h-5' />
       <FormProvider {...form}>
         <form
           method='post'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { emailSchema } from '/schema'
+import { contactSchema } from '/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
 import { objToFormData } from '/utils'
@@ -12,7 +12,7 @@ export const useEmailForm = () => {
 
   const form = useForm({
     mode: 'onBlur',
-    resolver: zodResolver(emailSchema),
+    resolver: zodResolver(contactSchema),
   })
 
   const submitHandler = async (data: FieldValues) => {
