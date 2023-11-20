@@ -15,6 +15,10 @@ export const excursionForm = {
     required: true,
     type: 'text',
   },
+  file: {
+    required: false,
+    type: 'file',
+  },
   description: {
     required: false,
     type: 'textarea',

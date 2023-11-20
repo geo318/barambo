@@ -10,6 +10,10 @@ export const emailSchema = z.object({
   school: z
     .string()
     .min(2, { message: 'School id must be at least 2 characters long' }),
+  file: z
+    .any()
+    .or(z.custom<FileList>())
+    .transform((file) => file?.[0]),
   class: z
     .string()
     .min(1, { message: 'Class must be at least 2 characters long' }),

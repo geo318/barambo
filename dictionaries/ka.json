@@ -121,6 +121,7 @@
       },
       "class": { "label": "კლასი", "placeholder": "კლასის დასახელება" },
       "school": { "label": "სკოლია", "placeholder": "სკოლის დასახელება" },
+      "file": { "label": "ფაილის ატვირთვა", "placeholder": "" },
       "description": {
         "label": "ინფორმაცია",
         "placeholder": "ჩაწერე დამატებითი ინფორმაცია"

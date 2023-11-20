@@ -120,6 +120,7 @@
       "phone": { "label": "Contact number", "placeholder": "Contact phone" },
       "class": { "label": "Class", "placeholder": "Your class name" },
       "school": { "label": "School number", "placeholder": "Your school name" },
+      "file": { "label": "Upload file", "placeholder": "" },
       "description": {
         "label": "Additional Information",
         "placeholder": "Write your message"

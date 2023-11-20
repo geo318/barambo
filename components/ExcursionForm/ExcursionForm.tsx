@@ -13,12 +13,12 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
   return (
     <>
       {message.error && (
-        <p className='text-red-500 border border-red-300 rounded-md p-3'>
+        <p className='text-red-500 border border-red-300 rounded-md p-3 my-5'>
           ⚠️ {message.error}
         </p>
       )}
       {message.success && (
-        <p className='text-green-500 font-bold border border-green-300 rounded-md p-3 mt-5'>
+        <p className='text-green-500 font-bold border border-green-300 rounded-md p-3 my-5'>
           ✅ {message.success}
         </p>
       )}
@@ -59,7 +59,7 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
             </Fragment>
           ))}
 
-          <Button type='submit' disabled={isLoading} className='h-16 w-48 ml-auto col-span-2'>
+          <Button type='submit' disabled={isLoading} className='h-16 w-48 ml-auto col-span-2 mr-3 mb-3'>
             {texts.button}
           </Button>
         </form>
