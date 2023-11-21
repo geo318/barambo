@@ -55,7 +55,7 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
                   'flex items-center gap-5 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
                 )}
               >
-                <AvatarIcon />
+                <AvatarIcon className='w-5' />
                 {c.name}
               </li>
               <li
@@ -63,7 +63,7 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
                   'flex items-center gap-5 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
                 )}
               >
-                <EmailIcon />
+                <EmailIcon className='w-5' />
                 {c.email}
               </li>
               <li
@@ -71,7 +71,7 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
                   'flex items-center gap-5 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
                 )}
               >
-                <PhoneIcon />
+                <PhoneIcon className='w-5' />
                 {c.phone}
               </li>
             </ul>
