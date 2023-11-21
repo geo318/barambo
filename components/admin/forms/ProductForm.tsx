@@ -13,7 +13,7 @@ export const ProductForm = ({
   defaultValues,
   subCategory,
 }: ProductProps) => {
-  const { MessageBox, handleSubmit, handleDelete, param, ref, router } =
+  const { MessageBox, handleSubmit, handleDelete, param, ref } =
     useForm(action, query, deleteAction)
   const options = useMemo(
     () =>
