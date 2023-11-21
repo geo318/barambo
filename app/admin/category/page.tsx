@@ -1,19 +1,19 @@
 import { Suspense } from 'react'
 import {
+  SearchParamsWrapper,
   CategoryForm,
   CategoryList,
   CloseModal,
-  H,
-  Portal,
-  SearchParamsWrapper,
   Spinner,
+  Portal,
+  H,
 } from '/components'
 import { routes } from '/config'
 import {
   createMainCategory,
   deleteCategory,
-  editCategory,
   getCategories,
+  editCategory,
 } from '/server'
 import { Category } from '/types'
 

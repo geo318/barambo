@@ -1,33 +1,28 @@
 import { Suspense } from 'react'
 import {
-  CloseModal,
   H,
-  HeadlineForm,
   Portal,
-  SearchParamsWrapper,
   Spinner,
+  CloseModal,
+  HeadlineForm,
+  SearchParamsWrapper,
 } from '/components'
-import { routes } from '/config'
 import { createHeadline, editHeadline, getHeadLine } from '/server/actions'
 import { SubCategory } from '/types'
 import Link from 'next/link'
 
-export default async function SubCategory({
-  searchParams,
-}: {
-  searchParams: URLSearchParams & { edit?: number }
-}) {
+export default async function SubCategory() {
   const headline = await getHeadLine()
 
   return (
-    <div>
+    <div className='grid grid-cols-2 gap-2'>
       {!headline ||
         (!headline?.length && (
           <section className='pb-10'>
             <H tag='h1' size='md' className='mb-20 text-center'>
               Add Headline
             </H>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner />}>
               <HeadlineForm action={createHeadline} />
             </Suspense>
           </section>
@@ -35,16 +30,17 @@ export default async function SubCategory({
 
       <section>
         <H tag='h1' size='md' className='mb-20 text-center'>
-          Slides
+          Headline
         </H>
         <div className='grid grid-cols-1 gap-5 capitalize'>
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<Spinner />}>
             {headline.map((h) => (
               <div
                 key={h.id}
                 className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
               >
-                <div className='flex gap-3'>
+                Edit headline on homepage
+                <div className='flex gap-3 ml-auto'>
                   <Link href={`?edit=${h.id}`}>Edit</Link>
                 </div>
               </div>
@@ -62,7 +58,11 @@ export default async function SubCategory({
                   <h3 className='font-lg font-bold'>Edit headline</h3>
                   <CloseModal className='p-0' />
                 </div>
-                <HeadlineForm action={editHeadline} defaultValues={headline} />
+                <HeadlineForm
+                  action={editHeadline}
+                  defaultValues={headline}
+                  query='edit'
+                />
               </div>
             </div>
           </Portal>

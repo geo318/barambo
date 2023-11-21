@@ -387,6 +387,8 @@ export const deleteSlide = async (formData: FormData) => {
 
 export const createHeadline = async (formData: FormData) => {
   const [mapped] = getFormValues<Headline>(formData)
+  revalidatePath(routes.addHeadline)
+  revalidatePath(`${routes.home}[lang]`, 'page')
 
   try {
     await db.insert(headline).values({ ...mapped })
@@ -414,6 +416,8 @@ export const editHeadline = async (formData: FormData) => {
       .set(updateValues)
       .where(eq(headline.id, Number(formData.get('id'))))
 
+    revalidatePath(routes.addHeadline)
+    revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: true }
   } catch (e) {
     return {
@@ -426,6 +430,8 @@ export const deleteHeadline = async (formData: FormData) => {
   try {
     await db.delete(headline).where(eq(headline.id, Number(formData.get('id'))))
 
+    revalidatePath(routes.addHeadline)
+    revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: 'deleted' }
   } catch (e) {
     return {
@@ -440,6 +446,9 @@ export const createCertificate = async (formData: FormData) => {
   try {
     await db.insert(certificate).values({ ...mapped })
 
+    revalidatePath(routes.addCertificate)
+    revalidatePath(`${routes.about}[lang]`, 'page')
+    revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: 'Certificate added' }
   } catch (e) {
     return {
@@ -462,6 +471,9 @@ export const editCertificate = async (formData: FormData) => {
       .update(certificate)
       .set(updateValues)
       .where(eq(certificate.id, Number(formData.get('id'))))
+    revalidatePath(routes.addCertificate)
+    revalidatePath(`${routes.about}[lang]`, 'page')
+    revalidatePath(`${routes.home}[lang]`, 'page')
 
     return { success: true }
   } catch (e) {
@@ -476,6 +488,9 @@ export const deleteCertificate = async (formData: FormData) => {
     await db
       .delete(certificate)
       .where(eq(certificate.id, Number(formData.get('id'))))
+    revalidatePath(routes.addCertificate)
+    revalidatePath(`${routes.about}[lang]`, 'page')
+    revalidatePath(`${routes.home}[lang]`, 'page')
 
     return { success: 'deleted' }
   } catch (e) {

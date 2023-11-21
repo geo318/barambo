@@ -2,7 +2,7 @@
 
 import { HeadlineProps } from './types'
 import { FormWrapper, Input } from '/components'
-import { certSchema } from '/schema'
+import { headlineSchema } from '/schema'
 import { useForm } from './useForm'
 
 export const HeadlineForm = ({
@@ -14,7 +14,7 @@ export const HeadlineForm = ({
 
   return (
     <FormWrapper
-      schema={certSchema}
+      schema={headlineSchema}
       onSubmit={handleSubmit}
       formRef={ref}
       defaultValues={defaultValues?.find((c) => c.id === Number(param))}

@@ -15,4 +15,6 @@ export const adminNavList = [
   { name: 'Product', link: routes.addProduct, menu: [] },
   { name: 'Slider', link: routes.addSlider, menu: [] },
   { name: 'Post', link: routes.addPost, menu: [] },
+  { name: 'Certificates', link: routes.addCertificate, menu: [] },
+  { name: 'headline', link: routes.addHeadline, menu: [] },
 ] as const
