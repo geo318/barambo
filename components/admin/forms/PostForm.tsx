@@ -20,7 +20,7 @@ export const PostForm = ({
   return (
     <>
       <FormWrapper
-        schema={postSchema}
+        schema={param ? postSchema(!!param) : postSchema()}
         onSubmit={handleSubmit}
         formRef={ref}
         defaultValues={defaultValues?.find((c) => c.id === Number(param))}
