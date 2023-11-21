@@ -92,7 +92,7 @@ export default async function Home({ params: { lang } }: PageProps) {
             Discover our New Tasty product!
           </H>
           <Link
-            href={`/${lang}/product?category=2`}
+            href={`/${lang}/product?category=10`}
             className='my-auto mr-auto'
           >
             <Button className='w-36 h-12 bg-white'>Learn More</Button>
