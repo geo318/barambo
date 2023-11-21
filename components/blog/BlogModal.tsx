@@ -24,7 +24,7 @@ export const BlogModal = async ({ slug = '', lang = 'en' }) => {
               </div>
               <div className='my-10 border-b border-[#bebebe]' />
               <div
-                className='mt-10 flex flex-col text-lg leading-normal'
+                className='mt-10 flex flex-col text-lg leading-normal max-h-[25rem] overflow-y-auto'
                 dangerouslySetInnerHTML={{
                   __html: recept[`content_${getLangKey(lang)}`],
                 }}
