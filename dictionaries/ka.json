@@ -132,37 +132,71 @@
     "info": "Please upload your photo holding your ID card where identification information is shown clearly"
   },
   "contact": {
-    "h1": "Conact",
+    "h1": "კონტაქტი",
+    "h2": "საკონტაქტო ინფორმაცია",
+    "addresses": {
+      "main": {
+        "phone": "(+995 32) 2 91 91 81",
+        "fax": "(+995 32) 2 91 91 80",
+        "email": "Info@barambo.ge",
+        "address": "ნატახტარი, მცხეთის რაიონი, საქართველო"
+      },
+      "secondary": [
+        {
+          "location": "თბილისი",
+          "name": "კახა გლოველი",
+          "email": "kakha.gloveli@barambo.com.ge",
+          "phone": "+995 591400412"
+        },
+        {
+          "location": "იმერეთი, გურია, სამეგრელო, აჭარა",
+          "name": "ბიძინა სვანაძე",
+          "email": "bidzina.svanadze@barambo.com.ge",
+          "phone": "+995 599711121"
+        },
+        {
+          "location": "რუსთავი, ქვემო ქართლი",
+          "name": "კახა გლოველი",
+          "email": "kakha.gloveli@barambo.com.ge",
+          "phone": "+995 591400412"
+        },
+        {
+          "location": "მცხეთა მთიანეთი, შიდა ქართლი, სამცხე-ჯავახეთი",
+          "name": "ლევან ქარუმიძე",
+          "email": "Levan.qarumidze@barambo.com.ge",
+          "phone": "+995 591195853"
+        },
+        {
+          "location": "კახეთი",
+          "name": "გიორგი დარჩიაშვილი",
+          "email": "giorgi.darchiashvili@barambo.com.ge",
+          "phone": "+995 599052838"
+        }
+      ]
+    },
     "inputs": {
       "name": {
-        "label": "First name",
-        "placeholder": "Your first name"
+        "label": "სახელი",
+        "placeholder": "სახელი"
       },
-      "last_name": { "label": "Last name", "placeholder": "Your last name" },
-      "phone": { "label": "Number", "placeholder": "Your phone number" },
-      "email": { "label": "Email", "placeholder": "Your email" },
+      "last_name": { "label": "გვარი", "placeholder": "გვარი" },
+      "phone": { "label": "ნომერი", "placeholder": "საკონტაქტო ტელეფონი" },
+      "email": { "label": "ელ. ფოსტა", "placeholder": "საკონტაქტო ელ. ფოსტა" },
       "subject": {
-        "general": "General Inquiry",
-        "export": "Export",
-        "excursion": "Excursion",
-        "products": "Products",
-        "other": "Other",
+        "general": "ზოგადი",
+        "export": "ექსპორტი",
+        "excursion": "ექსკურსია",
+        "products": "პროდუქტები",
+        "other": "სხვა",
         "placeholder": "",
         "label": ""
       },
       "description": {
-        "label": "Additional Information",
-        "placeholder": "Write your message"
+        "label": "დამატებითი ინფორმაცია",
+        "placeholder": "ჩაწერე დამატებითი კომენტარი"
       }
     },
-    "options": {
-      "general": "General Inquiry",
-      "export": "Export",
-      "excursion": "Excursion",
-      "products": "Products",
-      "other": "Other"
-    },
-    "button": "Send Message"
+    "button": "გაგზავნა"
   },
   "product": {
     "h1": "პროდუქცია"

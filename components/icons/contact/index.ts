@@ -1,0 +1,5 @@
+export * from './avatar'
+export * from './email'
+export * from './fax'
+export * from './phone'
+export * from './pin'

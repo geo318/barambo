@@ -131,7 +131,48 @@
     "info": "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
   },
   "contact": {
-    "h1": "Conact",
+    "h1": "Contact",
+    "h2": "Contact Information",
+    "addresses": {
+      "main": {
+        "phone": "(+995 32) 2 91 91 81",
+        "fax": "(+995 32) 2 91 91 80",
+        "email": "Info@barambo.ge",
+        "address": "Natakhtari, Mtskheta Region, Georgia"
+      },
+      "secondary": [
+        {
+          "location": "Tbilisi",
+          "name": "Kakha Gloveli",
+          "email": "kakha.gloveli@barambo.com.ge",
+          "phone": "+995 591400412"
+        },
+        {
+          "location": "IMERETI, GURIA, SAMEGRELO, ADJARA",
+          "name": "Bidzina Svanadze",
+          "email": "bidzina.svanadze@barambo.com.ge",
+          "phone": "+995 599711121"
+        },
+        {
+          "location": "RUSTAVI, KVEMO KARTLI",
+          "name": "Kakha Gloveli",
+          "email": "kakha.gloveli@barambo.com.ge",
+          "phone": "+995 591400412"
+        },
+        {
+          "location": "MTSKHETA TIANETI, SHIDA KARTLI, SAMTSKHE - JAVAKHETI",
+          "name": "Levan Karumidze",
+          "email": "Levan.qarumidze@barambo.com.ge",
+          "phone": "+995 591195853"
+        },
+        {
+          "location": "KAKHETI",
+          "name": "Giorgi Darchiashvili",
+          "email": "giorgi.darchiashvili@barambo.com.ge",
+          "phone": "+995 599052838"
+        }
+      ]
+    },
     "inputs": {
       "name": {
         "label": "First name",
@@ -141,6 +182,11 @@
       "phone": { "label": "Number", "placeholder": "Your phone number" },
       "email": { "label": "Email", "placeholder": "Your email" },
       "subject": {
+        "general": "General Inquiry",
+        "export": "Export",
+        "excursion": "Excursion",
+        "products": "Products",
+        "other": "Other",
         "placeholder": "",
         "label": ""
       },
@@ -148,13 +194,6 @@
         "label": "Additional Information",
         "placeholder": "Write your message"
       }
-    },
-    "options": {
-      "general": "General Inquiry",
-      "export": "Export",
-      "excursion": "Excursion",
-      "products": "Products",
-      "other": "Other"
     },
     "button": "Send Message"
   },

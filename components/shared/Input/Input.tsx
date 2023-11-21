@@ -17,7 +17,7 @@ export const Input = ({
   textarea?: boolean
   label?: string
   labelClassName?: string
-  options?: string[] | null
+  options?: { label: string; value: string }[] | null
 }) => {
   const {
     register,
@@ -36,14 +36,17 @@ export const Input = ({
       {options ? (
         <div className='flex gap-10'>
           {options.map((o) => (
-            <div key={o} className='flex gap-4 items-center justify-center shrink-0'>
+            <div
+              key={o.value}
+              className='flex gap-4 items-center justify-center shrink-0'
+            >
               <input
                 type='radio'
                 {...(name && register(name))}
                 id={name}
-                value={o.toLocaleLowerCase()}
+                value={o.value.toLocaleLowerCase()}
               />
-              <label htmlFor={o}>{o}</label>
+              <label htmlFor={o.value}>{o.label}</label>
             </div>
           ))}
         </div>

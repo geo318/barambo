@@ -46,9 +46,10 @@ export const ContactForm = ({ texts }: { texts: Contact }) => {
                   label={texts.inputs[key].label}
                   className='rounded-none border-t-0 border-x-0 border-b outline-none text-sm px-0'
                   labelClassName='font-medium text-lg'
-                  options={contactForm[key].options?.map(
-                    (o) => texts.options[o.key]
-                  )}
+                  options={contactForm[key].options?.map((o) => ({
+                    label: texts.inputs.subject[o.key],
+                    value: o.key,
+                  }))}
                 />
               </div>
             </Fragment>
