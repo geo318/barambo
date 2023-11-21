@@ -260,6 +260,7 @@ export const createPost = async (formData: FormData) => {
 
     revalidatePath(routes.addPost)
     revalidatePath(`${routes.home}[lang]`, 'page')
+    revalidatePath(`${routes.blog}[lang]`, 'page')
     return { success: 'Post added' }
   } catch (e) {
     return {
@@ -299,6 +300,7 @@ export const editPost = async (formData: FormData) => {
       .where(eq(post.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addPost)
+    revalidatePath(`${routes.blog}[lang]`, 'page')
     revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: true }
   } catch (e) {
@@ -313,6 +315,7 @@ export const deletePost = async (formData: FormData) => {
     await db.delete(post).where(eq(post.id, Number(formData.get('id'))))
 
     revalidatePath(routes.addPost)
+    revalidatePath(`${routes.blog}[lang]`, 'page')
     revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: 'deleted' }
   } catch (e) {

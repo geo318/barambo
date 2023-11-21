@@ -67,7 +67,7 @@ export default async function Product({
       </Section>
       <Suspense>
         <SearchParamsWrapper query={['recept']}>
-          <BlogModal slug={recept} />
+          <BlogModal slug={recept} lang={lang} />
         </SearchParamsWrapper>
       </Suspense>
     </main>

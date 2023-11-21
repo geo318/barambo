@@ -2,8 +2,9 @@
 
 import { Portal, H, VideoPlayer, CloseModal } from '/components'
 import { getPost } from '/server'
+import { getLangKey } from '/utils'
 
-export const BlogModal = async ({ slug = '' }) => {
+export const BlogModal = async ({ slug = '', lang = 'en' }) => {
   const recept = await getPost(slug)
   return (
     <Portal>
@@ -22,19 +23,12 @@ export const BlogModal = async ({ slug = '' }) => {
                 <CloseModal closeKey='?filter=recept' />
               </div>
               <div className='my-10 border-b border-[#bebebe]' />
-              <ul className='mt-10 flex flex-col gap-5 text-lg leading-normal'>
-                <li>
-                  <div className='text-secondary'>Preparation time:</div>5
-                  minutes
-                </li>
-                <li>
-                  <div className='text-secondary'>Serving:</div> 2 people
-                </li>
-                <li className='txt-balance'>
-                  <div className='text-secondary'>Ingredients:</div>
-                  200 ml of 35% cream 2-3 spoons of barambino chocolate cream
-                </li>
-              </ul>
+              <div
+                className='mt-10 flex flex-col gap-5 text-lg leading-normal'
+                dangerouslySetInnerHTML={{
+                  __html: recept[`content_${getLangKey(lang)}`],
+                }}
+              />
             </div>
           </section>
         </div>
