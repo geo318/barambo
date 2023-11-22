@@ -7,8 +7,8 @@ import { useState } from 'react'
 import { Slider } from '/types'
 import { getBlurImage, getImage } from '/utils'
 import Image from 'next/image'
-import 'swiper/css'
 import { twMerge } from 'tailwind-merge'
+import 'swiper/css'
 
 export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null)
@@ -44,6 +44,7 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
             )}
           >
             <div
+              className='min-h-full w-full object-cover bg-no-repeat bg-cover'
               style={{
                 backgroundImage: `url(${getBlurImage`${s.thumbnail}`})`,
               }}
