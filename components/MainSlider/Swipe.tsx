@@ -12,7 +12,7 @@ import 'swiper/css'
 
 export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null)
-  const [isLoaded, setIsLoaded] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false)
   return (
     <Swiper
       onSwiper={(swiperRef) => setSwiper(swiperRef)}
@@ -33,7 +33,6 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
             width={1500}
             height={500}
             alt='banner'
-            onLoadStart={() => setIsLoaded(false)}
             onLoadingComplete={() => setIsLoaded(true)}
             priority
           />
