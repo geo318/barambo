@@ -25,7 +25,11 @@ export default async function Home({ params: { lang } }: PageProps) {
   return (
     <main className='flex min-h-screen flex-col gap-36'>
       <div className='bg-[#FBF6F2] w-full pt-24'>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div className='h-[40rem] w-full bg-zinc-200 animate-pulse rounded-t-[5rem]' />
+          }
+        >
           <MainSlider />
         </Suspense>
       </div>

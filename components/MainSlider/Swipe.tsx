@@ -8,10 +8,11 @@ import { Slider } from '/types'
 import { getBlurImage, getImage } from '/utils'
 import Image from 'next/image'
 import 'swiper/css'
+import { twMerge } from 'tailwind-merge'
 
 export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null)
-  const [isBackdrop, setIsBackdrop] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(true)
   return (
     <Swiper
       onSwiper={(swiperRef) => setSwiper(swiperRef)}
@@ -25,14 +26,29 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
         <SwiperSlide key={s.id} className='!h-[40rem]'>
           <Image
             src={getImage`${s.thumbnail}`}
-            className='min-h-full w-full object-cover bg-no-repeat bg-cover'
+            className={twMerge(
+              'min-h-full w-full object-cover bg-no-repeat bg-cover transition-opacity',
+              isLoaded ? 'opacity-1' : 'opacity-0'
+            )}
             width={1500}
             height={500}
             alt='banner'
-            style={{ backgroundImage: `url(${getBlurImage`${s.thumbnail}`})` }}
-            onLoadingComplete={() => setIsBackdrop(false)}
+            onLoadStart={() => setIsLoaded(false)}
+            onLoadingComplete={() => setIsLoaded(true)}
+            priority
           />
-          {isBackdrop && <div className='absolute inset-0 backdrop-blur-lg' />}
+          <div
+            className={twMerge(
+              'absolute block inset-0 backdrop-blur-lg transition-opacity',
+              isLoaded ? 'opacity-0' : 'opacity-1'
+            )}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${getBlurImage`${s.thumbnail}`})`,
+              }}
+            />
+          </div>
         </SwiperSlide>
       ))}
       <div className='absolute bottom-10 flex gap-4 right-0 mr-[7vw] z-10'>
