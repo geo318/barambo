@@ -4,7 +4,7 @@ import { getBlurImage } from '/utils'
 import { useEffect, useState } from 'react'
 
 export const useBlurBase64 = (path: string) => {
-  const imageUrl = getBlurImage(path)
+  const imageUrl = getBlurImage`${path}`
   const sampleImage =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAEklEQVR42mJ0jwABYGBgYGAAHpAAEI/RAfaS8QAAAAASUVORK5CYII='
   const [base64Image, setBase64Image] = useState(sampleImage)
