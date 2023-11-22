@@ -5,7 +5,7 @@ import { Autoplay } from 'swiper/modules'
 import { Arrow, Button } from '/components'
 import { useState } from 'react'
 import { Slider } from '/types'
-import { getImage } from '/utils'
+import { getBlurImage, getImage } from '/utils'
 import Image from 'next/image'
 import 'swiper/css'
 
@@ -24,10 +24,11 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
         <SwiperSlide key={s.id} className='!h-[40rem]'>
           <Image
             src={getImage`${s.thumbnail}`}
-            className='min-h-full w-full object-cover'
+            className='min-h-full w-full object-cover bg-no-repeat bg-cover'
             width={1500}
             height={500}
             alt='banner'
+            style={{ backgroundImage: `url(${getBlurImage`${s.thumbnail}`})` }}
           />
         </SwiperSlide>
       ))}

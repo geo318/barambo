@@ -31,13 +31,13 @@ export const writeFile = async (
   })
 
   if (!file.type.includes('svg')) {
-    sharpBuffer
-      .resize(width, height ?? undefined, { fit, withoutReduction: true })
+    await sharpBuffer
+      .resize(width, height ?? null, { fit })
       .toFile(`${publicDir}${filePath}`)
-    sharpBuffer
-      .resize(20, height ? Math.floor(height * (20 / width)) : undefined, {
+
+    await sharpBuffer
+      .resize(20, height ? Math.floor(height * (20 / width)) : null, {
         fit,
-        withoutReduction: true,
       })
       .toFile(`${publicDir}${blurPath}`)
   } else
