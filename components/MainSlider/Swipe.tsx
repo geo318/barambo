@@ -11,6 +11,7 @@ import 'swiper/css'
 
 export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null)
+  const [isBackdrop, setIsBackdrop] = useState(true)
   return (
     <Swiper
       onSwiper={(swiperRef) => setSwiper(swiperRef)}
@@ -29,7 +30,9 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
             height={500}
             alt='banner'
             style={{ backgroundImage: `url(${getBlurImage`${s.thumbnail}`})` }}
+            onLoadingComplete={() => setIsBackdrop(false)}
           />
+          {isBackdrop && <div className='absolute inset-0 backdrop-blur-lg' />}
         </SwiperSlide>
       ))}
       <div className='absolute bottom-10 flex gap-4 right-0 mr-[7vw] z-10'>
