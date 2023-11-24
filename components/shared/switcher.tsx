@@ -5,10 +5,10 @@ import { localeInfo } from '/config'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
-export function Switcher() {
+export function Switcher({ className = '' }) {
   const pathname = usePathname()
   return (
-    <ul className='font-medium text-lg gap-4 hidden lg:flex'>
+    <ul className={twMerge('font-medium text-lg gap-4', className)}>
       {localeInfo?.map((locale) => (
         <li
           key={locale.key}

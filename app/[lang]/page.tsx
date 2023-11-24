@@ -55,7 +55,7 @@ export default async function Home({ params: { lang } }: PageProps) {
               heading='ice cream'
               sub='The real taste of an ice cream'
               className='bg-light-brown'
-              imgClassName='ml-5'
+              imgClassName='lg:ml-5 ml-0'
             />
           </Link>
         </div>
