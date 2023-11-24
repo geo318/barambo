@@ -6,4 +6,4 @@ export const switchBlog = [
   { name: 'csr' },
 ] as const
 
-export const PRODUCT_PAGE = 12
+export const PRODUCT_PAGE = 2

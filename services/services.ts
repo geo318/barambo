@@ -1,13 +1,15 @@
 import { axiosInstance } from './axios'
+import { subCategory } from '/server'
 import { Blog, Category, Post, Product, SubCategory } from '/types'
 
 export const getProducts = async (
   page: number,
-  query?: string,
-  category?: number
+  query: string | null = '',
+  category: string | null = '',
+  subcategory: string | null = ''
 ): Promise<{ products: Product[]; page: number }> => {
   const res = await axiosInstance.get(
-    `/products?page=${page}&query=${query ?? ''}&category=${category ?? ''}`
+    `/products?page=${page}&query=${query}&category=${category}&subcategory=${subcategory}`
   )
   return res.data
 }

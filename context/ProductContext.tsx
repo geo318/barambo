@@ -6,11 +6,14 @@ import { Product, SetState } from '/types'
 type TProductContext = {
   products?: Product[]
   setProducts?: SetState<Product[]>
-  setCategoryId?: SetState<number | undefined>
-  categoryId?: number
+  setCategoryId?: SetState<CategoryParam>
+  categoryId?: CategoryParam
+  subcategoryId?: CategoryParam
+  setSubcategoryId?: SetState<CategoryParam>
   query?: string
   setQuery?: SetState<string>
 }
+type CategoryParam = string | null | undefined
 
 export const ProductContext = createContext<TProductContext>({})
 
@@ -20,7 +23,8 @@ export const ProductContextProvider = ({
   children: React.ReactNode
 }) => {
   const [products, setProducts] = useState<Product[]>([])
-  const [categoryId, setCategoryId] = useState<number | undefined>()
+  const [categoryId, setCategoryId] = useState<CategoryParam>()
+  const [subcategoryId, setSubcategoryId] = useState<CategoryParam>()
   const [query, setQuery] = useState<string>('')
 
   const memoizedSetValues = useMemo(
@@ -29,10 +33,21 @@ export const ProductContextProvider = ({
       setProducts,
       categoryId,
       setCategoryId,
+      subcategoryId,
+      setSubcategoryId,
       query,
       setQuery,
     }),
-    [products, setProducts, categoryId, setCategoryId, query, setQuery]
+    [
+      products,
+      setProducts,
+      categoryId,
+      setCategoryId,
+      query,
+      setQuery,
+      setSubcategoryId,
+      subcategoryId,
+    ]
   )
 
   return (

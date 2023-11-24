@@ -8,6 +8,7 @@ import {
   headline,
   post,
   product,
+  productsToSubcategories,
   slider,
   subCategory,
 } from '/server'
@@ -28,7 +29,7 @@ export const getHomepagePosts = cache(async () => {
 })
 
 export const getHomepageRecept = cache(async () => {
-  const posts = await db
+  const receipts = await db
     .select({ thumbnail: post.thumbnail, id: post.id, slug: post.slug })
     .from(post)
     .where(eq(post.type, 'recept'))
@@ -36,7 +37,7 @@ export const getHomepageRecept = cache(async () => {
     .prepare()
     .execute()
 
-  return posts
+  return receipts
 })
 
 export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
@@ -53,22 +54,63 @@ export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
 })
 
 export const getPaginatedProducts = cache(
-  async (page: number, filter: string = '_', categoryId: string = '_') => {
-    const products = await db
-      .select()
-      .from(product)
-      .where(
-        and(
+  async (
+    page: number,
+    filter: string = '_',
+    categoryId?: number,
+    mainCategoryId?: number
+  ) => {
+    let products
+    if (categoryId) {
+      products = (
+        await db
+          .selectDistinct()
+          .from(product)
+          .innerJoin(
+            productsToSubcategories,
+            eq(product.id, productsToSubcategories.productId)
+          )
+          .innerJoin(
+            subCategory,
+            eq(productsToSubcategories.subCategoryId, subCategory.id)
+          )
+          .where(eq(subCategory.id, categoryId))
+          .offset((page - 1) * PRODUCT_PAGE)
+          .limit(PRODUCT_PAGE)
+          .execute()
+      ).map((c) => c.product)
+    } else if (mainCategoryId) {
+      products = (
+        await db
+          .selectDistinct()
+          .from(product)
+          .innerJoin(
+            productsToSubcategories,
+            eq(product.id, productsToSubcategories.productId)
+          )
+          .innerJoin(
+            subCategory,
+            eq(productsToSubcategories.subCategoryId, subCategory.id)
+          )
+          .innerJoin(category, eq(subCategory.categoryId, category.id))
+          .where(eq(category.id, mainCategoryId))
+          .offset((page - 1) * PRODUCT_PAGE)
+          .limit(PRODUCT_PAGE)
+          .execute()
+      ).map((c) => c.product)
+    } else
+      products = await db
+        .select()
+        .from(product)
+        .where(
           or(
             like(product.title_eng, `%${filter}%`),
             like(product.title_geo, `%${filter}%`)
-          ),
-          like(product.categoryIds, `%${categoryId}%`)
+          )
         )
-      )
-      .offset((page - 1) * PRODUCT_PAGE)
-      .limit(PRODUCT_PAGE)
-      .execute()
+        .offset((page - 1) * PRODUCT_PAGE)
+        .limit(PRODUCT_PAGE)
+        .execute()
 
     return { products, page }
   }
@@ -144,3 +186,39 @@ export const getSlides = async () => await db.select().from(slider)
 export const getHeadLine = async () => await db.select().from(headline)
 
 export const getCertificates = async () => await db.select().from(certificate)
+
+export const reconcileProductCategories = async () => {
+  const products = await db.select().from(product).execute()
+  const productCategories: { productId: number; subCategoryIds: number[] }[] =
+    []
+  for (const product of products) {
+    const subCategoryIds = product.categoryIds.split(',').map(Number)
+    const productId = product.id
+    productCategories.push({ productId, subCategoryIds })
+  }
+
+  for (const productCategory of productCategories) {
+    const { productId, subCategoryIds } = productCategory
+    for (const subCategoryId of subCategoryIds) {
+      const exists = await db
+        .select()
+        .from(productsToSubcategories)
+        .where(
+          and(
+            eq(productsToSubcategories.productId, productId),
+            eq(productsToSubcategories.subCategoryId, subCategoryId)
+          )
+        )
+
+      if (exists.length) continue
+
+      await db
+        .insert(productsToSubcategories)
+        .values({
+          productId,
+          subCategoryId,
+        })
+        .execute()
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { ProductContext } from '/context'
 
 export const useFilter = () => {
-  const { categoryId, setCategoryId, setQuery, query } =
+  const { categoryId, setCategoryId, setSubcategoryId, subcategoryId } =
     useContext(ProductContext)
   const params = useSearchParams()
 
@@ -26,7 +26,7 @@ export const useFilter = () => {
 
   useEffect(() => {
     if (params.get('category')) {
-      setCategoryId?.(Number(params.get('category')))
+      setCategoryId?.(params.get('category'))
     }
   }, [setCategoryId, params])
 
@@ -45,6 +45,8 @@ export const useFilter = () => {
     toggleMenu,
     categoryId,
     setCategoryId,
+    subcategoryId,
+    setSubcategoryId,
     params,
   }
 }

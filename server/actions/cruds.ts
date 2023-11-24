@@ -8,6 +8,7 @@ import {
   headline,
   post,
   product,
+  productsToSubcategories,
   slider,
   subCategory,
 } from '/server'
@@ -165,7 +166,12 @@ export const createProduct = async (formData: FormData) => {
   try {
     const { path } = await writeFile(file, buffer, sharp(buffer))
 
-    await db.insert(product).values({ ...mapped, thumbnail: path })
+    const res = await db.insert(product).values({ ...mapped, thumbnail: path })
+
+    const subCategoryIds = mapped.categoryIds.split(',').map(Number)
+    for (const subCategoryId of subCategoryIds) {
+      await saveProductToSubcategory(Number(res.lastInsertRowid), subCategoryId)
+    }
 
     revalidatePath(routes.addProduct)
     revalidatePath(routes.product)
@@ -505,4 +511,11 @@ export const deleteCertificate = async (formData: FormData) => {
       error: 'something went wrong',
     }
   }
+}
+
+async function saveProductToSubcategory(
+  productId: number,
+  subCategoryId: number
+) {
+  await db.insert(productsToSubcategories).values({ productId, subCategoryId })
 }
