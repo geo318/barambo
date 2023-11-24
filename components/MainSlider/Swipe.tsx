@@ -13,17 +13,18 @@ import 'swiper/css'
 export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
+
   return (
     <Swiper
       onSwiper={(swiperRef) => setSwiper(swiperRef)}
       navigation={true}
-      className='rounded-t-[5rem]'
+      className='lg:rounded-t-[5rem] lg:rounded-b-none rounded-xl'
       modules={[Autoplay]}
       autoplay={{ delay: 5000 }}
       loop
     >
       {slides.map((s) => (
-        <SwiperSlide key={s.id} className='!h-[40rem]'>
+        <SwiperSlide key={s.id} className='lg:!h-[40rem] aspect-2/1'>
           <Image
             src={getImage`${s.thumbnail}`}
             className={twMerge(
@@ -51,7 +52,7 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
           </div>
         </SwiperSlide>
       ))}
-      <div className='absolute bottom-10 flex gap-4 right-0 mr-[7vw] z-10'>
+      <div className='absolute bottom-10 gap-4 right-0 mr-[7vw] z-10 lg:flex hidden'>
         <Button
           className='bg-white w-16 h-16 !px-0'
           onClick={() => swiper?.slidePrev()}

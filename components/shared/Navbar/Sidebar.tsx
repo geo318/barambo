@@ -10,7 +10,7 @@ export const Sidebar = (props: NavbarProps) => {
   return (
     <>
       <Burger
-        fill='#fff'
+        fill='#000'
         className='self-center cursor-pointer lg:hidden'
         onClick={toggle}
       />

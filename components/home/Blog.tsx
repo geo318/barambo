@@ -18,7 +18,7 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
   const [main, top, bottom] = posts
   return (
     <div className='flex gap-7'>
-      <div className='row-span-2 basis-1/2'>
+      <div className='row-span-2 basis-1/2 hidden lg:block'>
         <Link href={`/${lang}/blog/${main.slug}`} className=' aspect-video'>
           <Image
             src={getImage`${main.thumbnail}`}
@@ -44,13 +44,13 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
           />
         </Link>
       </div>
-      <div className='basis-1/2 grid grid-rows-2 grid-cols-1'>
+      <div className='lg:basis-1/2 w-full lg:w-auto grid grid-rows-2 grid-cols-1'>
         <div className='flex pb-7'>
           <Link className='basis-1/3' href={`/${lang}/blog/${top.slug}`}>
             <Image
               src={getImage`${top.thumbnail}`}
               alt='last-article'
-              className='object-cover rounded-[3rem] aspect-square h-full w-full'
+              className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
               width={100}
               height={100}
             />
@@ -63,11 +63,12 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
             <H
               tag='h6'
               className='leading-normal pb-4 line-clamp-2 text-ellipsis'
+              size='md'
             >
               {top[`title_${getLangKey(lang)}`]}
             </H>
             <div
-              className='leading-normal text-secondary text-lg line-clamp-2 text-ellipsis'
+              className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
               dangerouslySetInnerHTML={{
                 __html: top[`content_${getLangKey(lang)}`],
               }}
@@ -83,7 +84,7 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
             <Image
               src={getImage`${bottom.thumbnail}`}
               alt='last-article'
-              className='col-start-2 object-cover w-[20vw] rounded-[3rem] aspect-square'
+              className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
               width={100}
               height={100}
             />
@@ -95,11 +96,12 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
             <H
               tag='h6'
               className='leading-normal pb-4 line-clamp-2 text-ellipsis'
+              size='md'
             >
               {bottom[`title_${getLangKey(lang)}`]}
             </H>
             <div
-              className='leading-normal text-secondary text-lg line-clamp-2 text-ellipsis'
+              className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
               dangerouslySetInnerHTML={{
                 __html: bottom[`content_${getLangKey(lang)}`],
               }}

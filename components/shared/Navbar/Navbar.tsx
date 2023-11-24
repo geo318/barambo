@@ -13,10 +13,10 @@ export const Navbar: React.FC<NavbarProps> = ({ text, lang }) => {
         <div className='flex items-center grow'>
           <Link
             href={`/${lang}${routes.home}`}
-            className='mr-auto mt-auto pl-7'
+            className='mr-auto mt-auto lg:pl-7'
           >
-            <Logo className='w-[12.5rem] z-50' />
-            <Spacer />
+            <Logo className='lg:w-[12.5rem] mt-auto w-32 z-50' />
+            <Spacer className='lg:block hidden' />
           </Link>
           <Nav
             text={text}

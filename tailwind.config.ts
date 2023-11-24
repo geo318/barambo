@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       aspectRatio: {
         '5/3': '5/3',
+        '2/1': '2/1',
       },
       colors: {
         primary: '#040404',

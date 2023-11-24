@@ -11,10 +11,10 @@ export const FooterUl: React.FC<{
 }> = ({ items, text, heading, lang, sec }) => {
   return (
     <div className='text-secondary'>
-      <h5 className='font-medium text-2xl mb-7'>{heading}</h5>
-      <ul className='flex flex-col gap-5'>
+      <h5 className='font-medium lg:text-2xl text-md lg:mb-7 mb-4'>{heading}</h5>
+      <ul className='flex flex-col lg:gap-5 gap-2'>
         {items.map(({ name, link }) => (
-          <li key={name} className='text-lg'>
+          <li key={name} className='lg:text-lg text-xs'>
             {sec === 'col_3' ? (
               <a
                 target='_blank'

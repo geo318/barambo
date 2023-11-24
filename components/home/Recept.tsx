@@ -16,11 +16,11 @@ export const ReceptSection = async ({ lang }: { lang: Locale }) => {
       </div>
     )
   return (
-    <div className='grid grid-cols-4 gap-8 mt-16'>
+    <div className='lg:grid flex overflow-x-auto whitespace-nowrap flex-nowrap grid-cols-4 gap-8 mt-16'>
       {receipts?.map((recept, i) => (
         <div
           key={recept.id}
-          className='flex aspect-square rounded-3xl relative overflow-hidden'
+          className='flex lg:min-w-auto min-w-[50%] snap-mandatory lg:px-0 first:ml-6 last:mr-6 shrink-0 aspect-square rounded-3xl relative overflow-hidden'
         >
           <Image
             src={getImage`${recept.thumbnail}`}

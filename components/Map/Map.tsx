@@ -9,7 +9,7 @@ export const Map = (text: { text: Export }) => {
       <H tag='h5' className='mt-auto' size='md'>
         {text.text.h2}
       </H>
-      <div className='grid grid-cols-2 gap-[3rem] pt-14'>
+      <div className='lg:grid grid-cols-2 gap-[3rem] pt-14 flex flex-col-reverse'>
         <div className='flex flex-col gap-8'>
           {text.text.p.map((p, index) => (
             <p key={index}>{p}</p>
@@ -18,7 +18,7 @@ export const Map = (text: { text: Export }) => {
         <Image
           src={map}
           alt='last-article'
-          className='object-cover rounded-[3rem] sticky top-5'
+          className='object-cover rounded-[3rem] lg:sticky top-5'
         />
       </div>
     </>
