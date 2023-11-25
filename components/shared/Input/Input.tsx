@@ -34,7 +34,7 @@ export const Input = ({
         </label>
       )}
       {options ? (
-        <div className='flex gap-10'>
+        <div className='flex lg:gap-10 gap-4 flex-wrap'>
           {options.map((o) => (
             <div
               key={o.value}

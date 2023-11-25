@@ -21,7 +21,7 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
         <Fragment key={c.location}>
           <div
             className={twMerge(
-              'flex items-center gap-5 text-base py-4 px-2 border-t border-[#ebebeb] text-secondary truncate',
+              'flex items-center gap-5 text-base py-4 px-2 border-t border-[#ebebeb] text-secondary truncate text-ellipsis line-clamp-1',
               open[i] && 'text-primary'
             )}
           >
@@ -29,12 +29,12 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
             {open[i] ? (
               <Minus
                 onClick={() => toggleMenu(i)}
-                className='ml-auto cursor-pointer'
+                className='ml-auto cursor-pointer shrink-0'
               />
             ) : (
               <Plus
                 onClick={() => toggleMenu(i)}
-                className='ml-auto cursor-pointer'
+                className='ml-auto cursor-pointer shrink-0'
               />
             )}
           </div>
@@ -52,7 +52,7 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
             >
               <li
                 className={twMerge(
-                  'flex items-center gap-5 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
+                  'flex items-center gap-5 lg:text-lg text-md pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
                 )}
               >
                 <AvatarIcon className='w-5' />
@@ -60,15 +60,15 @@ export const Accordion = ({ addresses }: { addresses: Addresses }) => {
               </li>
               <li
                 className={twMerge(
-                  'flex items-center gap-5 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
+                  'flex items-center gap-5 lg:text-lg text-md pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
                 )}
               >
-                <EmailIcon className='w-5' />
+                <EmailIcon className='w-5 shrink-0' />
                 {c.email}
               </li>
               <li
                 className={twMerge(
-                  'flex items-center gap-5 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
+                  'flex items-center gap-5 lg:text-lg text-md pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5'
                 )}
               >
                 <PhoneIcon className='w-5' />

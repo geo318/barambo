@@ -21,15 +21,15 @@ export default async function Contact({
   const { contact } = await getDictionary(lang)
   const { main, secondary } = contact.addresses
   return (
-    <main className='flex flex-col gap-36 pt-30'>
-      <Section className='py-28'>
+    <main className='flex flex-col gap-36 lg:pt-30'>
+      <Section className='lg:py-28 pt-10 pb-14'>
         <H tag='h1' size='xl'>
           {contact.h1}
         </H>
-        <div className='grid grid-cols-12 gap-[4%] mt-10'>
-          <div className='col-span-5 bg-gold-light rounded-[3rem] py-14 px-12'>
+        <div className='grid grid-cols-12 gap-[4%] mt-10 -ml-6 -mr-6 lg:ml-0 lg:mr-0'>
+          <div className='lg:col-span-5 col-span-12 bg-gold-light lg:rounded-[3rem] lg:py-14 py-6 lg:px-12 px-6'>
             <h2 className='text-lg font-medium'>{contact.h2}</h2>
-            <section className='mt-9 text-secondary text-lg mb-14'>
+            <section className='mt-9 text-secondary lg:text-lg text-xs mb-14'>
               <p className='text-sm flex gap-6'>
                 <PhoneIcon className='w-5' />
                 {main.phone}
@@ -51,7 +51,7 @@ export default async function Contact({
               <Accordion addresses={secondary} />
             </Suspense>
           </div>
-          <div className='col-span-7'>
+          <div className='lg:col-span-7 col-span-12 lg:mb-0 mb-14 lg:px-0 px-6'>
             <Suspense fallback={<Spinner />}>
               <ContactForm texts={contact} />
             </Suspense>
