@@ -20,15 +20,17 @@ export const useFilter = () => {
   const [open, setOpen] = useState<boolean[]>(
     Array.from(
       categories.map((c) => c.id),
-      (id) => Number(params.get('section')) === id
+      (id) => Number(params.get('category')) === id
     )
   )
 
   useEffect(() => {
-    if (params.get('category')) {
-      setCategoryId?.(params.get('category'))
-    }
-  }, [setCategoryId, params])
+    const [category, subcategory] = ['category', 'subcategory'].map((key) =>
+      params.get(key)
+    )
+    if (category) setCategoryId?.(category)
+    if (subcategory) setSubcategoryId?.(subcategory)
+  }, [setCategoryId, params, setSubcategoryId])
 
   const toggleMenu = (i: number) => {
     setOpen((prev) => {

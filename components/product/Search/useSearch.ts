@@ -2,7 +2,8 @@ import { ChangeEvent, useContext, useEffect } from 'react'
 import { ProductContext } from '/context'
 
 export const useSearch = () => {
-  const { query, setQuery, setCategoryId } = useContext(ProductContext)
+  const { query, setQuery, setCategoryId, setSubcategoryId } =
+    useContext(ProductContext)
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery?.(() => e.target.value)
   }
@@ -11,7 +12,11 @@ export const useSearch = () => {
   }
 
   useEffect(() => {
-    if (query) setCategoryId?.(undefined)
-  }, [query, setCategoryId])
+    if (query) {
+      setCategoryId?.(undefined)
+      setSubcategoryId?.(undefined)
+    }
+  }, [query, setCategoryId, setSubcategoryId])
+  
   return { handleSearch, query, clearSearch }
 }

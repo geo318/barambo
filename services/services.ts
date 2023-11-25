@@ -8,6 +8,7 @@ export const getProducts = async (
   category: string | null = '',
   subcategory: string | null = ''
 ): Promise<{ products: Product[]; page: number }> => {
+  console.log(query, category, subcategory)
   const res = await axiosInstance.get(
     `/products?page=${page}&query=${query}&category=${category}&subcategory=${subcategory}`
   )

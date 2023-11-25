@@ -29,7 +29,10 @@ const Filter: React.FC<{
               'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb] text-secondary',
               c.id == categoryId && 'text-primary'
             )}
-            onClick={() => setCategoryId?.(() => `${c.id}`)}
+            onClick={() => {
+              setCategoryId?.((prev) => (prev === c.id ? undefined : `${c.id}`))
+              setSubcategoryId?.(undefined)
+            }}
           >
             {c.thumbnail && (
               <Image
@@ -72,11 +75,12 @@ const Filter: React.FC<{
                     'flex items-center gap-5 ml-10 text-lg pb-1 text-secondary cursor-pointer first:pt-5 last:pb-5',
                     subcategoryId === sc.id && 'text-primary underline'
                   )}
-                  onClick={() =>
+                  onClick={() => {
                     setSubcategoryId?.(
                       subcategoryId == sc.id ? undefined : `${sc.id}`
                     )
-                  }
+                    setCategoryId?.(undefined)
+                  }}
                   data-id={sc.id}
                 >
                   {sc.thumbnail && (

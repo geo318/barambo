@@ -41,7 +41,7 @@ export default async function Home({ params: { lang } }: PageProps) {
           <Stars className='ml-auto lg:block hidden' />
         </div>
         <div className='flex justify-around lg:mt-14 mt-4 gap-5'>
-          <Link href={`${lang}/product?section=2`}>
+          <Link href={`${lang}/product?category=2`}>
             <Arc
               src={chocolate}
               heading='confectionary'
@@ -49,7 +49,7 @@ export default async function Home({ params: { lang } }: PageProps) {
               className='bg-dark-brown'
             />
           </Link>
-          <Link href={`${lang}/product?section=3`}>
+          <Link href={`${lang}/product?category=3`}>
             <Arc
               src={iceCream}
               heading='ice cream'
