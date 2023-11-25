@@ -1,6 +1,6 @@
 'use server'
 
-import { eq, sql, like, or, and } from 'drizzle-orm'
+import { eq, sql, like, or, and, desc, asc } from 'drizzle-orm'
 import {
   category,
   certificate,
@@ -21,6 +21,7 @@ export const getHomepagePosts = cache(async () => {
     .select()
     .from(post)
     .where(or(eq(post.type, 'news'), eq(post.type, 'csr')))
+    .orderBy(desc(post.order))
     .limit(3)
     .prepare()
     .execute()
@@ -33,6 +34,7 @@ export const getHomepageRecept = cache(async () => {
     .select({ thumbnail: post.thumbnail, id: post.id, slug: post.slug })
     .from(post)
     .where(eq(post.type, 'recept'))
+    .orderBy(desc(post.order))
     .limit(8)
     .prepare()
     .execute()
@@ -45,6 +47,7 @@ export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
     .select({ thumbnail: post.thumbnail, id: post.id, slug: post.slug })
     .from(post)
     .where(eq(post.type, filter))
+    .orderBy(desc(post.order))
     .offset((page - 1) * BLOG_PAGE)
     .limit(BLOG_PAGE)
     .prepare()
@@ -75,6 +78,7 @@ export const getPaginatedProducts = cache(
             eq(productsToSubcategories.subCategoryId, subCategory.id)
           )
           .where(eq(subCategory.id, categoryId))
+          .orderBy(desc(product.order))
           .offset((page - 1) * PRODUCT_PAGE)
           .limit(PRODUCT_PAGE)
           .execute()
@@ -94,6 +98,7 @@ export const getPaginatedProducts = cache(
           )
           .innerJoin(category, eq(subCategory.categoryId, category.id))
           .where(eq(category.id, mainCategoryId))
+          .orderBy(desc(product.order))
           .offset((page - 1) * PRODUCT_PAGE)
           .limit(PRODUCT_PAGE)
           .execute()
@@ -108,6 +113,7 @@ export const getPaginatedProducts = cache(
             like(product.title_geo, `%${filter}%`)
           )
         )
+        .orderBy(desc(product.order))
         .offset((page - 1) * PRODUCT_PAGE)
         .limit(PRODUCT_PAGE)
         .execute()
@@ -132,6 +138,7 @@ export const getLatestPosts = cache(async (type: Post['type']) => {
     .select()
     .from(post)
     .where(eq(post.type, type))
+    .orderBy(desc(post.order))
     .limit(5)
     .prepare()
     .execute()
@@ -163,16 +170,21 @@ export const countPosts = cache(async (type: Post['type']) => {
 
 export const getAllCategories = cache(async () => {
   const categories = await db.query.category.findMany({
+    orderBy: asc(category.order),
     with: {
-      subCategories: true,
+      subCategories: {
+        orderBy: asc(subCategory.order),
+      },
     },
   })
   return categories
 })
 
-export const getCategories = async () => await db.select().from(category)
+export const getCategories = async () =>
+  await db.select().from(category).orderBy(category.order)
 
-export const getSubCategories = async () => await db.select().from(subCategory)
+export const getSubCategories = async () =>
+  await db.select().from(subCategory).orderBy(subCategory.order)
 
 export const getProducts = async () => await db.select().from(product)
 
