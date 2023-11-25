@@ -22,7 +22,7 @@ import {
   SubCategory,
 } from '/types'
 import { getFormValues, writeFile } from '/utils'
-import { eq } from 'drizzle-orm'
+import { and, eq } from 'drizzle-orm'
 import { routes } from '/config'
 import sharp from 'sharp'
 
@@ -189,6 +189,31 @@ export const editProduct = async (formData: FormData) => {
   const buffer = file.length && Buffer.from(await file[0].arrayBuffer())
   let thumbnail: string = ''
 
+  const subCategoryIds = values.categoryIds.split(',').map(Number)
+  const categoryProducts = await db
+    .select()
+    .from(productsToSubcategories)
+    .where(eq(productsToSubcategories.productId, Number(formData.get('id'))))
+    .execute()
+
+  for (const ci of subCategoryIds) {
+    if (categoryProducts.some((cp) => cp.subCategoryId === ci)) continue
+    else await saveProductToSubcategory(Number(formData.get('id')), ci)
+  }
+
+  for (const cp of categoryProducts) {
+    if (subCategoryIds.some((ci) => ci === cp.subCategoryId)) continue
+    else
+      await db
+        .delete(productsToSubcategories)
+        .where(
+          and(
+            eq(productsToSubcategories.productId, Number(formData.get('id'))),
+            eq(productsToSubcategories.subCategoryId, cp.subCategoryId)
+          )
+        )
+  }
+
   try {
     if (buffer && buffer.toString()) {
       const { path } = await writeFile(
@@ -221,7 +246,7 @@ export const editProduct = async (formData: FormData) => {
     return { success: true }
   } catch (e) {
     return {
-      error: 'category already exists or something went wrong',
+      error: 'product already exists or something went wrong',
     }
   }
 }
