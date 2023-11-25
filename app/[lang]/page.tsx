@@ -104,7 +104,7 @@ export default async function Home({ params: { lang } }: PageProps) {
         </div>
         <Arc src={barambinos} arch={barambinoArch} imgClassName='-mb-5' />
         <section className='basis-1/3 lg:aspect-square flex flex-col ml-auto justify-around'>
-          <div className='mb-5 lg:mb-0'>
+          <div className='mb-5'>
             <h6 className='lg:text-2xl text-md font-medium'>
               100% Natural Ingredients
             </h6>

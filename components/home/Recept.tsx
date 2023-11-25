@@ -20,7 +20,7 @@ export const ReceptSection = async ({ lang }: { lang: Locale }) => {
       {receipts?.map((recept, i) => (
         <div
           key={recept.id}
-          className='flex lg:min-w-auto min-w-[50%] snap-mandatory lg:px-0 first:ml-6 last:mr-6 shrink-0 aspect-square rounded-3xl relative overflow-hidden'
+          className='flex lg:min-w-auto min-w-[50%] snap-mandatory first:lg:ml-0 lg:last:mr-0 lg:mx-0 first:ml-6 last:mr-6 shrink-0 aspect-square rounded-3xl relative overflow-hidden'
         >
           <Image
             src={getImage`${recept.thumbnail}`}
