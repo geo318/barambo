@@ -54,7 +54,7 @@ export const ExcursionForm = ({ texts }: { texts: Excursion }) => {
           <Button
             type='submit'
             disabled={isLoading}
-            className='h-16 w-48 ml-auto col-span-2 mr-3 mb-3'
+            className='lg:h-16 h-10 lg:w-48 w-32 ml-auto mr-auto col-span-2 lg:mr-3 mb-3'
           >
             {texts.button}
           </Button>
