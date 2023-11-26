@@ -36,9 +36,9 @@ export function BlogPosts({
                     ? `?filter=recept&recept=${slug}`
                     : `/blog/${slug}?filter=${filter}`
                 }
-                className='mt-auto mx-auto mb-8 z-10'
+                className='mt-auto mx-auto lg:mb-8 mb-4 z-10'
               >
-                <Button className='bg-white w-36 h-10'>Read More</Button>
+                <Button className='bg-white lg:w-36 lg:h-10 w-32 h-8 lg:text-xl text-md'>Read More</Button>
               </Link>
             </div>
           ))}

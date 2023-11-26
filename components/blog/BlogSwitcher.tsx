@@ -9,7 +9,7 @@ import { memo } from 'react'
 export const BlogSwitcher = () => {
   const params = useSearchParams()
   return (
-    <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
+    <ul className='flex gap-10 lg:ml-20 items-end pb-3 uppercase'>
       {switchBlog.map((item) => (
         <li
           className={twMerge(

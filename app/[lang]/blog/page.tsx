@@ -29,12 +29,12 @@ export default async function Product({
 
   return (
     <main className='flex flex-col gap-36'>
-      <Section className='py-28'>
-        <section className='flex mb-10 gap-5'>
+      <Section className='lg:py-28 py-10'>
+        <section className='flex lg:flex-row flex-col lg:mb-10 mb-4 gap-5'>
           <H tag='h1' size='xl'>
             {blog.h1}
           </H>
-          <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
+          <ul className='flex gap-10 lg:ml-20 lg:items-end pb-3 uppercase'>
             <Suspense
               fallback={
                 <div className='w-full max-w-xs animate-pulse bg-zinc-200 h-6' />
@@ -48,8 +48,8 @@ export default async function Product({
         <article>
           <section
             className={twMerge(
-              'grid grid-cols-3 gap-6',
-              filter === 'recept' && 'grid-cols-4'
+              'grid lg:grid-cols-3 grid-cols-2 gap-6',
+              filter === 'recept' && 'lg:grid-cols-4 grid-cols-2'
             )}
           >
             <Suspense>
