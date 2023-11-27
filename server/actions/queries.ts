@@ -44,7 +44,13 @@ export const getHomepageRecept = cache(async () => {
 
 export const getPaginatedPosts = cache(async (filter: Blog, page: number) => {
   const posts = await db
-    .select({ thumbnail: post.thumbnail, id: post.id, slug: post.slug })
+    .select({
+      thumbnail: post.thumbnail,
+      id: post.id,
+      slug: post.slug,
+      title_eng: post.title_eng,
+      title_geo: post.title_geo,
+    })
     .from(post)
     .where(eq(post.type, filter))
     .orderBy(desc(post.order))
