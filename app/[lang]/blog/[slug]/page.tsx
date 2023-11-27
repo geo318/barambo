@@ -21,13 +21,13 @@ export default async function Post({
   const { blog } = await getDictionary(lang)
   const post = await getPost(slug)
   return (
-    <main className='flex flex-col gap-36'>
-      <Section className='py-28'>
-        <section className='flex mb-10 gap-5'>
+    <main className='flex flex-col lg:gap-36 gap-4'>
+      <Section className='lg:py-28 py-10'>
+        <section className='flex lg:mb-10 gap-5 lg:flex-row flex-col'>
           <H tag='h1' size='xl'>
             {blog.h1}
           </H>
-          <ul className='flex gap-10 ml-20 items-end pb-3 uppercase'>
+          <ul className='flex lg:gap-10 lg:ml-20 items-end pb-3 uppercase'>
             <Suspense
               fallback={
                 <div className='w-full max-w-xs animate-pulse bg-zinc-200 h-6' />
@@ -40,7 +40,7 @@ export default async function Post({
         <Image
           src={post.banner ? getImage`${post.banner}` : banner3}
           alt='banner'
-          className='max-h-80 rounded-[3rem] object-cover my-16'
+          className='max-h-80 lg:rounded-[3rem] rounded-md object-cover lg:my-16 my-4'
           width={1500}
           height={300}
         />

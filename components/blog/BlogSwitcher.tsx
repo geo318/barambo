@@ -2,12 +2,14 @@
 
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
-import { useSearchParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import { switchBlog } from '/config'
 import { memo } from 'react'
 
 export const BlogSwitcher = () => {
   const params = useSearchParams()
+  const lang = useParams().lang
+  console.log(lang)
   return (
     <ul className='flex gap-10 lg:ml-20 items-end pb-3 uppercase'>
       {switchBlog.map((item) => (
@@ -18,7 +20,7 @@ export const BlogSwitcher = () => {
           )}
           key={item.name}
         >
-          <Link href={`?filter=${item.name}`}>{item.name}</Link>
+          <Link href={`/${lang}/blog?filter=${item.name}`}>{item.name}</Link>
         </li>
       ))}
     </ul>
