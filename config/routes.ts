@@ -14,6 +14,7 @@ export const routes = {
   addPost: '/admin/post',
   addCertificate: '/admin/certificate',
   addHeadline: '/admin/headline',
+  addFile: '/admin/upload',
 }
 
 export const staticPath = 'express/uploads' as const

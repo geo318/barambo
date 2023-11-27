@@ -96,3 +96,9 @@ export const certificate = sqliteTable('certificate', {
   desc_eng: text('desc_eng').notNull().unique(),
   desc_geo: text('desc_geo').notNull().unique(),
 })
+
+export const file = sqliteTable('file', {
+  id: int('id').primaryKey(),
+  name: text('name').notNull(),
+  path: text('path').notNull().unique(),
+})

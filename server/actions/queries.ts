@@ -5,6 +5,7 @@ import {
   category,
   certificate,
   db,
+  file,
   headline,
   post,
   product,
@@ -207,6 +208,8 @@ export const getSlides = async () =>
 export const getHeadLine = async () => await db.select().from(headline)
 
 export const getCertificates = async () => await db.select().from(certificate)
+
+export const getFiles = async () => await db.select().from(file)
 
 export const reconcileProductCategories = async () => {
   const products = await db.select().from(product).execute()

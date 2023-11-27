@@ -5,6 +5,7 @@ import {
   category,
   certificate,
   db,
+  file,
   headline,
   post,
   product,
@@ -21,7 +22,7 @@ import {
   Slider,
   SubCategory,
 } from '/types'
-import { getFormValues, writeFile } from '/utils'
+import { generateSlug, getFormValues, writeFile } from '/utils'
 import { and, eq } from 'drizzle-orm'
 import { routes } from '/config'
 import sharp from 'sharp'
@@ -267,11 +268,7 @@ export const deleteProduct = async (formData: FormData) => {
 
 export const createPost = async (formData: FormData) => {
   const [mapped, files] = getFormValues<Post>(formData)
-  const slug = mapped.title_eng
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]|[,":]/g, '')
-    .toLowerCase()
+  const slug = generateSlug(mapped.title_eng)
 
   try {
     const thumbnails: string[] = []
@@ -301,11 +298,13 @@ export const createPost = async (formData: FormData) => {
 
 export const editPost = async (formData: FormData) => {
   const [values, files] = getFormValues<Post>(formData)
+  const slug = generateSlug(values.title_eng)
+  values.slug = slug
 
   try {
     const thumbnails: string[] = []
     if (files && files?.length)
-      for (let i = 0, file = files[i]; i < files.length; i++) {
+      for (const file of files) {
         const buffer = Buffer.from(await file.arrayBuffer())
         const { path } = await writeFile([file], buffer, sharp(buffer))
         thumbnails.push(path)
@@ -544,4 +543,26 @@ async function saveProductToSubcategory(
   subCategoryId: number
 ) {
   await db.insert(productsToSubcategories).values({ productId, subCategoryId })
+}
+
+export const createFile = async (formData: FormData) => {
+  const [_, files] = getFormValues<{ name: string }[]>(formData)
+  const img = files[0]
+  try {
+    const buffer = Buffer.from(await img.arrayBuffer())
+    const { path } = await writeFile(
+      [img],
+      buffer,
+      sharp(buffer),
+      'outside',
+      800,
+      undefined
+    )
+    await db.insert(file).values({ name: img.name, path })
+    revalidatePath(routes.addFile)
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
 }

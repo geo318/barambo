@@ -1,5 +1,5 @@
 export * from './formData'
 export * from './server'
-export * from './general'
+export * from './helpers'
 export * from './dev'
 export * from './getFormValues'

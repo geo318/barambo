@@ -8,3 +8,10 @@ export const getBlurImage = (_: ReadonlyArray<string>, slug: string) => {
 
 export const checkStringFalsy = (value?: string | null) =>
   !value || value === 'undefined' || value === 'null' ? null : value
+
+export const generateSlug = (slug: string) =>
+  slug
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]|[,":]/g, '')
+    .toLowerCase()
