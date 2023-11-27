@@ -195,7 +195,7 @@ export const getPostsSlugs = async () =>
 
 export const getSlides = async () => await db.select().from(slider)
 
-export const getHeadLine = async () => (await db.select().from(headline))[0]
+export const getHeadLine = async () => await db.select().from(headline)
 
 export const getCertificates = async () => await db.select().from(certificate)
 

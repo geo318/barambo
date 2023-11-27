@@ -8,7 +8,7 @@ import { getLangKey } from '/utils'
 
 export const MainSlider = async ({ lang }: { lang: Locale }) => {
   const slides = await getSlides()
-  const headline = await getHeadLine()
+  const headline = (await getHeadLine())[0]
 
   return (
     <div className='flex lg:flex-col flex-col-reverse lg:gap-10 gap-4'>
