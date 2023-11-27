@@ -41,9 +41,11 @@ export function BlogPosts({
                   </Button>
                 </Link>
               </div>
-              <span className='py-2 lg:block hidden line-clamp-2 text-ellipsis'>
-                {p[`title_${getLangKey(lang)}`]}
-              </span>
+              {filter !== 'recept' && (
+                <span className='py-2 lg:block hidden line-clamp-2 text-ellipsis'>
+                  {p[`title_${getLangKey(lang)}`]}
+                </span>
+              )}
             </div>
           ))}
     </>
