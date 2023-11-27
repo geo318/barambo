@@ -12,22 +12,22 @@ const Filter: React.FC<{
   lang: Locale
 }> = ({ lang }) => {
   const {
-    categories,
     open,
+    categories,
     toggleMenu,
-    setCategoryId,
-    setSubcategoryId,
-    subcategoryId,
     categoryId,
+    setCategoryId,
+    subcategoryId,
+    setSubcategoryId,
   } = useFilter()
   return (
-    <section className='max-w-xs'>
+    <section className='lg:max-w-xs lg:block flex flex-col gap-1'>
       {categories.map((c, i) => (
         <Fragment key={c.id}>
           <div
             className={twMerge(
-              'flex items-center gap-5 text-lg py-4 px-2 border-t border-[#ebebeb] text-secondary',
-              c.id == categoryId && 'text-primary'
+              'flex lg:flex-row flex-col items-center cursor-pointer lg:gap-5 gap-1 lg:text-lg text-xs lg:w-auto lg:h-auto w-16 h-16 rounded-xl lg:rounded-none py-4 px-2 lg:border-t lg:border-b-0 lg:border-x-0 border border-[#ebebeb] text-secondary',
+              c.id == categoryId && 'text-primary lg:bg-none bg-[#D9D9D9] bg-opacity-50'
             )}
             onClick={() => {
               setCategoryId?.((prev) => (prev === c.id ? undefined : `${c.id}`))
@@ -47,18 +47,18 @@ const Filter: React.FC<{
             {open[i] ? (
               <Minus
                 onClick={() => toggleMenu(i)}
-                className='ml-auto cursor-pointer'
+                className='ml-auto cursor-pointer lg:block hidden'
               />
             ) : (
               <Plus
                 onClick={() => toggleMenu(i)}
-                className='ml-auto cursor-pointer'
+                className='ml-auto cursor-pointer lg:block hidden'
               />
             )}
           </div>
           <div
             className={twMerge(
-              'grid transition-all duration-300 ease-out',
+              'lg:grid transition-all duration-300 ease-out hidden',
               open[i] ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
             )}
           >

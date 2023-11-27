@@ -12,7 +12,7 @@ export const Product: React.FC<{
   return (
     <>
       <Link className={twMerge('cursor-pointer')} href={`?id=${product.id}`}>
-        <div className='relative w-full bg-zinc-200 rounded-3xl bg-opacity-50 aspect-square flex items-center'>
+        <div className='relative w-full bg-zinc-200 lg:rounded-3xl rounded-md bg-opacity-50 aspect-square flex items-center'>
           <Image
             src={getImage`${product.thumbnail}`}
             alt='banner'
@@ -21,8 +21,11 @@ export const Product: React.FC<{
             height={200}
             priority={index < 5}
           />
+          <h4 className='text-md text-[.5rem] truncate lg:hidden absolute top-2 left-2'>
+            {product[`title_${getLangKey(locale)}`]}
+          </h4>
         </div>
-        <div className='flex flex-col gap-2 mt-5'>
+        <div className='lg:flex hidden flex-col gap-2 mt-5'>
           <div
             className='text-lg text-secondary line-clamp-2 text-ellipsis leading-relaxed'
             dangerouslySetInnerHTML={{
@@ -43,8 +46,8 @@ export const ProductSkeleton = ({ num = 12 }) => (
   <>
     {Array.from({ length: num }).map((_, i) => (
       <div key={i}>
-        <div className='relative w-full bg-zinc-200 animate-pulse bg-opacity-50 rounded-3xl aspect-square' />
-        <div className='flex flex-col gap-2 mt-5'>
+        <div className='relative w-full bg-zinc-200 animate-pulse bg-opacity-50 lg:rounded-3xl rounded-md aspect-square' />
+        <div className='lg:flex hidden flex-col gap-2 mt-5'>
           <div className='text-lg text-secondary line-clamp-3 text-ellipsis leading-relaxed h-10 bg-zinc-200 animate-pulse' />
           <div className='border-b my-2 border-[#bebebe]' />
           <h4 className='text-lg font-medium truncate h-6 bg-zinc-200 animate-pulse' />
