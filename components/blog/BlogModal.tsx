@@ -8,8 +8,8 @@ export const BlogModal = async ({ slug = '', lang = 'en' }) => {
   const recept = await getPost(slug)
   return (
     <Portal>
-      <div className='xl:mx-48 lg:mx-28 mx-10 max-w-[110rem] mt-20'>
-        <div className='z-50 block p-9 relative bg-white lg:rounded-[3rem] rounded-2xl'>
+      <div className='xl:mx-48 lg:mx-28 mx-10 max-w-[110rem] lg:my-20 my-10'>
+        <div className='z-50 block p-9 relative bg-white lg:rounded-[3rem] rounded-2xl max-h-[80vh] overflow-y-auto'>
           <section className='lg:grid flex flex-col-reverse grid-cols-8 gap-12'>
             <figure className='lg:col-span-4 col-span-8'>
               {recept.link && <VideoPlayer link={recept.link} />}
@@ -24,7 +24,7 @@ export const BlogModal = async ({ slug = '', lang = 'en' }) => {
               </div>
               <div className='lg:my-10 my-4 border-b border-[#bebebe]' />
               <div
-                className='mt-10 flex flex-col text-lg leading-normal max-h-[25rem] overflow-y-auto'
+                className='mt-10 flex flex-col text-lg leading-normal max-h-[25vh] overflow-y-auto'
                 dangerouslySetInnerHTML={{
                   __html: recept[`content_${getLangKey(lang)}`],
                 }}

@@ -11,7 +11,7 @@ export function BlogPosts({
 }: {
   children?: React.ReactNode
 }) {
-  const { posts, isLoading, filter } = useBlogPosts()
+  const { posts, isLoading, filter, lang } = useBlogPosts()
   return (
     <>
       {isLoading
@@ -34,7 +34,7 @@ export function BlogPosts({
                 href={
                   filter === 'recept'
                     ? `?filter=recept&recept=${slug}`
-                    : `/blog/${slug}?filter=${filter}`
+                    : `/${lang}/blog/${slug}?filter=${filter}`
                 }
                 className='mt-auto mx-auto lg:mb-8 mb-4 z-10'
               >
