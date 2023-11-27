@@ -186,18 +186,22 @@ export const getCategories = async () =>
 export const getSubCategories = async () =>
   await db.select().from(subCategory).orderBy(subCategory.order)
 
-export const getProducts = async () => await db.select().from(product)
+export const getProducts = async () =>
+  await db.select().from(product).orderBy(asc(product.order))
 
-export const getPosts = async () => await db.select().from(post)
+export const getPosts = async () =>
+  await db.select().from(post).orderBy(asc(post.order))
 
 export const getPostsSlugs = async () =>
   await db.select({ slug: post.slug }).from(post)
 
-export const getSlides = async () => await db.select().from(slider)
+export const getSlides = async () =>
+  await db.select().from(slider).orderBy(asc(slider.order))
 
 export const getHeadLine = async () => await db.select().from(headline)
 
-export const getCertificates = async () => await db.select().from(certificate)
+export const getCertificates = async () =>
+  await db.select().from(certificate).orderBy(asc(certificate.order))
 
 export const reconcileProductCategories = async () => {
   const products = await db.select().from(product).execute()
