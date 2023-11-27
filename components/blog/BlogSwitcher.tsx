@@ -9,7 +9,6 @@ import { memo } from 'react'
 export const BlogSwitcher = () => {
   const params = useSearchParams()
   const lang = useParams().lang
-  console.log(lang)
   return (
     <ul className='flex gap-10 lg:ml-20 items-end pb-3 uppercase'>
       {switchBlog.map((item) => (
