@@ -16,7 +16,7 @@ export const ProductList: React.FC<{
     isFetched,
   } = useProductList()
   return (
-    <section className='grid lg:grid-cols-4 grid-cols-3 lg:gap-6 gap-1'>
+    <section className='grid lg:grid-cols-4 grid-cols-2 lg:gap-6 gap-1'>
       {isFetched && !products?.length && (
         <div className='font-medium lg:text-lg col-span-3 text-xs py-5 text-secondary'>
           No products found

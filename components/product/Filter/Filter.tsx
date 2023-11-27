@@ -26,8 +26,9 @@ const Filter: React.FC<{
         <Fragment key={c.id}>
           <div
             className={twMerge(
-              'flex lg:flex-row flex-col items-center cursor-pointer lg:gap-5 gap-1 lg:text-lg text-xs lg:w-auto lg:h-auto w-16 h-16 rounded-xl lg:rounded-none py-4 px-2 lg:border-t lg:border-b-0 lg:border-x-0 border border-[#ebebeb] text-secondary',
-              c.id == categoryId && 'text-primary lg:bg-none bg-[#D9D9D9] bg-opacity-50'
+              'flex lg:flex-row flex-col items-center cursor-pointer lg:gap-5 gap-1 lg:text-lg text-xs lg:w-auto lg:h-auto w-20 h-20 rounded-xl lg:rounded-none pt-4 lg:pb-4 pb-2 px-2 lg:border-t lg:border-b-0 lg:border-x-0 border border-[#ebebeb] text-secondary',
+              c.id == categoryId &&
+                'text-primary lg:bg-none bg-[#D9D9D9] bg-opacity-50'
             )}
             onClick={() => {
               setCategoryId?.((prev) => (prev === c.id ? undefined : `${c.id}`))
@@ -43,7 +44,9 @@ const Filter: React.FC<{
                 className='max-h-6 max-w-6 h-auto'
               />
             )}
-            {c[`name_${getLangKey(lang)}`]}
+            <span className='mt-auto lg:mt-0'>
+              {c[`name_${getLangKey(lang)}`]}
+            </span>
             {open[i] ? (
               <Minus
                 onClick={() => toggleMenu(i)}
