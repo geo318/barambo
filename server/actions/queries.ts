@@ -200,8 +200,7 @@ export const getSlides = async () =>
 
 export const getHeadLine = async () => await db.select().from(headline)
 
-export const getCertificates = async () =>
-  await db.select().from(certificate).orderBy(asc(certificate.order))
+export const getCertificates = async () => await db.select().from(certificate)
 
 export const reconcileProductCategories = async () => {
   const products = await db.select().from(product).execute()
