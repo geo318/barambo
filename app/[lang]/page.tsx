@@ -30,7 +30,7 @@ export default async function Home({ params: { lang } }: PageProps) {
             <div className='h-[40rem] w-full bg-zinc-200 animate-pulse rounded-t-[5rem]' />
           }
         >
-          <MainSlider />
+          <MainSlider lang={lang} />
         </Suspense>
       </div>
       <Section>

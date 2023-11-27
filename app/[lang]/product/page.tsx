@@ -44,7 +44,7 @@ export default async function Product({
 
   return (
     <main className='flex flex-col lg:gap-36'>
-      <Section>
+      <Section className='lg:hidden'>
         <H tag='h1' size='sm' className='mt-10'>
           {product.h1}
         </H>
