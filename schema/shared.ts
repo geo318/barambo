@@ -17,6 +17,22 @@ export const imgSchemaArray = z
 
 export const imgSchema = imgSchemaArray.transform((file) => file?.[0])
 
+export const imgSchemaOptional = z
+  .custom<FileList>()
+  .refine(
+    (file: FileList) => file[0] == null || file?.length,
+    'please, select an image'
+  )
+  .refine(
+    (file) => file[0] == null || file?.[0]?.size <= MAX_SIZE,
+    'image must be less than 5mb'
+  )
+  .refine(
+    (file) => file[0] == null || MIME_TYPES.includes(file?.[0]?.type),
+    'incorrect file type'
+  )
+  .transform((file) => file?.[0])
+
 export const categorySchema = z.object({
   id: z.coerce.number().min(0).optional(),
   name_eng: z.string().min(3).max(20),
@@ -49,7 +65,7 @@ export const postSchema = (optional?: boolean) =>
     content_eng: z.string().min(3).max(25000),
     content_geo: z.string().min(3).max(25000),
     thumbnail: optional ? z.string().or(imgSchema) : imgSchema,
-    banner: z.any().or(imgSchema),
+    banner: optional ? imgSchemaOptional : imgSchema,
     type: z.enum(['news', 'recept', 'csr']),
     link: z.optional(z.string().or(z.string().url())),
     order: z.coerce.number().int().min(0),

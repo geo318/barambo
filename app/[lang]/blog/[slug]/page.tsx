@@ -10,7 +10,7 @@ import { banner3 } from '/public'
 import { getDictionary } from '/lib'
 import { Locale } from '/types'
 import { getPost, getPostsSlugs } from '/server'
-import { getImage, getLangKey } from '/utils'
+import { checkStringFalsy, getImage, getLangKey } from '/utils'
 import { Suspense } from 'react'
 
 export default async function Post({
@@ -38,7 +38,9 @@ export default async function Post({
           </ul>
         </section>
         <Image
-          src={post.banner ? getImage`${post.banner}` : banner3}
+          src={
+            checkStringFalsy(post.banner) ? getImage`${post.banner!}` : banner3
+          }
           alt='banner'
           className='max-h-80 lg:rounded-[3rem] rounded-md object-cover lg:my-16 my-4'
           width={1500}

@@ -12,7 +12,7 @@ export const BlogModal = async ({ slug = '', lang = 'en' }) => {
         <div className='z-50 block p-9 relative bg-white lg:rounded-[3rem] rounded-2xl max-h-[80vh] overflow-y-auto'>
           <section className='lg:grid flex flex-col-reverse grid-cols-8 gap-12'>
             <figure className='lg:col-span-4 col-span-8'>
-              {recept.link && <VideoPlayer link={recept.link} />}
+              {recept?.link && <VideoPlayer link={recept.link} />}
             </figure>
 
             <div className='lg:col-span-4 col-span-8 font-lg'>

@@ -276,14 +276,13 @@ export const createPost = async (formData: FormData) => {
   try {
     const thumbnails: string[] = []
     if (files && files?.length)
-      for (let i = 0, file = files[i]; i < files.length; i++) {
+      for (const file of files) {
         const buffer = Buffer.from(await file.arrayBuffer())
         const { path } = await writeFile([file], buffer, sharp(buffer))
         thumbnails.push(path)
       }
 
     const [thumbnail, banner] = thumbnails
-
     mapped.banner = banner
     mapped.thumbnail = thumbnail
     mapped.slug = slug
@@ -318,8 +317,10 @@ export const editPost = async (formData: FormData) => {
         if (val) (updateValues as Record<string, string | number>)[key] = val
       }
     )
-
-    const [thumbnail, banner] = thumbnails
+    const thumbnail =
+      typeof formData.get('thumbnail') === 'string' ? undefined : thumbnails[0]
+    const banner =
+      formData.get('banner') ?? thumbnail ? thumbnails[1] : thumbnails[0]
 
     await db
       .update(post)
