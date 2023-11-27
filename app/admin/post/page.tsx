@@ -39,7 +39,7 @@ export default async function SubCategory() {
             <H tag='h1' size='md' className='mb-20 text-center'>
               Posts
             </H>
-            <div className='grid grid-cols-3 gap-5 capitalize'>
+            <div className='grid grid-cols-5 gap-5 capitalize'>
               {posts.map((post) => (
                 <div
                   key={post.id}
@@ -49,34 +49,28 @@ export default async function SubCategory() {
                     <h3>
                       title eng: <strong>{post.title_eng}</strong>
                     </h3>
-                    <h3>
-                      title geo: <strong>{post.title_geo}</strong>
-                    </h3>
-                  </div>
-                  <div className='flex flex-col editor gap-2 py-5 border-y border-slate-600 '>
-                    Description eng
-                    <div
-                      className='line-clamp-2 text-ellipsis'
-                      dangerouslySetInnerHTML={{ __html: post.content_eng }}
-                    />
-                    Description geo
-                    <div
-                      className='line-clamp-2 text-ellipsis'
-                      dangerouslySetInnerHTML={{ __html: post.content_geo }}
-                    />
+                    <p>Type: {post.type}</p>
                   </div>
 
                   {post.thumbnail && (
                     <Image
                       src={getImage`${post.thumbnail}`}
                       alt={post.title_eng}
-                      className='w-full object-contain max-h-full max-w-full'
+                      className='w-full object-contain max-h-full max-w-full aspect-square'
                       width='300'
                       height='100'
                     />
                   )}
-                  <p>Type: {post.type}</p>
-                  {post.link && <p>Link: {post.link}</p>}
+                  <Link
+                    href={
+                      post.type !== 'recept'
+                        ? `/blog/${post.slug}`
+                        : `/en/blog?filter=recept&recept=${post.slug}`
+                    }
+                    className='text-blue-700 hover:underline'
+                  >
+                    see page
+                  </Link>
                   <Link
                     href={`?edit=${post.id}`}
                     className='hover:underline text-blue-800 font-medium text-xl border border-black text-center rounded-md mt-4'
@@ -97,7 +91,7 @@ export default async function SubCategory() {
                 <div className='flex py-3'>
                   <h3 className='font-lg font-bold'>Edit Post</h3>
                   <CloseModal
-                    closeKey={`${routes.addPost}?edit-post`}
+                    closeKey={`${routes.addPost}?edit-item`}
                     className='p-0'
                   />
                 </div>

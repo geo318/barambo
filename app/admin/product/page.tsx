@@ -75,7 +75,12 @@ export default async function SubCategory() {
                       dangerouslySetInnerHTML={{ __html: product.desc_eng }}
                     />
                   </div>
-
+                  <Link
+                    href={`/en/product?id=${product.id}`}
+                    className='text-blue-700 hover:underline'
+                  >
+                    see page
+                  </Link>
                   <Image
                     src={getImage`${product.thumbnail}`}
                     alt={product.title_eng}
