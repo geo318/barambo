@@ -65,7 +65,7 @@ export const postSchema = (optional?: boolean) =>
     content_eng: z.string().min(3).max(25000),
     content_geo: z.string().min(3).max(25000),
     thumbnail: optional ? z.string().or(imgSchema) : imgSchema,
-    banner: optional ? imgSchemaOptional : imgSchema,
+    banner: z.string().or(imgSchemaOptional),
     type: z.enum(['news', 'recept', 'csr']),
     link: z.optional(z.string().or(z.string().url())),
     order: z.coerce.number().int().min(0),

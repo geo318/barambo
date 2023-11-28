@@ -46,8 +46,8 @@ export default async function SubCategory() {
                   className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
                 >
                   <div className='flex flex-col'>
-                    <h3>
-                      title eng: <strong>{post.title_eng}</strong>
+                    <h3 className='text-xs truncate'>
+                      <strong>{post.title_eng}</strong>
                     </h3>
                     <p>Type: {post.type}</p>
                   </div>
