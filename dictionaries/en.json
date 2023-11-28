@@ -12,7 +12,10 @@
           "title": "100% Natural Ingredients",
           "description": "Chocolate cream does not contain palm oil, it's made with natural ingredients"
         },
-        { "title": "Only the best for you child", "description": "" }
+        {
+          "title": "Only the best for you child",
+          "description": "Barambino brings happiness for children"
+        }
       ],
       "action": "Learn More"
     },
