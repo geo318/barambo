@@ -332,7 +332,7 @@ export const editPost = async (formData: FormData) => {
 
     revalidatePath(routes.addPost)
     revalidatePath(`${routes.blog}`, 'page')
-    revalidatePath(`${routes.blog}/${slug}`, 'page')
+    revalidatePath(`[lang]/${routes.blog}/${slug}`, 'page')
     revalidatePath(`${routes.home}[lang]`, 'page')
     return { success: true }
   } catch (e) {
