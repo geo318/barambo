@@ -4,6 +4,7 @@ import banner3 from './banner3.jpg'
 import chocolate from './chocolate.png'
 import iceCream from './ice-cream.png'
 import barambinos from './barambinos.png'
+import barambinos2 from './barambinos2.png'
 import barambinoArch from './barambino-arch.png'
 import map from './map.png'
 
@@ -14,6 +15,7 @@ export {
   chocolate,
   iceCream,
   barambinos,
+  barambinos2,
   barambinoArch,
   map,
 }

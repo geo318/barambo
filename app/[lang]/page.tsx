@@ -12,7 +12,7 @@ import {
   Section,
   Stars,
 } from '/components'
-import { barambinoArch, barambinos, chocolate, iceCream } from '/public'
+import { barambinoArch, barambinos2, chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
@@ -102,7 +102,7 @@ export default async function Home({ params: { lang } }: PageProps) {
             </Button>
           </Link>
         </div>
-        <Arc src={barambinos} arch={barambinoArch} imgClassName='-mb-5' />
+        <Arc src={barambinos2} arch={barambinoArch} imgClassName='-mb-5 lg:scale-[1.2]' />
         <section className='basis-1/3 lg:aspect-square flex gap-5 flex-col ml-auto justify-around'>
           {home.discover.discover.map(({ title, description }) => (
             <div key={title}>
