@@ -32,7 +32,7 @@ export const Arc: React.FC<ArcProps> = ({
           className={twMerge('lg:scale-[1.35] scale-110 mb-5', imgClassName)}
         />
       </div>
-      {!!heading && !!sub && (
+      {!!heading && (
         <figcaption className='font-medium lg:text-base text-sm text-secondary text-center'>
           <H tag='h5' className='text-primary uppercase' size='sm'>
             {heading}

@@ -1,13 +1,19 @@
 'use server'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '/components'
 import { Locale } from '/types'
 import { getHomepageRecept } from '/server'
-import Link from 'next/link'
 import { getImage } from '/utils'
 
-export const ReceptSection = async ({ lang }: { lang: Locale }) => {
+export const ReceptSection = async ({
+  lang,
+  action,
+}: {
+  lang: Locale
+  action: string
+}) => {
   const receipts = await getHomepageRecept()
   if (!receipts?.length)
     return (
@@ -33,7 +39,7 @@ export const ReceptSection = async ({ lang }: { lang: Locale }) => {
             href={`/${lang}/blog?filter=recept&recept=${recept.slug}`}
             className='mt-auto mx-auto mb-8 z-10'
           >
-            <Button className='w-36 h-10 bg-white'>Read More</Button>
+            <Button className='w-36 h-10 bg-white'>{action}</Button>
           </Link>
         </div>
       ))}

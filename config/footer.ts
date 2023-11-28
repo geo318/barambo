@@ -3,29 +3,26 @@ export const footer = [
   {
     name: 'col_1',
     list: [
-      { name: 'card', link: routes.about },
-      { name: 'wallet', link: routes.about },
-      { name: 'crypto', link: routes.about },
-      { name: 'loan', link: routes.about },
+      { name: 'brands', link: routes.product + '?category=1' },
+      { name: 'confectionary', link: routes.product + '?category=2' },
+      { name: 'ice', link: routes.product + '?category=3' },
+      { name: 'products', link: routes.product },
     ],
   },
   {
     name: 'col_2',
     list: [
-      { name: 'about', link: routes.about },
-      { name: 'partnership', link: routes.about },
-      { name: 'terms', link: routes.about },
+      { name: 'news', link: routes.blog },
+      { name: 'csr', link: routes.blog + '?filter=csr' },
+      { name: 'recipes', link: routes.blog + '?filter=recept' },
     ],
   },
   {
     name: 'col_3',
     list: [
-      { name: 'phone', link: '+995 032 256 05 55' },
-      { name: 'email', link: 'support@wallypay.eu' },
-      {
-        name: 'address',
-        link: 'https://maps.app.goo.gl/j6jXCvbkr67ARVvH7',
-      },
+      { name: 'about', link: routes.about },
+      { name: 'excursion', link: routes.excursion },
+      { name: 'contact', link: routes.contact },
     ],
   },
 ] as const

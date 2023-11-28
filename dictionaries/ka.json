@@ -1,5 +1,26 @@
 {
   "home": {
+    "brands": "ბრენდები",
+    "recept": {
+      "title": "რეცეპტები",
+      "action": "მეტის ნახვა"
+    },
+    "discover": {
+      "heading": "აღმოაჩინე ჩვენი ახალი გემო!",
+      "discover": [
+        {
+          "title": "100% ნატურალური ინგრედიენტები",
+          "description": "შოკო-კრემი არ შეიცავს პალმის ზეთს, დამზადებულია ბუნებრივი ინგრედიენტებით."
+        },
+        {
+          "title": "მხოლოდ საუკეთესო თქვენი ბავშვებისთვის",
+          "description": "ტკბილეულს მოაქვს ბედნიერება"
+        }
+      ],
+      "action": "გაიგე მეტი"
+    },
+    "blog": { "title": "ბლოგი", "action": "მეტის ნახვა" },
+    "arc": { "heading": "პროდუქტები", "titles": ["საკონდიტრო", "ნაყინი"] },
     "certificates": {
       "h2": "სერტიფიკატები",
       "list": [
@@ -70,24 +91,24 @@
     },
     "footer": {
       "heading": {
-        "col_1": "Company",
-        "col_2": "Useful Links",
-        "col_3": "Contact Info"
+        "col_1": "პროდუქტები",
+        "col_2": "მედია",
+        "col_3": "ჩვენს შესახებ"
       },
       "list": {
-        "phone": "+0322 234 56 89",
-        "email": "info@barambo.ge",
-        "address": "Tbilisi, Chavchavadze Ave.54",
-        "about": "About Us",
-        "partnership": "Become a Partner",
-        "terms": "Terms and Conditions",
-        "blog": "Blog",
-        "card": "WallyPay Debit Card",
-        "wallet": "E-Wallet",
-        "crypto": "Crypto-Friendly Wallet",
-        "loan": "Online Loan"
+        "ice": "ნაყინი",
+        "confectionary": "საკონდიტრო",
+        "blog": "ბლოგი",
+        "contact": "კონტაქტი",
+        "about": "ისტორია",
+        "excursion": "ექსკურსია",
+        "csr": "CSR",
+        "recipes": "რეცეპტები",
+        "products": "პროდუქტები",
+        "news": "სიახლეები",
+        "brands": "ბრენდები"
       },
-      "copy": "© 2023 Barambo. all rights reserved",
+      "copy": "© 2023 Barambo. ყველა უფლება დაცულია",
       "sub": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
     }
   },
@@ -128,8 +149,8 @@
       }
     },
     "button": " გაგზავნა",
-    "h2": "lorem ipsum",
-    "info": "Please upload your photo holding your ID card where identification information is shown clearly"
+    "h2": "განცხადება",
+    "info": "დამატებითი ინფორმაციისთვის დაგვიკავშირდით: info@barambo.com.ge"
   },
   "contact": {
     "h1": "კონტაქტი",

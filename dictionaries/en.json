@@ -1,5 +1,23 @@
 {
   "home": {
+    "brands": "Our Brands",
+    "recept": {
+      "title": "Barambo Recipes",
+      "action": "Learn More"
+    },
+    "discover": {
+      "heading": "Discover our New Tasty product!",
+      "discover": [
+        {
+          "title": "100% Natural Ingredients",
+          "description": "Chocolate cream does not contain palm oil, it's made with natural ingredients"
+        },
+        { "title": "Only the best for you child", "description": "" }
+      ],
+      "action": "Learn More"
+    },
+    "arc": { "heading": "Products", "titles": ["Confectionary", "Ice Cream"] },
+    "blog": { "title": "Blog", "action": "See All Articles" },
     "certificates": {
       "h2": "Certificates",
       "list": [
@@ -70,22 +88,23 @@
     },
     "footer": {
       "heading": {
-        "col_1": "Company",
-        "col_2": "Useful Links",
-        "col_3": "Contact Info"
+        "col_1": "Products",
+        "col_2": "Media",
+        "col_3": "About us"
       },
       "list": {
-        "phone": "+0322 234 56 89",
-        "email": "info@barambo.eu",
-        "address": "Tbilisi, Chavchavadze Ave.54",
-        "about": "About Us",
-        "partnership": "Become a Partner",
-        "terms": "Terms and Conditions",
+        "ice": "Ice Cream",
+        "confectionary": "Confectionary",
         "blog": "Blog",
-        "card": "WallyPay Debit Card",
-        "wallet": "E-Wallet",
-        "crypto": "Crypto-Friendly Wallet",
-        "loan": "Online Loan"
+        "contact": "Contact",
+        "about": "About",
+        "excursion": "Excursion",
+        "csr": "CSR",
+        "recipes": "Recipes",
+        "products": "Products",
+        "news": "News",
+        "brands": "Brands",
+        "email": ""
       },
       "copy": "© 2023 Barambo. all rights reserved",
       "sub": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
@@ -127,8 +146,8 @@
       }
     },
     "button": "Send Message",
-    "h2": "lorem ipsum",
-    "info": "dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+    "h2": "statement",
+    "info": "For more information please contact: info@barambo.com.ge"
   },
   "contact": {
     "h1": "Contact",
