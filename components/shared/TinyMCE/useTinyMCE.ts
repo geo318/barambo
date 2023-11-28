@@ -82,9 +82,16 @@ export const useTinyMCE = (
   }
 
   const editorOnChangeHandler = (content: string) => {
-    setValue(inputName, content, {
-      ...(isFocused ? { shouldValidate: true } : {}),
-    })
+    setValue(
+      inputName,
+      content.replace(
+        '<img',
+        '<img style="max-width: 100%; height: auto; object-fit: contain; display: inline-block; float: left; margin-right: 10px;"'
+      ),
+      {
+        ...(isFocused ? { shouldValidate: true } : {}),
+      }
+    )
     const editor = editorRef.current
     if (editor) {
       changePlaceholder(' ', editor)

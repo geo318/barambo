@@ -55,7 +55,7 @@ export default async function Post({
               <div className='border-b border-[#C4C4C4] w-10 self-start mt-3' />
             </div>
 
-            <div className='flex flex-col gap-10'>
+            <div className='flex flex-col gap-10 w-full'>
               <div
                 className='text-lg leading-relaxed text-secondary flex flex-col gap-14'
                 dangerouslySetInnerHTML={{

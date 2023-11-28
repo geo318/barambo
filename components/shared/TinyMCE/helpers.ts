@@ -3,7 +3,7 @@
 import { Editor as TinyMCEEditor } from 'tinymce'
 
 export const ON_PASTE_MULTILINE_SEPARATOR_REGEX =
-  /<section style="margin: 0px 0px 15px; padding: 0px; text-align: justify;"><\/section><section style="margin: 0px 0px 15px; padding: 0px; text-align: justify;"><\/section>/gm
+  /<div style="margin: 0px 0px 15px; padding: 0px; text-align: justify;"><\/div><div style="margin: 0px 0px 15px; padding: 0px; text-align: justify;"><\/div>/gm
 
 export const openLink = (url: string) => {
   const link = document.createElement('a')
