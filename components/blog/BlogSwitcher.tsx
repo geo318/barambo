@@ -11,7 +11,7 @@ export const BlogSwitcher = ({ text }: { text: Switcher }) => {
   const params = useSearchParams()
   const lang = useParams().lang
   return (
-    <ul className='flex gap-10 lg:ml-20 items-end pb-3 uppercase'>
+    <ul className='flex gap-10 lg:ml-20 items-end pb-3 lg:pb-0 uppercase'>
       {switchBlog.map((item) => (
         <li
           className={twMerge(
