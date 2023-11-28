@@ -7,6 +7,7 @@ import barambinos from './barambinos.png'
 import barambinos2 from './barambinos2.png'
 import barambinoArch from './barambino-arch.png'
 import map from './map.png'
+import map_hovered from './map-hovered.png'
 
 export {
   banner,
@@ -18,5 +19,6 @@ export {
   barambinos2,
   barambinoArch,
   map,
+  map_hovered,
 }
 export * from './brand'
