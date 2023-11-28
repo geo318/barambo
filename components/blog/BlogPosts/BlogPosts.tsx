@@ -8,8 +8,10 @@ import { useBlogPosts } from './useBlogPosts'
 
 export function BlogPosts({
   children: skeleton,
+  action,
 }: {
   children?: React.ReactNode
+  action: string
 }) {
   const { posts, isLoading, filter, lang } = useBlogPosts()
   return (
@@ -42,7 +44,7 @@ export function BlogPosts({
                     className='mt-auto mx-auto lg:mb-8 mb-4 z-10'
                   >
                     <Button className='bg-white lg:w-36 lg:h-10 w-32 h-8 lg:text-xl text-md'>
-                      Read More
+                      {action}
                     </Button>
                   </Link>
                 )}

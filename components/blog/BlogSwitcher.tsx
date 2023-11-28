@@ -5,8 +5,9 @@ import { twMerge } from 'tailwind-merge'
 import { useParams, useSearchParams } from 'next/navigation'
 import { switchBlog } from '/config'
 import { memo } from 'react'
+import { Switcher } from '/types'
 
-export const BlogSwitcher = () => {
+export const BlogSwitcher = ({ text }: { text: Switcher }) => {
   const params = useSearchParams()
   const lang = useParams().lang
   return (
@@ -19,7 +20,9 @@ export const BlogSwitcher = () => {
           )}
           key={item.name}
         >
-          <Link href={`/${lang}/blog?filter=${item.name}`}>{item.name}</Link>
+          <Link href={`/${lang}/blog?filter=${item.name}`}>
+            {text[item.name]}
+          </Link>
         </li>
       ))}
     </ul>

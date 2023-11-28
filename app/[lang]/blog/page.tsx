@@ -40,7 +40,7 @@ export default async function Product({
                 <div className='w-full max-w-xs animate-pulse bg-zinc-200 h-6' />
               }
             >
-              <BlogSwitcher />
+              <BlogSwitcher text={blog.switcher} />
             </Suspense>
           </ul>
         </section>
@@ -53,7 +53,7 @@ export default async function Product({
             )}
           >
             <Suspense>
-              <BlogPosts>
+              <BlogPosts action={blog.action}>
                 <BlogPostsSkeleton />
               </BlogPosts>
             </Suspense>

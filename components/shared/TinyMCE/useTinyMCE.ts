@@ -86,7 +86,7 @@ export const useTinyMCE = (
       inputName,
       content.replace(
         '<img',
-        '<img style="max-width: 100%; height: auto; object-fit: contain; display: inline-block; float: left; margin-right: 10px;"'
+        '<img style="max-width: 100%; height: auto; object-fit: contain; display: inline-block; float: left;"'
       ),
       {
         ...(isFocused ? { shouldValidate: true } : {}),

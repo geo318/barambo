@@ -33,7 +33,7 @@ export default async function Post({
                 <div className='w-full max-w-xs animate-pulse bg-zinc-200 h-6' />
               }
             >
-              <BlogSwitcher />
+              <BlogSwitcher text={blog.switcher} />
             </Suspense>
           </ul>
         </section>
@@ -57,7 +57,7 @@ export default async function Post({
 
             <div className='flex flex-col gap-10 w-full'>
               <div
-                className='text-lg leading-relaxed text-secondary flex flex-col gap-14'
+                className='text-lg leading-relaxed text-secondary flex flex-col gap-14 [&:has(p)]:flex [&:has(p)]:flex-wrap [&:has(p)]:gap-10'
                 dangerouslySetInnerHTML={{
                   __html: post[`content_${getLangKey(lang)}`],
                 }}

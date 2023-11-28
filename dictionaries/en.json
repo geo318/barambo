@@ -220,9 +220,16 @@
     "button": "Send Message"
   },
   "product": {
-    "h1": "Product"
+    "h1": "Products",
+    "search": "Search"
   },
   "blog": {
-    "h1": "Blog"
+    "h1": "Blog",
+    "switcher": {
+      "news": "News",
+      "recept": "Recipes",
+      "csr": "CSR"
+    },
+    "action": "Learn More"
   }
 }

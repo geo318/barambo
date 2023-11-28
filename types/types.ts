@@ -15,6 +15,7 @@ export type BlogText = Translation['blog']
 export type Excursion = Translation['excursion']
 export type Contact = Translation['contact']
 export type Addresses = Contact['addresses']['secondary']
+export type Switcher = Translation['blog']['switcher']
 
 export type PageProps = { params: { lang: Locale } }
 export type EmailForm = z.infer<typeof excursionSchema>
