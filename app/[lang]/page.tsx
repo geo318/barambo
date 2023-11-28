@@ -36,7 +36,7 @@ export default async function Home({ params: { lang } }: PageProps) {
       <Section>
         <div className='flex'>
           <H tag='h2' size='md'>
-            We procedure best products
+            {home.categories.title}
           </H>
           <Stars className='ml-auto lg:block hidden' />
         </div>
