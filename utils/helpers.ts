@@ -18,3 +18,16 @@ export const generateSlug = (slug: string) =>
 
 export const purgeTags = (text: string, tag = 'img', flags = 'g', paste = '') =>
   text.replace(new RegExp(`<${tag}\\s[^>]*\\/?>`, flags), paste)
+
+export const debounce = <T extends (...args: any[]) => void>(
+  func: T,
+  delay: number = 500
+) => {
+  let timeoutId: NodeJS.Timeout
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+      func.apply(this, args)
+    }, delay)
+  }
+}

@@ -11,6 +11,7 @@ import { useParams } from 'next/navigation'
 export async function ProductModal() {
   const { product } = useContext(ProductContext)
   const lang = useParams().lang as Locale
+
   return product ? (
     <Portal>
       <div className='xl:mx-48 lg:mx-28 mx-10 max-w-[110rem] mt-20'>

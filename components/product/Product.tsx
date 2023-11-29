@@ -11,10 +11,10 @@ export const Product: React.FC<{
   locale: Locale
   index: number
 }> = ({ product, locale, index }) => {
-  const { setProduct } = useContext(ProductContext)
+  const { setProduct, scrollY } = useContext(ProductContext)
   return (
     <Link
-      href={`?name=${generateSlug(product.title_eng)}`}
+      href={`?name=${generateSlug(product.title_eng)}&s=${scrollY}`}
       className={twMerge('cursor-pointer')}
       onClick={setProduct?.bind(null, product)}
     >

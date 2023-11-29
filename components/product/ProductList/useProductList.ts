@@ -1,4 +1,5 @@
-import { useCallback, useContext, useMemo, useRef } from 'react'
+'use client'
+import { useCallback, useContext, useEffect, useMemo, useRef } from 'react'
 import { PRODUCT_PAGE } from '/config'
 import { getProducts } from '/services'
 import { useInfiniteQuery } from '@tanstack/react-query'
@@ -7,8 +8,12 @@ import { useDebounce } from '/hooks'
 import { ProductContext } from '/context'
 
 export const useProductList = () => {
-  const { query, categoryId, subcategoryId } = useContext(ProductContext)
+  const { query, categoryId, subcategoryId, scrollY } =
+    useContext(ProductContext)
   const debouncedQuery = useDebounce({ query })
+  useEffect(() => {
+    window.scrollTo(0, Number(scrollY))
+  })
 
   const {
     data,

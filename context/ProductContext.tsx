@@ -1,7 +1,8 @@
 'use client'
 
-import { createContext, useMemo, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
 import { Product, SetState } from '/types'
+import { debounce } from '/utils'
 
 type TProductContext = {
   product?: Product
@@ -12,6 +13,8 @@ type TProductContext = {
   setSubcategoryId?: SetState<CategoryParam>
   query?: string
   setQuery?: SetState<string>
+  scrollY?: number
+  setScrollY?: SetState<number>
 }
 type CategoryParam = string | null | undefined
 
@@ -26,6 +29,18 @@ export const ProductContextProvider = ({
   const [categoryId, setCategoryId] = useState<CategoryParam>()
   const [subcategoryId, setSubcategoryId] = useState<CategoryParam>()
   const [query, setQuery] = useState<string>('')
+  const [scrollY, setScrollY] = useState<number>(0)
+
+  useEffect(() => {
+    const handleScroll = debounce(() => {
+      setScrollY(window.scrollY)
+    })
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const memoizedSetValues = useMemo(
     () => ({
@@ -37,6 +52,8 @@ export const ProductContextProvider = ({
       setSubcategoryId,
       query,
       setQuery,
+      scrollY,
+      setScrollY,
     }),
     [
       product,
@@ -47,6 +64,8 @@ export const ProductContextProvider = ({
       setQuery,
       setSubcategoryId,
       subcategoryId,
+      scrollY,
+      setScrollY,
     ]
   )
 

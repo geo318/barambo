@@ -1,10 +1,15 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { use, useEffect, useRef, useState } from 'react'
 
 export const usePortal = () => {
   const ref = useRef<Element | null>(null)
   const [mounted, setMounted] = useState(false)
+  const scrollPosition = useSearchParams().get('s')
+  useEffect(() => {
+    scrollPosition && window.scrollTo(0, Number(scrollPosition))
+  }, [scrollPosition])
 
   useEffect(() => {
     const portal = document.createElement('div')
