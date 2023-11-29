@@ -49,12 +49,12 @@ header img {
   }
 }
 
-.start {
+.start-animation {
   translate: -10%;
   opacity: 0;
 }
 
-.end {
+.end-animation {
   translate: 0 0;
   opacity: 1;
 }
@@ -67,6 +67,35 @@ header img {
   user-drag: none;
 }
 
-.editor ol, .editor ul {
+.editor ol,
+.editor ul {
   list-style: revert;
+}
+
+.modal {
+  animation: modal 150ms ease-in-out;
+}
+
+@keyframes modal {
+  from {
+    transform: translateY(10%);
+    opacity: .5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.backdrop {
+  animation: backdrop 250ms ease-in-out;
+}
+
+@keyframes backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
