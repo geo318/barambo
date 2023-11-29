@@ -15,8 +15,8 @@ export const Img = ({ alt = '', className = '', ...props }: ImageProps) => {
           'opacity-0 transition-opacity duration-500',
           className
         )}
-        onLoadingComplete={(image) => {
-          image.classList.remove('opacity-0')
+        onLoad={(image) => {
+          image.currentTarget.classList.remove('opacity-0')
         }}
       />
     </>

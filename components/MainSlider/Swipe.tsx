@@ -34,7 +34,7 @@ export const Swipe: React.FC<{ slides: Slider[] }> = ({ slides }) => {
             width={1500}
             height={500}
             alt='banner'
-            onLoadingComplete={() => setIsLoaded(true)}
+            onLoad={() => setIsLoaded(true)}
             priority
           />
           <div

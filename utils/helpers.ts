@@ -15,3 +15,6 @@ export const generateSlug = (slug: string) =>
     .replace(/\s+/g, '-')
     .replace(/[^\w-]|[,":]/g, '')
     .toLowerCase()
+
+export const purgeTags = (text: string, tag = 'img', flags = 'g', paste = '') =>
+  text.replace(new RegExp(`<${tag}\\s[^>]*\\/?>`, flags), paste)

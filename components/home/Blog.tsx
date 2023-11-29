@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { H } from '/components'
 import { Locale } from '/types'
 import { getHomepagePosts } from '/server'
-import { getImage, getLangKey, sleep } from '/utils'
+import { getImage, getLangKey, purgeTags } from '/utils'
 import Link from 'next/link'
 
 export const BlogSection = async ({ lang }: { lang: Locale }) => {
@@ -70,7 +70,7 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
             <div
               className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
               dangerouslySetInnerHTML={{
-                __html: top[`content_${getLangKey(lang)}`],
+                __html: purgeTags(top[`content_${getLangKey(lang)}`]),
               }}
             />
           </Link>
@@ -103,7 +103,7 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
             <div
               className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
               dangerouslySetInnerHTML={{
-                __html: bottom[`content_${getLangKey(lang)}`],
+                __html: purgeTags(bottom[`content_${getLangKey(lang)}`]),
               }}
             />
           </Link>
