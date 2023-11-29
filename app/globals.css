@@ -79,7 +79,7 @@ header img {
 @keyframes modal {
   from {
     transform: translateY(10%);
-    opacity: .5;
+    opacity: 0.5;
   }
   to {
     transform: translateY(0);
@@ -98,4 +98,29 @@ header img {
   to {
     opacity: 1;
   }
+}
+
+.fb_dialog_content:after {
+  content: '';
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #fedb00;
+  height: 60px;
+  width: 60px;
+  background-image: url('https://img.barambo.ge/images/chat-20231129t222230404z.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 36px;
+  border-radius: 60px;
+  box-shadow: 0 0 5px 0px rgb(0 0 0 / 20%);
+  pointer-events: none;
+}
+
+.fb_dialog_content:hover:after {
+  box-shadow: 0 0 10px 1px rgb(0 0 0 / 20%);
+}
+
+.fb_dialog_content iframe {
+  opacity: 0;
 }
