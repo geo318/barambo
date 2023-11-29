@@ -47,10 +47,10 @@ export const productsToSubcategories = sqliteTable(
   {
     productId: integer('productId')
       .notNull()
-      .references(() => product.id),
+      .references(() => product.id, { onDelete: 'cascade' }),
     subCategoryId: integer('subCategoryId')
       .notNull()
-      .references(() => subCategory.id),
+      .references(() => subCategory.id, { onDelete: 'cascade' }),
   },
   (t) => ({
     pk: primaryKey(t.productId, t.subCategoryId),
