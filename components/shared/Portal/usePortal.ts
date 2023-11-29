@@ -12,6 +12,7 @@ export const usePortal = () => {
     portal.classList.add('fixed', 'inset-0', 'z-50')
     const backdrop = document.createElement('div')
     backdrop.classList.add(
+      'modal',
       'fixed',
       'inset-0',
       'overflow-y-auto',

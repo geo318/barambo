@@ -1,16 +1,16 @@
 import {
-  Arc,
-  BlogSection,
-  BlogSectionSkeleton,
-  Button,
-  Cert,
   H,
-  MainSlider,
+  Arc,
   Map,
+  Cert,
+  Stars,
+  Button,
+  Section,
+  MainSlider,
+  BlogSection,
   ReceptSection,
   ReceptSkeleton,
-  Section,
-  Stars,
+  BlogSectionSkeleton,
 } from '/components'
 import { barambinoArch, barambinos2, chocolate, iceCream } from '/public'
 import { brands } from '/config'

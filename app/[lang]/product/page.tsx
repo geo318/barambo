@@ -77,8 +77,8 @@ export default async function Product({
               </article>
             </Section>
             <Suspense>
-              <SearchParamsWrapper query={['id']}>
-                <ProductModal lang={lang} id={id} />
+              <SearchParamsWrapper query={['name']}>
+                <ProductModal />
               </SearchParamsWrapper>
             </Suspense>
           </ProductContextProvider>

@@ -1,19 +1,16 @@
-'use server'
+'use client'
 
 import Image from 'next/image'
 import { Portal, H, CloseModal } from '/components'
 import { Locale } from '/types'
 import { getImage, getLangKey } from '/utils'
-import { getProduct } from '/server'
+import { useContext } from 'react'
+import { ProductContext } from '/context'
+import { useParams } from 'next/navigation'
 
-export async function ProductModal({
-  id,
-  lang,
-}: {
-  id?: number
-  lang: Locale
-}) {
-  const product = id && (await getProduct(id))[0]
+export async function ProductModal() {
+  const { product } = useContext(ProductContext)
+  const lang = useParams().lang as Locale
   return product ? (
     <Portal>
       <div className='xl:mx-48 lg:mx-28 mx-10 max-w-[110rem] mt-20'>
@@ -22,7 +19,7 @@ export async function ProductModal({
             <H tag='h3' size='lg' className='lg:mt-5'>
               {product[`title_${getLangKey(lang)}`]}
             </H>
-            <CloseModal closeKey='/product' />
+            <CloseModal closeKey={`/${lang}/product`} />
           </div>
 
           <section className='grid grid-cols-8 lg:gap-12'>

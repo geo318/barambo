@@ -4,8 +4,8 @@ import { createContext, useMemo, useState } from 'react'
 import { Product, SetState } from '/types'
 
 type TProductContext = {
-  products?: Product[]
-  setProducts?: SetState<Product[]>
+  product?: Product
+  setProduct?: SetState<Product | undefined>
   setCategoryId?: SetState<CategoryParam>
   categoryId?: CategoryParam
   subcategoryId?: CategoryParam
@@ -22,15 +22,15 @@ export const ProductContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [products, setProducts] = useState<Product[]>([])
+  const [product, setProduct] = useState<Product | undefined>()
   const [categoryId, setCategoryId] = useState<CategoryParam>()
   const [subcategoryId, setSubcategoryId] = useState<CategoryParam>()
   const [query, setQuery] = useState<string>('')
 
   const memoizedSetValues = useMemo(
     () => ({
-      products,
-      setProducts,
+      product,
+      setProduct,
       categoryId,
       setCategoryId,
       subcategoryId,
@@ -39,8 +39,8 @@ export const ProductContextProvider = ({
       setQuery,
     }),
     [
-      products,
-      setProducts,
+      product,
+      setProduct,
       categoryId,
       setCategoryId,
       query,
