@@ -20,15 +20,15 @@ export const imgSchema = imgSchemaArray.transform((file) => file?.[0])
 export const imgSchemaOptional = z
   .custom<FileList>()
   .refine(
-    (file: FileList) => file[0] == null || file?.length,
+    (file: FileList) => file?.[0] == null || file?.length,
     'please, select an image'
   )
   .refine(
-    (file) => file[0] == null || file?.[0]?.size <= MAX_SIZE,
+    (file) => file?.[0] == null || file?.[0]?.size <= MAX_SIZE,
     'image must be less than 5mb'
   )
   .refine(
-    (file) => file[0] == null || MIME_TYPES.includes(file?.[0]?.type),
+    (file) => file?.[0] == null || MIME_TYPES.includes(file?.[0]?.type),
     'incorrect file type'
   )
   .transform((file) => file?.[0])
