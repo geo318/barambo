@@ -1,6 +1,6 @@
 import '../globals.css'
 import type { Metadata } from 'next'
-import { Footer, Navbar } from '/components'
+import { FbChat, Footer, Navbar } from '/components'
 import { Locale } from '/types'
 import { getDictionary } from '/lib'
 import { locales } from '/config'
@@ -22,6 +22,7 @@ export default async function RootLayout({
     <>
       <Navbar lang={lang} text={shared.header} />
       {children}
+      <FbChat />
       <Footer text={shared.footer} lang={lang} />
     </>
   )
