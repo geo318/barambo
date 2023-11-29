@@ -8,7 +8,7 @@ export const usePortal = () => {
   const [mounted, setMounted] = useState(false)
   const scrollPosition = useSearchParams().get('s')
   useEffect(() => {
-    scrollPosition && window.scrollTo(0, Number(scrollPosition))
+    window.scrollTo(0, Number(scrollPosition))
   }, [scrollPosition])
 
   useEffect(() => {

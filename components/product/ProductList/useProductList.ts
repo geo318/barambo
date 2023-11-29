@@ -13,7 +13,7 @@ export const useProductList = () => {
   const debouncedQuery = useDebounce({ query })
   useEffect(() => {
     window.scrollTo(0, Number(scrollY))
-  })
+  }, [scrollY])
 
   const {
     data,
