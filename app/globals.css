@@ -115,12 +115,13 @@ header img {
   border-radius: 60px;
   box-shadow: 0 0 5px 0px rgb(0 0 0 / 20%);
   pointer-events: none;
+  z-index: 9999999999;
 }
 
 .fb_dialog_content:hover:after {
   box-shadow: 0 0 10px 1px rgb(0 0 0 / 20%);
 }
 
-.fb_dialog_content iframe {
+.fb_dialog_content iframe:first-child {
   opacity: 0;
 }
