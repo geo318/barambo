@@ -144,7 +144,7 @@
         "placeholder": "საკონტაქტო ტელეფონის ნომერი"
       },
       "class": { "label": "კლასი", "placeholder": "კლასის დასახელება" },
-      "school": { "label": "სკოლია", "placeholder": "სკოლის დასახელება" },
+      "school": { "label": "სკოლა", "placeholder": "სკოლის დასახელება" },
       "file": { "label": "ფაილის ატვირთვა", "placeholder": "" },
       "description": {
         "label": "ინფორმაცია",

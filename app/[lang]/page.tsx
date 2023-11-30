@@ -94,7 +94,7 @@ export default async function Home({ params: { lang } }: PageProps) {
             {home.discover.heading}
           </H>
           <Link
-            href={`/${lang}/product?category=10`}
+            href={`/${lang}/product?subcategory=10`}
             className='my-auto mr-auto hidden lg:block'
           >
             <Button className='w-36 h-12 bg-white'>

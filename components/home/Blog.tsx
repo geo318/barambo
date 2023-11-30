@@ -39,7 +39,7 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
         >
           <div
             dangerouslySetInnerHTML={{
-              __html: main[`content_${getLangKey(lang)}`],
+              __html: purgeTags(main[`content_${getLangKey(lang)}`]),
             }}
           />
         </Link>

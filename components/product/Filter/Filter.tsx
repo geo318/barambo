@@ -22,7 +22,7 @@ const Filter: React.FC<{
   } = useFilter()
   return (
     <section className='lg:max-w-xs lg:block flex flex-col gap-1'>
-      {categories.map((c, i) => (
+      {categories.slice().sort().map((c, i) => (
         <Fragment key={c.id}>
           <div
             className={twMerge(
