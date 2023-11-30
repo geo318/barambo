@@ -3,7 +3,7 @@
 import { useSearch } from './useSearch'
 import { Magnifier } from '/components'
 
-export const Search = () => {
+export const Search = ({ text = 'search' }) => {
   const { handleSearch, clearSearch, query } = useSearch()
   return (
     <div className='relative lg:mb-14 mb-4 lg:mt-10 mt-0 lg:text-base text-xs'>
@@ -11,7 +11,7 @@ export const Search = () => {
       <input
         type='text'
         name='search'
-        placeholder='Search'
+        placeholder={text}
         className='border-0 border-b border-[#BEBEBE] pl-5 lg:py-2 py-1 w-52 focus:outline-none focus:border-black'
         onChange={handleSearch}
         value={query}

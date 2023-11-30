@@ -57,16 +57,13 @@ export default async function Product({
                 <H tag='h1' size='lg' className='lg:block hidden'>
                   {product.h1}
                 </H>
-                <h4 className='text-2xl font-medium my-7 lg:block hidden'>
-                  What it is so special about us?
-                </h4>
                 <Suspense>
                   <Filter lang={lang} />
                 </Suspense>
               </aside>
               <article className='grow'>
                 <Suspense>
-                  <Search />
+                  <Search text={product.search} />
                 </Suspense>
 
                 <Suspense fallback={<ProductSkeleton />}>
