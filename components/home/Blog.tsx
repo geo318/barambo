@@ -51,8 +51,8 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
               src={getImage`${top.thumbnail}`}
               alt='last-article'
               className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
-              width={100}
-              height={100}
+              width={250}
+              height={250}
             />
           </Link>
 
@@ -85,8 +85,8 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
               src={getImage`${bottom.thumbnail}`}
               alt='last-article'
               className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
-              width={100}
-              height={100}
+              width={250}
+              height={250}
             />
           </Link>
           <Link
