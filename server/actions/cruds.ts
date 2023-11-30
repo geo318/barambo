@@ -318,8 +318,7 @@ export const editPost = async (formData: FormData) => {
     )
     const thumbnail =
       typeof formData.get('thumbnail') === 'string' ? undefined : thumbnails[0]
-    const banner =
-      formData.get('banner') ?? thumbnail ? thumbnails[1] : thumbnails[0]
+    const banner = thumbnail ? thumbnails[1] : thumbnails[0]
 
     await db
       .update(post)
