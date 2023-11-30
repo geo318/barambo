@@ -33,8 +33,8 @@ export function BlogPosts({
                   <Image
                     src={getImage`${p.thumbnail}`}
                     alt={`${p.id}`}
-                    width={200}
-                    height={200}
+                    width={400}
+                    height={400}
                     className='absolute inset-0 object-cover h-full w-full'
                   />
                 )}
