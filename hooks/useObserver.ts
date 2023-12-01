@@ -17,20 +17,14 @@ export const useObserver = <T extends Element>({
       if (hasAnimated) return
 
       if (entry.isIntersecting) {
-        entry.target.classList.add(
-          ...(animationStart || ['end'])
-        )
+        entry.target.classList.add(...(animationEnd || ['end-animation']))
         entry.target.classList.remove(
-          ...(animationEnd || ['start'])
+          ...(animationStart || ['start-animation'])
         )
         setHasAnimated(true)
       } else {
-        entry.target.classList.add(
-          ...(animationEnd || ['start'])
-        )
-        entry.target.classList.remove(
-          ...(animationStart || ['end'])
-        )
+        entry.target.classList.add(...(animationStart || ['start-animation']))
+        entry.target.classList.remove(...(animationEnd || ['end-animation']))
         setHasAnimated(false)
       }
     })

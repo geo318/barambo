@@ -3,7 +3,8 @@ import type { Metadata } from 'next'
 import { FbChat, Footer, Navbar } from '/components'
 import { Locale } from '/types'
 import { getDictionary } from '/lib'
-import { locales } from '/config'
+import { locales, routes } from '/config'
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Barambo',
@@ -18,6 +19,7 @@ export default async function RootLayout({
   params: { lang: Locale }
 }) {
   const { shared } = await getDictionary(lang)
+
   return (
     <>
       <Navbar lang={lang} text={shared.header} />

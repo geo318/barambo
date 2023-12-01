@@ -1,10 +1,16 @@
-export const Stars: React.FC<JSX.IntrinsicElements['svg']> = (props) => (
+import { twMerge } from 'tailwind-merge'
+
+export const Stars: React.FC<JSX.IntrinsicElements['svg']> = ({
+  className,
+  ...props
+}) => (
   <svg
     width='181'
     height='181'
     viewBox='0 0 181 181'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    className={twMerge(className, 'stars')}
     {...props}
   >
     <path

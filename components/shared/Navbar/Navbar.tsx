@@ -6,14 +6,14 @@ import { Nav } from './Nav'
 import { Sidebar } from './Sidebar'
 import { Header, Spacer } from './Header'
 
-export const Navbar: React.FC<NavbarProps> = ({ text, lang }) => {
+export const Navbar: React.FC<NavbarProps> = ({ text, lang, isHomepage }) => {
   return (
     <Header>
       <Section>
         <div className='flex items-center grow'>
           <Link
             href={`/${lang}${routes.home}`}
-            className='mr-auto mt-auto lg:pl-7'
+            className={'mr-auto mt-auto lg:pl-7 slide-down'}
           >
             <Logo className='lg:w-[12.5rem] mt-auto w-32 z-50' />
             <Spacer className='lg:block hidden' />

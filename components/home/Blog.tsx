@@ -1,7 +1,7 @@
 'use server'
 
 import Image from 'next/image'
-import { H } from '/components'
+import { Anima, H } from '/components'
 import { Locale } from '/types'
 import { getHomepagePosts } from '/server'
 import { getImage, getLangKey, purgeTags } from '/utils'
@@ -19,60 +19,72 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
   return (
     <div className='flex gap-7'>
       <div className='row-span-2 basis-1/2 hidden lg:block'>
-        <Link href={`/${lang}/blog/${main.slug}`} className=' aspect-video'>
-          <Image
-            src={getImage`${main.thumbnail}`}
-            width={400}
-            height={200}
-            alt='last-article'
-            className='object-cover w-full rounded-[3rem] aspect-video'
-          />
-        </Link>
-        <Link href={`/${lang}/blog/${main.slug}`} className='pt-5 pb-4 block'>
-          <H tag='h6' className='text-3xl line-clamp-2 text-ellipsis'>
-            {main[`title_${getLangKey(lang)}`]}
-          </H>
-        </Link>
-        <Link
-          className='leading-normal text-secondary text-lg text-ellipsis line-clamp-2'
-          href={`/${lang}/blog/${main.slug}`}
-        >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: purgeTags(main[`content_${getLangKey(lang)}`]),
-            }}
-          />
-        </Link>
+        <Anima>
+          <Link href={`/${lang}/blog/${main.slug}`} className='aspect-video'>
+            <Image
+              src={getImage`${main.thumbnail}`}
+              width={400}
+              height={200}
+              alt='last-article'
+              className='object-cover w-full rounded-[3rem] aspect-video'
+            />
+          </Link>
+        </Anima>
+        <Anima>
+          <Link href={`/${lang}/blog/${main.slug}`} className='pt-5 pb-4 block'>
+            <H tag='h6' className='text-3xl line-clamp-2 text-ellipsis'>
+              {main[`title_${getLangKey(lang)}`]}
+            </H>
+          </Link>
+        </Anima>
+        <Anima>
+          <Link
+            className='leading-normal text-secondary text-lg text-ellipsis line-clamp-2'
+            href={`/${lang}/blog/${main.slug}`}
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html: purgeTags(main[`content_${getLangKey(lang)}`]),
+              }}
+            />
+          </Link>
+        </Anima>
       </div>
       <div className='lg:basis-1/2 w-full lg:w-auto grid grid-rows-2 grid-cols-1'>
         <div className='flex pb-7'>
           <Link className='basis-1/3' href={`/${lang}/blog/${top.slug}`}>
-            <Image
-              src={getImage`${top.thumbnail}`}
-              alt='last-article'
-              className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
-              width={250}
-              height={250}
-            />
+            <Anima>
+              <Image
+                src={getImage`${top.thumbnail}`}
+                alt='last-article'
+                className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
+                width={250}
+                height={250}
+              />
+            </Anima>
           </Link>
 
           <Link
             className='text-3xl mt-5 ml-5 basis-2/3'
             href={`/${lang}/blog/${top.slug}`}
           >
-            <H
-              tag='h6'
-              className='leading-normal pb-4 line-clamp-2 text-ellipsis'
-              size='md'
-            >
-              {top[`title_${getLangKey(lang)}`]}
-            </H>
-            <div
-              className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
-              dangerouslySetInnerHTML={{
-                __html: purgeTags(top[`content_${getLangKey(lang)}`]),
-              }}
-            />
+            <Anima>
+              <H
+                tag='h6'
+                className='leading-normal pb-4 line-clamp-2 text-ellipsis'
+                size='md'
+              >
+                {top[`title_${getLangKey(lang)}`]}
+              </H>
+            </Anima>
+            <Anima>
+              <div
+                className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
+                dangerouslySetInnerHTML={{
+                  __html: purgeTags(top[`content_${getLangKey(lang)}`]),
+                }}
+              />
+            </Anima>
           </Link>
         </div>
 
@@ -81,31 +93,37 @@ export const BlogSection = async ({ lang }: { lang: Locale }) => {
             className='basis-1/3 flex-grow line-clamp-2 text-ellipsis'
             href={`/${lang}/blog/${bottom.slug}`}
           >
-            <Image
-              src={getImage`${bottom.thumbnail}`}
-              alt='last-article'
-              className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
-              width={250}
-              height={250}
-            />
+            <Anima>
+              <Image
+                src={getImage`${bottom.thumbnail}`}
+                alt='last-article'
+                className='object-cover lg:rounded-[3rem] rounded-xl aspect-square h-full w-full'
+                width={250}
+                height={250}
+              />
+            </Anima>
           </Link>
           <Link
             className='text-3xl mt-5 ml-5 basis-2/3'
             href={`/${lang}/blog/${bottom.slug}`}
           >
-            <H
-              tag='h6'
-              className='leading-normal pb-4 line-clamp-2 text-ellipsis'
-              size='md'
-            >
-              {bottom[`title_${getLangKey(lang)}`]}
-            </H>
-            <div
-              className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
-              dangerouslySetInnerHTML={{
-                __html: purgeTags(bottom[`content_${getLangKey(lang)}`]),
-              }}
-            />
+            <Anima>
+              <H
+                tag='h6'
+                className='leading-normal pb-4 line-clamp-2 text-ellipsis'
+                size='md'
+              >
+                {bottom[`title_${getLangKey(lang)}`]}
+              </H>
+            </Anima>
+            <Anima>
+              <div
+                className='leading-normal text-secondary lg:text-lg text-xs line-clamp-2 text-ellipsis'
+                dangerouslySetInnerHTML={{
+                  __html: purgeTags(bottom[`content_${getLangKey(lang)}`]),
+                }}
+              />
+            </Anima>
           </Link>
         </div>
       </div>

@@ -6,4 +6,5 @@ export type NavbarProps = {
   lang: (typeof locales)[number]
   className?: string
   navItemClassName?: string
+  isHomepage?: boolean
 }
