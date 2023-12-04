@@ -1,8 +1,10 @@
 import {
   Category,
   Cert,
+  Discover,
   FormAction,
   Headline,
+  HomeCategory,
   Post,
   Product,
   Slider,
@@ -24,6 +26,10 @@ export type PostProps = FormProps<Post> & { checked?: number }
 export type SliderProps = FormProps<Slider>
 
 export type HeadlineProps = FormProps<Headline>
+
+export type DiscoverProps = FormProps<Discover>
+
+export type HomeCategoryProps = FormProps<HomeCategory>
 
 export type CertProps = FormProps<Cert>
 

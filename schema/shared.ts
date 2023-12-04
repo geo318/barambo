@@ -87,6 +87,32 @@ export const headlineSchema = z.object({
   desc_geo: z.string().min(3).max(25000),
 })
 
+export const discoverSchema = z.object({
+  id: z.coerce.number().min(0).optional(),
+  heading_eng: z.string().min(3).max(200),
+  heading_geo: z.string().min(3).max(200),
+  subheading_top_eng: z.string().min(3).max(200),
+  subheading_top_geo: z.string().min(3).max(200),
+  subheading_bottom_eng: z.string().min(3).max(200),
+  subheading_bottom_geo: z.string().min(3).max(200),
+  desc_top_eng: z.string().min(3).max(25000),
+  desc_top_geo: z.string().min(3).max(25000),
+  desc_bottom_eng: z.string().min(3).max(25000),
+  desc_bottom_geo: z.string().min(3).max(25000),
+  thumbnail: z.string().or(imgSchema),
+  background: z.string().or(imgSchema),
+  subcategoryId: z.coerce.number().int().min(0),
+})
+
+export const homeCategorySchema = z.object({
+  id: z.coerce.number().min(0).optional(),
+  heading_eng: z.string().min(3).max(200),
+  heading_geo: z.string().min(3).max(200),
+  thumbnail: z.string().or(imgSchema),
+  color: z.string().min(3).max(10),
+  categoryId: z.coerce.number().int().min(0),
+})
+
 export const certSchema = z.object({
   id: z.coerce.number().min(0).optional(),
   title_eng: z.string().min(3).max(200),

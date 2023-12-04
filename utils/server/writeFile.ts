@@ -15,8 +15,8 @@ export const writeFile = async (
     | 'inside'
     | 'outside'
     | undefined = 'cover',
-  width: number | undefined = 800,
-  height: number | undefined | null = 800
+  width: number | undefined = 500,
+  height: number | undefined | null = 500
 ) => {
   const file = files[0]
   if (!file) throw { error: 'file not uploaded' }

@@ -5,6 +5,7 @@ import {
   category,
   certificate,
   db,
+  discover,
   file,
   headline,
   post,
@@ -206,6 +207,8 @@ export const getSlides = async () =>
   await db.select().from(slider).orderBy(asc(slider.order))
 
 export const getHeadLine = async () => await db.select().from(headline)
+
+export const getDiscover = async () => await db.select().from(discover)
 
 export const getCertificates = async () => await db.select().from(certificate)
 

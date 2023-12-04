@@ -5,6 +5,7 @@ import {
   category,
   certificate,
   db,
+  discover,
   file,
   headline,
   post,
@@ -16,6 +17,7 @@ import {
 import {
   Category,
   Cert,
+  Discover,
   Headline,
   Post,
   Product,
@@ -560,6 +562,73 @@ export const createFile = async (formData: FormData) => {
     )
     await db.insert(file).values({ name: img.name, path })
     revalidatePath(routes.addFile)
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const createDiscover = async (formData: FormData) => {
+  const [values, files] = getFormValues<Discover>(formData)
+
+  try {
+    const thumbnails: string[] = []
+    if (files && files?.length)
+      for (const file of files) {
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const { path } = await writeFile([file], buffer, sharp(buffer))
+        thumbnails.push(path)
+      }
+
+    const [thumbnail, banner] = thumbnails
+    values.thumbnail = thumbnail
+    values.background = banner
+
+    await db.insert(discover).values(values)
+    revalidatePath(routes.addDiscover)
+    revalidatePath(`${routes.home}[lang]`, 'page')
+    return { success: 'added' }
+  } catch (e) {
+    return {
+      error: 'something went wrong',
+    }
+  }
+}
+
+export const editDiscover = async (formData: FormData) => {
+  const [values, files] = getFormValues<Discover>(formData)
+  try {
+    const thumbnails: string[] = []
+    if (files && files?.length)
+      for (const file of files) {
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const { path } = await writeFile([file], buffer, sharp(buffer))
+        thumbnails.push(path)
+      }
+
+    const updateValues = {} as Partial<Discover>
+    ;(
+      Object.entries(values) as [keyof Discover, Discover[keyof Discover]][]
+    ).forEach(([key, val]) => {
+      if (val) (updateValues as Record<string, string | number>)[key] = val
+    })
+    const thumbnail =
+      typeof formData.get('thumbnail') === 'string' ? undefined : thumbnails[0]
+    const background = thumbnail ? thumbnails[1] : thumbnails[0]
+
+    await db
+      .update(discover)
+      .set({
+        ...updateValues,
+        ...(thumbnail ? { thumbnail } : {}),
+        ...(background ? { background } : {}),
+      })
+      .where(eq(discover.id, Number(formData.get('id'))))
+
+    revalidatePath(routes.addDiscover)
+    revalidatePath(`${routes.home}[lang]`, 'page')
+    return { success: true }
   } catch (e) {
     return {
       error: 'something went wrong',

@@ -102,3 +102,29 @@ export const file = sqliteTable('file', {
   name: text('name').notNull(),
   path: text('path').notNull().unique(),
 })
+
+export const discover = sqliteTable('discover', {
+  id: int('id').primaryKey(),
+  heading_eng: text('heading_eng').notNull().unique(),
+  heading_geo: text('heading_geo').notNull().unique(),
+  subheading_top_eng: text('subheading_top_eng').notNull().unique(),
+  subheading_top_geo: text('subheading_top_geo').notNull().unique(),
+  subheading_bottom_eng: text('subheading_bottom_eng').notNull().unique(),
+  subheading_bottom_geo: text('subheading_bottom_geo').notNull().unique(),
+  desc_top_eng: text('desc_top_eng').notNull().unique(),
+  desc_top_geo: text('desc_top_geo').notNull().unique(),
+  desc_bottom_eng: text('desc_bottom_eng').notNull().unique(),
+  desc_bottom_geo: text('desc_bottom_geo').notNull().unique(),
+  thumbnail: text('thumbnail').notNull(),
+  background: text('background').notNull(),
+  subcategoryId: int('subcategoryId').notNull(),
+})
+
+export const homeCategory = sqliteTable('home_category', {
+  id: int('id').primaryKey(),
+  categoryId: int('categoryId').notNull(),
+  color: text('color').notNull(),
+  thumbnail: text('thumbnail').notNull(),
+  heading_eng: text('heading_eng').notNull().unique(),
+  heading_geo: text('heading_geo').notNull().unique(),
+})
