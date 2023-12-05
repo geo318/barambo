@@ -19,7 +19,7 @@ Barambo is a Georgian chocolate manufacturer, specializing in high-quality choco
 
 ## Technologies Used
 
-- [Next.js 14](https://nextjs.org/) - React framework for frontend (using RSC) ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
+- [Next.js 14](https://nextjs.org/) - React framework (using RSC) ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
 
 ### Frontend
 
