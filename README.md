@@ -1,5 +1,3 @@
-# Barambo Website
-
 ![Barambo Logo](/public/logo.svg)
 
 Barambo is a Georgian chocolate manufacturer, specializing in high-quality chocolates available in Georgia and various international markets, including the USA and China.
