@@ -54,7 +54,6 @@ git clone https://github.com/geo318/barambo.git
 cd barambo
 cd express
 npm install
-npm start
 ```
 
 ```bash
@@ -86,8 +85,8 @@ The structure of the project is organized as follows:
 ```
 barambo/
 ├── .gitignore
-├── .env
 ├── .env.local
+├── .env.local.example
 ├── package.json
 ├── tsconfig.json
 ├── app/
