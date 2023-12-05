@@ -19,9 +19,10 @@ Barambo is a Georgian chocolate manufacturer, specializing in high-quality choco
 
 ## Technologies Used
 
+- [Next.js 14](https://nextjs.org/) - React framework for frontend (using RSC) ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
+
 ### Frontend
 
-- [Next.js 14](https://nextjs.org/) - React framework for frontend (using RSC) ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
 - [React Query](https://react-query.tanstack.com/) - For handling data fetching, including infinite scrolling and search functionality ![React Query](https://img.shields.io/badge/React%20Query-latest-blue?logo=react)
 - [Swiper.js](https://swiperjs.com/) - Swiping carousel for slides.
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework. ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-latest-blue?logo=tailwind-css)
@@ -29,13 +30,12 @@ Barambo is a Georgian chocolate manufacturer, specializing in high-quality choco
 - [TinyMCE](https://www.tiny.cloud/) - WYSIWYG editor for content creation.
 - [React Hook Form](https://react-hook-form.com/) - Form handling in React ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-^7.0-purple?logo=react)
 - [React Player](https://cookpete.com/react-player/) - For displaying recipe videos.
+- [Zod](https://github.com/colinhacks/zod) - Schema validation ![Zod](https://img.shields.io/badge/Zod-latest-purple)
 
 ### Backend
 
-- [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction) - Handling server-side actions and some queries. ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
 - [Express](https://expressjs.com/) - Serving images and additional backend functionality. ![Express](https://img.shields.io/badge/Express-latest-green?logo=express)
 - [Drizzle ORM](https://github.com/kriasoft/node-drizzle) - MySQL ORM (Using Better SQLite3).
-- [Zod](https://github.com/colinhacks/zod) - Schema validation ![Zod](https://img.shields.io/badge/Zod-latest-purple)
 - [Axios](https://axios-http.com/) - HTTP client for making requests. ![Axios](https://img.shields.io/badge/Axios-latest-blue?logo=axios)
 - [Sharp](https://sharp.pixelplumbing.com/) - Image optimization library.
 - [Nodemailer](https://nodemailer.com/) - Sending emails. ![Nodemailer](https://img.shields.io/badge/Nodemailer-latest-blue?logo=nodemailer)
