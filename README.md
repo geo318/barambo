@@ -8,8 +8,7 @@ Barambo is a Georgian chocolate manufacturer, specializing in high-quality choco
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Project Structure](#project-structure)
 
 ## Features
 
