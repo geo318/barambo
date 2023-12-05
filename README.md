@@ -21,11 +21,10 @@ Barambo is a Georgian chocolate manufacturer, specializing in high-quality choco
 
 ### Frontend
 
-- [Next.js 14](https://nextjs.org/) - React framework for frontend.
-- [React Server Components](https://reactjs.org/docs/concurrent-mode-suspense.html) - Leveraging the latest React features for efficient server rendering.
-- [React Query](https://react-query.tanstack.com/) - For handling data fetching, including infinite scrolling and search functionality.
+- [Next.js 14](https://nextjs.org/) - React framework for frontend (using RSC) ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
+- [React Query](https://react-query.tanstack.com/) - For handling data fetching, including infinite scrolling and search functionality ![React Query](https://img.shields.io/badge/React%20Query-latest-blue?logo=react)
 - [Swiper.js](https://swiperjs.com/) - Swiping carousel for slides.
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework.
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework. ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-latest-blue?logo=tailwind-css)
 - [Tailwind Merge](https://www.npmjs.com/package/tailwindcss-merge) - Merging Tailwind CSS styles.
 - [TinyMCE](https://www.tiny.cloud/) - WYSIWYG editor for content creation.
 - [React Hook Form](https://react-hook-form.com/) - Form handling in React.
@@ -33,13 +32,13 @@ Barambo is a Georgian chocolate manufacturer, specializing in high-quality choco
 
 ### Backend
 
-- [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction) - Handling server-side actions and some queries.
-- [Express](https://expressjs.com/) - Serving images and additional backend functionality.
+- [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction) - Handling server-side actions and some queries. ![Next.js](https://img.shields.io/badge/Next.js-14.0.3-blue?logo=next.js)
+- [Express](https://expressjs.com/) - Serving images and additional backend functionality. ![Express](https://img.shields.io/badge/Express-latest-green?logo=express)
 - [Drizzle ORM](https://github.com/kriasoft/node-drizzle) - MySQL ORM (Using Better SQLite3).
 - [Zod](https://github.com/colinhacks/zod) - Schema validation.
-- [Axios](https://axios-http.com/) - HTTP client for making requests.
+- [Axios](https://axios-http.com/) - HTTP client for making requests. ![Axios](https://img.shields.io/badge/Axios-latest-blue?logo=axios)
 - [Sharp](https://sharp.pixelplumbing.com/) - Image optimization library.
-- [Nodemailer](https://nodemailer.com/) - Sending emails.
+- [Nodemailer](https://nodemailer.com/) - Sending emails. ![Nodemailer](https://img.shields.io/badge/Nodemailer-latest-blue?logo=nodemailer)
 
 ## Installation
 
