@@ -7,7 +7,7 @@ import {
   HeadlineForm,
   SearchParamsWrapper,
 } from '/components'
-import { createHeadline, editHeadline, getHeadLine } from '/server/actions'
+import { createHeadline, editHeadline, getHeadLine } from '/server'
 import { SubCategory } from '/types'
 import Link from 'next/link'
 

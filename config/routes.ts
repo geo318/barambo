@@ -16,7 +16,7 @@ export const routes = {
   addHeadline: '/admin/headline',
   addFile: '/admin/upload',
   addDiscover: '/admin/discover',
-  homeCategory: '/admin/home-category',
+  addHomeCategory: '/admin/home-category',
 }
 
 export const staticPath = 'express/uploads' as const

@@ -95,6 +95,7 @@ export const certificate = sqliteTable('certificate', {
   title_geo: text('title_geo').notNull().unique(),
   desc_eng: text('desc_eng').notNull().unique(),
   desc_geo: text('desc_geo').notNull().unique(),
+  order: integer('order').$defaultFn(() => 0),
 })
 
 export const file = sqliteTable('file', {

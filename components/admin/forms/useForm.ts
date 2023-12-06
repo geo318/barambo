@@ -20,7 +20,7 @@ export const useForm = (
       formData.append(key, value as string | Blob)
     })
     const res = await action(formData)
-    if (res.error) setMessage({ error: res.error, success: '' })
+    if (res.error) setMessage({ error: `${res.error}`, success: '' })
     if (res.success) {
       setMessage({ error: '', success: 'Success' })
       ref?.current?.reset()
@@ -32,7 +32,7 @@ export const useForm = (
     if (!res)
       return setMessage({ error: 'no response, error deleting', success: '' })
 
-    if (res.error) setMessage({ error: res.error, success: '' })
+    if (res.error) setMessage({ error: `${res.error}`, success: '' })
     if (res.success) {
       setMessage({ error: '', success: 'Success' })
       ref?.current?.reset()

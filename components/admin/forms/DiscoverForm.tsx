@@ -16,7 +16,7 @@ export const DiscoverForm = ({
   const defaults = defaultValues?.find((c) => c.id === Number(param))
   const checked = subCategory?.find(
     (e) => e.id === defaults?.subcategoryId
-  )?.categoryId
+  )?.id
 
   return (
     <FormWrapper
@@ -39,6 +39,7 @@ export const DiscoverForm = ({
       <Input name='desc_bottom_geo' label='Desc Bottom Geo' />
       <Input name='thumbnail' label='Thumbnail' type='file' />
       <Input name='background' label='Background' type='file' />
+      <Input name='button' label='Action Button' />
       <Select
         name='subcategoryId'
         placeholder='choose category'

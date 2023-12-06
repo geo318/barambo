@@ -11,9 +11,9 @@ import {
 import { routes } from '/config'
 import { FormContextProvider } from '/context'
 import {
-  createSubCategory,
+  createSubcategory,
   deleteSubcategory,
-  editSubCategory,
+  editSubcategory,
   getCategories,
   getSubCategories,
 } from '/server'
@@ -35,7 +35,7 @@ export default async function SubCategory() {
           <section className='flex flex-col max-w-md mx-auto'>
             <Suspense fallback={<Spinner />}>
               <CategoryForm
-                action={createSubCategory}
+                action={createSubcategory}
                 subCategory={subCategories}
                 main={categories}
               />
@@ -62,7 +62,7 @@ export default async function SubCategory() {
                 <CloseModal closeKey={routes.addSubCategory} className='p-0' />
               </div>
               <CategoryForm
-                action={editSubCategory}
+                action={editSubcategory}
                 deleteAction={deleteSubcategory}
                 main={categories}
                 subCategory={subCategories}

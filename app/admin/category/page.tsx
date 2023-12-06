@@ -10,7 +10,7 @@ import {
 } from '/components'
 import { routes } from '/config'
 import {
-  createMainCategory,
+  createCategory,
   deleteCategory,
   getCategories,
   editCategory,
@@ -29,7 +29,7 @@ export default async function Category() {
         <div className='flex'>
           <section className='flex flex-col max-w-md mx-auto'>
             <Suspense fallback={<Spinner />}>
-              <CategoryForm action={createMainCategory} />
+              <CategoryForm action={createCategory} />
             </Suspense>
           </section>
         </div>

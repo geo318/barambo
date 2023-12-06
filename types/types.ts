@@ -23,7 +23,10 @@ export type ContactForm = z.infer<typeof contactSchema>
 
 export type FormAction = (
   formData: FormData
-) => Promise<{ success?: boolean | string; error?: string }>
+) => Promise<{
+  success?: boolean | string | number
+  error?: string | boolean | number
+}>
 
 export type Entries<T extends Record<string, any>> = [keyof T, T[keyof T]][]
 export type FormValues = Record<
