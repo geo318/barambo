@@ -61,9 +61,7 @@ export default async function HomeCategory() {
             <div className='flex flex-col bg-white max-w-lg mx-auto mt-20 py-5 rounded-xl'>
               <div className='max-h-[80vh] overflow-y-auto px-10 pt-2 pb-10'>
                 <div className='flex py-3'>
-                  <h3 className='font-lg font-bold'>
-                    Edit homepage Category section{' '}
-                  </h3>
+                  <h3 className='font-lg font-bold'>Edit Discovery section </h3>
                   <CloseModal className='p-0' />
                 </div>
                 <HomeCategoryForm
