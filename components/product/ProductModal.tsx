@@ -17,7 +17,7 @@ export async function ProductModal() {
       <div>
         <div className='z-50 block lg:p-9 p-3 relative bg-white lg:rounded-[3rem] rounded-xl xl:mx-48 lg:mx-28 max-h-[80vh] overflow-y-auto mx-10 max-w-[110rem] mt-20'>
           <div className='flex'>
-            <H tag='h3' size='lg' className='lg:mt-5 !text-lg'>
+            <H tag='h3' size='md' className='lg:mt-5'>
               {product[`title_${getLangKey(lang)}`]}
             </H>
             <CloseModal closeKey={`/${lang}/product`} />
