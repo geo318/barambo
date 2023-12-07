@@ -1,9 +1,9 @@
 'use server'
 
 import Link from 'next/link'
-import { Anima, Arc, Button, H, Section } from '..'
+import { Anima, Arc, Button, H, Section } from '/components'
 import { getDiscover } from '/server'
-import { getImage, getLangKey, sleep } from '/utils'
+import { getImage, getLangKey } from '/utils'
 import { DiscoverText, Locale } from '/types'
 
 export async function Discover({
@@ -14,8 +14,6 @@ export async function Discover({
   lang: Locale
 }) {
   const discover = (await getDiscover())[0]
-
-  await sleep(3000)
 
   return (
     <Section className='flex lg:flex-row flex-col items-center justify-center align-middle gap-[4vw] 3xl:gap-20'>
@@ -30,9 +28,7 @@ export async function Discover({
             href={`/${lang}/product?subcategory=${discover.subcategoryId}`}
             className='hidden lg:block'
           >
-            <Button className='w-36 h-12 bg-white'>
-              {text.action}
-            </Button>
+            <Button className='w-36 h-12 bg-white'>{text.action}</Button>
           </Link>
         </Anima>
       </div>
@@ -66,16 +62,20 @@ export async function Discover({
 
 export const DiscoverSkeleton = () => (
   <Section className='flex lg:flex-row flex-col items-center justify-center align-middle gap-[4vw] 3xl:gap-20'>
-    <div className='lg:basis-1/3 flex flex-col h-full lg:self-stretch flex-1 lg:aspect-square'>
+    <div className='lg:basis-1/3 flex flex-col h-full lg:self-stretch flex-1 lg:aspect-square gap-5'>
       <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md mb-4 mt-auto' />
       <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md mb-auto' />
     </div>
     <div className='animate-pulse h-1/3 w-1/3 aspect-square bg-zinc-200 rounded-t-[30rem] rounded-b-[3rem]' />
     <section className='basis-1/3 lg:aspect-square flex gap-5 flex-col ml-auto justify-around'>
-      <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md mt-auto' />
-      <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md' />
-      <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md' />
-      <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md mb-auto' />
+      <div className='flex flex-col gap-5'>
+        <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md mt-auto' />
+        <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md' />
+      </div>
+      <div className='flex flex-col gap-5'>
+        <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md' />
+        <div className='animate-pulse h-10 w-1/2 bg-zinc-200 rounded-md mb-auto' />
+      </div>
     </section>
   </Section>
 )

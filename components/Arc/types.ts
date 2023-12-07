@@ -7,4 +7,5 @@ export type ArcProps = {
   className?: string
   arch?: StaticImageData | string
   imgClassName?: string
+  style?: React.CSSProperties
 }

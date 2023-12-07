@@ -12,17 +12,17 @@ import {
   BlogSection,
   ReceptSection,
   ReceptSkeleton,
-  BlogSectionSkeleton,
   DiscoverSkeleton,
+  HomeCategorySection,
+  BlogSectionSkeleton,
+  HomeCategorySkeleton,
 } from '/components'
 import Image from 'next/image'
 import Link from 'next/link'
-import { chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
 import { Suspense } from 'react'
-
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
   return (
@@ -51,34 +51,12 @@ export default async function Home({ params: { lang } }: PageProps) {
             <Stars className='lg:block hidden' />
           </Anima>
         </div>
-        <div className='flex justify-around lg:mt-14 mt-4 gap-5'>
-          <Anima
-            animationStart={['translate-y-20', 'scale-80', 'opacity-30']}
-            animationEnd={['translate-y-0', 'scale-100', 'opacity-100']}
-          >
-            <Link href={`${lang}/product?category=2`}>
-              <Arc
-                src={chocolate}
-                heading={home.arc.titles[0]}
-                className='bg-dark-brown'
-              />
-            </Link>
-          </Anima>
-          <Anima
-            animationStart={['translate-y-20', 'scale-80', 'opacity-30']}
-            animationEnd={['translate-y-0', 'scale-100', 'opacity-100']}
-          >
-            <Link href={`${lang}/product?category=3`}>
-              <Arc
-                src={iceCream}
-                heading={home.arc.titles[1]}
-                className='bg-light-brown translate-y-'
-                imgClassName='lg:ml-5 ml-0'
-              />
-            </Link>
-          </Anima>
-        </div>
+
+        <Suspense fallback={<HomeCategorySkeleton />}>
+          <HomeCategorySection lang={lang} />
+        </Suspense>
       </Section>
+
       <Section className='flex flex-col lg:gap-16 gap-4'>
         <Anima>
           <H tag='h2' size='md'>

@@ -7,6 +7,7 @@ export const Arc: React.FC<ArcProps> = ({
   sub,
   src,
   arch,
+  style,
   heading,
   className,
   imgClassName,
@@ -18,6 +19,7 @@ export const Arc: React.FC<ArcProps> = ({
           'aspect-square w-full max-w-[25rem] rounded-t-[30rem] rounded-b-[3rem] flex items-end justify-center relative',
           className
         )}
+        style={style}
       >
         {arch && (
           <Image

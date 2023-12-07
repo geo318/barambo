@@ -29,8 +29,8 @@ export const HomeCategoryForm = ({
       {param && <input name='id' defaultValue={param} hidden readOnly />}
       <Input name='heading_eng' label='Title Eng' />
       <Input name='heading_geo' label='Title Geo' />
-      <Input name='thumbnail' label='Subtitle Eng' type='file' />
-      <Input name='color' label='Subtitle Geo' />
+      <Input name='thumbnail' label='Image' type='file' />
+      <Input name='color' label='Color' />
       <Select
         name='categoryId'
         placeholder='choose category'
