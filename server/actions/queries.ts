@@ -214,7 +214,8 @@ export const getDiscover = async () => await db.select().from(discover)
 export const getHomeCategories = async () =>
   await db.select().from(homeCategory)
 
-export const getCertificates = async () => await db.select().from(certificate)
+export const getCertificates = async () =>
+  await db.select().from(certificate).orderBy(asc(certificate.order))
 
 export const getFiles = async () => await db.select().from(file)
 
