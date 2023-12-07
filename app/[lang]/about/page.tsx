@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import { Cert, H, Map, Section } from '/components'
+import { CertSkeleton, CertSlider, H, Map, Section } from '/components'
 import { getDictionary } from '/lib'
 import { chocolate_about, ice_cream_about } from '/public'
 import { PageProps } from '/types'
+import { Suspense } from 'react'
 
 export default async function About({ params: { lang } }: PageProps) {
   const { about, home } = await getDictionary(lang)
@@ -28,7 +29,7 @@ export default async function About({ params: { lang } }: PageProps) {
               <Image
                 src={chocolate_about}
                 alt=''
-                className='max-w-full max-h-full object-contain top-10 sticky'
+                className='max-w-full max-h-full object-contain top-10'
               />
             </div>
           </div>
@@ -41,7 +42,7 @@ export default async function About({ params: { lang } }: PageProps) {
         </H>
         <div className='flex gap-[7%] lg:flex-row flex-col'>
           <div className='basis-1/3 shrink-0 lg:mb-0 mb-4'>
-            <Image src={ice_cream_about} alt='' className='sticky top-10' />
+            <Image src={ice_cream_about} alt='' className='top-10' />
           </div>
           <div className='flex flex-col lg:gap-10 gap-4 font-normal lg:text-lg text-md text-secondary'>
             {about.mission.p.map((p, index) => (
@@ -50,7 +51,9 @@ export default async function About({ params: { lang } }: PageProps) {
           </div>
         </div>
       </Section>
-      <Cert text={home.certificates} />
+      <Suspense fallback={<CertSkeleton />}>
+        <CertSlider lang={lang} text={home.certificates} />
+      </Suspense>
 
       <Section>
         <Map text={home.export} />

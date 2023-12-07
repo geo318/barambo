@@ -4,7 +4,6 @@ import { H, Section } from '..'
 import { Cert } from './Cert'
 import { getCertificates } from '/server'
 import { CertText, Locale } from '/types'
-import { sleep } from '/utils'
 
 export async function CertSlider({
   lang,
