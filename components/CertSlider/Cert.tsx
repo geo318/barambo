@@ -1,6 +1,6 @@
 'use client'
 
-import { CertSkeleton, H, Section, Spinner } from '/components'
+import { H, Section } from '/components'
 import { CertText, Certificate, Locale } from '/types'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
