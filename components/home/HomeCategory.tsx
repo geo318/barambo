@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Anima, Arc } from '/components'
 import { getHomeCategories } from '/server'
-import { getImage, getLangKey, sleep } from '/utils'
+import { getImage, getLangKey } from '/utils'
 import { Locale } from '/types'
 
 export async function HomeCategorySection({ lang }: { lang: Locale }) {

@@ -1,20 +1,20 @@
 import {
   H,
-  Arc,
   Map,
-  Cert,
   Stars,
   Anima,
   Button,
   Section,
   Discover,
   MainSlider,
+  CertSlider,
   BlogSection,
+  CertSkeleton,
   ReceptSection,
   ReceptSkeleton,
   DiscoverSkeleton,
-  HomeCategorySection,
   BlogSectionSkeleton,
+  HomeCategorySection,
   HomeCategorySkeleton,
 } from '/components'
 import Image from 'next/image'
@@ -23,8 +23,10 @@ import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
 import { Suspense } from 'react'
+
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
+
   return (
     <main className='flex min-h-screen flex-col lg:gap-36 gap-7'>
       <div className='bg-[#FBF6F2] w-full lg:pt-24 pt-7 pb-7 lg:pb-0'>
@@ -108,7 +110,10 @@ export default async function Home({ params: { lang } }: PageProps) {
         <Discover lang={lang} text={home.discover} />
       </Suspense>
 
-      <Cert text={home.certificates} />
+      <Suspense fallback={<CertSkeleton />}>
+        <CertSlider lang={lang} text={home.certificates} />
+      </Suspense>
+
       <Section className='flex flex-col gap-[2rem]'>
         <H tag='h5' className='mt-auto' size='md'>
           {home.blog.title}

@@ -34,3 +34,4 @@ export type Headline = z.infer<typeof insetHeadlineSchema>
 export type Cert = z.infer<typeof insertCertificateSchema>
 export type Discover = z.infer<typeof insertDiscoverSchema>
 export type HomeCategory = z.infer<typeof insertHomeCategorySchema>
+export type Certificate = z.infer<typeof insertCertificateSchema>
