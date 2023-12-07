@@ -7,11 +7,7 @@ import {
   SearchParamsWrapper,
   HomeCategoryForm,
 } from '/components'
-import {
-  createHomeCategory,
-  getCategories,
-  getHomeCategories,
-} from '/server'
+import { createHomeCategory, editHomeCategory, getCategories, getHomeCategories } from '/server'
 import Link from 'next/link'
 
 export default async function HomeCategory() {
@@ -22,17 +18,19 @@ export default async function HomeCategory() {
 
   return (
     <div className='grid grid-cols-2 gap-2'>
-      {!HomeCategory ||
-        (!HomeCategory?.length && (
-          <section className='pb-10'>
-            <H tag='h1' size='md' className='mb-20 text-center'>
-              Edit Homepage Categories
-            </H>
-            <Suspense fallback={<Spinner />}>
-              <HomeCategoryForm action={createHomeCategory} category={categories} />
-            </Suspense>
-          </section>
-        ))}
+      {HomeCategory?.length < 2 && (
+        <section className='pb-10'>
+          <H tag='h1' size='md' className='mb-20 text-center'>
+            Edit Homepage Categories
+          </H>
+          <Suspense fallback={<Spinner />}>
+            <HomeCategoryForm
+              action={createHomeCategory}
+              category={categories}
+            />
+          </Suspense>
+        </section>
+      )}
 
       <section>
         <H tag='h1' size='md' className='mb-20 text-center'>
@@ -45,7 +43,7 @@ export default async function HomeCategory() {
                 key={h.id}
                 className='flex flex-col gap-3 border border-slate-400 rounded-lg hover:shadow-lg p-5'
               >
-                Edit
+                {h.heading_eng}
                 <div className='flex gap-3 ml-auto'>
                   <Link href={`?edit=${h.id}`}>Edit</Link>
                 </div>
@@ -65,7 +63,7 @@ export default async function HomeCategory() {
                   <CloseModal className='p-0' />
                 </div>
                 <HomeCategoryForm
-                  action={createHomeCategory}
+                  action={editHomeCategory}
                   category={categories}
                   defaultValues={HomeCategory}
                   query='edit'
