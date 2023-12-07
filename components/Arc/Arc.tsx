@@ -22,13 +22,17 @@ export const Arc: React.FC<ArcProps> = ({
         {arch && (
           <Image
             src={arch}
-            alt={arch.src}
+            alt='arch image'
             className='inset-0 object-contain h-full w-full absolute'
+            width={500}
+            height={500}
           />
         )}
         <Image
           src={src}
-          alt={src.src}
+          alt='background'
+          width={500}
+          height={500}
           className={twMerge('lg:scale-[1.35] scale-110 mb-5', imgClassName)}
         />
       </div>

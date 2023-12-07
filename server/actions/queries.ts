@@ -211,7 +211,8 @@ export const getHeadLine = async () => await db.select().from(headline)
 
 export const getDiscover = async () => await db.select().from(discover)
 
-export const getHomeCategories = async () => await db.select().from(homeCategory)
+export const getHomeCategories = async () =>
+  await db.select().from(homeCategory)
 
 export const getCertificates = async () => await db.select().from(certificate)
 

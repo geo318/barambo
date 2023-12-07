@@ -4,22 +4,24 @@ import {
   Map,
   Cert,
   Stars,
+  Anima,
   Button,
   Section,
+  Discover,
   MainSlider,
   BlogSection,
   ReceptSection,
   ReceptSkeleton,
   BlogSectionSkeleton,
-  Anima,
+  DiscoverSkeleton,
 } from '/components'
-import { barambinoArch, barambinos2, chocolate, iceCream } from '/public'
+import Image from 'next/image'
+import Link from 'next/link'
+import { chocolate, iceCream } from '/public'
 import { brands } from '/config'
 import { PageProps } from '/types'
 import { getDictionary } from '/lib'
 import { Suspense } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export default async function Home({ params: { lang } }: PageProps) {
   const { home } = await getDictionary(lang)
@@ -85,11 +87,11 @@ export default async function Home({ params: { lang } }: PageProps) {
         </Anima>
         <div className='grid grid-cols-3 lg:gap-[4%] gap-2'>
           {brands.map(({ name, img, link }) => (
-            <Anima key={name}>
-              <Link
-                href={`/${lang}${link}`}
-                className='lg:rounded-[3rem] rounded-2xl bg-gray bg-opacity-30 flex items-center justify-center lg:py-14 py-3'
-              >
+            <Anima
+              key={name}
+              className='lg:rounded-[3rem] rounded-2xl bg-gray bg-opacity-30 flex items-center justify-center lg:py-14 py-3'
+            >
+              <Link href={`/${lang}${link}`}>
                 <Image src={img} alt={name} className='px-4 lg:px-0' />
               </Link>
             </Anima>
@@ -123,42 +125,11 @@ export default async function Home({ params: { lang } }: PageProps) {
           </Suspense>
         </Section>
       </div>
-      <Section className='flex lg:flex-row flex-col items-center justify-center align-middle gap-[4vw] 3xl:gap-20'>
-        <div className='lg:basis-1/3 flex flex-col h-full lg:self-stretch flex-1 lg:aspect-square'>
-          <Anima>
-            <H tag='h5' className='mt-auto' size='lg'>
-              {home.discover.heading}
-            </H>
-          </Anima>
-          <Anima className='my-auto mr-auto'>
-            <Link
-              href={`/${lang}/product?subcategory=10`}
-              className='hidden lg:block'
-            >
-              <Button className='w-36 h-12 bg-white'>
-                {home.discover.action}
-              </Button>
-            </Link>
-          </Anima>
-        </div>
-        <Arc
-          src={barambinos2}
-          arch={barambinoArch}
-          imgClassName='-mb-5 lg:scale-[1.2]'
-        />
-        <section className='basis-1/3 lg:aspect-square flex gap-5 flex-col ml-auto justify-around'>
-          {home.discover.discover.map(({ title, description }) => (
-            <Anima key={title}>
-              <div>
-                <h6 className='lg:text-2xl text-md font-medium'>{title}</h6>
-                <p className='text-[#827C74] lg:text-lg text-xs lg:mt-3'>
-                  {description}
-                </p>
-              </div>
-            </Anima>
-          ))}
-        </section>
-      </Section>
+
+      <Suspense fallback={<DiscoverSkeleton />}>
+        <Discover lang={lang} text={home.discover} />
+      </Suspense>
+
       <Cert text={home.certificates} />
       <Section className='flex flex-col gap-[2rem]'>
         <H tag='h5' className='mt-auto' size='md'>
