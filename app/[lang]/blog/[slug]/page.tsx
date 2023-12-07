@@ -51,7 +51,7 @@ export default async function Post({
             {post[`title_${getLangKey(lang)}`]}
           </H>
           <div className='flex gap-[6%] mt-16'>
-            <div className='flex gap-3 justify-center'>
+            <div className='gap-3 justify-center lg:flex hidden'>
               <div className='border-b border-[#C4C4C4] w-10 self-start mt-3' />
             </div>
 
@@ -65,7 +65,7 @@ export default async function Post({
             </div>
           </div>
         </article>
-        <section className='grid grid-cols-4 gap-6 mt-36'>
+        <section className='grid lg:grid-cols-4 grid-cols-2 gap-6 mt-36'>
           <Suspense fallback={<SimilarPostsSkeleton />}>
             <SimilarPosts lang={lang} id={post.id}>
               <SimilarPostsSkeleton />
