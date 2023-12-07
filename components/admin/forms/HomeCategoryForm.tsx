@@ -14,9 +14,7 @@ export const HomeCategoryForm = ({
 }: HomeCategoryProps & { category: Category[] }) => {
   const { MessageBox, handleSubmit, param, ref } = useForm(action, query)
   const defaults = defaultValues?.find((c) => c.id === Number(param))
-  const checked = category?.find(
-    (e) => e.id === defaults?.categoryId
-  )?.id
+  const checked = category?.find((e) => e.id === defaults?.categoryId)?.id
 
   return (
     <FormWrapper
@@ -30,7 +28,7 @@ export const HomeCategoryForm = ({
       <Input name='heading_eng' label='Title Eng' />
       <Input name='heading_geo' label='Title Geo' />
       <Input name='thumbnail' label='Image' type='file' />
-      <Input name='color' label='Color' />
+      <Input name='color' label='Color' placeholder='#ebebeb' />
       <Select
         name='categoryId'
         placeholder='choose category'
