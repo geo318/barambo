@@ -24,7 +24,7 @@ export const createModel = async ({
     const mappedEntries = await prepareFormData(formData, imgOptions)
     if ('error' in mappedEntries) return { error: mappedEntries.error }
 
-    const res = await db.insert(model).values({ ...mappedEntries })
+    const res = await db.insert(model).values(mappedEntries)
     revalidate.forEach((path) => revalidatePath(path, 'page'))
 
     const subCategoryIds = formData.get('categoryIds')
@@ -86,8 +86,7 @@ export const updateModel = async ({
     const updateValues = await prepareFormData(formData, imgOptions)
     if ('error' in updateValues) return { error: updateValues.error }
 
-    console.log(updateValues)
-    const res = await db
+    await db
       .update(model)
       .set(updateValues)
       .where(eq(model.id, Number(formData.get('id'))))
@@ -95,7 +94,6 @@ export const updateModel = async ({
     revalidate.forEach((path) => revalidatePath(path, 'page'))
     return { success: 'record updated' }
   } catch (e) {
-    console.log(e)
     return {
       error: 'error updating record',
     }
