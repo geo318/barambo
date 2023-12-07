@@ -21,7 +21,7 @@ export const Sidebar = (props: NavbarProps) => {
       )}
       <aside
         className={twMerge(
-          isOpen ? 'translate-y-[5rem]' : 'translate-y-full',
+          isOpen ? 'translate-y-[5rem]' : 'translate-y-full opacity-0 pointer-events-none select-none',
           'flex flex-col fixed inset-0 bg-[#F5EFEC] p-5 z-50 shadow-md transition-transform'
         )}
       >

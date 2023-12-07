@@ -127,11 +127,12 @@ header img {
 .fb_dialog_content iframe:first-child {
   opacity: 0;
 }
-
-.slide-down {
-  animation: slide-down 500ms forwards ease-in;
-  animation-delay: 500ms;
-  translate: 0 -32px;
+@media screen and (min-width: 1000px) {
+  .slide-down {
+    animation: slide-down 500ms forwards ease-in;
+    animation-delay: 500ms;
+    translate: 0 -32px;
+  }
 }
 
 @keyframes slide-down {
