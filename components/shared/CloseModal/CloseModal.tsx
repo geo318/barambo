@@ -14,7 +14,7 @@ export const CloseModal = ({ closeKey = '', className = '' }) => {
 
   return (
     <div
-      className={twMerge('p-2 cursor-pointer ml-auto', className)}
+      className={twMerge('p-2 cursor-pointer ml-auto mb-auto', className)}
       onClick={toggleModal}
     >
       <Close />
