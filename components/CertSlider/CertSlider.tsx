@@ -14,7 +14,7 @@ export async function CertSlider({
   text: CertText
 }) {
   const certificates = await getCertificates()
-  await sleep(10000)
+
   return (
     <Cert certificates={certificates} lang={lang} text={text}>
       <CertSkeleton />

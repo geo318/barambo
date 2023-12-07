@@ -67,14 +67,15 @@ export default async function Home({ params: { lang } }: PageProps) {
         </Anima>
         <div className='grid grid-cols-3 lg:gap-[4%] gap-2'>
           {brands.map(({ name, img, link }) => (
-            <Anima
+            <Link
               key={name}
-              className='lg:rounded-[3rem] rounded-2xl bg-gray bg-opacity-30 flex items-center justify-center lg:py-14 py-3'
+              href={`/${lang}${link}`}
+              className='lg:rounded-[3rem] rounded-2xl bg-gray bg-opacity-30 flex items-center justify-center lg:py-14 py-3 hover:scale-105 transition-all duration-200'
             >
-              <Link href={`/${lang}${link}`}>
+              <Anima>
                 <Image src={img} alt={name} className='px-4 lg:px-0' />
-              </Link>
-            </Anima>
+              </Anima>{' '}
+            </Link>
           ))}
         </div>
       </Section>
