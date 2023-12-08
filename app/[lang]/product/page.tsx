@@ -18,8 +18,14 @@ import {
   dehydrate,
 } from '@tanstack/react-query'
 import { Suspense } from 'react'
+import { Metadata } from 'next'
 
 const queryClient = new QueryClient()
+
+export const metadata: Metadata = {
+  title: 'Barambo products',
+  description: 'Explore variety of Barambo products',
+}
 
 export default async function Product({
   params: { lang },

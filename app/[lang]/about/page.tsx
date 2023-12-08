@@ -4,6 +4,12 @@ import { getDictionary } from '/lib'
 import { chocolate_about, ice_cream_about } from '/public'
 import { PageProps } from '/types'
 import { Suspense } from 'react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About us',
+  description: 'Learn more about Barambo',
+}
 
 export default async function About({ params: { lang } }: PageProps) {
   const { about, home } = await getDictionary(lang)

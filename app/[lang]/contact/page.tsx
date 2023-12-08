@@ -12,6 +12,12 @@ import {
 } from '/components'
 import { getDictionary } from '/lib'
 import { Locale } from '/types'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact us',
+  description: 'Contact us for any questions or suggestions',
+}
 
 export default async function Contact({
   params: { lang },

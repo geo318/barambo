@@ -2,6 +2,12 @@ import { Suspense } from 'react'
 import { ExcursionForm, H, Section, Spinner } from '/components'
 import { getDictionary } from '/lib'
 import { Locale } from '/types'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Excursion',
+  description: 'Your can submit your excursion request here',
+}
 
 export default async function Excursion({
   params: { lang },

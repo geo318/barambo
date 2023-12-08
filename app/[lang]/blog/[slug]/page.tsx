@@ -37,15 +37,15 @@ export default async function Post({
             </Suspense>
           </ul>
         </section>
-        <Image
-          src={
-            checkStringFalsy(post.banner) ? getImage`${post.banner!}` : banner3
-          }
-          alt='banner'
-          className='max-h-80 lg:rounded-[3rem] rounded-md object-cover lg:my-16 my-4'
-          width={1500}
-          height={300}
-        />
+        {checkStringFalsy(post.banner) && (
+          <Image
+            src={getImage`${post.banner!}`}
+            alt='banner'
+            className='max-h-80 lg:rounded-[3rem] rounded-md object-cover lg:my-16 my-4'
+            width={1500}
+            height={300}
+          />
+        )}
         <article>
           <H tag='h1' size='lg'>
             {post[`title_${getLangKey(lang)}`]}

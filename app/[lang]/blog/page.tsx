@@ -14,6 +14,12 @@ import { getDictionary } from '/lib'
 import { Blog, PageProps } from '/types'
 import { twMerge } from 'tailwind-merge'
 import { Suspense } from 'react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Get the latest news from Barambo',
+}
 
 export default async function Product({
   params: { lang },
