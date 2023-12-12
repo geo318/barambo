@@ -3,6 +3,7 @@ import { Switcher } from '/components'
 import { NavItem } from './NavItem'
 import { NavbarProps } from './types'
 import { navList } from '/config'
+import { Suspense } from 'react'
 
 export const Nav: React.FC<NavbarProps & { toggle?: () => void }> = ({
   text,
@@ -30,6 +31,8 @@ export const Nav: React.FC<NavbarProps & { toggle?: () => void }> = ({
       ))}
     </nav>
 
-    <Switcher className='hidden lg:flex' />
+    <Suspense>
+      <Switcher className='hidden lg:flex' />
+    </Suspense>
   </>
 )
