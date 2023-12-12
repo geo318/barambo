@@ -12,7 +12,7 @@ export const Social = () => (
     <Link href='https://www.youtube.com/@BaramboChannel' target='_blank'>
       <Yt className='lg:w-full lg:h-full w-8 h-8' />
     </Link>
-    <Link href='https://www.linkedin.com/barmchocolate' target='_blank'>
+    <Link href='https://www.instagram.com/barmchocolate/ ' target='_blank'>
       <Ig className='lg:w-full lg:h-full w-8 h-8' />
     </Link>
   </div>
