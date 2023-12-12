@@ -1,3 +1,5 @@
+'use server'
+
 import { twMerge } from 'tailwind-merge'
 import { Switcher } from '/components'
 import { NavItem } from './NavItem'

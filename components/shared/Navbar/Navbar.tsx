@@ -1,3 +1,5 @@
+'use server'
+
 import Link from 'next/link'
 import { NavbarProps } from './types'
 import { Logo, Section } from '/components'
