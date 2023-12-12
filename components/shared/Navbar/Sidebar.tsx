@@ -1,5 +1,3 @@
-'use client'
-
 import { Burger, Close, Switcher } from '/components'
 import { Nav } from './Nav'
 import { NavbarProps } from './types'

@@ -33,8 +33,6 @@ export const Nav: React.FC<NavbarProps & { toggle?: () => void }> = ({
       ))}
     </nav>
 
-    <Suspense>
-      <Switcher className='hidden lg:flex' />
-    </Suspense>
+    <Switcher className='hidden lg:flex' />
   </>
 )
