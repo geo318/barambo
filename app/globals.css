@@ -100,7 +100,8 @@ header img {
   }
 }
 
-.fb_dialog_content:after {
+.fb_dialog_content:after,
+.fb-customerchat:after {
   content: '';
   position: fixed;
   bottom: 24px;
@@ -118,11 +119,13 @@ header img {
   z-index: 9999999999;
 }
 
-.fb_dialog_content:hover:after {
+.fb_dialog_content:hover:after,
+.fb-customerchat:hover:after {
   box-shadow: 0 0 10px 1px rgb(0 0 0 / 20%);
 }
 
-.fb_dialog_content iframe:first-child {
+.fb_dialog_content iframe:first-child,
+.fb-customerchat > div {
   opacity: 0;
 }
 @media screen and (min-width: 1000px) {
