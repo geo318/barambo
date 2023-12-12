@@ -8,17 +8,17 @@ import { twMerge } from 'tailwind-merge'
 import { Suspense } from 'react'
 
 export const Sidebar = (props: NavbarProps) => {
-  const { isOpen, toggle } = useSidebar()
+  const { isOpen, toggleMenu } = useSidebar()
   return (
     <>
       {!isOpen ? (
         <Burger
           fill='#000'
           className='self-center cursor-pointer lg:hidden'
-          onClick={toggle}
+          onClick={toggleMenu}
         />
       ) : (
-        <Close className='cursor-pointer ml-auto' onClick={toggle} />
+        <Close className='cursor-pointer ml-auto' onClick={toggleMenu} />
       )}
       <aside
         className={twMerge(
@@ -30,7 +30,7 @@ export const Sidebar = (props: NavbarProps) => {
       >
         <Nav
           {...props}
-          toggle={toggle}
+          toggle={toggleMenu}
           navItemClassName='relative flex shadow-none'
         />
         <Suspense>
