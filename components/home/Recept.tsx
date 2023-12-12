@@ -22,10 +22,13 @@ export const ReceptSection = async ({
       </div>
     )
   return (
-    <div className='lg:grid flex overflow-x-auto whitespace-nowrap flex-nowrap grid-cols-4 gap-8 mt-16'>
+    <div className='lg:grid flex overflow-x-auto snap-mandatory snap-x whitespace-nowrap flex-nowrap grid-cols-4 gap-8 mt-16'>
       {receipts?.map((recept, i) => (
-        <Anima key={recept.id}>
-          <div className='flex lg:min-w-auto min-w-[50%] snap-mandatory first:lg:ml-0 lg:last:mr-0 lg:mx-0 first:ml-6 last:mr-6 shrink-0 aspect-square rounded-3xl relative overflow-hidden'>
+        <Anima
+          key={recept.id}
+          className='lg:min-w-auto min-w-[50%] first:lg:ml-0 lg:last:mr-0 lg:mx-0 first:ml-6 last:mr-6 shrink-0gi'
+        >
+          <div className='flex aspect-square rounded-3xl relative overflow-hidden'>
             <Image
               src={getImage`${recept.thumbnail}`}
               alt={`brands-${i}`}
