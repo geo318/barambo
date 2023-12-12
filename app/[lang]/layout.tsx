@@ -1,10 +1,9 @@
-import '../globals.css'
 import type { Metadata } from 'next'
 import { FbChat, Footer, Navbar } from '/components'
 import { Locale } from '/types'
 import { getDictionary } from '/lib'
-import { locales, routes } from '/config'
-import { headers } from 'next/headers'
+import { locales } from '/config'
+import '../globals.css'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
@@ -23,9 +22,7 @@ export default async function RootLayout({
 
   return (
     <>
-      <Suspense>
-        <Navbar lang={lang} text={shared.header} />
-      </Suspense>
+      <Navbar lang={lang} text={shared.header} />
       {children}
       <FbChat />
       <Footer text={shared.footer} lang={lang} />

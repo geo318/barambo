@@ -5,6 +5,7 @@ import { Nav } from './Nav'
 import { NavbarProps } from './types'
 import { useSidebar } from './useSidebar'
 import { twMerge } from 'tailwind-merge'
+import { Suspense } from 'react'
 
 export const Sidebar = (props: NavbarProps) => {
   const { isOpen, toggle } = useSidebar()
@@ -21,7 +22,9 @@ export const Sidebar = (props: NavbarProps) => {
       )}
       <aside
         className={twMerge(
-          isOpen ? 'translate-y-[5rem]' : 'translate-y-full opacity-0 pointer-events-none select-none',
+          isOpen
+            ? 'translate-y-[5rem]'
+            : 'translate-y-full opacity-0 pointer-events-none select-none',
           'flex flex-col fixed inset-0 bg-[#F5EFEC] p-5 z-50 shadow-md transition-transform'
         )}
       >
@@ -30,7 +33,9 @@ export const Sidebar = (props: NavbarProps) => {
           toggle={toggle}
           navItemClassName='relative flex shadow-none'
         />
-        <Switcher className='flex gap-4 mt-10'/>
+        <Suspense>
+          <Switcher className='flex gap-4 mt-10' />
+        </Suspense>
       </aside>
     </>
   )

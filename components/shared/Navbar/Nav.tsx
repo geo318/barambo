@@ -1,5 +1,3 @@
-'use server'
-
 import { twMerge } from 'tailwind-merge'
 import { Switcher } from '/components'
 import { NavItem } from './NavItem'
@@ -32,7 +30,8 @@ export const Nav: React.FC<NavbarProps & { toggle?: () => void }> = ({
         />
       ))}
     </nav>
-
-    <Switcher className='hidden lg:flex' />
+    <Suspense>
+      <Switcher className='hidden lg:flex' />
+    </Suspense>
   </>
 )
