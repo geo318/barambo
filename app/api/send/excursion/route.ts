@@ -7,17 +7,17 @@ export const POST = async (req: Request) => {
     const formData = await req.formData()
     const [mappedEntries] = getFormValues<EmailForm>(formData)
 
-    const { SMTP_EMAIL, SMTP_PASSWORD } = process.env
+    const { EXCURSION_EMAIL, EXCURSION_PASSWORD } = process.env
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: SMTP_EMAIL,
-        pass: SMTP_PASSWORD,
+        user: EXCURSION_EMAIL,
+        pass: EXCURSION_PASSWORD,
       },
     })
 
-    const [to, subject] = [SMTP_EMAIL, 'Excursion']
+    const [to, subject] = [EXCURSION_EMAIL, 'Excursion']
     const file = formData.get('file') as File | null
     let buffer: Buffer | undefined
     try {
@@ -26,7 +26,7 @@ export const POST = async (req: Request) => {
     } catch {}
 
     const mailOptions: SendMailOptions = {
-      from: SMTP_EMAIL,
+      from: EXCURSION_EMAIL,
       to,
       subject,
       html: `<div style='font-size: 16px;'>
