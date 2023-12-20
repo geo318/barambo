@@ -4,7 +4,7 @@ export const footer = [
     name: 'col_1',
     list: [
       { name: 'brands', link: routes.product + '?category=1' },
-      { name: 'confectionary', link: routes.product + '?category=2' },
+      { name: 'confectionery', link: routes.product + '?category=2' },
       { name: 'ice', link: routes.product + '?category=3' },
       { name: 'products', link: routes.product },
     ],
