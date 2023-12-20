@@ -57,7 +57,7 @@ export default async function Post({
 
             <div className='flex flex-col gap-10 w-full'>
               <div
-                className='text-lg leading-relaxed text-secondary flex flex-col gap-14 [&_p:has(img)]:flex [&_p:has(img)]:flex-wrap [&_p:has(img)]:gap-4'
+                className='text-lg leading-relaxed text-secondary flex flex-col gap-14 [&_p:has(img)]:flex [&_*]:whitespace-normal [&_p:has(img)]:flex-wrap [&_p:has(img)]:gap-4'
                 dangerouslySetInnerHTML={{
                   __html: post[`content_${getLangKey(lang)}`],
                 }}
