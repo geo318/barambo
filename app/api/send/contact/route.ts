@@ -20,7 +20,7 @@ export const POST = async (req: Request) => {
 
     const mailOptions: SendMailOptions = {
       from: SMTP_EMAIL,
-      to,
+      to: [to, SMTP_EMAIL ?? ''],
       subject: subject.toUpperCase(),
       html: `
         <div style='font-size: 16px;'>
