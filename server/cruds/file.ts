@@ -4,7 +4,7 @@ import { file as model } from '/server'
 import { createModel } from './helper'
 import { routes } from '/config'
 
-const revalidate = [routes.addSlider, `${routes.home}[lang]`]
+const revalidate = [routes.addFile]
 
 export async function createFile(formData: FormData) {
   return createModel({
