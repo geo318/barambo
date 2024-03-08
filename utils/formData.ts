@@ -9,7 +9,6 @@ export const objToFormData = <T>(data: { [K in keyof T]: T[K] }) => {
   return formData
 }
 
-//refactor this code to be senior quality below please
 export const objToFormData2 = <T>(data: { [K in keyof T]: T[K] }) => {
   const formData = new FormData()
 
